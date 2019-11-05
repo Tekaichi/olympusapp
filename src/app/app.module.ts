@@ -7,10 +7,13 @@ import { HomepageComponent } from './homepage/homepage.component';
 import { DivisionComponent } from './division/division.component';
 import { LoginComponent } from './login/login.component';
 import { RouterModule, Routes } from '@angular/router';
+import { MainComponent } from './main/main.component';
+import { FormBuilder,  ReactiveFormsModule, FormGroup, Validators } from '@angular/forms';
 
 
 const appRoutes : Routes = [
-  {path :"login",component:LoginComponent} //Insert routes here
+  {path :"login",component:LoginComponent},
+  {path: "main", component:MainComponent} //Insert routes here
 ];
 
 
@@ -19,11 +22,13 @@ const appRoutes : Routes = [
     AppComponent,
     HomepageComponent,
     DivisionComponent,
-    LoginComponent
+    LoginComponent,
+    MainComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
+    ReactiveFormsModule,
     RouterModule.forRoot(
     appRoutes,
     {
