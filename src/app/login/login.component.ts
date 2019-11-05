@@ -51,7 +51,7 @@ export class LoginComponent implements OnInit {
         let password = this.f.password.value;
        if(username == "user1" && password == "password"){
            console.log("logged");
-           this.router.navigate(['/main']);
+           this.router.navigate(['/homepage']);
        }else{
            //Alert thingy
        }

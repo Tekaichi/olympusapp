@@ -5,15 +5,17 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HomepageComponent } from './homepage/homepage.component';
 import { DivisionComponent } from './division/division.component';
+import { UserComponent } from './user/user.component';
+
 import { LoginComponent } from './login/login.component';
 import { RouterModule, Routes } from '@angular/router';
-import { MainComponent } from './main/main.component';
-import { FormBuilder,  ReactiveFormsModule, FormGroup, Validators } from '@angular/forms';
+import {   ReactiveFormsModule} from '@angular/forms';
 
 
 const appRoutes : Routes = [
   {path :"login",component:LoginComponent},
-  {path: "main", component:MainComponent} //Insert routes here
+  {path: "homepage", component:HomepageComponent} ,
+  {path: "home", component:AppComponent} 
 ];
 
 
@@ -23,7 +25,8 @@ const appRoutes : Routes = [
     HomepageComponent,
     DivisionComponent,
     LoginComponent,
-    MainComponent
+    UserComponent
+
   ],
   imports: [
     BrowserModule,
