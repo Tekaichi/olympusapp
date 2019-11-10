@@ -1,5 +1,6 @@
-import { Component,OnInit } from '@angular/core';
-import { Router, ActivatedRoute, ParamMap } from '@angular/router';@Component({
+import { Component} from '@angular/core';
+
+@Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
@@ -8,14 +9,6 @@ import { Router, ActivatedRoute, ParamMap } from '@angular/router';@Component({
 export class AppComponent  {
   title = 'Olympus';
 
-  constructor(
-    private router : Router
- 
-  
-) {
-  
-  console.log(this.router.navigate[('/login')]);
-}
  
 
   }

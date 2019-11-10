@@ -10,12 +10,14 @@ import { UserComponent } from './user/user.component';
 import { LoginComponent } from './login/login.component';
 import { RouterModule, Routes } from '@angular/router';
 import {   ReactiveFormsModule} from '@angular/forms';
+import { MainComponent } from './main/main.component';
 
 
 const appRoutes : Routes = [
   {path :"login",component:LoginComponent},
   {path: "homepage", component:HomepageComponent} ,
-  {path: "home", component:AppComponent} 
+  {path: "home", component:AppComponent} ,
+  {path: "division", component:DivisionComponent} 
 ];
 
 
@@ -25,7 +27,8 @@ const appRoutes : Routes = [
     HomepageComponent,
     DivisionComponent,
     LoginComponent,
-    UserComponent
+    UserComponent,
+    MainComponent
 
   ],
   imports: [
