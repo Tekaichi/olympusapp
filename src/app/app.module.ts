@@ -20,7 +20,8 @@ const appRoutes : Routes = [
   {path :"login",component:LoginComponent},
   {path: "homepage", component:HomepageComponent} ,
   {path: "home", component:AppComponent} ,
-  {path: "division", component:DivisionComponent} 
+  {path: "division", component:DivisionComponent},
+
 ];
 
 
