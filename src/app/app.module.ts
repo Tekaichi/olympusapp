@@ -11,6 +11,9 @@ import { LoginComponent } from './login/login.component';
 import { RouterModule, Routes } from '@angular/router';
 import {   ReactiveFormsModule} from '@angular/forms';
 import { MainComponent } from './main/main.component';
+import { ProceduresMainComponent } from './procedures-main/procedures-main.component';
+import { ProcedurespageComponent } from './procedurespage/procedurespage.component';
+import { AnalyticsComponent } from './analytics/analytics.component';
 
 
 const appRoutes : Routes = [
@@ -28,7 +31,10 @@ const appRoutes : Routes = [
     DivisionComponent,
     LoginComponent,
     UserComponent,
-    MainComponent
+    MainComponent,
+    ProceduresMainComponent,
+    ProcedurespageComponent,
+    AnalyticsComponent
 
   ],
   imports: [
