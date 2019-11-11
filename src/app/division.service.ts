@@ -14,4 +14,9 @@ export class DivisionService {
   getInfo(): Observable<Info[]>{
     return of(INFOES);
   }
+
+  //getDivision()
+
+  //Homepage
+  //getDivisions() 
 }
