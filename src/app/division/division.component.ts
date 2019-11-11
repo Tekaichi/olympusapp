@@ -10,12 +10,14 @@ export class DivisionComponent implements OnInit {
 
 
   title = "Division";
-  info = ["temperatura: 10ºC","humidade: 30%"] //Placeholders, get them data from a service
+  info = [] //Placeholders, get them data from a service
   constructor(private divisionService : DivisionService) {
 
-    //get them infos
-    //this.info = this.divisionService.getInfo(div);
-    //init title in contructor
+  this.getInfo();
+   }
+
+   getInfo():void{
+     this.divisionService.getInfo().subscribe( info => this.info = info);
    }
 
   ngOnInit() {
