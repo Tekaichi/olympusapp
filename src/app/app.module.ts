@@ -14,6 +14,7 @@ import { MainComponent } from './main/main.component';
 import { ProceduresMainComponent } from './procedures-main/procedures-main.component';
 import { ProcedurespageComponent } from './procedurespage/procedurespage.component';
 import { AnalyticsComponent } from './analytics/analytics.component';
+import { AdddeviceComponent } from './adddevice/adddevice.component';
 
 
 const appRoutes : Routes = [
@@ -35,7 +36,8 @@ const appRoutes : Routes = [
     MainComponent,
     ProceduresMainComponent,
     ProcedurespageComponent,
-    AnalyticsComponent
+    AnalyticsComponent,
+    AdddeviceComponent
 
   ],
   imports: [
