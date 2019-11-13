@@ -13,7 +13,7 @@ export class MainComponent implements OnInit {
   
 ) {
   
-  this.router.navigate(['/login']);
+  //this.router.navigate(['/login']);
   
 }
  
