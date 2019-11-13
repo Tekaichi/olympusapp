@@ -6,8 +6,11 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./procedures-main.component.css']
 })
 export class ProceduresMainComponent implements OnInit {
+  procedures: String[]
+  constructor() { 
 
-  constructor() { }
+    this.procedures = ["Hall's lights","Another on", "Justin Bibar"];
+  }
 
   ngOnInit() {
   }
