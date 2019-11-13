@@ -26,10 +26,18 @@ export const HALL : Division = {
      name :"Lampada",
      url: "10.10.10.10",
      position : {
-         x : 5,
-         y : 5.
+         x : 10,
+         y : 0
      }
-    }]
+    },
+    {
+        name :"Lampada1",
+        url: "10.10.10.10",
+        position : {
+            x : 0,
+            y : 0
+        }
+       }]
 
 }
 
@@ -75,8 +83,65 @@ export const LIVINGROOM : Division = {
 
 }
 
+export const BEDROOM : Division = {
+    title:"Bedroom",
+    info: [
+
+        {
+            description:"Temperatura",
+            value:"26ºC"
+        },
+        {
+            description:"Humidade",
+            value:"3%"
+        },
+    ],
+    layout :{from:{
+        x:0,
+        y:0},
+        to:{
+            x:20,
+            y:15}
+        },
+    devices: [
+    {
+     name :"Lampada0",
+     url: "10.10.10.10",
+     position : {
+         x : 0,
+         y : 0
+     },
+    },
+     {
+        name :"Lampada1",
+        url: "10.10.10.10",
+        position : {
+            x : 5,
+            y : 7,
+        },
+    },
+    {
+        name :"Estores",
+        url: "10.10.10.10",
+        position : {
+            x : 15,
+            y : 15,
+        },
+    },
+    {
+        name :"Estores2",
+        url: "10.10.10.10",
+        position : {
+            x : 20,
+            y : 0,
+        },
+    }
+]
+
+}
+
 export const MOCKDIVISION : Division[] =  [
 
-    LIVINGROOM, HALL
+    LIVINGROOM, HALL,BEDROOM
 
 ]

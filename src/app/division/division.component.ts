@@ -72,21 +72,28 @@ export class DivisionComponent implements OnInit, AfterViewInit {
      
     //Fill the screen ? 
 
-    let width = Math.abs(to.x -from.x)*1.5;
-    let height = Math.abs(to.y -from.y)*1.5;
+    let scale = 1.5;
+    let width = Math.abs(to.x -from.x)*scale;
+    let height = Math.abs(to.y -from.y)*scale;
    
-   
+
+    
 
     //Devices
     let vals = "";
     this.division.devices.forEach(function(device){
       let name = device.name;
       let pos = device.position;
+      pos.x *=scale;
+      pos.y *=scale;
+      //Center the device
+     // pos.x -= 3;//Some width factor; 
+      //pos.y -= 0.1; //Some height factor
        //<app-type [input]...></app-type>
-      vals +="<p style='position:relative;top:"+pos.y+"vw; left:"+pos.x+"vw;'>"+ name+"</p>";
+      vals +="<span style='position:absolute;top:"+pos.y+"vw; left:"+pos.x+"vw;'>"+ name+"</span>";
     })
    
-    let style = "style='background-color:white;margin:0 auto;margin-top:2vw;margin-bottom:2vw;border:1px solid black;width:"+width+"vw; height:"+height+"vw;'" //+size+"'";//position + size;
+    let style = "style='position:relative;background-color:white;margin:0 auto;margin-top:2vw;margin-bottom:2vw;border:1px solid black;width:"+width+"vw; height:"+height+"vw;'" //+size+"'";//position + size;
     //Insert division
     this.layout.nativeElement.insertAdjacentHTML('beforeend', "<div #division class='division'"+style+">"+vals+"</div>");
     
