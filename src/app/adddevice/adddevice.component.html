@@ -17,8 +17,9 @@
           </div>
         </div>
 
-        <div style="margin-top: 3%;"><button type="button" class="btn btn-secondary"  style="text-align: center; line-height: 250%; width:15%;" (click)="open content">Device Type</button></div>
+        <div style="margin-top: 3%;"><button type="button" class="btn btn-secondary"  style="text-align: center; line-height: 250%; width:15%;" (click)="open(content)">Device Type</button></div>
         
+        <!-- aparece o X "selecionado"-->
         <ng-template #content let-c="close" let-d="dismiss">
             <div class="modal-header">
               <h4 class="modal-title" id="modal-basic-title">Select Device Type</h4>
@@ -30,9 +31,9 @@
               <p>Options...</p>
             </div>
             <div class="modal-footer">
-              <button type="button" class="btn btn-outline-dark" (click)="c('Save click')">Save</button>
+              <button type="button" class="btn btn-outline-dark" (click)="c('Save click')">Select</button>
             </div>
-          </ng-template>
+        </ng-template>
 
         <!-- Procura devices to tipo escolhido. Feedback adequando, rodinha a esperar? Se não encontrou nenhum indicar que não encontrou.-->
         <!-- Disabled até escolher um device type? Ou se a pessoa carregar mas o device type n tiver side escolhido procura tudo? Ou mensagem de aviso?-->
