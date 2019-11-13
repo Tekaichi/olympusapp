@@ -13,19 +13,29 @@
           <div style="width:5%"></div>
 
         <div style="width:13%" >
-                <a class="margin-vertical btn btn-primary btn-large" style="margin-top:0%;">Room Analytics</a>
-           
                 <div class="margin-vertical">
-                <h2>Room info</h2>
-                <div *ngFor="let value of info">
-                    <p>{{ value.description }} : {{ value.value }}</p>
-                </div>
-            </div>
-                <a (click) = "addDevice()" class="margin-vertical btn btn-primary btn-large">Add Device</a>
                 
-                <a (click) = "editDivision()" class="margin-vertical btn btn-info btn-large">Edit Division</a>
+                <h3>Room info</h3>
+                <div *ngFor="let value of info">
+                    <p> {{ value.description }} : {{ value.value }}</p>
+                </div>
+
+
+                <button type="button" class="margin-vertical btn btn-dark btn-lg"  style="text-align: center; line-height: 250%; width:90%; margin-top: 20%;"> Room Analytics </button>
         </div>
-                <div style="width:10%"></div>
-      
+
+            <button (click)="addDevice()" type="button" class="btn btn-dark btn-lg" style="text-align: center; line-height: 250%; width:90%; margin-top: 20%; ">Add Device<span class="ml-3 h4"> <i
+                class="fa fa-plus"></i></span> </button>
+
+            <button (click) = "editDivision()" type="button" class="btn btn-secondary btn-lg" style="text-align: center; line-height: 250%; width:90%; margin-top: 30%;">Edit Devision<span class="ml-3 h4"> <i
+                class="fa fa-edit"></i></span> </button>
+
+            
+            <!--<a (click) = "addDevice()" class="btn btn-dark btn-lg">Add Device</a>-->
+                
+            <!--<a class="margin-vertical btn btn-info btn-large">Edit Division</a>-->
+
+    </div>
     
-</div>
+    <div style="width:10%"></div>
+    </div>

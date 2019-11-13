@@ -1,4 +1,9 @@
+<<<<<<< HEAD
 import {Division} from "../shared/models/division";
+=======
+import {Info} from "../shared/models/info";
+import {Division, Layout} from "../shared/models/division";
+>>>>>>> 37d26f5230dcf2b88840b26c1340ca70f3b58f0e
 
 
 export const HALL : Division = {
@@ -56,6 +61,7 @@ export const LIVINGROOM : Division = {
             value:"10%"
         },
     ],
+<<<<<<< HEAD
     layout :{from:{
         x:0,
         y:0},
@@ -80,6 +86,9 @@ export const LIVINGROOM : Division = {
             y : 10,
         },
     }]
+=======
+    layout : new Layout()
+>>>>>>> 37d26f5230dcf2b88840b26c1340ca70f3b58f0e
 
 }
 

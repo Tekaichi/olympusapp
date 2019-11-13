@@ -20,10 +20,6 @@ export class DivisionComponent implements OnInit, AfterViewInit {
   info = [] //Placeholders, get them data from a service
   
   constructor(private divisionService : DivisionService,  private route : ActivatedRoute,private router: Router) {
-   
-
-  
-
  
    }
 
