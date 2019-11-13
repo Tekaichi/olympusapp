@@ -1,0 +1,19 @@
+a {
+  
+  height:10%;
+  float:left;
+  width:100%;
+  text-align: center;
+  line-height: 250%;
+  
+}
+
+.margin-vertical{
+    margin-top:5%;
+    margin-bottom: 20%;
+}
+
+.edit{
+    position: relative;
+    bottom:10%;
+}

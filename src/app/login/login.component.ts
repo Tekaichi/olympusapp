@@ -53,7 +53,7 @@ export class LoginComponent implements OnInit {
            console.log("logged");
            this.router.navigate(['/homepage']);
        }else{
-           //Alert thingy
+           this.router.navigate(['/login'])
        }
     }
 }
