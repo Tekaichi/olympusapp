@@ -1,5 +1,5 @@
 import {Info} from "../shared/models/info";
-import {Division} from "../shared/models/division";
+import {Division, Layout} from "../shared/models/division";
 
 
 export const MOCKDIVISION : Division = {
@@ -14,5 +14,7 @@ export const MOCKDIVISION : Division = {
             description:"Humidade",
             value:"10%"
         },
-    ]
+    ],
+    layout : new Layout()
+
 }

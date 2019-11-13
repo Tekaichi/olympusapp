@@ -2,6 +2,7 @@ import { Component, OnInit, Input} from '@angular/core';
 import {DivisionService} from '../division.service';
 import {Division} from '../shared/models/division';
 import { Router, ActivatedRoute } from '@angular/router';
+import {Device} from '../shared/models/device';
 
 @Component({
   selector: 'app-adddevice',
@@ -10,15 +11,11 @@ import { Router, ActivatedRoute } from '@angular/router';
 })
 export class AdddeviceComponent implements OnInit {
 
-  
-  submitted = false;
+  model = new Device ();
 
-  division :Division;
-  title :String;
+  divisionID: number;
   
   constructor( private route : ActivatedRoute,private router: Router) {
-
-    
 
    }
 
@@ -32,12 +29,19 @@ export class AdddeviceComponent implements OnInit {
     //);
  // }
 
-   onSubmit() { this.submitted = true; }
-
-
   ngOnInit() {
     let id = +this.route.snapshot.paramMap.get('id');
-   console.log(id);
+    this.divisionID = id;
+  }
+  submitted = false;
+
+  onSubmit() { this.submitted = true; 
+  
+    console.log(this.model);
+  }
+
+  newDevice() {
+    this.model = new Device();
   }
 
 }

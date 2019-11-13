@@ -42,7 +42,6 @@ export class DivisionComponent implements OnInit {
     
     let id = +this.route.snapshot.paramMap.get('id');
     this.id =  id;
-    console.log(this.id);
     this.getDivision(id);
   }
 

@@ -1,3 +1,77 @@
-<br>
-<h3 style="text-align: center;">Living Room</h3>
+<div class="container">
+    <div [hidden]="submitted">
+      <br>
+      <h2 style="text-align: center;">Add new Device to *Living Room*</h2>
+      
+      <form (ngSubmit)="onSubmit()" #deviceForm="ngForm">
+        
+        <div class="form-group" style=" margin-top: 3%;">
+          <label for="name">Device Name</label>
+          <input type="text" class="form-control" id="name"
+                 required
+                 [(ngModel)]="model.name" name="name"
+                 #name="ngModel">
+          <div [hidden]="name.valid"
+               class="alert alert-danger">
+            Name is required
+          </div>
+        </div>
 
+        <div style="margin-top: 3%;"><button type="button" class="btn btn-secondary"  style="text-align: center; line-height: 250%; width:15%;" (click)="open content">Device Type</button></div>
+        
+        <ng-template #content let-c="close" let-d="dismiss">
+            <div class="modal-header">
+              <h4 class="modal-title" id="modal-basic-title">Select Device Type</h4>
+              <button type="button" class="close" aria-label="Close" (click)="d('Cross click')">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+              <p>Options...</p>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-outline-dark" (click)="c('Save click')">Save</button>
+            </div>
+          </ng-template>
+
+        <!-- Procura devices to tipo escolhido. Feedback adequando, rodinha a esperar? Se não encontrou nenhum indicar que não encontrou.-->
+        <!-- Disabled até escolher um device type? Ou se a pessoa carregar mas o device type n tiver side escolhido procura tudo? Ou mensagem de aviso?-->
+        <div style="margin-top: 3%;"><button type="button" class="btn btn-secondary"  style="text-align: center; line-height: 250%; width:15%;">Search for Devices</button></div>
+
+
+        <!-- O URL Device pode desaparecer ou então conforme o que for escolhido pode funcionar como feedback (altera link conforme o que for selecionado)-->
+        <div class="form-group" style=" margin-top: 3%;">
+          <label for="url">Device URL</label>
+          <input type="text" class="form-control" id="url"
+                 [(ngModel)]="model.url" name="url">
+                
+        </div>
+
+        <div style=" margin-top: 3%;">
+
+            <p>Select device position in *Living Room*</p>
+            <br>
+            <canvas id="canvas" style="width:50%;border:1px solid black;background-color:lightgray"></canvas>
+        </div>
+        
+        
+      <div style="margin-left: 50%; margin-top: 5%;">
+        
+        <button type="button" class="btn btn-danger" style="text-align: center; line-height: 250%; width:30%; margin-left: -30%;">Cancel</button>
+        <button type="submit" class="btn btn-success" style="text-align: center; line-height: 250%; width:30%; margin-left: 10%;" [disabled]="!deviceForm.form.valid">Submit</button></div>
+        
+      </form>
+    </div>
+  
+    <div [hidden]="!submitted">
+      <h2>You submitted the following:</h2>
+      <div class="row">
+        <div class="col-xs-3">Name: </div>
+        <div class="col-xs-9">{{ model.name }}</div>
+      </div>
+      <div class="row">
+        <div class="col-xs-3">Url: </div>
+        <div class="col-xs-9">{{ model.url }}</div>
+      </div>
+  </div>
+</div>
