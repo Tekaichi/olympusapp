@@ -1,7 +1,7 @@
 <div class="container">
     <div [hidden]="submitted">
       <br>
-      <h2 style="text-align: center;">Add new Device to *Living Room*</h2>
+      <h2 style="text-align: center;">Add new Device to {{ division.title}}</h2>
       
       <form (ngSubmit)="onSubmit()" #deviceForm="ngForm">
         
@@ -53,9 +53,14 @@
 
         <div style=" margin-top: 3%;">
 
-            <p>Select device position in *Living Room*</p>
+            <p>Select device position in {{ division.title }}</p>
             <br>
-            <canvas id="canvas" style="width:50%;border:1px solid black;background-color:lightgray"></canvas>
+          
+            <div style="display:flex; flex-flow:column;height:100%; left:5%;" >
+                <div #layout name="layout" style="height:30vw;width:60vw;position:relative;text-align:center;border:1.5px solid black;background-color: lightgray;">
+                 
+               </div>
+               </div>
         </div>
         
         
