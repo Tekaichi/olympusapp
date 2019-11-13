@@ -1,13 +1,10 @@
 import { Component, OnInit, Input} from '@angular/core';
-import {DivisionService} from '../division.service';
 import {Division} from '../shared/models/division';
 import { Router, ActivatedRoute } from '@angular/router';
-import {Device} from '../shared/models/device';
-<<<<<<< HEAD
-=======
+import {Device, SystemDevice} from '../shared/models/device';
 import {NgbModal, ModalDismissReasons} from '@ng-bootstrap/ng-bootstrap';
+import { DevicesService } from '../devices.service';
 
->>>>>>> 37d26f5230dcf2b88840b26c1340ca70f3b58f0e
 @Component({
   selector: 'app-adddevice',
   templateUrl: './adddevice.component.html',
@@ -15,19 +12,15 @@ import {NgbModal, ModalDismissReasons} from '@ng-bootstrap/ng-bootstrap';
 })
 export class AdddeviceComponent implements OnInit {
 
-<<<<<<< HEAD
-  
   model = new Device ();
 
-  divisionID: number;
-=======
-  model = new Device ();
+  selectedType : String;
 
+  devices : SystemDevice[];
   divisionID: number;
   closeResult: string;
->>>>>>> 37d26f5230dcf2b88840b26c1340ca70f3b58f0e
   
-  constructor( private route : ActivatedRoute,private router: Router, private modalService: NgbModal) {
+  constructor( private route : ActivatedRoute,private router: Router, private modalService: NgbModal, private deviceService : DevicesService) {
 
    }
 
@@ -49,21 +42,15 @@ export class AdddeviceComponent implements OnInit {
     }
   }
 
-  // getDivision(id:number):void{
-   
-    //this.divisionService.getDivision(id).subscribe(
-     // division => {
-       // this.division = division; 
-       
-       // this.title = division.title;}
-    //);
- // }
+ 
 
   ngOnInit() {
     let id = +this.route.snapshot.paramMap.get('id');
     this.divisionID = id;
+    this.deviceService.getKnownDeviceTypes().subscribe( devices => this.devices = devices);
   }
   submitted = false;
+
 
   onSubmit() { this.submitted = true; 
   
@@ -72,6 +59,11 @@ export class AdddeviceComponent implements OnInit {
 
   newDevice() {
     this.model = new Device();
+  }
+
+  selectDevice(type:String):void{
+    console.log(type);
+    this.selectedType = type;
   }
 
 }

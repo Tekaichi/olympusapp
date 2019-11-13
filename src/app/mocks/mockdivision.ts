@@ -1,11 +1,42 @@
-<<<<<<< HEAD
 import {Division} from "../shared/models/division";
-=======
-import {Info} from "../shared/models/info";
-import {Division, Layout} from "../shared/models/division";
->>>>>>> 37d26f5230dcf2b88840b26c1340ca70f3b58f0e
+import {SystemDevice} from "../shared/models/device";
 
 
+
+const DOOR : SystemDevice = {
+    url:["10.10.10.10"],
+    actions:[
+        {
+            description:"Abrir",
+            command:"/open"
+        },
+        {
+            description:"Fechar",
+            command:"/close"
+        }
+    ],
+    image : null,
+    type: "Door"
+}
+
+const LAMP : SystemDevice = {
+url :["10.10.10.10","10.10.10.11"],
+actions:[
+    {
+        description:"Ligar",
+        command:"/on"
+    },
+    {
+        description:"Desligar",
+        command:"/off"
+    }
+],
+image: null,
+type: "BinaryLamp"
+}
+export const Devices : SystemDevice[] = [
+    LAMP,DOOR
+]
 export const HALL : Division = {
     title:"Hall",
     info: [
@@ -33,7 +64,9 @@ export const HALL : Division = {
      position : {
          x : 10,
          y : 0
-     }
+     },
+     device :LAMP
+     
     },
     {
         name :"Lampada1",
@@ -41,7 +74,8 @@ export const HALL : Division = {
         position : {
             x : 0,
             y : 0
-        }
+        },
+        device :LAMP
        }]
 
 }
@@ -61,7 +95,6 @@ export const LIVINGROOM : Division = {
             value:"10%"
         },
     ],
-<<<<<<< HEAD
     layout :{from:{
         x:0,
         y:0},
@@ -77,6 +110,7 @@ export const LIVINGROOM : Division = {
          x : 0,
          y : 0
      },
+     device :LAMP
     },
      {
         name :"Lampada1",
@@ -85,10 +119,8 @@ export const LIVINGROOM : Division = {
             x : 10,
             y : 10,
         },
+        device :LAMP
     }]
-=======
-    layout : new Layout()
->>>>>>> 37d26f5230dcf2b88840b26c1340ca70f3b58f0e
 
 }
 
@@ -120,6 +152,7 @@ export const BEDROOM : Division = {
          x : 0,
          y : 0
      },
+     device :LAMP
     },
      {
         name :"Lampada1",
@@ -128,6 +161,7 @@ export const BEDROOM : Division = {
             x : 5,
             y : 7,
         },
+        device :LAMP
     },
     {
         name :"Estores",
@@ -136,6 +170,7 @@ export const BEDROOM : Division = {
             x : 15,
             y : 15,
         },
+        device :LAMP
     },
     {
         name :"Estores2",
@@ -144,6 +179,7 @@ export const BEDROOM : Division = {
             x : 20,
             y : 0,
         },
+        device :LAMP
     }
 ]
 
