@@ -1,15 +1,15 @@
 
    <br>
     <h3 style="text-align: center;">{{ title }}</h3>
-<div class="d-flex" style="text-align:center;margin-top:2%;margin-left:3%;">
+<div class="d-flex" style="text-align:center;margin-top:2%;margin-left:3%;margin-bottom:1vw;">
   
   
-  
-             <canvas id="canvas" style="left:5%;width:90%;border:1px solid black;background-color:lightgray">
+   <div style="display:flex; flex-flow:column; height:100% ; left:5%;height:100%;width: 85%;" >
+             <div #layout name="layout" style="text-align:center;border:0.5px solid black;background-color: lightgray;">
               
-            </canvas>
+            </div>
             
-        
+        </div>
           <div style="width:5%"></div>
 
         <div style="width:13%" >
@@ -23,7 +23,7 @@
             </div>
                 <a (click) = "addDevice()" class="margin-vertical btn btn-primary btn-large">Add Device</a>
                 
-                <a class="margin-vertical btn btn-info btn-large">Edit Division</a>
+                <a (click) = "editDivision()" class="margin-vertical btn btn-info btn-large">Edit Division</a>
         </div>
                 <div style="width:10%"></div>
       

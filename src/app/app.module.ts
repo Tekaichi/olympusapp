@@ -41,7 +41,6 @@ const appRoutes : Routes = [
     ProcedurespageComponent,
     AnalyticsComponent,
     AdddeviceComponent
-
   ],
   imports: [
     BrowserModule,

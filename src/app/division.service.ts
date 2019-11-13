@@ -14,8 +14,7 @@ export class DivisionService {
 
   getDivision(id:number): Observable<Division>{
 
-
-    return of(MOCKDIVISION);
+    return of(MOCKDIVISION[id]);
   }
 
   //Homepage

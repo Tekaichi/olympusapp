@@ -1,16 +1,13 @@
 import {Info} from '../models/info';
-
+import {Device} from '../models/device';
 export class Division{
     title: String;
     info: Info[];
     layout: Layout;
+    devices : Device[]
 }
 
 export class Layout{
-    walls: Wall[];
-}
-
-export class Wall{
     from: {
         x: number;
         y: number;
@@ -20,3 +17,4 @@ export class Wall{
         y:number;
     }
 }
+
