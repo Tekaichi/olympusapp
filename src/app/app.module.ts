@@ -15,6 +15,7 @@ import { ProceduresMainComponent } from './procedures-main/procedures-main.compo
 import { ProcedurespageComponent } from './procedurespage/procedurespage.component';
 import { AnalyticsComponent } from './analytics/analytics.component';
 import { AdddeviceComponent } from './adddevice/adddevice.component';
+import { DeleteProcedureComponent } from './procedures-main/delete-procedure/delete-procedure.component';
 
 
 const appRoutes : Routes = [
@@ -24,6 +25,7 @@ const appRoutes : Routes = [
   {path: "division/:id", component:DivisionComponent},
   {path: "adddevice/:id", component:AdddeviceComponent},
   {path: "procedures", component:ProceduresMainComponent},
+  {path: "proceduresManagement", component:ProcedurespageComponent},
 
 
 ];
@@ -40,7 +42,8 @@ const appRoutes : Routes = [
     ProceduresMainComponent,
     ProcedurespageComponent,
     AnalyticsComponent,
-    AdddeviceComponent
+    AdddeviceComponent,
+    DeleteProcedureComponent
 
   ],
   imports: [
@@ -57,7 +60,8 @@ const appRoutes : Routes = [
 )
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  entryComponents: [ DeleteProcedureComponent ]
 })
 export class AppModule { 
   

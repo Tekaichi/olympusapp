@@ -6,8 +6,11 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./procedurespage.component.css']
 })
 export class ProcedurespageComponent implements OnInit {
+  actions: String[]
+  constructor() { 
 
-  constructor() { }
+    this.actions=['Cozinha','Sala','Jardim'];
+  }
 
   ngOnInit() {
   }

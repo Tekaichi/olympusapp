@@ -22,7 +22,7 @@
     <table class="table table-dark text-center">
         <thead>
             <tr>
-                <th scope="col">#</th>
+               
                 <th scope="col">Procedures</th>
                 <th scope="col">Options</th>
                 <th scope="col">Run</th>
@@ -31,17 +31,18 @@
         </thead>
         <tbody>
             <tr *ngFor="let procedure of procedures">
-                <th scope="row">{{ procedure.id}}</th>
+ 
                 <td>{{ procedure }}</td>
                 <td>
-                    <a  href="run/{{ procedure.id }}" class=" h4"> <i class=" text-white fa fa-info-circle"></i></a>
+                    <a  class=" h4"> <i class=" text-white fa fa-info-circle"></i></a>
                     &nbsp; &nbsp;
-                    <a  href="link para editar" class=" h4"> <i class="text-white  fa fa-edit"></i></a>
+                    <a style="cursor:pointer" class=" h4"> <i class="text-white  fa fa-edit"></i></a>
                     &nbsp; &nbsp;
-                    <a  href="link para lixo" class=" h4"> <i class="text-white fa fa-trash"></i></a>
+                    <a style="cursor:pointer" (click)="openDeleteConfirmation()" class=" h4"> <i
+                            class="text-white fa fa-trash"></i></a>
                 </td>
                 <td>
-                    <a href="link para correr" class=" h4"> <i class="text-success fa fa-play"></i></a>
+                    <a href="run/{{ procedure.id }} "class="h4" > <i class="text-success fa fa-play"></i></a>
                 </td>
             </tr>
 
