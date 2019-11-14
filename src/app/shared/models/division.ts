@@ -4,7 +4,8 @@ export class Division{
     title: String;
     info: Info[];
     layout: Layout;
-    devices : Device[]
+    devices : Device[];
+    id: number
 }
 
 export class Layout{

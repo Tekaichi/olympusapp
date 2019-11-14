@@ -39,6 +39,7 @@ export const Devices : SystemDevice[] = [
 ]
 export const HALL : Division = {
     title:"Hall",
+    id: 1,
     info: [
 
         {
@@ -84,6 +85,7 @@ export const HALL : Division = {
 
 export const LIVINGROOM : Division = {
     title:"Living Room",
+    id:2,
     info: [
 
         {
@@ -126,6 +128,7 @@ export const LIVINGROOM : Division = {
 
 export const BEDROOM : Division = {
     title:"Bedroom",
+    id:3,
     info: [
 
         {
