@@ -96,7 +96,7 @@ export class HomepageComponent implements OnInit {
     //(click) = "gotodivision(id)" é preciso adicionar estas funcionalidades para ser possivel navegar para as divisões
     let style = "style='position:absolute;background-color:white;margin:0 auto;top:"+from.y+"vw;left:"+from.x+"vw;border:1px solid black;width:"+width+"vw; height:"+height+"vw;'" //+size+"'";//position + size;
     //Insert division
-    this.layout.nativeElement.insertAdjacentHTML('beforeend', "<div #division class='division'"+style+">"+vals+"</div>");
+    this.layout.nativeElement.insertAdjacentHTML('beforeend', "<a href='division/"+1+"'><div #division class='division'"+style+">"+vals+"</div></a>");
     
   
     
