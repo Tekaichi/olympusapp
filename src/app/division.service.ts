@@ -19,7 +19,7 @@ export class DivisionService {
 
   //Homepage
   getDivisions(): Observable<Division[]> {
-    console.log(MOCKDIVISION);
+   
     return of(MOCKDIVISION);
   }
 }

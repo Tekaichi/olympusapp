@@ -51,10 +51,10 @@ export const HALL : Division = {
         },
     ],
     layout :{from:{
-        x:10,
-        y:10},
+        x:0,
+        y:0 },
         to:{
-            x:20,
+            x:30,
             y:40}
         },
     devices: [
@@ -96,10 +96,10 @@ export const LIVINGROOM : Division = {
         },
     ],
     layout :{from:{
-        x:0,
+        x:30,
         y:0},
         to:{
-            x:20,
+            x:40,
             y:20}
         },
     devices: [
@@ -138,11 +138,11 @@ export const BEDROOM : Division = {
         },
     ],
     layout :{from:{
-        x:0,
-        y:0},
+        x:30,
+        y:20},
         to:{
-            x:20,
-            y:15}
+            x:50,
+            y:40}
         },
     devices: [
     {
