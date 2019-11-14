@@ -2,7 +2,8 @@ import { Component, OnInit } from '@angular/core';
 
 
 import { DeleteProcedureService } from './delete-procedure/delete-procedure.service';
-
+import {Procedure} from '../shared/models/procedures';
+import { MOCKPROCEDURES } from '../mocks/mockprocedures';
 
 
 @Component({
@@ -12,10 +13,10 @@ import { DeleteProcedureService } from './delete-procedure/delete-procedure.serv
 })
 
 export class ProceduresMainComponent implements OnInit {
-  procedures: String[]
+  procedures: Procedure[]
   constructor(private deleteProcedureComponent: DeleteProcedureService) {
    
-    this.procedures = ["Hall's lights", "Another on", "Justin Bibar"];
+   
 
   }
   
@@ -25,7 +26,12 @@ export class ProceduresMainComponent implements OnInit {
       .catch(() => console.log('User dismissed the dialog (e.g., by using ESC, clicking the cross icon, or clicking outside the dialog)'));
   }
   ngOnInit() {
+    this.getProcedures(1);
   }
 
+  getProcedures(userId:number): void{
+    //Use the procedures service to retrieve the procedures, for now the procedures are defined in the mockprocedures file
+    this.procedures = MOCKPROCEDURES; //Placeholder
+  }
 
 }
