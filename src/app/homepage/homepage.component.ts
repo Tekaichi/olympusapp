@@ -105,10 +105,10 @@ export class HomepageComponent implements OnInit {
     //(click) = "gotodivision(id)" é preciso adicionar estas funcionalidades para ser possivel navegar para as divisões
     let style = "style='position:absolute;background-color:white;margin:0 auto;top:"+from.y+"vw;left:"+from.x+"vw;border:1px solid black;width:"+width+"vw; height:"+height+"vw;'" //+size+"'";//position + size;
     //Insert division
-    this.layout.nativeElement.insertAdjacentHTML('beforeend', "<a ng-click=goToDivision("+division.id+")    >    <div #division class='division'"+style+"> </div> </a>");
-    //this.layout.nativeElement.insertAdjacentHTML('beforeend', "<div #division class='division'"+style+">"+"<a (click)=goToDivision("+division.id+") width:50% height:50%>Hello</a>"+"</div>");
-    //this.layout.nativeElement.insertAdjacentHTML('beforeend', "<div #division class='division'"+style+">"+"<a href='aLink.html' style='width:100%;height:100%;display:block'>Your link</a>"+"</div>");
-    
+    //this.layout.nativeElement.insertAdjacentHTML('beforeend', "<a ng-click=goToDivision("+division.id+")    >    <div #division class='division'"+style+"> </div> </a>");
+    this.layout.nativeElement.insertAdjacentHTML('beforeend', "<a href='division/"+division.id+"'>  <div #division class='division'"+style+">"+
+    "<div style='position:relative;top: 50%;left: 50%;transform: translate(-50%, -50%);'>"+division.title+"</div>"
+    +"</div>  </a>");
     
     //This works
     //this.layout.nativeElement.insertAdjacentHTML('beforeend', " <a  (href='adver.html')>     <div #division class='division'"+style+"></div>       </a>");
