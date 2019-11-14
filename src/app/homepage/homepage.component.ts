@@ -1,4 +1,6 @@
 import { Component, OnInit, ViewChild,ElementRef, AfterViewInit } from '@angular/core';
+import {DivisionService} from '../division.service';
+import {Division} from '../shared/models/division';
 import { Router, ActivatedRoute } from '@angular/router';
 
 @Component({
@@ -12,9 +14,14 @@ export class HomepageComponent implements OnInit {
   
   hello: String
   title: String
-  constructor(private router: Router) { 
+  division : Division;
+  constructor(private divisionService : DivisionService,  private route : ActivatedRoute, private router: Router) { 
     this.hello = 'Carlos';
     this.title = 'My Home';
+  }
+
+  getDivisions():void{
+    this.divisionService.getDivisions().subscribe();
   }
 
   ngOnInit() {
