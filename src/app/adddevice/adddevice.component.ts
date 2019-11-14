@@ -92,7 +92,7 @@ export class AdddeviceComponent implements OnInit,AfterViewInit {
      
     //Fill the screen ? 
 
-    let scale = 1.0;
+    let scale = 1.15;
     let width = Math.abs(to.x -from.x)*scale;
     let height = Math.abs(to.y -from.y)*scale;
    
