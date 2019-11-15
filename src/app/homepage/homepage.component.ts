@@ -49,6 +49,11 @@ export class HomepageComponent implements OnInit {
     this.router.navigate(['/procedures']);
   }
 
+  goToDivision(id: number): void{
+    this.router.navigate(['/division',id]);
+
+  }
+
   ngAfterViewInit() {
  
     let local = this;
@@ -81,7 +86,7 @@ export class HomepageComponent implements OnInit {
     
 
     //Devices
-    let vals = "";
+    /*let vals = "";
     division.devices.forEach(function(device){
       let name = device.name;
       let pos = device.position;
@@ -92,16 +97,25 @@ export class HomepageComponent implements OnInit {
       //pos.y -= 0.1; //Some height factor
        //<app-type [input]...></app-type>
       vals +="<span style='position:absolute;top:"+pos.y+"vw; left:"+pos.x+"vw;'>"+ name+"</span>";
-    })
+    })*/
+    
+    
+    //routerLink="/heroes",
+    
     //(click) = "gotodivision(id)" é preciso adicionar estas funcionalidades para ser possivel navegar para as divisões
     let style = "style='position:absolute;background-color:white;margin:0 auto;top:"+from.y+"vw;left:"+from.x+"vw;border:1px solid black;width:"+width+"vw; height:"+height+"vw;'" //+size+"'";//position + size;
     //Insert division
-    this.layout.nativeElement.insertAdjacentHTML('beforeend', "<a href='division/"+1+"'><div #division class='division'"+style+">"+vals+"</div></a>");
+    //this.layout.nativeElement.insertAdjacentHTML('beforeend', "<a ng-click=goToDivision("+division.id+")    >    <div #division class='division'"+style+"> </div> </a>");
+    this.layout.nativeElement.insertAdjacentHTML('beforeend', "<a href='division/"+division.id+"'>  <div #division class='division'"+style+">"+
+    "<div style='position:relative;top: 50%;left: 50%;transform: translate(-50%, -50%);'>"+division.title+"</div>"
+    +"</div>  </a>");
     
+    //This works
+    //this.layout.nativeElement.insertAdjacentHTML('beforeend', " <a  (href='adver.html')>     <div #division class='division'"+style+"></div>       </a>");
   
     
     
- 
+    
     
   }
 
