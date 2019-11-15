@@ -18,9 +18,16 @@ export class HomepageComponent implements OnInit {
   title: String
   divisions : Division[];
   procedures : Procedure[];
+  luminosity: String;
+  time: String;
+  temperature: String;
+
   constructor(private divisionService : DivisionService,private procedureService : ProcedureService,  private route : ActivatedRoute, private router: Router) { 
     this.hello = 'Carlos'; //No
     this.title = 'My Home'; //??
+    this.luminosity = '300 KW';
+    this.time = '10:00 PM';
+    this.temperature = '25 ºC';
   }
 
   //Isto deveria receber um id do user, se quisermos multiplos utilizadores numa sessão.

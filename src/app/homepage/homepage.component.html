@@ -5,8 +5,34 @@
     <div style="display:flex; flex-flow:column; left:5%;height:100%;width: 85%;">
         <div #layout name="layout"
             style="height:50vw;position:relative;text-align:center;border:0.5px solid black;background-color: lightgray;">
-
+            <div style="margin-left:80%;margin-top:2%;width: 20%;height:98%;font-size: 250%; color: chocolate;">
+                <div class="row">
+                    <div class="col-3">
+                        <i class="fa fa-star"></i>
+                    </div>
+                    <div class="col-7">
+                        {{luminosity}}
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-3">
+                        <i class="fa fa-thermometer-half"></i>
+                    </div>
+                    <div class="col-7">
+                        {{temperature}}
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-3">
+                        <i class="fa fa-star"></i>
+                    </div>
+                    <div class="col-8">
+                        {{time}}
+                    </div>
+                </div>
+            </div>
         </div>
+
 
     </div>
     <div style="width:5%"></div>
