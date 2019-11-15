@@ -1,6 +1,8 @@
 import { Component, OnInit, ViewChild,ElementRef, AfterViewInit } from '@angular/core';
 import {DivisionService} from '../division.service';
 import {Division} from '../shared/models/division';
+import {ProcedureService} from '../procedures.service';
+import {Procedure} from '../shared/models/procedures';
 import { Router, ActivatedRoute } from '@angular/router';
 
 @Component({
@@ -15,7 +17,8 @@ export class HomepageComponent implements OnInit {
   hello: String
   title: String
   divisions : Division[];
-  constructor(private divisionService : DivisionService,  private route : ActivatedRoute, private router: Router) { 
+  procedures : Procedure[];
+  constructor(private divisionService : DivisionService,private procedureService : ProcedureService,  private route : ActivatedRoute, private router: Router) { 
     this.hello = 'Carlos'; //No
     this.title = 'My Home'; //??
   }
@@ -29,8 +32,17 @@ export class HomepageComponent implements OnInit {
     );
   }
 
+  getProcedures():void{
+    this.procedureService.getProcedures().subscribe(
+      procedure => {
+      this.procedures = procedure;
+      }
+    );
+  }
+
   ngOnInit() {
     this.getDivisions();
+    this.getProcedures();
   }
 
   goToSettings(): void{
