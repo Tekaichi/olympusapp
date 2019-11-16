@@ -1,6 +1,8 @@
 import { Component, OnInit, ViewChild,ElementRef, AfterViewInit } from '@angular/core';
 import {DivisionService} from '../division.service';
 import {Division} from '../shared/models/division';
+import {ProcedureService} from '../procedures.service';
+import {Procedure} from '../shared/models/procedures';
 import { Router, ActivatedRoute } from '@angular/router';
 
 @Component({
@@ -15,9 +17,17 @@ export class HomepageComponent implements OnInit {
   hello: String
   title: String
   divisions : Division[];
-  constructor(private divisionService : DivisionService,  private route : ActivatedRoute, private router: Router) { 
+  procedures : Procedure[];
+  luminosity: String;
+  time: String;
+  temperature: String;
+
+  constructor(private divisionService : DivisionService,private procedureService : ProcedureService,  private route : ActivatedRoute, private router: Router) { 
     this.hello = 'Carlos'; //No
     this.title = 'My Home'; //??
+    this.luminosity = '300 KW';
+    this.time = '10:00 PM';
+    this.temperature = '25 ºC';
   }
 
   //Isto deveria receber um id do user, se quisermos multiplos utilizadores numa sessão.
@@ -29,8 +39,17 @@ export class HomepageComponent implements OnInit {
     );
   }
 
+  getProcedures():void{
+    this.procedureService.getProcedures().subscribe(
+      procedure => {
+      this.procedures = procedure;
+      }
+    );
+  }
+
   ngOnInit() {
     this.getDivisions();
+    this.getProcedures();
   }
 
   goToSettings(): void{
@@ -105,10 +124,10 @@ export class HomepageComponent implements OnInit {
     //(click) = "gotodivision(id)" é preciso adicionar estas funcionalidades para ser possivel navegar para as divisões
     let style = "style='position:absolute;background-color:white;margin:0 auto;top:"+from.y+"vw;left:"+from.x+"vw;border:1px solid black;width:"+width+"vw; height:"+height+"vw;'" //+size+"'";//position + size;
     //Insert division
-    //this.layout.nativeElement.insertAdjacentHTML('beforeend', "<a ng-click=goToDivision("+division.id+")    >    <div #division class='division'"+style+"> </div> </a>");
-    this.layout.nativeElement.insertAdjacentHTML('beforeend', "<a href='division/"+division.id+"'>  <div #division class='division'"+style+">"+
-    "<div style='position:relative;top: 50%;left: 50%;transform: translate(-50%, -50%);'>"+division.title+"</div>"
-    +"</div>  </a>");
+    //this.layout.nativeElement.insertAdjacentHTML('beforeend', " <a ng-click=goToDivision("+division.id+")    >    <div #division class='division'"+style+"> </div> </a>");
+    this.layout.nativeElement.insertAdjacentHTML('beforeend', " <a href='division/"+division.id+"'> <div #division class='division'"+style+">"+
+    "<div  style='position:relative;top: 50%;left: 50%;transform: translate(-50%, -50%);'>"+division.title+"</div>"
+    +"</div> </a>  " );
     
     //This works
     //this.layout.nativeElement.insertAdjacentHTML('beforeend', " <a  (href='adver.html')>     <div #division class='division'"+style+"></div>       </a>");
