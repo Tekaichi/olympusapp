@@ -6,6 +6,7 @@ import { AppComponent } from './app.component';
 import { HomepageComponent } from './homepage/homepage.component';
 import { DivisionComponent } from './division/division.component';
 import { UserComponent } from './user/user.component';
+import { LogsComponent } from './logs/logs.component';
 
 import { LoginComponent } from './login/login.component';
 import { RouterModule, Routes } from '@angular/router';
@@ -26,7 +27,7 @@ const appRoutes : Routes = [
   {path: "adddevice/:id", component:AdddeviceComponent},
   {path: "procedures", component:ProceduresMainComponent},
   {path: "proceduresManagement", component:ProcedurespageComponent},
-
+  {path: "logs", component:LogsComponent},
 
 ];
 
@@ -43,7 +44,8 @@ const appRoutes : Routes = [
     ProcedurespageComponent,
     AnalyticsComponent,
     AdddeviceComponent,
-    DeleteProcedureComponent
+    DeleteProcedureComponent,
+    LogsComponent
 
   ],
   imports: [
