@@ -13,14 +13,11 @@ export class LogsComponent implements OnInit{
   
   @ViewChild('layout',{static:true}) layout : ElementRef;
 
-  edit : Boolean;
-  id:number;
   logs : Log[];
-  title :String;
-  info = [] //Placeholders, get them data from a service
+  title : String;
   
   constructor(private logService : LogService,  private route : ActivatedRoute,private router: Router) {
- 
+    this.title = "Logs";
    }
 
    getLogs():void{
