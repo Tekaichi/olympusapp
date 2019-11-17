@@ -91,7 +91,7 @@ export class DivisionComponent implements OnInit, AfterViewInit {
    
     let style = "style='position:relative;background-color:white;margin:0 auto;margin-top:2vw;margin-bottom:2vw;border:1px solid black;width:"+width+"vw; height:"+height+"vw;'" //+size+"'";//position + size;
     //Insert division
-    this.layout.nativeElement.insertAdjacentHTML('beforeend', "<div #division class='division'"+style+">"+vals+"</div>");
+    this.layout.nativeElement.insertAdjacentHTML('beforeend', "<div #division class='division'"+style+"><app-device></app-device>"+vals+"</div>");
     
   
     
