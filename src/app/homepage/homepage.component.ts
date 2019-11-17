@@ -26,7 +26,14 @@ export class HomepageComponent implements OnInit {
  
     this.luminosity = '300 KW'; //luminosity or energy ???? get from somewhere...
     let date = new Date();
-    this.time = date.getHours()  +":" + date.getMinutes();
+    if(date.getHours() <10){
+      this.time  = "0"+ date.getHours();
+    }
+    this.time +=":";
+    if(date.getMinutes() < 10){
+      this.time +="0";
+    }
+    this.time +=  date.getMinutes().toString();
     this.temperature = '25 ºC'; //Get from somewhere
   }
 
