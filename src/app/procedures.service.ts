@@ -13,6 +13,13 @@ export class ProcedureService {
   //Homepage
   getProcedures(): Observable<Procedure[]> {
    
+    //Return all Procedures
+    return of(MOCKPROCEDURES);
+  }
+
+  getTopProcedures(): Observable<Procedure[]>{
+    
+    //Retrieve the most used. TODO
     return of(MOCKPROCEDURES);
   }
 }

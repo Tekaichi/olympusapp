@@ -14,20 +14,20 @@ export class HomepageComponent implements OnInit {
   
   @ViewChild('layout',{static:true}) layout : ElementRef;
   
-  hello: String
-  title: String
+
   divisions : Division[];
   procedures : Procedure[];
   luminosity: String;
   time: String;
   temperature: String;
 
-  constructor(private divisionService : DivisionService,private procedureService : ProcedureService,  private route : ActivatedRoute, private router: Router) { 
-    this.hello = 'Carlos'; //No
-    this.title = 'My Home'; //??
-    this.luminosity = '300 KW';
-    this.time = '10:00 PM';
-    this.temperature = '25 ºC';
+  constructor(private divisionService : DivisionService,private procedureService : ProcedureService,  private router: Router) { 
+  
+ 
+    this.luminosity = '300 KW'; //luminosity or energy ???? get from somewhere...
+    let date = new Date();
+    this.time = date.getHours()  +":" + date.getMinutes();
+    this.temperature = '25 ºC'; //Get from somewhere
   }
 
   //Isto deveria receber um id do user, se quisermos multiplos utilizadores numa sessão.
@@ -38,9 +38,9 @@ export class HomepageComponent implements OnInit {
       }
     );
   }
-
+  //Isto deveria receber um id do user, se quisermos multiplos utilizadores numa sessão.
   getProcedures():void{
-    this.procedureService.getProcedures().subscribe(
+    this.procedureService.getTopProcedures().subscribe(
       procedure => {
       this.procedures = procedure;
       }
