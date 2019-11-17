@@ -28,6 +28,8 @@ export class HomepageComponent implements OnInit {
     let date = new Date();
     if(date.getHours() <10){
       this.time  = "0"+ date.getHours();
+    }else{
+      this.time = date.getHours().toString();
     }
     this.time +=":";
     if(date.getMinutes() < 10){
