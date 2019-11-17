@@ -86,7 +86,7 @@
                             <a *ngFor="let procedure of procedures let i=index">
                                 <a *ngIf="i<5">
                                     <a class="dropdown-item" (click)="open(content,procedure)" style="font-weight: bold;">
-                                        <div style="margin-left: 5%;">
+                                        <div style="margin-left: 5%; text-align: right;">
                                             {{ procedure.name }}
                                             <!-- Se for para meter so o sinal de play 
                                                 <a (click)="open(content)">
