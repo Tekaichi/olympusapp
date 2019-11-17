@@ -1,3 +1,14 @@
-.div_hover { background-color: #FFFFFF; }
 
-.div_hover:hover { background-color: #000000; }
+
+    :host ::ng-deep .division { 
+        background-color: white;
+      }
+
+      :host ::ng-deep .division:hover{ 
+        background-color: gray;
+      }
+
+    
+      :host ::ng-deep a{
+          color:inherit;
+      }

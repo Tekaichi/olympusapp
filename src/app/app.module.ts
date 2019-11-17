@@ -28,6 +28,9 @@ const appRoutes : Routes = [
   {path: "procedures", component:ProceduresMainComponent},
   {path: "proceduresManagement", component:ProcedurespageComponent},
   {path: "logs", component:LogsComponent},
+  {path: "main", component:MainComponent},
+  {path:"",component:MainComponent}
+   
 
 ];
 

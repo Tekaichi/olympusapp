@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild,ElementRef, AfterViewInit } from '@angular/core';
+import { Component, OnInit, ViewChild,ElementRef, AfterViewInit, ɵSWITCH_TEMPLATE_REF_FACTORY__POST_R3__ } from '@angular/core';
 import {DivisionService} from '../division.service';
 import {Division} from '../shared/models/division';
 import {ProcedureService} from '../procedures.service';
@@ -14,20 +14,29 @@ export class HomepageComponent implements OnInit {
   
   @ViewChild('layout',{static:true}) layout : ElementRef;
   
-  hello: String
-  title: String
+
   divisions : Division[];
   procedures : Procedure[];
-  luminosity: String;
+  energy: String;
   time: String;
   temperature: String;
+  humidity: String;
 
-  constructor(private divisionService : DivisionService,private procedureService : ProcedureService,  private route : ActivatedRoute, private router: Router) { 
-    this.hello = 'Carlos'; //No
-    this.title = 'My Home'; //??
-    this.luminosity = '300 KW';
-    this.time = '10:00 PM';
-    this.temperature = '25 ºC';
+  constructor(private divisionService : DivisionService,private procedureService : ProcedureService,  private router: Router) { 
+  
+ 
+    let date = new Date();
+    if(date.getHours() <10){
+      this.time  = "0"+ date.getHours().toString();
+    }else{
+      this.time  = date.getHours().toString();
+    }
+    this.time +=":";
+    if(date.getMinutes() < 10){
+      this.time +="0";
+    }
+    this.time +=  date.getMinutes().toString();
+    
   }
 
   //Isto deveria receber um id do user, se quisermos multiplos utilizadores numa sessão.
@@ -38,18 +47,61 @@ export class HomepageComponent implements OnInit {
       }
     );
   }
-
+  //Isto deveria receber um id do user, se quisermos multiplos utilizadores numa sessão.
   getProcedures():void{
-    this.procedureService.getProcedures().subscribe(
+    this.procedureService.getTopProcedures().subscribe(
       procedure => {
       this.procedures = procedure;
       }
     );
   }
 
+  getInfo(){
+      //info
+      var info = [];
+      
+      //temperatura
+      var tempValue = 0;
+      var tempCount = 0;
+
+      //humidade
+      var humidityValue = 0;
+      var humidityCount = 0;
+
+      //energia
+      var energy = 0;
+
+    this.divisions.forEach(function(division){
+      division.info.forEach(function(inf){
+        if(inf.description == "Temperatura"){
+          var splitted = inf.value.split("ºC", 2);
+          tempValue += +splitted[0];
+          tempCount++;
+        }
+        if(inf.description == "Humidade"){
+          var splitted = inf.value.split("%", 2);
+          humidityValue += +splitted[0];
+          humidityCount++;
+        }
+        if(inf.description == "Energy"){
+          var splitted = inf.value.split("W", 2);
+          energy += +splitted[0];
+        }
+      })
+     
+    })
+    info.push(tempValue/tempCount)
+    info.push(humidityValue/humidityCount)
+    info.push(energy)
+    return info;
+  }
+
   ngOnInit() {
     this.getDivisions();
     this.getProcedures();
+    this.temperature = this.getInfo()[0].toFixed(1) + 'ºC'; //Get from somewhere
+    this.humidity = this.getInfo()[1].toFixed(1) + '%'; //Get from somewhere
+    this.energy = this.getInfo()[2] + 'W';
   }
 
   goToSettings(): void{
@@ -119,19 +171,13 @@ export class HomepageComponent implements OnInit {
     })*/
     
     
-    //routerLink="/heroes",
     
-    //(click) = "gotodivision(id)" é preciso adicionar estas funcionalidades para ser possivel navegar para as divisões
-    let style = "style='position:absolute;background-color:white;margin:0 auto;top:"+from.y+"vw;left:"+from.x+"vw;border:1px solid black;width:"+width+"vw; height:"+height+"vw;'" //+size+"'";//position + size;
+    let style = "style='position:absolute;margin:0 auto;top:"+from.y+"vw;left:"+from.x+"vw;border:1px solid black;width:"+width+"vw; height:"+height+"vw;'" //+size+"'";//position + size;
     //Insert division
-    //this.layout.nativeElement.insertAdjacentHTML('beforeend', " <a ng-click=goToDivision("+division.id+")    >    <div #division class='division'"+style+"> </div> </a>");
-    this.layout.nativeElement.insertAdjacentHTML('beforeend', " <a href='division/"+division.id+"'> <div #division class='division'"+style+">"+
+    this.layout.nativeElement.insertAdjacentHTML('beforeend', " <a href='division/"+division.id+"'> <div class='division'"+style+">"+
     "<div  style='position:relative;top: 50%;left: 50%;transform: translate(-50%, -50%);'>"+division.title+"</div>"
     +"</div> </a>  " );
     
-    //This works
-    //this.layout.nativeElement.insertAdjacentHTML('beforeend', " <a  (href='adver.html')>     <div #division class='division'"+style+"></div>       </a>");
-  
     
     
     
