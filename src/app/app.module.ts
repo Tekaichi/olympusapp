@@ -17,6 +17,7 @@ import { ProcedurespageComponent } from './procedurespage/procedurespage.compone
 import { AnalyticsComponent } from './analytics/analytics.component';
 import { AdddeviceComponent } from './adddevice/adddevice.component';
 import { DeleteProcedureComponent } from './procedures-main/delete-procedure/delete-procedure.component';
+import { DeviceComponent } from './device/device.component';
 
 
 const appRoutes : Routes = [
@@ -48,7 +49,8 @@ const appRoutes : Routes = [
     AnalyticsComponent,
     AdddeviceComponent,
     DeleteProcedureComponent,
-    LogsComponent
+    LogsComponent,
+    DeviceComponent
 
   ],
   imports: [
