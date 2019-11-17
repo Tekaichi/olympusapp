@@ -33,6 +33,11 @@ export class HomepageComponent implements OnInit {
     }else{
       this.time = date.getHours().toString();
     }
+    this.time +=":";
+
+    if(date.getMinutes() <10){
+      this.time  +="0";
+    }
     this.time += date.getMinutes().toString();
 
 
