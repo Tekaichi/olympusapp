@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild,ElementRef, AfterViewInit } from '@angular/core';
+import { Component, OnInit, ViewChild,ElementRef, AfterViewInit, ɵSWITCH_TEMPLATE_REF_FACTORY__POST_R3__ } from '@angular/core';
 import {DivisionService} from '../division.service';
 import {Division} from '../shared/models/division';
 import {ProcedureService} from '../procedures.service';
@@ -17,24 +17,26 @@ export class HomepageComponent implements OnInit {
 
   divisions : Division[];
   procedures : Procedure[];
-  luminosity: String;
+  energy: String;
   time: String;
   temperature: String;
+  humidity: String;
 
   constructor(private divisionService : DivisionService,private procedureService : ProcedureService,  private router: Router) { 
   
  
-    this.luminosity = '300 KW'; //luminosity or energy ???? get from somewhere...
     let date = new Date();
     if(date.getHours() <10){
-      this.time  = "0"+ date.getHours();
+      this.time  = "0"+ date.getHours().toString();
+    }else{
+      this.time  = date.getHours().toString();
     }
     this.time +=":";
     if(date.getMinutes() < 10){
       this.time +="0";
     }
     this.time +=  date.getMinutes().toString();
-    this.temperature = '25 ºC'; //Get from somewhere
+    
   }
 
   //Isto deveria receber um id do user, se quisermos multiplos utilizadores numa sessão.
@@ -54,9 +56,52 @@ export class HomepageComponent implements OnInit {
     );
   }
 
+  getInfo(){
+      //info
+      var info = [];
+      
+      //temperatura
+      var tempValue = 0;
+      var tempCount = 0;
+
+      //humidade
+      var humidityValue = 0;
+      var humidityCount = 0;
+
+      //energia
+      var energy = 0;
+
+    this.divisions.forEach(function(division){
+      division.info.forEach(function(inf){
+        if(inf.description == "Temperatura"){
+          var splitted = inf.value.split("ºC", 2);
+          tempValue += +splitted[0];
+          tempCount++;
+        }
+        if(inf.description == "Humidade"){
+          var splitted = inf.value.split("%", 2);
+          humidityValue += +splitted[0];
+          humidityCount++;
+        }
+        if(inf.description == "Energy"){
+          var splitted = inf.value.split("W", 2);
+          energy += +splitted[0];
+        }
+      })
+     
+    })
+    info.push(tempValue/tempCount)
+    info.push(humidityValue/humidityCount)
+    info.push(energy)
+    return info;
+  }
+
   ngOnInit() {
     this.getDivisions();
     this.getProcedures();
+    this.temperature = this.getInfo()[0].toFixed(1) + 'ºC'; //Get from somewhere
+    this.humidity = this.getInfo()[1].toFixed(1) + '%'; //Get from somewhere
+    this.energy = this.getInfo()[2] + 'W';
   }
 
   goToSettings(): void{
