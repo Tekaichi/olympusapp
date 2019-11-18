@@ -15,7 +15,7 @@ const DOOR : SystemDevice = {
             command:"/close"
         }
     ],
-    image : null,
+    states: [],
     type: "Door"
 }
 
@@ -31,7 +31,10 @@ actions:[
         command:"/off"
     }
 ],
-image: null,
+states: [{
+    description:"The lamp is on",
+    image :"https://thumbs.dreamstime.com/z/light-bulb-cartoon-colored-doodle-vector-illustration-isolated-white-background-130059554.jpg"
+}],
 type: "BinaryLamp"
 }
 export const Devices : SystemDevice[] = [
@@ -70,7 +73,8 @@ const HALL : Division = {
          x : 10,
          y : 0
      },
-     device :LAMP
+     device :LAMP,
+     currentState : 0 
      
     },
     {
@@ -80,7 +84,8 @@ const HALL : Division = {
             x : 0,
             y : 0
         },
-        device :LAMP
+        device :LAMP,
+        currentState: 0
        }]
 
 }
@@ -120,7 +125,8 @@ const LIVINGROOM : Division = {
          x : 0,
          y : 0
      },
-     device :LAMP
+     device :LAMP,
+     currentState: 0
     },
      {
         name :"Lampada1",
@@ -129,7 +135,8 @@ const LIVINGROOM : Division = {
             x : 10,
             y : 10,
         },
-        device :LAMP
+        device :LAMP,
+        currentState: 0
     }]
 
 }
@@ -167,7 +174,8 @@ const BEDROOM : Division = {
          x : 0,
          y : 0
      },
-     device :LAMP
+     device :LAMP,
+     currentState: 0
     },
      {
         name :"Lampada1",
@@ -176,25 +184,28 @@ const BEDROOM : Division = {
             x : 5,
             y : 7,
         },
-        device :LAMP
+        device :LAMP,
+        currentState : 0 
     },
     {
-        name :"Estores",
+        name :"Lamp3",
         url: "10.10.10.10",
         position : {
             x : 15,
             y : 15,
         },
-        device :LAMP
+        device :LAMP,
+        currentState :0 
     },
     {
-        name :"Estores2",
+        name :"Lamp4",
         url: "10.10.10.10",
         position : {
             x : 20,
             y : 0,
         },
-        device :LAMP
+        device :LAMP,
+        currentState:0 
     }
 ]
 
@@ -202,6 +213,6 @@ const BEDROOM : Division = {
 
 export const MOCKDIVISION : Division[] =  [
 
-    LIVINGROOM, HALL,BEDROOM
+    HALL ,LIVINGROOM,BEDROOM
 
 ]

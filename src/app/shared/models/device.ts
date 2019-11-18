@@ -6,15 +6,21 @@ export class Device {
         y: number
     }
     device: SystemDevice
+    currentState : Number;
 }
 
 export class SystemDevice{
 
     type: String;
-    image: ImageBitmap;
+    states : State[]
+    
     actions: Action[];
     url: String[];
 
+}
+class State{
+    description : String;
+    image: String;
 }
 
 export class Action{

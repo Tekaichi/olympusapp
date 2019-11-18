@@ -17,6 +17,7 @@ export class HomepageComponent implements OnInit {
 
 
   divisions: Division[];
+  
   procedures: Procedure[];
   energy: String;
   time: String;
@@ -157,65 +158,8 @@ export class HomepageComponent implements OnInit {
 
   }
 
-  ngAfterViewInit() {
+  
 
-    let local = this;
-    this.divisions.forEach(function (division) {
-      local.drawDiv(division); //Draws the divisions. 
-    })
-
-  }
-
-  drawDiv(division: Division) {
-
-    let from = division.layout.from;
-    let to = division.layout.to;
-
-
-
-    let parentHeight = this.layout.nativeElement.offsetHeight;
-
-    //console.log(parentHeight);
-
-    //Fill the screen ? 
-
-    let scale = 0.9;
-    let width = Math.abs(to.x - from.x) * scale;
-    let height = Math.abs(to.y - from.y) * scale;
-
-
-    from.x *= scale;
-    from.y *= scale;
-
-
-    //Devices
-    /*let vals = "";
-    division.devices.forEach(function(device){
-      let name = device.name;
-      let pos = device.position;
-      pos.x *=scale;
-      pos.y *=scale;
-      //Center the device
-     // pos.x -= 3;//Some width factor; 
-      //pos.y -= 0.1; //Some height factor
-       //<app-type [input]...></app-type>
-      vals +="<span style='position:absolute;top:"+pos.y+"vw; left:"+pos.x+"vw;'>"+ name+"</span>";
-    })*/
-
-
-
-    let style = "style='position:absolute;margin:0 auto;top:" + from.y + "vw;left:" + from.x + "vw;border:1px solid black;width:" + width + "vw; height:" + height + "vw;'" //+size+"'";//position + size;
-    //Insert division
-    this.layout.nativeElement.insertAdjacentHTML('beforeend', " <a href='division/" + division.id + "'> <div class='division'" + style + ">" +
-      "<div  style='position:relative;top: 50%;left: 50%;transform: translate(-50%, -50%);'>" + division.title + "</div>"
-      + "</div> </a>  ");
-
-
-
-
-
-  }
-
-
+ 
 
 }
