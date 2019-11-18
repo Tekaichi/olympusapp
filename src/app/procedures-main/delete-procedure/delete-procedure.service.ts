@@ -19,7 +19,7 @@ export class DeleteProcedureService {
     btnDeleteText: string = 'Delete',
     btnCancelText: string = 'Cancel',
     dialogSize: 'sm'|'lg' = 'sm'): Promise<boolean> {
-    const modalRef = this.modalService.open(DeleteProcedureComponent, { size: dialogSize, windowClass:'adidi' });
+    const modalRef = this.modalService.open(DeleteProcedureComponent, { centered:true});
     modalRef.componentInstance.title = title;
     modalRef.componentInstance.message = message;
     modalRef.componentInstance.btnOkText = btnDeleteText;
