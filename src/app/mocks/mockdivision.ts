@@ -49,6 +49,10 @@ const HALL : Division = {
         {
             description:"Humidade",
             value:"23%"
+        }, 
+        {
+            description:"Energy",
+            value:"200W"
         },
     ],
     layout :{from:{
@@ -96,6 +100,10 @@ const LIVINGROOM : Division = {
             description:"Humidade",
             value:"10%"
         },
+        {
+            description:"Energy",
+            value:"100W"
+        },
     ],
     layout :{from:{
         x:30,
@@ -138,6 +146,10 @@ const BEDROOM : Division = {
         {
             description:"Humidade",
             value:"3%"
+        },
+        {
+            description:"Energy",
+            value:"300W"
         },
     ],
     layout :{from:{
