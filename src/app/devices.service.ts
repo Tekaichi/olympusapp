@@ -15,4 +15,7 @@ export class DevicesService {
     
     return of(Devices)
   }
+
+  //Execute action of device
+  //Check if the device model is ok for this thing
 }

@@ -5,28 +5,26 @@ import { Device } from '../shared/models/device';
   selector: 'app-device',
   templateUrl: './device.component.html',
   styleUrls: ['./device.component.css'],
-  template: '<span style=position:absolute;top:{{device.position.y}}vw;left:{{device.position.x}}vw;>{{device.name}}</span>'
 
 })
 export class DeviceComponent implements OnInit {
 
-  //Should be an input or something like that. The template is unfinished.
-  device : Device ={
-    name :"Lampada",
-    position :{
-      x:0,
-      y:0
-    },
-    url:"",
-    device:null
-  };
-  
+  @Input()
+  device : Device;
+  state : number;
   constructor() { 
-
+     this.state = 0;
+     console.log(this.state);
   }
 
+  getStateImage(): String{
+    return this.device.device.states[this.state].image;
+  }
   ngOnInit() {
    
   }
 
+  openFunctions() : void {
+    //Open the modal thing to execute(run) them functions
+  }
 }
