@@ -22,4 +22,8 @@ export class ProcedureService {
     //Retrieve the most used. TODO
     return of(MOCKPROCEDURES);
   }
+
+  runProcedure(id : Number):void{
+    //should "return" a notification
+  }
 }

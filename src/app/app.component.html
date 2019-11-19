@@ -1,9 +1,16 @@
-<nav class="navbar navbar-dark bg-primary">
-  <h4 class="navbar-brand btn btn-primary" (click)="goHome()">{{ title }}</h4>
-   
-    <app-user></app-user>
+<div *ngIf="valid">
+
+  <nav class="navbar navbar-expand-lg  navbar-shrink bg-degrade">
+    <div class="container">
+      <a class="navbar-brand js-scroll-trigger pointer" (click)="goHome()">
+        <img class="img-fluid rounded" src="assets/img/header/logoWhite.png" alt="" height="60" width="60">
+        <img class="img-fluid rounded logoSize" src="assets/img/header/nameWhite.png" alt="" height="90" width="130">
+      </a>
+      <app-user *ngIf="loggedIn"></app-user>
+
+    </div>
   </nav>
+</div>
+
 <router-outlet></router-outlet>
-
-
 
