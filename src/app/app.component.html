@@ -6,7 +6,7 @@
         <img class="img-fluid rounded" src="assets/img/header/logoWhite.png" alt="" height="60" width="60">
         <img class="img-fluid rounded logoSize" src="assets/img/header/nameWhite.png" alt="" height="90" width="130">
       </a>
-      <app-user></app-user>
+      <app-user *ngIf="loggedIn"></app-user>
 
     </div>
   </nav>
