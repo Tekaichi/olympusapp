@@ -33,7 +33,7 @@ actions:[
 ],
 states: [{
     description:"The lamp is on",
-    image :"https://thumbs.dreamstime.com/z/light-bulb-cartoon-colored-doodle-vector-illustration-isolated-white-background-130059554.jpg"
+    image :"/assets/images/lamp-on-v2.png"
 }],
 type: "BinaryLamp"
 }
