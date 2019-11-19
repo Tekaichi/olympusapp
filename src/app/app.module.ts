@@ -30,7 +30,8 @@ const appRoutes : Routes = [
   {path: "proceduresManagement", component:ProcedurespageComponent},
   {path: "logs", component:LogsComponent},
   {path: "main", component:MainComponent},
-  {path:"",component:MainComponent}
+  {path:"",component:MainComponent},
+  {path: "analytics", component:AnalyticsComponent}
    
 
 ];
