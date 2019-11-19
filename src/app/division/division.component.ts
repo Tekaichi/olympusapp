@@ -36,6 +36,7 @@ export class DivisionComponent implements OnInit {
         
        
          const maxarea = 800; //Maximum area of the division
+         //Should it be maximum height?
 
          this.width = Math.abs(division.layout.to.x -division.layout.from.x);
          this.height = Math.abs(division.layout.to.y -division.layout.from.y);
