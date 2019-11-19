@@ -297,9 +297,40 @@ const BATH : Division = {
 
 
 }
+
+const KITCHEN : Division = {
+    title:"Kitchen",
+    id:6,
+    info: [
+
+        {
+            description:"Temperatura",
+            value:"30ºC"
+        },
+        {
+            description:"Humidade",
+            value:"10%"
+        },
+        {
+            description:"Energy",
+            value:"100W"
+        },
+    ],
+    layout :{from:{
+        x:21,
+        y:18},
+        to:{
+            x:39,
+            y:32}
+        },
+        devices:[]
+
+
+}
+
 const TOILET : Division = {
     title:"Toilet",
-    id:6,
+    id:7,
     info: [
 
         {
@@ -327,35 +358,7 @@ const TOILET : Division = {
 
 }
 
-const KITCHEN : Division = {
-    title:"Kitchen",
-    id:7,
-    info: [
 
-        {
-            description:"Temperatura",
-            value:"30ºC"
-        },
-        {
-            description:"Humidade",
-            value:"10%"
-        },
-        {
-            description:"Energy",
-            value:"100W"
-        },
-    ],
-    layout :{from:{
-        x:21,
-        y:18},
-        to:{
-            x:39,
-            y:32}
-        },
-        devices:[]
-
-
-}
 
 export const MOCKDIVISION : Division[] =  [
 
