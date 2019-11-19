@@ -9,6 +9,7 @@ import { UserComponent } from './user/user.component';
 import { LogsComponent } from './logs/logs.component';
 
 import { LoginComponent } from './login/login.component';
+import { RegistComponent } from './regist/regist.component';
 import { RouterModule, Routes } from '@angular/router';
 import { ReactiveFormsModule} from '@angular/forms';
 import { MainComponent } from './main/main.component';
@@ -31,7 +32,8 @@ const appRoutes : Routes = [
   {path: "logs", component:LogsComponent},
   {path: "main", component:MainComponent},
   {path:"",component:MainComponent},
-  {path: "analytics", component:AnalyticsComponent}
+  {path: "analytics", component:AnalyticsComponent},
+  {path: "regist", component:RegistComponent}
    
 
 ];
@@ -51,7 +53,8 @@ const appRoutes : Routes = [
     AdddeviceComponent,
     DeleteProcedureComponent,
     LogsComponent,
-    DeviceComponent
+    DeviceComponent,
+    RegistComponent,
 
   ],
   imports: [
