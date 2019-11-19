@@ -59,11 +59,11 @@ const HALL : Division = {
         },
     ],
     layout :{from:{
-        x:0,
-        y:0 },
+        x:15,
+        y:15 },
         to:{
-            x:30,
-            y:40}
+            x:21,
+            y:32}
         },
     devices: [
     {
@@ -111,11 +111,11 @@ const LIVINGROOM : Division = {
         },
     ],
     layout :{from:{
-        x:30,
+        x:21,
         y:0},
         to:{
-            x:40,
-            y:20}
+            x:39,
+            y:18}
         },
     devices: [
     {
@@ -160,11 +160,11 @@ const BEDROOM : Division = {
         },
     ],
     layout :{from:{
-        x:30,
-        y:20},
+        x:6,
+        y:0},
         to:{
-            x:50,
-            y:40}
+            x:21,
+            y:15}
         },
     devices: [
     {
@@ -211,8 +211,154 @@ const BEDROOM : Division = {
 
 }
 
+const ROOM1 : Division = {
+    title:"Room1",
+    id:3,
+    info: [
+
+        {
+            description:"Temperatura",
+            value:"30ºC"
+        },
+        {
+            description:"Humidade",
+            value:"10%"
+        },
+        {
+            description:"Energy",
+            value:"100W"
+        },
+    ],
+    layout :{from:{
+        x:3,
+        y:15},
+        to:{
+            x:15,
+            y:24}
+        },
+        devices:[]
+
+}
+const ROOM2 : Division = {
+    title:"Room2",
+    id:4,
+    info: [
+
+        {
+            description:"Temperatura",
+            value:"30ºC"
+        },
+        {
+            description:"Humidade",
+            value:"10%"
+        },
+        {
+            description:"Energy",
+            value:"100W"
+        },
+    ],
+    layout :{from:{
+        x:3,
+        y:24},
+        to:{
+            x:15,
+            y:32}
+        },
+        devices:[]
+
+
+}
+const BATH : Division = {
+    title:"Bath",
+    id:5,
+    info: [
+
+        {
+            description:"Temperatura",
+            value:"30ºC"
+        },
+        {
+            description:"Humidade",
+            value:"10%"
+        },
+        {
+            description:"Energy",
+            value:"100W"
+        },
+    ],
+    layout :{from:{
+        x:0,
+        y:0},
+        to:{
+            x:6,
+            y:15}
+        },
+        devices:[]
+
+
+}
+const TOILET : Division = {
+    title:"Toilet",
+    id:6,
+    info: [
+
+        {
+            description:"Temperatura",
+            value:"30ºC"
+        },
+        {
+            description:"Humidade",
+            value:"10%"
+        },
+        {
+            description:"Energy",
+            value:"100W"
+        },
+    ],
+    layout :{from:{
+        x:21,
+        y:18},
+        to:{
+            x:27,
+            y:24}
+        },
+        devices:[]
+
+
+}
+
+const KITCHEN : Division = {
+    title:"Kitchen",
+    id:7,
+    info: [
+
+        {
+            description:"Temperatura",
+            value:"30ºC"
+        },
+        {
+            description:"Humidade",
+            value:"10%"
+        },
+        {
+            description:"Energy",
+            value:"100W"
+        },
+    ],
+    layout :{from:{
+        x:21,
+        y:18},
+        to:{
+            x:39,
+            y:32}
+        },
+        devices:[]
+
+
+}
+
 export const MOCKDIVISION : Division[] =  [
 
-    HALL ,LIVINGROOM,BEDROOM
+    HALL ,LIVINGROOM,BEDROOM,ROOM1,ROOM2,BATH,KITCHEN, TOILET
 
 ]

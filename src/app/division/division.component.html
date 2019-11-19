@@ -8,7 +8,7 @@
             style="position:relative;text-align:center;border:0.5px solid black;background-color: lightgray;">
             <div #layout class="division" [ngStyle]="{'width.vw':  width, 'height.vw' : height }">
                 <div *ngFor="let device of division.devices">
-                    <span class="device" [ngStyle]="{'top.vw':device.position.y, 'left.vw':device.position.x}">
+                    <span class="device" [ngStyle]="{'top.vw':device.position.y-2, 'left.vw':device.position.x-2}">
                    
                             <app-device [device]= 'device'></app-device>
                         </span>

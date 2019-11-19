@@ -13,6 +13,7 @@ export class DivisionComponent implements OnInit {
   
   @ViewChild('layout',{static:true}) layout : ElementRef;
 
+  
   edit : Boolean;
   id:number;
   division : Division;
@@ -33,9 +34,19 @@ export class DivisionComponent implements OnInit {
          this.info = division.info;
          this.title = division.title;
         
-         let scale = 1.5;
-         this.width = Math.abs(division.layout.to.x -division.layout.from.x)*scale;
-         this.height = Math.abs(division.layout.to.y -division.layout.from.y)*scale;
+       
+         const maxarea = 800; //Maximum area of the division
+
+         this.width = Math.abs(division.layout.to.x -division.layout.from.x);
+         this.height = Math.abs(division.layout.to.y -division.layout.from.y);
+
+         let area = this.width* this.height;
+
+         let ratio = maxarea/area;
+
+         this.width *= Math.sqrt(ratio);
+         this.height *= Math.sqrt(ratio)
+
         }
      );
    }
