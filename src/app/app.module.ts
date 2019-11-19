@@ -19,6 +19,7 @@ import { AnalyticsComponent } from './analytics/analytics.component';
 import { AdddeviceComponent } from './adddevice/adddevice.component';
 import { DeleteProcedureComponent } from './procedures-main/delete-procedure/delete-procedure.component';
 import { DeviceComponent } from './device/device.component';
+import { ConfirmEqualValidatorDirective } from './shared/confirm-equal-validator.directive';
 
 
 const appRoutes : Routes = [
@@ -55,6 +56,7 @@ const appRoutes : Routes = [
     LogsComponent,
     DeviceComponent,
     RegistComponent,
+    ConfirmEqualValidatorDirective
 
   ],
   imports: [
