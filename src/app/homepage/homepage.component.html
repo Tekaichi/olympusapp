@@ -11,16 +11,21 @@
         <div style="display:flex; flex-flow:column; left:5%;height:100%;width: 85%;">
             <div #layout name="layout"
                 style="height:50vw;position:relative;text-align:center;border:0.5px solid black;background-color: lightgray;">
-                <div *ngFor="let division of divisions">
-                    <a (click)="goToDivision(division.id)">
-                    <div class="division" [ngStyle]="{'top.vw':division.layout.from.y, 'left.vw':division.layout.from.x, 'width.vw':division.layout.to.x-division.layout.from.x,'height.vw':division.layout.to.y-division.layout.from.y}">
-                        <div class="title">{{division.title}}
+                <div class="loucura">
+                    <div *ngFor="let division of divisions">
+                        <a (click)="goToDivision(division.id)">
+                            <div class="division"
+                                [ngStyle]="{'top.vw':division.layout.from.y, 'left.vw':division.layout.from.x, 'width.vw':division.layout.to.x-division.layout.from.x,'height.vw':division.layout.to.y-division.layout.from.y}">
+                                <div class="title">{{division.title}}
+                                </div>
+
                             </div>
-                         
+                        </a>
+
                     </div>
-                    </a>
-                
                 </div>
+
+                
                 <div style="margin-left:82%;margin-top:2%;width: 18%;height:98%;font-size: 200%; color: chocolate;">
                     <div class="row">
                         <div class="col-2 text-center">
@@ -55,6 +60,11 @@
                         </div>
                     </div>
                 </div>
+
+
+
+
+                
             </div>
         </div>
         <div style="width:5%"></div>
@@ -85,7 +95,8 @@
             <!--Dropdown com X procedimentos, usar um service para ir buscar esses valores-->
             <div class="margin-vertical">
                 <div class="dropdown">
-                    <button data-display="static" class="btn btn-dark btn-lg dropdown-toggle" type="button" data-toggle="dropdown"
+                    <button data-display="static" class="btn btn-dark btn-lg dropdown-toggle" type="button"
+                        data-toggle="dropdown"
                         style="text-align: center; line-height: 250%; width:100%; margin-top: 30%;">Procedures
                         <span class="ml-2 h4">
                             <i class="fa fa-bolt"></i>
@@ -95,7 +106,8 @@
                         <div class="dropdown-menu" style="width:100%;">
                             <a *ngFor="let procedure of procedures let i=index">
                                 <a *ngIf="i<5">
-                                    <a class="dropdown-item" (click)="open(content,procedure)" style="font-weight: bold;">
+                                    <a class="dropdown-item" (click)="open(content,procedure)"
+                                        style="font-weight: bold;">
                                         <div style="margin-left: 5%;">
                                             {{ procedure.name }}
                                             <!-- Se for para meter so o sinal de play 
@@ -136,10 +148,10 @@
             </button>
         </div>
         <div class="modal-body" style="display: flex;">
-                <h5>Are you sure you want to run the following procedure?</h5>
-                <!--<h5>{{ procedure.name }}</h5>-->
+            <h5>Are you sure you want to run the following procedure?</h5>
+            <!--<h5>{{ procedure.name }}</h5>-->
         </div>
-        <div class="modal-footer" >
+        <div class="modal-footer">
             <button type="button" class="btn btn-danger" (click)="c('Cancel')">Cancel</button>
             <button type="button" class="btn btn-primary  " (click)="c('Confirm')">Confirm</button>
         </div>
