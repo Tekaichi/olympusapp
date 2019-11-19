@@ -1,0 +1,11 @@
+.bg-degrade{
+    background-image: linear-gradient( 120deg, #070d2c ,  #58b9ce);
+}
+
+.container{
+    max-width: 1500px;
+}
+
+.pointer{
+    cursor: pointer;
+}

@@ -7,23 +7,31 @@ import { Router,NavigationEnd   } from '@angular/router';
   styleUrls: ['./app.component.css']
 })
 
+
+
 export class AppComponent  {
   valid = false; //Turn to true to show navbar
 
   title = 'Olympus';
+  loggedIn: boolean;
   constructor(
     private router : Router
  //Activated Router to get them events ????
   
 ) {
   this.routeEvent(this.router);
+  this.loggedIn = true;
   
  
 }
 
 
 goHome(): void{
+  if (this.loggedIn)
+  this.router.navigate(["/homepage"]);
+  else
   this.router.navigate(["/main"]);
+
 }
 
 
