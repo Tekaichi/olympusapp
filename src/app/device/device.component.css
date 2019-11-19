@@ -1,4 +1,11 @@
 .icon {
-    width:4vw;
-    height:4vw;
+    width:3vw;
+    height:3vw;
+    border:0.05vw solid black;
+    border-radius: 10vw;
+
+}
+
+.icon:hover{
+    background-color: whitesmoke;
 }

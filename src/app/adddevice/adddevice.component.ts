@@ -10,15 +10,16 @@ import {DivisionService} from '../division.service';
   templateUrl: './adddevice.component.html',
   styleUrls: ['./adddevice.component.css'],
 })
-export class AdddeviceComponent implements OnInit,AfterViewInit {
+export class AdddeviceComponent implements OnInit {
 
-  @ViewChild("layout",{static:true}) layout : ElementRef;
+ 
 
   model = new Device ();
 
   selectedType : String;
-
-
+  title : String;
+  width : number;
+  height : number;
   devices : SystemDevice[];
   division: Division;
   closeResult: string;
@@ -49,15 +50,35 @@ export class AdddeviceComponent implements OnInit,AfterViewInit {
 
   ngOnInit() {
     let id = +this.route.snapshot.paramMap.get('id');
-    this.divisionService.getDivision(id).subscribe(
-      division => {
-        this.division = division;   
-     }
-    );
+   this.getDivision(id);
     this.deviceService.getKnownDeviceTypes().subscribe( devices => this.devices = devices);
   }
   submitted = false;
+  getDivision(id:number):void{
+    this.divisionService.getDivision(id).subscribe(
+      division => {
+        this.division = division; 
+       
+    
+        this.title = division.title;
+       
+      
+        const maxarea = 500; //Maximum area of the division
+        //Should it be maximum height?
 
+        this.width = Math.abs(division.layout.to.x -division.layout.from.x);
+        this.height = Math.abs(division.layout.to.y -division.layout.from.y);
+
+        let area = this.width* this.height;
+
+        let ratio = maxarea/area;
+
+        this.width *= Math.sqrt(ratio);
+        this.height *= Math.sqrt(ratio)
+
+       }
+    );
+  }
 
   onSubmit() { this.submitted = true; 
   
@@ -69,58 +90,10 @@ export class AdddeviceComponent implements OnInit,AfterViewInit {
   }
 
   selectDevice(type:String):void{
-    console.log(type);
+  
     this.selectedType = type;
   }
 
   
-  ngAfterViewInit() {
  
-  
-    this.drawDiv();
-  }
-  drawDiv(){
-    
-    let from = this.division.layout.from;
-    let to = this.division.layout.to;
-  
-    
-  
-    let parentHeight = this.layout.nativeElement.offsetHeight;
-  
-    //console.log(parentHeight);
-     
-    //Fill the screen ? 
-
-    let scale = 1.15;
-    let width = Math.abs(to.x -from.x)*scale;
-    let height = Math.abs(to.y -from.y)*scale;
-   
-
-    
-
-    //Devices
-    let vals = "";
-    this.division.devices.forEach(function(device){
-      let name = device.name;
-      let pos = device.position;
-      pos.x *=scale;
-      pos.y *=scale;
-      //Center the device
-     // pos.x -= 3;//Some width factor; 
-      //pos.y -= 0.1; //Some height factor
-       //<app-type [input]...></app-type>
-      vals +="<span style='position:absolute;top:"+pos.y+"vw; left:"+pos.x+"vw;'>"+ name+"</span>";
-    })
-   
-    let style = "style='position:relative;background-color:white;margin:0 auto;margin-top:2vw;margin-bottom:2vw;border:1px solid black;width:"+width+"vw; height:"+height+"vw;'" //+size+"'";//position + size;
-    //Insert division
-    this.layout.nativeElement.insertAdjacentHTML('beforeend', "<div #division class='division'"+style+">"+vals+"</div>");
-    
-  
-    
-    
- 
-    
-  }
 }
