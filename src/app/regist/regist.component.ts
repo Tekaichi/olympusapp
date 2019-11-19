@@ -38,8 +38,6 @@ export class RegistComponent implements OnInit {
         }
         this.router.navigate(['/homepage']);
 
-
-
     }
 
 }
