@@ -1,5 +1,5 @@
 import { Component, OnInit, Input, ViewChild, ElementRef } from '@angular/core';
-import { Device } from '../shared/models/device';
+import { Device, State } from '../shared/models/device';
 
 @Component({
   selector: 'app-device',
@@ -11,20 +11,20 @@ export class DeviceComponent implements OnInit {
 
   @Input()
   device : Device;
-  state : number;
+  currentState : State;
   constructor() { 
-     this.state = 0;
-     console.log(this.state);
+ 
+    //this.currentState = this.device.device.states[0];
   }
 
   getStateImage(): String{
-    return this.device.device.states[this.state].image;
+    return this.currentState.image;
+    
   }
   ngOnInit() {
    
+    this.currentState = this.device.device.states[0];
   }
 
-  openFunctions() : void {
-    //Open the modal thing to execute(run) them functions
-  }
+  
 }

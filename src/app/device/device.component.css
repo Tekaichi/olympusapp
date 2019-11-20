@@ -1,11 +1,46 @@
 .icon {
     width:3vw;
     height:3vw;
-    border:0.05vw solid black;
     border-radius: 10vw;
 
 }
 
 .icon:hover{
     background-color: whitesmoke;
+    border:0.05vw solid whitesmoke;
+}
+button{
+border:none;
+background-color:transparent;
+outline:none;
+border-radius: 10vw;
+}
+
+.wrapper .text{
+    position: absolute;
+    width:8vw;
+    text-align: center;
+    left:-2vw;
+    font-size: 0.8vw;
+    visibility:hidden;
+    color:gray;
+    background-color:whitesmoke;
+    border-radius: 1vw;
+}
+
+.wrapper:hover .text {
+    visibility:visible;
+    }
+
+.action {
+    background-color:whitesmoke;
+    border-radius: 0vw;
+    width:100%;
+ 
+    font-size: 0.8vw;
+}
+
+.action:hover{
+    background-color:white;
+    border: 0.05vw solid black;
 }

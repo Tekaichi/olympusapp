@@ -6,7 +6,7 @@ export class Device {
         y: number
     }
     device: SystemDevice
-    currentState : Number;
+    currentState : number;
 }
 
 export class SystemDevice{
@@ -18,9 +18,10 @@ export class SystemDevice{
     url: String[];
 
 }
-class State{
+export class State{
     description : String;
     image: String;
+    action: String;
 }
 
 export class Action{

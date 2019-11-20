@@ -1,2 +1,20 @@
-    <img  (click)="openFunctions()" class="icon" src={{getStateImage()}}> 
-    <!--Some 'dropdown' or modal here to execute the actions?-->
+
+    <button data-display="static" 
+    data-toggle="dropdown">   
+    <div class="wrapper">
+    <img  class="icon" src={{getStateImage()}}> 
+    <p class="text"> {{ currentState.description }}</p>
+
+      </div>
+    <div class="dropdown-menu">
+        
+        <div *ngFor="let state of device.device.states">
+            
+            <p *ngIf="currentState != state">
+                <button class="btn action">{{state.action}}
+                    </button>
+                </p>
+        </div>
+  
+ </div>
+ </button>

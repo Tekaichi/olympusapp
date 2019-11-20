@@ -33,8 +33,15 @@ actions:[
 ],
 states: [{
     description:"The lamp is on",
-    image :"/assets/images/lamp-on-v2.png"
-}],
+    image :"/assets/images/lamp-on-v2.png",
+    action:"Turn on"
+},
+{
+    description:"The lamp is off",
+    image :"/assets/images/lamp-off-v2.png",
+    action:"Turn off"
+}
+],
 type: "BinaryLamp"
 }
 export const Devices : SystemDevice[] = [
