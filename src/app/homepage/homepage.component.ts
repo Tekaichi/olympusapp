@@ -5,6 +5,7 @@ import { ProcedureService } from '../procedures.service';
 import { Procedure } from '../shared/models/procedures';
 import { Router, ActivatedRoute } from '@angular/router';
 import { NgbModal, ModalDismissReasons } from '@ng-bootstrap/ng-bootstrap';
+import { AlertService } from '../_alert';
 
 @Component({
   selector: 'app-homepage',
@@ -25,7 +26,9 @@ export class HomepageComponent implements OnInit {
   humidity: String;
   closeResult: string;
 
-  constructor(private route: ActivatedRoute, private modalService: NgbModal, private divisionService: DivisionService, private procedureService: ProcedureService, private router: Router) {
+  constructor(private route: ActivatedRoute, private modalService: NgbModal, 
+    private divisionService: DivisionService, private procedureService: ProcedureService, 
+    private router: Router, private alertService: AlertService) {
 
 
     let date = new Date();
@@ -44,6 +47,10 @@ export class HomepageComponent implements OnInit {
 
 
   }
+
+  success(message: string) {
+    this.alertService.success(message);
+}
 
   open(content, procedure) {
     this.modalService.open(content, { ariaLabelledBy: 'modal-basic-title' }).result.then((result) => {
