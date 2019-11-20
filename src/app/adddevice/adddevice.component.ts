@@ -94,6 +94,14 @@ export class AdddeviceComponent implements OnInit {
     this.selectedType = type;
   }
 
+
+  // não vai para o topo da página tho... 
+  goToDivision(): void {
+    let id = +this.route.snapshot.paramMap.get('id');
+    this.router.navigate(['/division', id]);
+
+  }
+
   
  
 }

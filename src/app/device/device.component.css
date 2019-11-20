@@ -7,7 +7,7 @@
 
 .icon:hover{
     background-color: whitesmoke;
-    border:0.05vw solid whitesmoke;
+    border:0.05vw solid black;
 }
 button{
 border:none;
