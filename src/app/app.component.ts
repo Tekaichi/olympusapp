@@ -39,7 +39,7 @@ goHome(): void{
 routeEvent(router: Router){
   router.events.subscribe(e => {
     if(e instanceof NavigationEnd){
-      console.log(e.url);
+      window.scrollTo(0, 0);  
       if(e.url != "/main" && e.url !="/" && e.url[1] != '#'){
         this.valid = true;
       }else{

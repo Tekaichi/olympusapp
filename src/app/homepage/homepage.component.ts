@@ -5,6 +5,8 @@ import { ProcedureService } from '../procedures.service';
 import { Procedure } from '../shared/models/procedures';
 import { Router, ActivatedRoute } from '@angular/router';
 import { NgbModal, ModalDismissReasons } from '@ng-bootstrap/ng-bootstrap';
+import { interval, timer, Observable } from 'rxjs';
+import { mapToMapExpression } from '@angular/compiler/src/render3/util';
 
 @Component({
   selector: 'app-homepage',
@@ -14,7 +16,7 @@ import { NgbModal, ModalDismissReasons } from '@ng-bootstrap/ng-bootstrap';
 export class HomepageComponent implements OnInit {
 
   @ViewChild('layout', { static: true }) layout: ElementRef;
-
+  everySecond: Observable<Number> = timer(0, 1000*30);
 
   divisions: Division[];
 
@@ -28,7 +30,17 @@ export class HomepageComponent implements OnInit {
   constructor(private route: ActivatedRoute, private modalService: NgbModal, private divisionService: DivisionService, private procedureService: ProcedureService, private router: Router) {
 
 
-    let date = new Date();
+    
+this.setTime();
+
+
+  }
+
+  setTime(): void{
+
+    this.everySecond.subscribe(() => {
+  
+   let date = new Date();
     if (date.getHours() < 10) {
       this.time = "0" + date.getHours();
     } else {
@@ -40,10 +52,9 @@ export class HomepageComponent implements OnInit {
       this.time += "0";
     }
     this.time += date.getMinutes().toString();
-
-
-
-  }
+    
+  });
+}
 
   open(content, procedure) {
     this.modalService.open(content, { ariaLabelledBy: 'modal-basic-title' }).result.then((result) => {

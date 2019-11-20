@@ -77,7 +77,7 @@
         
       <div style="margin-left: 50%; margin-top: 5%;">
         
-        <button type="button" class="btn btn-danger" style="text-align: center; line-height: 250%; width:30%; margin-left: -30%;">Cancel</button>
+        <button type="button" (click)="Cancel()" class="btn btn-danger" style="text-align: center; line-height: 250%; width:30%; margin-left: -30%;">Cancel</button>
         <button type="submit" class="btn btn-success" style="text-align: center; line-height: 250%; width:30%; margin-left: 10%;" [disabled]="!deviceForm.form.valid">Submit</button></div>
         
       </form>

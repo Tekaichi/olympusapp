@@ -94,6 +94,11 @@ export class AdddeviceComponent implements OnInit {
     this.selectedType = type;
   }
 
+  Cancel():void{
+    this.router.navigate(['/division/',this.division.id]);
+    window.scrollTo(0, 0)
+  }
+
   
  
 }

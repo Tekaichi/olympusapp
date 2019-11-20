@@ -14,7 +14,7 @@ export class DeviceComponent implements OnInit {
   currentState : State;
   constructor() { 
  
-    //this.currentState = this.device.device.states[0];
+ 
   }
 
   getStateImage(): String{
@@ -30,6 +30,7 @@ export class DeviceComponent implements OnInit {
   changeState(state:State):void{
     this.currentState = state;
     this.device.currentState = state;
+   
     //Add feedback to notification thingie
   }
 

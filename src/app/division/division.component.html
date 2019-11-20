@@ -10,6 +10,11 @@
                 <div *ngFor="let device of division.devices">
                     <span class="device" [ngStyle]="{'top.vw':device.position.y-1.5, 'left.vw':device.position.x-1.5}">
                    
+                    <div class="editicons">
+                        <i (click)="editDevice(device)" class="fa fa-edit edit" *ngIf="edit" aria-hidden="true"></i>
+                        <i (click) ="deleteDevice(device)" class="fa fa-trash delete" *ngIf="edit" aria-hidden="true"></i>
+                        <i (click) ="move(device)" class="fa fa-arrows-alt move" *ngIf="edit" aria-hidden="true"></i>
+                        </div>
                             <app-device [device]= 'device'></app-device>
                         </span>
                 </div>
@@ -38,7 +43,7 @@
             style="text-align: center; line-height: 250%; width:90%; margin-top: 20%; ">Add Device<span class="ml-3 h4">
                 <i class="fa fa-plus"></i></span> </button>
 
-        <button (click)="editDivision()" type="button" class="btn btn-secondary btn-lg"
+        <button #editButton (click)="editDivision()" type="button" class="btn btn-secondary btn-lg"
             style="text-align: center; line-height: 250%; width:90%; margin-top: 30%;">Edit Division<span
                 class="ml-3 h4"> <i class="fa fa-edit"></i></span> </button>
 
