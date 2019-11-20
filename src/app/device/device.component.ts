@@ -26,5 +26,10 @@ export class DeviceComponent implements OnInit {
     this.currentState = this.device.device.states[0];
   }
 
+  //The model right now does not allow to do this easily..
+  executeAction(id:number):void{
+
+  }
+
   
 }
