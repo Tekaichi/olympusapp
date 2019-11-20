@@ -15,7 +15,17 @@ const DOOR : SystemDevice = {
             command:"/close"
         }
     ],
-    states: [],
+    states: [{
+        description:"The door is open",
+        image :"/assets/images/door-open.png",
+        action:"Open"
+    },
+    {
+        description:"The door is closed",
+        image :"/assets/images/door-closed.png",
+        action:"Close"
+    }
+    ],
     type: "Door"
 }
 
