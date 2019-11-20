@@ -1,6 +1,7 @@
 import { Component, OnInit, Input, ViewChild, ElementRef } from '@angular/core';
 import { Device, State } from '../shared/models/device';
 import { LogService } from '../logs.service';
+import { Division } from '../shared/models/Division';
 
 @Component({
   selector: 'app-device',
@@ -10,6 +11,8 @@ import { LogService } from '../logs.service';
 })
 export class DeviceComponent implements OnInit {
 
+  @Input()
+  division : Division;
   @Input()
   device : Device;
   currentState : State;
@@ -31,7 +34,7 @@ export class DeviceComponent implements OnInit {
   changeState(state:State):void{
     this.currentState = state;
     this.device.currentState = state;
-    this.logService.addtoLog(this.device.name + " " + this.currentState.action);
+    this.logService.addtoLog(this.device.name + " was " + this.currentState.action + " in " + this.division.title);
     //Add feedback to notification thingie
   }
 

@@ -1,3 +1,4 @@
+
 <br>
 <h3 style="text-align: center;">{{ title }}</h3>
 <div class="d-flex" style="text-align:center;margin-top:2%;margin-left:3%;margin-bottom:1vw;">
@@ -15,7 +16,7 @@
                         <i (click) ="deleteDevice(device)" class="fa fa-trash delete"  aria-hidden="true"></i>
                         <i (click) ="move(device)" class="fa fa-arrows-alt move"  aria-hidden="true"></i>
                         </div>
-                            <app-device [device]= 'device'></app-device>
+                            <app-device [division]='division' [device]= 'device' ></app-device>
                         </span>
                 </div>
 
