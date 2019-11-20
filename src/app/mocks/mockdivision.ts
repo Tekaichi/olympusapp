@@ -81,7 +81,7 @@ const HALL : Division = {
          y : 0
      },
      device :LAMP,
-     currentState : 0 
+     currentState : LAMP.states[0]
      
     },
     {
@@ -92,7 +92,7 @@ const HALL : Division = {
             y : 0
         },
         device :LAMP,
-        currentState: 0
+        currentState: LAMP.states[0]
        }]
 
 }
@@ -133,7 +133,7 @@ const LIVINGROOM : Division = {
          y : 0
      },
      device :LAMP,
-     currentState: 0
+     currentState: LAMP.states[0]
     },
      {
         name :"Lampada1",
@@ -143,7 +143,7 @@ const LIVINGROOM : Division = {
             y : 10,
         },
         device :LAMP,
-        currentState: 0
+        currentState: LAMP.states[0]
     }]
 
 }
@@ -182,7 +182,7 @@ const BEDROOM : Division = {
          y : 0
      },
      device :LAMP,
-     currentState: 0
+     currentState: LAMP.states[0]
     },
      {
         name :"Lampada1",
@@ -192,7 +192,7 @@ const BEDROOM : Division = {
             y : 7,
         },
         device :LAMP,
-        currentState : 0 
+        currentState : LAMP.states[0]
     },
     {
         name :"Lamp3",
@@ -202,7 +202,7 @@ const BEDROOM : Division = {
             y : 15,
         },
         device :LAMP,
-        currentState :0 
+        currentState :LAMP.states[0]
     },
     {
         name :"Lamp4",
@@ -212,7 +212,7 @@ const BEDROOM : Division = {
             y : 0,
         },
         device :LAMP,
-        currentState:0 
+        currentState:LAMP.states[0] 
     }
 ]
 

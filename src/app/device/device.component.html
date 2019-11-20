@@ -12,7 +12,7 @@
         <div *ngFor="let state of device.device.states">
             
             <p *ngIf="currentState != state">
-                <button class="btn action">{{state.action}}
+                <button class="btn action" (click)="changeState(state)">{{state.action}}
                     </button>
                 </p>
         </div>

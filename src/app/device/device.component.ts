@@ -23,12 +23,14 @@ export class DeviceComponent implements OnInit {
   }
   ngOnInit() {
    
-    this.currentState = this.device.device.states[0];
+  
+    this.currentState = this.device.currentState;
   }
 
-  //The model right now does not allow to do this easily..
-  executeAction(id:number):void{
-
+  changeState(state:State):void{
+    this.currentState = state;
+    this.device.currentState = state;
+    //Add feedback to notification thingie
   }
 
   
