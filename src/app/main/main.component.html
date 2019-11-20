@@ -17,18 +17,17 @@
             <div class="navbar-collapse collapse h5" id="navbarResponsive">
                 <ul class="navbar-nav ml-auto font-nav nav-border ">
                     <li class="nav-item mx-0 mx-lg-1">
-                        <a class="nav-link px-0 px-lg-3 rounded js-scroll-trigger text-white"
-                            href="#portfolio">About</a>
+                        <a class="nav-link px-0 px-lg-3 rounded js-scroll-trigger text-white" href="#about">About</a>
                     </li>
                     <li class="nav-item mx-0 mx-lg-1">
-                        <a class="nav-link px-0 px-lg-3 rounded js-scroll-trigger text-white pointer" (click)="goToLogIn()">Log In</a>
+                        <a class="nav-link px-0 px-lg-3 rounded js-scroll-trigger text-white pointer"
+                            (click)="goToLogIn()">Log In</a>
                     </li>
                     <li class="nav-item mx-0 mx-lg-1">
+                        <!-- passar o rato por cima altera para o cursor de texto: Fix-->
                         <a class="nav-link px-0 px-lg-3 rounded js-scroll-trigger text-blueosh border border-blueosh"
-                            href="#about">Get
-                            Started</a>
+                            (click)="goToRegist()">Get Started</a>
                     </li>
-
                 </ul>
             </div>
         </div>
@@ -45,7 +44,7 @@
                     </div>
 
                     <div class="pt-5">
-                        <button type="button" class=" s-1-5 btn btn-blueish">Get Started</button>
+                        <button type="button" class=" s-1-5 btn btn-blueish" (click)="goToRegist()">Get Started</button>
                     </div>
                 </div>
                 <div class="col-sm-12 col-md-12 col-lg-6 text-center  ">

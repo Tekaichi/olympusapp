@@ -17,4 +17,8 @@ export class MainComponent implements OnInit {
   goToLogIn(): void {
     this.router.navigate(['/login']);
   }
+
+  goToRegist(): void {
+    this.router.navigate(['/regist']);
+  }
 }
