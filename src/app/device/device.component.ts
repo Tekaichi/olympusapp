@@ -2,6 +2,7 @@ import { Component, OnInit, Input, ViewChild, ElementRef } from '@angular/core';
 import { Device, State } from '../shared/models/device';
 import { LogService } from '../logs.service';
 import { Division } from '../shared/models/Division';
+import { AlertService } from '../_alert';
 
 @Component({
   selector: 'app-device',
@@ -16,7 +17,7 @@ export class DeviceComponent implements OnInit {
   @Input()
   device : Device;
   currentState : State;
-  constructor(private logService :LogService) { 
+  constructor(private logService :LogService,private alertService : AlertService) { 
  
  
   }
