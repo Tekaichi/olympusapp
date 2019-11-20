@@ -3,7 +3,6 @@ import {Log} from "../app/shared/models/log";
 import { Observable, of } from 'rxjs';
 
 import {MOCKLOG} from "../app/mocks/mocklog";
-import { log } from 'util';
 @Injectable({
   providedIn: 'root'
 })
@@ -19,12 +18,11 @@ export class LogService {
   }
 
   addtoLog(description:String,): void{
-    let date = new Date();
+   
     
     let log: Log = {
       description: description,
-      date : date.toDateString(),
-      time:date.toTimeString()
+      date : new Date()
       
     }
     MOCKLOG.push(log);
