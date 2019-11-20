@@ -24,6 +24,10 @@ const DOOR: SystemDevice = {
         description: "The door is closed",
         image: "/assets/images/door-closed.png",
         action: "Close"
+    }, {
+        description: "The door is locked",
+        image: "/assets/images/door-locked.png",
+        action: "Lock"
     }
     ],
     type: "Door"
@@ -102,6 +106,11 @@ const AC: SystemDevice = {
         description: "The AC is off",
         image: "/assets/images/AC-off.png",
         action: "Close"
+    },
+    {
+        description: "The AC temperature has changed",
+        image: "/assets/images/AC-on.png",
+        action: "Change temperature"
     }
     ],
     type: "Blinds"
@@ -334,7 +343,7 @@ const ROOM1: Division = {
             name: "Estores0",
             url: "10.10.10.10",
             position: {
-                x: 0,
+                x: 1,
                 y: 7,
             },
             device: BLINDS,
@@ -344,7 +353,7 @@ const ROOM1: Division = {
             name: "Estores1",
             url: "10.10.10.10",
             position: {
-                x: 0,
+                x: 1,
                 y: 17,
             },
             device: BLINDS,
@@ -386,7 +395,7 @@ const ROOM2: Division = {
             name: "Estores0",
             url: "10.10.10.10",
             position: {
-                x: 0,
+                x: 1,
                 y: 7,
             },
             device: BLINDS,
@@ -396,7 +405,7 @@ const ROOM2: Division = {
             name: "AC0",
             url: "10.10.10.10",
             position: {
-                x: 0,
+                x: 1,
                 y: 17,
             },
             device: AC,
