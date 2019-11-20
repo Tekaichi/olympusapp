@@ -33,8 +33,15 @@ actions:[
 ],
 states: [{
     description:"The lamp is on",
-    image :"/assets/images/lamp-on-v2.png"
-}],
+    image :"/assets/images/lamp-on-v2.png",
+    action:"Turn on"
+},
+{
+    description:"The lamp is off",
+    image :"/assets/images/lamp-off-v2.png",
+    action:"Turn off"
+}
+],
 type: "BinaryLamp"
 }
 export const Devices : SystemDevice[] = [
@@ -74,7 +81,7 @@ const HALL : Division = {
          y : 0
      },
      device :LAMP,
-     currentState : 0 
+     currentState : LAMP.states[0]
      
     },
     {
@@ -85,7 +92,7 @@ const HALL : Division = {
             y : 0
         },
         device :LAMP,
-        currentState: 0
+        currentState: LAMP.states[0]
        }]
 
 }
@@ -126,7 +133,7 @@ const LIVINGROOM : Division = {
          y : 0
      },
      device :LAMP,
-     currentState: 0
+     currentState: LAMP.states[0]
     },
      {
         name :"Lampada1",
@@ -136,7 +143,7 @@ const LIVINGROOM : Division = {
             y : 10,
         },
         device :LAMP,
-        currentState: 0
+        currentState: LAMP.states[0]
     }]
 
 }
@@ -175,7 +182,7 @@ const BEDROOM : Division = {
          y : 0
      },
      device :LAMP,
-     currentState: 0
+     currentState: LAMP.states[0]
     },
      {
         name :"Lampada1",
@@ -185,7 +192,7 @@ const BEDROOM : Division = {
             y : 7,
         },
         device :LAMP,
-        currentState : 0 
+        currentState : LAMP.states[0]
     },
     {
         name :"Lamp3",
@@ -195,7 +202,7 @@ const BEDROOM : Division = {
             y : 15,
         },
         device :LAMP,
-        currentState :0 
+        currentState :LAMP.states[0]
     },
     {
         name :"Lamp4",
@@ -205,7 +212,7 @@ const BEDROOM : Division = {
             y : 0,
         },
         device :LAMP,
-        currentState:0 
+        currentState:LAMP.states[0] 
     }
 ]
 

@@ -6,7 +6,7 @@ export class Device {
         y: number
     }
     device: SystemDevice
-    currentState : Number;
+    currentState : State;
 }
 
 export class SystemDevice{
@@ -18,9 +18,11 @@ export class SystemDevice{
     url: String[];
 
 }
-class State{
+//This kind of state works for discrete states. What about continuous ones?
+export class State{
     description : String;
     image: String;
+    action: String;
 }
 
 export class Action{

@@ -9,6 +9,7 @@ import { UserComponent } from './user/user.component';
 import { LogsComponent } from './logs/logs.component';
 
 import { LoginComponent } from './login/login.component';
+import { RegistComponent } from './regist/regist.component';
 import { RouterModule, Routes } from '@angular/router';
 import { ReactiveFormsModule} from '@angular/forms';
 import { MainComponent } from './main/main.component';
@@ -18,6 +19,7 @@ import { AnalyticsComponent } from './analytics/analytics.component';
 import { AdddeviceComponent } from './adddevice/adddevice.component';
 import { DeleteProcedureComponent } from './procedures-main/delete-procedure/delete-procedure.component';
 import { DeviceComponent } from './device/device.component';
+import { ConfirmEqualValidatorDirective } from './shared/confirm-equal-validator.directive';
 
 
 const appRoutes : Routes = [
@@ -31,7 +33,8 @@ const appRoutes : Routes = [
   {path: "logs", component:LogsComponent},
   {path: "main", component:MainComponent},
   {path:"",component:MainComponent},
-  {path: "analytics", component:AnalyticsComponent}
+  {path: "analytics", component:AnalyticsComponent},
+  {path: "regist", component:RegistComponent}
    
 
 ];
@@ -51,7 +54,9 @@ const appRoutes : Routes = [
     AdddeviceComponent,
     DeleteProcedureComponent,
     LogsComponent,
-    DeviceComponent
+    DeviceComponent,
+    RegistComponent,
+    ConfirmEqualValidatorDirective
 
   ],
   imports: [

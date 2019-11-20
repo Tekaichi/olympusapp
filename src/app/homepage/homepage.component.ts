@@ -17,7 +17,7 @@ export class HomepageComponent implements OnInit {
 
 
   divisions: Division[];
-  
+
   procedures: Procedure[];
   energy: String;
   time: String;
@@ -29,15 +29,15 @@ export class HomepageComponent implements OnInit {
 
 
     let date = new Date();
-    if(date.getHours() <10){
-      this.time  = "0"+ date.getHours();
-    }else{
+    if (date.getHours() < 10) {
+      this.time = "0" + date.getHours();
+    } else {
       this.time = date.getHours().toString();
     }
-    this.time +=":";
+    this.time += ":";
 
-    if(date.getMinutes() <10){
-      this.time  +="0";
+    if (date.getMinutes() < 10) {
+      this.time += "0";
     }
     this.time += date.getMinutes().toString();
 
@@ -158,8 +158,8 @@ export class HomepageComponent implements OnInit {
 
   }
 
-  
 
- 
+
+
 
 }
