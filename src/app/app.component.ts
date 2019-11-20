@@ -40,8 +40,7 @@ routeEvent(router: Router){
   router.events.subscribe(e => {
     if(e instanceof NavigationEnd){
       window.scrollTo(0, 0);
-
-      if(e.url != "/main" && e.url !="/" && e.url[1] != '#'){
+      if(e.url != "/main" && e.url !="/" && e.url[1] != '#' && e.url != "/login" && e.url != "/regist"){
         this.valid = true;
       }else{
         this.valid = false;

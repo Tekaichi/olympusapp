@@ -5,8 +5,8 @@ import { ProcedureService } from '../procedures.service';
 import { Procedure } from '../shared/models/procedures';
 import { Router, ActivatedRoute } from '@angular/router';
 import { NgbModal, ModalDismissReasons } from '@ng-bootstrap/ng-bootstrap';
-import { interval, timer, Observable } from 'rxjs';
-import { mapToMapExpression } from '@angular/compiler/src/render3/util';
+import {  timer, Observable } from 'rxjs';
+import { AlertService } from '../_alert';
 
 @Component({
   selector: 'app-homepage',
@@ -27,7 +27,9 @@ export class HomepageComponent implements OnInit {
   humidity: String;
   closeResult: string;
 
-  constructor(private route: ActivatedRoute, private modalService: NgbModal, private divisionService: DivisionService, private procedureService: ProcedureService, private router: Router) {
+  constructor(private route: ActivatedRoute, private modalService: NgbModal, 
+    private divisionService: DivisionService, private procedureService: ProcedureService, 
+    private router: Router, private alertService: AlertService) {
 
 
     
@@ -54,6 +56,10 @@ this.setTime();
     this.time += date.getMinutes().toString();
     
   });
+}
+
+  success(message: string) {
+    this.alertService.success(message);
 }
 
   open(content, procedure) {
