@@ -1,5 +1,6 @@
 import { Component, OnInit, Input, ViewChild, ElementRef } from '@angular/core';
 import { Device, State } from '../shared/models/device';
+import { LogService } from '../logs.service';
 
 @Component({
   selector: 'app-device',
@@ -12,7 +13,7 @@ export class DeviceComponent implements OnInit {
   @Input()
   device : Device;
   currentState : State;
-  constructor() { 
+  constructor(private logService :LogService) { 
  
  
   }
@@ -30,7 +31,7 @@ export class DeviceComponent implements OnInit {
   changeState(state:State):void{
     this.currentState = state;
     this.device.currentState = state;
-   
+    this.logService.addtoLog(this.device.name + " " + this.currentState.action);
     //Add feedback to notification thingie
   }
 
