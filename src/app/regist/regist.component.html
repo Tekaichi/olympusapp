@@ -61,8 +61,8 @@
                     <div *ngIf="registerForm.controls.repassword.errors.required">Password is required</div>
                     <div *ngIf="registerForm.controls.repassword.errors.minlength">Password must be at least 6
                         characters</div>
-                    <div
-                        *ngIf="!registerForm.controls.repassword.errors.required && !registerForm.controls.repassword.errors.minlength && registerForm.controls.repassword.errors.notEqual">
+                    <div *ngIf="!registerForm.controls.repassword.errors.required && !registerForm.controls.repassword.errors.minlength && 
+                        registerForm.controls.repassword.errors.notEqual">
                         Passwords must match</div>
                 </div>
 
