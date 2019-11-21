@@ -179,6 +179,37 @@ const HALL: Division = {
             device: DOOR,
             currentState: DOOR.states[1]
         }
+    ], doors: [
+        {
+            //porta esquerda cima
+            x: 1,
+            y: 15
+        },
+        {
+            //porta meio cima
+            x: 8,
+            y: 1.5
+        },
+        {
+            //porta esquerda baixo
+            x: 1,
+            y: 32
+        },
+        {
+            //porta direita meio
+            x: 15.5,
+            y: 15
+        },
+        {
+            //porta direita cima
+            x: 15.5,
+            y: 1.5
+        },
+        {
+            //porta direita baixo
+            x: 15.5,
+            y: 32
+        }
     ]
 
 }
@@ -233,7 +264,19 @@ const LIVINGROOM: Division = {
             },
             device: LAMP,
             currentState: LAMP.states[0]
-        }]
+        }
+    ], doors: [
+        {
+            //porta esquerda
+            x: 1,
+            y: 22
+        },
+        {
+            //porta meio baixo
+            x: 15,
+            y: 26.5
+        }
+    ]
 
 }
 
@@ -306,6 +349,18 @@ const BEDROOM: Division = {
             device: LAMP,
             currentState: LAMP.states[0]
         }
+    ],
+    doors: [
+        {
+            //porta esquerda
+            x: 1,
+            y: 18
+        },
+        {
+            //porta baixo direita
+            x: 20,
+            y: 26.5
+        }
     ]
 
 }
@@ -359,6 +414,13 @@ const ROOM1: Division = {
             device: BLINDS,
             currentState: BLINDS.states[0]
         }
+    ],
+    doors: [
+        {
+            //porta direita meio
+            x: 31.5,
+            y: 12
+        }
     ]
 
 }
@@ -411,6 +473,13 @@ const ROOM2: Division = {
             device: AC,
             currentState: AC.states[0]
         }
+    ],
+    doors: [
+        {
+            //porta direita meio
+            x: 33.5,
+            y: 12
+        }
     ]
 
 
@@ -443,7 +512,14 @@ const BATH: Division = {
             y: 15
         }
     },
-    devices: []
+    devices: [],
+    doors: [
+        {
+            //porta meio direita
+            x: 16.8,
+            y: 25
+        }
+    ]
 
 
 }
@@ -476,7 +552,19 @@ const KITCHEN: Division = {
             y: 32
         }
     },
-    devices: []
+    devices: [],
+    doors: [
+        {
+            //porta cima meio
+            x: 17,
+            y: 1.5
+        },
+        {
+            //porta esquerda baixo
+            x: 1,
+            y: 15
+        }
+    ]
 
 
 }
@@ -509,7 +597,14 @@ const TOILET: Division = {
             y: 24
         }
     },
-    devices: []
+    devices: [],
+    doors: [
+        {
+            //porta esquerda meio
+            x: 1,
+            y: 14
+        }
+    ]
 
 
 }
