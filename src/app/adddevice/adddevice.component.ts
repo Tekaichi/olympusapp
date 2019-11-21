@@ -111,6 +111,7 @@ export class AdddeviceComponent implements OnInit {
     this.model.url = this.selectedUrl;
     this.model.device = this.selectedType;
     this.model.currentState = this.model.device.states[0];
+    window.scrollTo(0,document.body.scrollHeight);
 
   }
   goToDivision(): void {
@@ -123,8 +124,7 @@ export class AdddeviceComponent implements OnInit {
 
   let child = this.posDev.nativeElement.children[0];
   console.log(child);
-  console.log(child.top);
-  console.log(child.left);
+  
   }
 
 }
