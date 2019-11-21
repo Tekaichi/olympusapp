@@ -5,6 +5,8 @@ import { ProcedureService } from '../procedures.service';
 import { Procedure } from '../shared/models/procedures';
 import { Router, ActivatedRoute } from '@angular/router';
 import { NgbModal, ModalDismissReasons } from '@ng-bootstrap/ng-bootstrap';
+import {  timer, Observable } from 'rxjs';
+import { AlertService } from '../_alert';
 
 @Component({
   selector: 'app-homepage',
@@ -14,7 +16,7 @@ import { NgbModal, ModalDismissReasons } from '@ng-bootstrap/ng-bootstrap';
 export class HomepageComponent implements OnInit {
 
   @ViewChild('layout', { static: true }) layout: ElementRef;
-
+  everySecond: Observable<Number> = timer(0, 1000*30);
 
   divisions: Division[];
 
@@ -25,10 +27,22 @@ export class HomepageComponent implements OnInit {
   humidity: String;
   closeResult: string;
 
-  constructor(private route: ActivatedRoute, private modalService: NgbModal, private divisionService: DivisionService, private procedureService: ProcedureService, private router: Router) {
+  constructor(private route: ActivatedRoute, private modalService: NgbModal, 
+    private divisionService: DivisionService, private procedureService: ProcedureService, 
+    private router: Router, private alertService: AlertService) {
 
 
-    let date = new Date();
+    
+this.setTime();
+
+
+  }
+
+  setTime(): void{
+
+    this.everySecond.subscribe(() => {
+  
+   let date = new Date();
     if (date.getHours() < 10) {
       this.time = "0" + date.getHours();
     } else {
@@ -40,16 +54,20 @@ export class HomepageComponent implements OnInit {
       this.time += "0";
     }
     this.time += date.getMinutes().toString();
+    
+  });
+}
 
-
-
-  }
+  success(message: string) {
+    this.alertService.success(message);
+}
 
   open(content, procedure) {
     this.modalService.open(content, { ariaLabelledBy: 'modal-basic-title' }).result.then((result) => {
       this.closeResult = `Closed with: ${result}`;
       if (result == "Confirm") {
-        console.log(procedure.id)
+        //console.log(procedure.id)
+        this.alertService.success("Procedure "+procedure.name+" was successfully executed!");
         this.runProcedure(procedure.id);
       }
     }, (reason) => {

@@ -1,5 +1,6 @@
 <div>
-
+    <br>
+    <br>
     <div>
         <h1 style="font-weight: bold;padding-top: 2%; padding-left: 3%;">
             My Home </h1>
@@ -9,23 +10,36 @@
 
         <!--Planta-->
         <div style="display:flex; flex-flow:column; left:5%;height:100%;width: 85%;">
-            <div #layout name="layout"
-                style="height:50vw;position:relative;text-align:center;border:0.5px solid black;background-color: lightgray;">
-                <div class="loucura" style=" cursor: pointer;">
+            <div
+                style="height:40vw;position:relative;text-align:center;border:0.5px solid black;background-color: lightgray;">
+                <div class="loucura" style="cursor: pointer;">
                     <div *ngFor="let division of divisions">
-                        <a (click)="goToDivision(division.id)"> 
+                        <a (click)="goToDivision(division.id)">
                             <div class="division"
                                 [ngStyle]="{'top.vw':division.layout.from.y, 'left.vw':division.layout.from.x, 'width.vw':division.layout.to.x-division.layout.from.x,'height.vw':division.layout.to.y-division.layout.from.y}">
-                                <div class="title">{{division.title}}
+                                <div class="title">
+                                    {{division.title}}
                                 </div>
-
                             </div>
                         </a>
+                        <!-- Trying to put doors in homepage
+                        <div *ngFor="let door of division.doors">
+                            <div class="device" [ngStyle]="{'top.vw':door.y, 'left.vw':door.x}">
+                                <div class="wrapper">
+                                    <img class="icon" src="/assets/images/door-closed.png">
+                                </div>
+                            </div>
+                       
+                        </div>
+                        -->
+
 
                     </div>
+
                 </div>
 
-                
+
+
                 <div style="margin-left:82%;margin-top:2%;width: 18%;height:98%;font-size: 200%; color: chocolate;">
                     <div class="row">
                         <div class="col-2 text-center">
@@ -64,7 +78,7 @@
 
 
 
-                
+
             </div>
         </div>
         <div style="width:5%"></div>
@@ -86,7 +100,7 @@
                     class="ml-3 h4"> <i class="fa fa-align-justify"></i> </span> </button>
 
             <!--Botao Analitics-->
-            <button (click)="goToAnalytics()" type="button" class="btn btn-primary btn-lg"
+            <button (click)="success('Success!!')" type="button" class="btn btn-primary btn-lg"
                 style="text-align: center; line-height: 250%; width:100%; margin-top: 10%;">Analytics<span
                     class="ml-3 h4">
                     <i class="fa fa-clipboard"></i></span> </button>

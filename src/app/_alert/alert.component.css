@@ -1,0 +1,42 @@
+.pointer{
+    cursor: pointer;
+}
+
+.main{
+    width:20%;
+    top:6vw;
+    position: absolute;
+    z-index: 1;
+    left:1vw;
+}
+@keyframes fade {
+    0% { opacity: 0; }
+    10%  { opacity: 1; }
+    70% {opacity:1;}
+    90% {opacity:0;}
+    100%{opacity:0;
+     display: none;}
+
+}
+
+
+.main div{
+    height:3vw;
+    animation: fade 10s;
+      
+  
+}
+span{
+    bottom: 1vw;
+    position: relative;
+}
+a{
+    bottom: 1vw;
+    position: relative;
+}
+
+.alert{
+    
+    transition:all 3s linear;
+  
+}

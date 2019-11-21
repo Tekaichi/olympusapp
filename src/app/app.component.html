@@ -1,6 +1,6 @@
-<div *ngIf="valid">
+<div *ngIf="valid == 2">
 
-  <nav class="navbar navbar-expand-lg  navbar-shrink bg-degrade">
+  <nav class="navbar navbar-expand-lg  navbar-shrink fixed-top bg-degrade" id="mainNav">
     <div class="container">
       <a class="navbar-brand js-scroll-trigger pointer" (click)="goHome()">
         <img class="img-fluid rounded" src="assets/img/header/logoWhite.png" alt="" height="60" width="60">
@@ -8,8 +8,43 @@
       </a>
       <app-user *ngIf="loggedIn"></app-user>
 
+
     </div>
   </nav>
 </div>
+<div *ngIf="valid==1">
+  <nav class="navbar navbar-expand-lg fixed-top navbar-shrink bg-degrade">
+    <div class="container">
+      <a class="navbar-brand js-scroll-trigger" href="#page-top">
+        <img class="img-fluid rounded" src="assets/img/header/logoWhite.png" alt="" height="70" width="70">
+        <img class="img-fluid rounded logoSize" src="assets/img/header/nameWhite.png" alt="" height="100" width="150">
+      </a>
+      <button
+        class="navbar-toggler navbar-toggler-right text-uppercase font-weight-bold bg-gold text-white rounded collapsed"
+        type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive"
+        aria-expanded="false" aria-label="Toggle navigation">
 
+        <i class="fa fa-bars"></i>
+      </button>
+      <div class="navbar-collapse collapse h5" id="navbarResponsive">
+        <ul class="navbar-nav ml-auto font-nav nav-border ">
+          <li class="nav-item mx-0 mx-lg-1">
+            <a class="nav-link px-0 px-lg-3 rounded js-scroll-trigger text-white" href="/#about">About</a>
+          </li>
+          <li class="nav-item mx-0 mx-lg-1">
+            <a class="nav-link px-0 px-lg-3 rounded js-scroll-trigger text-white pointer"  routerLink="/login">Log
+              In</a>
+          </li>
+          <li class="nav-item mx-0 mx-lg-1">
+            <a class="nav-link px-0 px-lg-3 rounded js-scroll-trigger text-blueosh border border-blueosh"
+            routerLink="/regist">Get
+              Started</a>
+          </li>
+
+        </ul>
+      </div>
+    </div>
+  </nav>
+</div>
+<alert></alert>
 <router-outlet></router-outlet>

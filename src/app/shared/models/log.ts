@@ -1,5 +1,4 @@
 export class Log{
-    date: String;
-    time: String;
+    date: Date;
     description: String;
 }

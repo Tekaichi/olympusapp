@@ -1,6 +1,7 @@
 <div>
     <!-- Title-->
-    
+    <br>
+    <br>
     <div>
         <h1 style="padding-top: 2%; padding-left: 3%;">
             {{title}} <span class="h2"> <i class="fa fa-align-justify"></i> </span></h1>
@@ -21,8 +22,8 @@
                     </thead>
                     <tbody *ngFor="let log of logs">
                         <tr>
-                            <td style="text-align: left;">{{ log.date }}</td>
-                            <td style="text-align: left;">{{ log.time }}</td>
+                            <td style="text-align: left;">{{ log.date  | date: 'dd/MM/yyyy'}}</td>
+                            <td style="text-align: left;">{{ log.date | date:'h:mm'  }}</td>
                             <td>{{ log.description }}</td>
 
                         </tr>

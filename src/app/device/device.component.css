@@ -7,7 +7,7 @@
 
 .icon:hover{
     background-color: whitesmoke;
-    border:0.05vw solid black;
+    border:0.05vw solid gainsboro;
 }
 button{
 border:none;
