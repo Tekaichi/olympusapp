@@ -6,8 +6,13 @@ export class Division{
     layout: Layout;
     devices : Device[];
     id: number
+    doors: Position[];
 }
 
+class Position {
+    x: number;
+    y: number;
+}
 export class Layout{
     from: {
         x: number;
