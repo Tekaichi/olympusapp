@@ -21,6 +21,7 @@ import { AdddeviceComponent } from './adddevice/adddevice.component';
 import { DeleteProcedureComponent } from './procedures-main/delete-procedure/delete-procedure.component';
 import { DeviceComponent } from './device/device.component';
 import { ConfirmEqualValidatorDirective } from './shared/confirm-equal-validator.directive';
+import { GoBackButton } from "./goBackButton/goBack.component";
 
 
 const appRoutes: Routes = [
@@ -57,8 +58,9 @@ const appRoutes: Routes = [
     LogsComponent,
     DeviceComponent,
     RegistComponent,
-    ConfirmEqualValidatorDirective
-    
+    ConfirmEqualValidatorDirective,
+    GoBackButton
+
 
   ],
   imports: [
