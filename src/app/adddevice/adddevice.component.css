@@ -21,21 +21,20 @@
 
 .icon:hover{
     background-color: gray;
-    border-radius:1vw;
-    width:5.5vw;
-    height:5.5vw;
+    cursor: pointer;
 }
+
 .active {
-    background-color:blanchedalmond;
+    background-color: #2adbef;
     width:6vw;
     height:6vw;
-    border: 2px solid gray;
+    border: 1px solid black;
     border-radius: 1.5vw;
 }
 
 .url{
-    background-color:whitesmoke;
-    border: 1px solid gray;
+    background-color:white;
+    border: 1px solid black;
     border-radius: 1vw;
     text-align: center;
     margin:0 auto;
@@ -44,14 +43,14 @@
 }
 
 .url:hover{
-    background-color:white;
+    background-color:gray;
     cursor: pointer;
 }
 
 .activeurl{
-    background-color:blanchedalmond;
+    background-color: #2adbef;
     font-size: 120%;
-    border: 1px solid gray;
+    border: 1px solid black;
     border-radius: 1vw;
     text-align: center;
     margin:0 auto;
