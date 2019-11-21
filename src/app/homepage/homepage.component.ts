@@ -66,7 +66,8 @@ this.setTime();
     this.modalService.open(content, { ariaLabelledBy: 'modal-basic-title' }).result.then((result) => {
       this.closeResult = `Closed with: ${result}`;
       if (result == "Confirm") {
-        console.log(procedure.id)
+        //console.log(procedure.id)
+        this.alertService.success("Procedure "+procedure.name+" was successfully executed!");
         this.runProcedure(procedure.id);
       }
     }, (reason) => {
