@@ -11,8 +11,9 @@ import { Router, ActivatedRoute } from '@angular/router';
 export class DivisionComponent implements OnInit {
 
   
-  @ViewChild('layout',{static:true}) layout : ElementRef;
+  @ViewChild('editButton',{static:true}) editButton : ElementRef;
 
+  
   edit : Boolean;
   id:number;
   division : Division;
@@ -22,7 +23,7 @@ export class DivisionComponent implements OnInit {
   height : number;
   
   constructor(private divisionService : DivisionService,  private route : ActivatedRoute,private router: Router) {
- 
+ this.edit = false;
    }
 
    getDivision(id:number):void{
@@ -33,9 +34,20 @@ export class DivisionComponent implements OnInit {
          this.info = division.info;
          this.title = division.title;
         
-         let scale = 1.5;
-         this.width = Math.abs(division.layout.to.x -division.layout.from.x)*scale;
-         this.height = Math.abs(division.layout.to.y -division.layout.from.y)*scale;
+       
+         const maxarea = 800; //Maximum area of the division
+         //Should it be maximum height?
+
+         this.width = Math.abs(division.layout.to.x -division.layout.from.x);
+         this.height = Math.abs(division.layout.to.y -division.layout.from.y);
+
+         let area = this.width* this.height;
+
+         let ratio = maxarea/area;
+
+         this.width *= Math.sqrt(ratio);
+         this.height *= Math.sqrt(ratio)
+
         }
      );
    }
@@ -47,7 +59,12 @@ export class DivisionComponent implements OnInit {
   }
 
   editDivision(){
-   this.edit = true;
+   this.edit = !this.edit;
+   if(!this.edit){
+      this.editButton.nativeElement.innerText = "Edit Division";
+   }else{
+    this.editButton.nativeElement.innerText = "Finish Edition";
+   }
   }
   ngOnInit() {
     

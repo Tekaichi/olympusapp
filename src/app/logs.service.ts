@@ -16,4 +16,15 @@ export class LogService {
    
     return of(MOCKLOG);
   }
+
+  addtoLog(description:String,): void{
+   
+    
+    let log: Log = {
+      description: description,
+      date : new Date()
+      
+    }
+    MOCKLOG.push(log);
+  }
 }

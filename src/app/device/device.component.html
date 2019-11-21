@@ -1,1 +1,22 @@
-    <img  (click)="openFunctions()" class="icon" src={{getStateImage()}}>
+
+    <div class="dropright">
+    <button data-display="static" 
+    data-toggle="dropdown">   
+    <div class="wrapper">
+    <img  class="icon" src={{getStateImage()}}> 
+    <p class="text"> {{ currentState.description }}</p>
+
+      </div>
+    <div class="dropdown-menu">
+        
+        <div *ngFor="let state of device.device.states">
+            
+            <p *ngIf="currentState != state">
+                <button class="btn action" (click)="changeState(state)">{{state.action}}
+                    </button>
+                </p>
+        </div>
+  
+ </div>
+ </button>
+</div>

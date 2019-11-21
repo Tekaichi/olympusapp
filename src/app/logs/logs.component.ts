@@ -11,7 +11,7 @@ import { Router, ActivatedRoute } from '@angular/router';
 export class LogsComponent implements OnInit{
 
   
-  @ViewChild('layout',{static:true}) layout : ElementRef;
+  
 
   logs : Log[];
   title : String;

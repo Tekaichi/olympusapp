@@ -1,5 +1,8 @@
 import { Component, OnInit, Input, ViewChild, ElementRef } from '@angular/core';
-import { Device } from '../shared/models/device';
+import { Device, State } from '../shared/models/device';
+import { LogService } from '../logs.service';
+import { Division } from '../shared/models/Division';
+import { AlertService } from '../_alert';
 
 @Component({
   selector: 'app-device',
@@ -10,21 +13,31 @@ import { Device } from '../shared/models/device';
 export class DeviceComponent implements OnInit {
 
   @Input()
+  division : Division;
+  @Input()
   device : Device;
-  state : number;
-  constructor() { 
-     this.state = 0;
-     console.log(this.state);
+  currentState : State;
+  constructor(private logService :LogService,private alertService : AlertService) { 
+ 
+ 
   }
 
   getStateImage(): String{
-    return this.device.device.states[this.state].image;
+    return this.currentState.image;
+    
   }
   ngOnInit() {
    
+  
+    this.currentState = this.device.currentState;
   }
 
-  openFunctions() : void {
-    //Open the modal thing to execute(run) them functions
+  changeState(state:State):void{
+    this.currentState = state;
+    this.device.currentState = state;
+    this.logService.addtoLog(this.device.name + " was " + this.currentState.action + " in " + this.division.title);
+    //Add feedback to notification thingie
   }
+
+  
 }

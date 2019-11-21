@@ -9,11 +9,11 @@
 
         <!--Planta-->
         <div style="display:flex; flex-flow:column; left:5%;height:100%;width: 85%;">
-            <div #layout name="layout"
+            <div
                 style="height:50vw;position:relative;text-align:center;border:0.5px solid black;background-color: lightgray;">
-                <div class="loucura">
+                <div class="loucura" style=" cursor: pointer;">
                     <div *ngFor="let division of divisions">
-                        <a (click)="goToDivision(division.id)">
+                        <a (click)="goToDivision(division.id)"> 
                             <div class="division"
                                 [ngStyle]="{'top.vw':division.layout.from.y, 'left.vw':division.layout.from.x, 'width.vw':division.layout.to.x-division.layout.from.x,'height.vw':division.layout.to.y-division.layout.from.y}">
                                 <div class="title">{{division.title}}
@@ -86,7 +86,7 @@
                     class="ml-3 h4"> <i class="fa fa-align-justify"></i> </span> </button>
 
             <!--Botao Analitics-->
-            <button (click)="goToAnalytics()" type="button" class="btn btn-primary btn-lg"
+            <button (click)="success('Success!!')" type="button" class="btn btn-primary btn-lg"
                 style="text-align: center; line-height: 250%; width:100%; margin-top: 10%;">Analytics<span
                     class="ml-3 h4">
                     <i class="fa fa-clipboard"></i></span> </button>

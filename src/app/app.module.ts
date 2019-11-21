@@ -1,16 +1,18 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { FormsModule }   from '@angular/forms';
+import { FormsModule } from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HomepageComponent } from './homepage/homepage.component';
 import { DivisionComponent } from './division/division.component';
 import { UserComponent } from './user/user.component';
 import { LogsComponent } from './logs/logs.component';
+import { AlertModule } from './_alert';
 
 import { LoginComponent } from './login/login.component';
+import { RegistComponent } from './regist/regist.component';
 import { RouterModule, Routes } from '@angular/router';
-import { ReactiveFormsModule} from '@angular/forms';
+import { ReactiveFormsModule } from '@angular/forms';
 import { MainComponent } from './main/main.component';
 import { ProceduresMainComponent } from './procedures-main/procedures-main.component';
 import { ProcedurespageComponent } from './procedurespage/procedurespage.component';
@@ -18,21 +20,23 @@ import { AnalyticsComponent } from './analytics/analytics.component';
 import { AdddeviceComponent } from './adddevice/adddevice.component';
 import { DeleteProcedureComponent } from './procedures-main/delete-procedure/delete-procedure.component';
 import { DeviceComponent } from './device/device.component';
+import { ConfirmEqualValidatorDirective } from './shared/confirm-equal-validator.directive';
 
 
-const appRoutes : Routes = [
-  {path :"login",component:LoginComponent},
-  {path: "homepage", component:HomepageComponent} ,
-  {path: "home", component:AppComponent} ,
-  {path: "division/:id", component:DivisionComponent},
-  {path: "adddevice/:id", component:AdddeviceComponent},
-  {path: "procedures", component:ProceduresMainComponent},
-  {path: "proceduresManagement", component:ProcedurespageComponent},
-  {path: "logs", component:LogsComponent},
-  {path: "main", component:MainComponent},
-  {path:"",component:MainComponent},
-  {path: "analytics", component:AnalyticsComponent}
-   
+const appRoutes: Routes = [
+  { path: "login", component: LoginComponent },
+  { path: "homepage", component: HomepageComponent },
+  { path: "home", component: AppComponent },
+  { path: "division/:id", component: DivisionComponent },
+  { path: "adddevice/:id", component: AdddeviceComponent },
+  { path: "procedures", component: ProceduresMainComponent },
+  { path: "proceduresManagement", component: ProcedurespageComponent },
+  { path: "logs", component: LogsComponent },
+  { path: "main", component: MainComponent },
+  { path: "", component: MainComponent },
+  { path: "analytics", component: AnalyticsComponent },
+  { path: "regist", component: RegistComponent }
+
 
 ];
 
@@ -51,7 +55,10 @@ const appRoutes : Routes = [
     AdddeviceComponent,
     DeleteProcedureComponent,
     LogsComponent,
-    DeviceComponent
+    DeviceComponent,
+    RegistComponent,
+    ConfirmEqualValidatorDirective
+    
 
   ],
   imports: [
@@ -59,18 +66,19 @@ const appRoutes : Routes = [
     AppRoutingModule,
     ReactiveFormsModule,
     FormsModule,
+    AlertModule,
     RouterModule.forRoot(
-    appRoutes,
-    {
-     enableTracing : true
-    }
+      appRoutes,
+      {
+        enableTracing: true
+      }
 
-)
+    )
   ],
   providers: [],
   bootstrap: [AppComponent],
-  entryComponents: [ DeleteProcedureComponent ]
+  entryComponents: [DeleteProcedureComponent]
 })
-export class AppModule { 
-  
+export class AppModule {
+
 }
