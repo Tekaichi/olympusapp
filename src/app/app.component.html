@@ -1,6 +1,6 @@
-<div *ngIf="valid">
+<div *ngIf="valid == 2">
 
-  <nav class="navbar navbar-expand-lg  navbar-shrink bg-degrade">
+  <nav class="navbar navbar-expand-lg  navbar-shrink fixed-top bg-degrade" id="mainNav">
     <div class="container">
       <a class="navbar-brand js-scroll-trigger pointer" (click)="goHome()">
         <img class="img-fluid rounded" src="assets/img/header/logoWhite.png" alt="" height="60" width="60">
@@ -12,7 +12,7 @@
     </div>
   </nav>
 </div>
-<div *ngIf="!valid">
+<div *ngIf="valid==1">
   <nav class="navbar navbar-expand-lg fixed-top navbar-shrink bg-degrade">
     <div class="container">
       <a class="navbar-brand js-scroll-trigger" href="#page-top">
@@ -29,15 +29,15 @@
       <div class="navbar-collapse collapse h5" id="navbarResponsive">
         <ul class="navbar-nav ml-auto font-nav nav-border ">
           <li class="nav-item mx-0 mx-lg-1">
-            <a class="nav-link px-0 px-lg-3 rounded js-scroll-trigger text-white" href="#portfolio">About</a>
+            <a class="nav-link px-0 px-lg-3 rounded js-scroll-trigger text-white" href="/#about">About</a>
           </li>
           <li class="nav-item mx-0 mx-lg-1">
-            <a class="nav-link px-0 px-lg-3 rounded js-scroll-trigger text-white pointer" (click)="goToLogIn()">Log
+            <a class="nav-link px-0 px-lg-3 rounded js-scroll-trigger text-white pointer"  routerLink="/login">Log
               In</a>
           </li>
           <li class="nav-item mx-0 mx-lg-1">
             <a class="nav-link px-0 px-lg-3 rounded js-scroll-trigger text-blueosh border border-blueosh"
-              href="#about">Get
+            routerLink="/regist">Get
               Started</a>
           </li>
 

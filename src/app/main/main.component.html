@@ -1,11 +1,12 @@
-<div class="bg-degrade">
+<div class="bg-degrade" id="page-top">
 
-    <nav class="navbar navbar-expand-lg fixed-top navbar-shrink">
+    <nav class="navbar navbar-expand-lg fixed-top" id="mainNav">
         <div class="container">
             <a class="navbar-brand js-scroll-trigger" href="#page-top">
-                <img class="img-fluid rounded" src="assets/img/header/logoWhite.png" alt="" height="70" width="70">
-                <img class="img-fluid rounded logoSize" src="assets/img/header/nameWhite.png" alt="" height="100"
-                    width="150">
+                <img class="img-fluid rounded" style="transition: 1s" src="assets/img/header/logoWhite.png" alt=""
+                    height="70" width="70" id="logo" />
+                <img class="img-fluid rounded " style="transition: 1s" src="assets/img/header/nameWhite.png" alt=""
+                    height="100" width="150" id="name" />
             </a>
             <button
                 class="navbar-toggler navbar-toggler-right text-uppercase font-weight-bold bg-gold text-white rounded collapsed"
@@ -14,25 +15,26 @@
 
                 <i class="fa fa-bars"></i>
             </button>
-            <div class="navbar-collapse collapse h5" id="navbarResponsive">
+            <div class="navbar-collapse collapse h5 pt-2" id="navbarResponsive">
                 <ul class="navbar-nav ml-auto font-nav nav-border ">
                     <li class="nav-item mx-0 mx-lg-1">
-                        <a class="nav-link px-0 px-lg-3 rounded js-scroll-trigger text-white" href="#about">About</a>
+                        <a class="nav-link px-0 px-lg-3  js-scroll-trigger text-white pointer " href="#start">Get
+                            Started</a>
                     </li>
                     <li class="nav-item mx-0 mx-lg-1">
-                        <a class="nav-link px-0 px-lg-3 rounded js-scroll-trigger text-white pointer"
-                            (click)="goToLogIn()">Log In</a>
+                        <a class="nav-link px-0 px-lg-3  js-scroll-trigger text-white" href="#about">About</a>
                     </li>
+
+
                     <li class="nav-item mx-0 mx-lg-1">
-                        <!-- passar o rato por cima altera para o cursor de texto: Fix-->
-                        <a class="nav-link px-0 px-lg-3 rounded js-scroll-trigger text-blueosh border border-blueosh"
-                            (click)="goToRegist()">Get Started</a>
+                        <a class="nav-link px-0 px-lg-3  js-scroll-trigger text-white pointer" (click)="goToLogIn()">Log
+                            In</a>
                     </li>
                 </ul>
             </div>
         </div>
     </nav>
-    <header class="masthead">
+    <header class="masthead" id="start">
         <div class=" container d-flex  flex-column text-white">
             <div class="row mt-5 ml-3" id="landing">
                 <div class="col-sm-12 col-md-12 col-lg-6">
@@ -44,8 +46,11 @@
                     </div>
 
                     <div class="pt-5">
-                        <button type="button" class=" s-1-5 btn btn-blueish" (click)="goToRegist()">Get Started</button>
+                        <button type="button" (click)="goToRegist()" class=" s-1-5 square btn btn-blueish center "
+                            id="getStarted">Get
+                            Started</button>
                     </div>
+
                 </div>
                 <div class="col-sm-12 col-md-12 col-lg-6 text-center  ">
                     <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
@@ -88,4 +93,47 @@
         </div>
 
     </header>
+    <section style="height: 5vh;">
+
+    </section>
+    <section id="about">
+        <h1>TO BE ABOUT. NEED IDEAS. </h1>
+    </section>
+    <br>
+
 </div>
+<footer class="pt-3 pb-2">
+    <div class="container">
+
+        <div class="row text-center">
+            <div class="col m-auto">
+                <span class="h5">Olympus ©2019 &nbsp;</span>
+
+                <span class="h5">IPM 2019/2020</span>
+            </div>
+
+
+            <div class="col">
+                <div class="row">
+                    <div class="col-2">
+                        <a class="text-dark" href="https://www.facebook.pt" target="_blank">
+                            <div class=" h3 icon spin circle"><i class="  p-2 h2 fa fa-facebook"></i></div>
+                        </a>
+                    </div>
+                    <div class="col-2">
+                        <a class="text-dark" href="https://www.github.com" target="_blank">
+                            <div class=" h3 icon spin circle"><i class="  p-2 h2 fa fa-github"></i></div>
+                        </a>
+                    </div>
+                    <div class="col-2">
+                        <a class="text-dark" href="http://ctp.di.fct.unl.pt/miei/ipm/" target="_blank">
+                            <div class=" h3 icon spin circle"><i class=" p-2 h2 fa fa-graduation-cap"></i></div>
+                        </a>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+    </div>
+</footer>
