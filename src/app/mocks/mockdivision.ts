@@ -108,12 +108,12 @@ const AC: SystemDevice = {
         action: "Close"
     },
     {
-        description: "The AC temperature has changed",
+        description: "The AC temperature is %s",
         image: "/assets/images/AC-on.png",
         action: "Change temperature"
     }
     ],
-    type: "Blinds"
+    type: "AC"
 }
 
 export const Devices: SystemDevice[] = [

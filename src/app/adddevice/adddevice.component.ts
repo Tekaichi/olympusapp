@@ -16,7 +16,7 @@ export class AdddeviceComponent implements OnInit {
 
   model = new Device();
 
-  selectedType: String;
+  selectedType: String; //Should this be a string ?_?
   title: String;
   width: number;
   height: number;

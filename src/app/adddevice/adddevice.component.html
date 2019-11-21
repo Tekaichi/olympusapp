@@ -29,8 +29,10 @@
         <div class="modal-body" style="display: flex;">
           <div *ngFor="let device of devices">
             <!--Estas classes são só placeholders-->
-            <button (click)="selectDevice(device.type)" class="btn btn-info">{{ device.type }}</button>
-          </div>
+            <img class="icon" src={{device.states[1].image}} class="active" *ngIf="device.type == selectedType" (click)="selectDevice(device.type)" />
+
+            <img class="icon" src={{device.states[1].image}}  *ngIf="device.type != selectedType" (click)="selectDevice(device.type)" />
+          </div> 
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-outline-dark" (click)="open(searchdevice)">Select</button>

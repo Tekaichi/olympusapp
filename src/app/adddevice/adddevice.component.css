@@ -9,3 +9,26 @@
 :host ::ng-deep .device{
     position:absolute;
 }
+
+.icon{
+    width:5vw;
+    height:5vw;
+    background-color:whitesmoke;
+    border:1px solid black;
+    border-radius: 0.5vw;
+    margin:0.5vw;
+}
+
+.icon:hover{
+    background-color: gray;
+    border-radius:1vw;
+    width:5.5vw;
+    height:5.5vw;
+}
+.active {
+    background-color:blanchedalmond;
+    width:6vw;
+    height:6vw;
+    border: 2px solid gray;
+    border-radius: 1.5vw;
+}
