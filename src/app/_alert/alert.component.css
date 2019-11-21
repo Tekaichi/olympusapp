@@ -5,4 +5,6 @@
 .alert{
     width:30%;
     font-size: 1vw;
+    position: absolute;
+    z-index: 1;
 }
