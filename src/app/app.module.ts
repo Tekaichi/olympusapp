@@ -8,7 +8,7 @@ import { DivisionComponent } from './division/division.component';
 import { UserComponent } from './user/user.component';
 import { LogsComponent } from './logs/logs.component';
 import { AlertModule } from './_alert';
-
+import { DragDropModule } from '@angular/cdk/drag-drop';
 import { LoginComponent } from './login/login.component';
 import { RegistComponent } from './regist/regist.component';
 import { RouterModule, Routes } from '@angular/router';
@@ -67,6 +67,7 @@ const appRoutes: Routes = [
     ReactiveFormsModule,
     FormsModule,
     AlertModule,
+    DragDropModule,
     RouterModule.forRoot(
       appRoutes,
       {

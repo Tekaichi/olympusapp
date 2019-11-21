@@ -23,7 +23,10 @@ export class AlertComponent implements OnInit, OnDestroy {
                 }
 
                 // add alert to array
+                
                 this.alerts.push(alert);
+                setTimeout(() =>{
+                this.alerts.shift();},9000);
             });
     }
 
@@ -35,6 +38,7 @@ export class AlertComponent implements OnInit, OnDestroy {
     removeAlert(alert: Alert) {
         // remove specified alert from array
         this.alerts = this.alerts.filter(x => x !== alert);
+        
     }
 
     cssClass(alert: Alert) {

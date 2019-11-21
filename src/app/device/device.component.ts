@@ -12,6 +12,7 @@ import { AlertService } from '../_alert';
 })
 export class DeviceComponent implements OnInit {
 
+  
   @Input()
   division : Division;
   @Input()
