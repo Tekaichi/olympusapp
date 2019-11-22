@@ -9,13 +9,13 @@
                     height="100" width="150" id="name" />
             </a>
             <button
-                class="navbar-toggler navbar-toggler-right text-uppercase font-weight-bold bg-gold text-white rounded collapsed"
+                class="navbar-toggler navbar-toggler-right text-uppercase font-weight-bold bg-gold text-blueish rounded collapsed"
                 type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive"
                 aria-expanded="false" aria-label="Toggle navigation">
 
                 <i class="fa fa-bars"></i>
             </button>
-            <div class="navbar-collapse collapse h5 pt-2" id="navbarResponsive">
+            <div class="navbar-collapse collapse h5 " id="navbarResponsive">
                 <ul class="navbar-nav ml-auto font-nav nav-border ">
 
                     <li class="nav-item mx-0 mx-lg-1">
@@ -37,21 +37,21 @@
     </nav>
     <header class="masthead " id="start">
         <div class=" container d-flex  flex-column text-white">
-            <div class="row mt-5 ml-3" id="landing">
-                <div class="col-sm-12 col-md-12 col-lg-6">
-                    <h1 class="  d-none d-lg-block ">Do not limit yourself</h1>
+            <div class="row ml-3 mt-5" id="landing">
+                <div id="header-cont" class=" col-sm-12 col-md-6 col-lg-6">
+                    <h1 id="header">Do not limit yourself</h1>
                     <h1><b>Live</b><b class="text-blueish"> Smarter.</b></h1>
-                    <div class="d-none d-lg-block pt-5 ">
+                    <div class="d-none d-sm-block pt-5 ">
                         <h4>A novel approach to house <b class="text-blueish">monitoring</b></h4>
                         <h4>Pushing the smart even further to the home</h4>
                     </div>
 
-                    <div class="pt-5">
-                        <button type="button" (click)="goToRegist()" class=" s-1-5 btn-blueish draw meet start">Get
+                    <div class="pt-5 d-none d-sm-block">
+                        <button type="button" (click)="goToRegist()"  class=" s-1-5 btn-blueish draw meet start">Get
                             Started</button>
                     </div>
                 </div>
-                <div class="col-sm-12 col-md-12 col-lg-6 text-center  ">
+                <div class="col-sm-12 col-md-6 col-lg-6 text-center down ">
                     <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
 
 
@@ -87,10 +87,14 @@
                 </div>
 
             </div>
+            <div class=" text-center">
+                <button type="button" (click)="goToRegist()"  class=" d-lg-none d-md-none d-xl-none s-1 btn-blueish draw meet start">Get
+                    Started</button>
+            </div>
         </div>
 
     </header>
-    <section style="height: 10vh;">
+    <section style="height: 100vh;">
 
     </section>
     <section id="about">

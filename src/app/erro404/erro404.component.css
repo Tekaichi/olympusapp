@@ -21,6 +21,10 @@
 .s-1-5{
     font-size: 1.2em;
 }
+
+.started{
+    text-align: center !important;
+}
 @media (min-width: 992px) {
 
     .center{
@@ -28,7 +32,7 @@
     }
     
     .bringdown{
-        top:40%;
+        top:45%;
        position: relative;
     }
     
@@ -41,6 +45,10 @@
 
     .s-1-5{
         font-size: 1.7em;
+    }
+
+    .started{
+        text-align: left !important;
     }
 
 }
