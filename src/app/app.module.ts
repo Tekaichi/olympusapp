@@ -47,7 +47,6 @@ const appRoutes: Routes = [
     component: Erro404Component
   }
 
-
 ];
 
 
@@ -69,7 +68,8 @@ const appRoutes: Routes = [
     RegistComponent,
     ConfirmEqualValidatorDirective,
     ProceduresDivisionComponent,
-    ProceduredeviceComponent
+    ProceduredeviceComponent,
+    Erro404Component
 
 
   ],
