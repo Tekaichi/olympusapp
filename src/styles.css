@@ -34,3 +34,125 @@
     height: 100vh;
 }
 
+
+#mainNav {
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
+    font-family: "Montserrat", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+    font-weight: 700;
+    -webkit-transition: 1s;
+    transition: 1s;
+    background-color: black;
+    
+  }
+
+  #mainNav .navbar-brand {
+    color: #0f808e;
+  }
+  
+  #mainNav .navbar-nav {
+    margin-top: 1rem;
+    
+  }
+  
+  #mainNav .navbar-nav li.nav-item a.nav-link {
+   
+    color: #fff ;
+    -webkit-transition:0.4;
+    transition: 0.4s ;
+  }
+  
+  #mainNav .navbar-nav li.nav-item a.nav-link:hover {
+
+    color: #2adbef ;
+    -webkit-transition:0.4s;
+    transition: 0.4s ;
+  }
+  
+  #mainNav .navbar-nav li.nav-item a.nav-link:active, #mainNav .navbar-nav li.nav-item a.nav-link:focus {
+    color: #fff ;
+    -webkit-transition:0.4s;
+    transition: 0.4s;
+  }
+  
+  #mainNav .navbar-nav li.nav-item a.nav-link.active {
+    color: #2adbef !important;
+    -webkit-transition:0.4s;
+    transition: 0.4s;
+  }
+ 
+
+  #mainNav .navbar-toggler {
+    font-size: 80%;
+    padding: 0.8rem;
+  }
+
+  @media (min-width: 992px) {
+    #mainNav {
+      padding-top: 0.5rem;
+      padding-bottom: 0.5rem;
+      -webkit-transition: 1s;
+      transition: 1s ;
+      background-color: rgba(255, 255, 255, 0);
+      
+    } 
+    #mainNav .navbar-brand {
+      font-size: 1.75em;
+      -webkit-transition: font-size 0.3s;
+      transition: font-size 0.3s;
+    }
+    #mainNav .navbar-nav {
+      margin-top: 0;
+    }
+ 
+    
+    #mainNav .navbar-nav > li.nav-item > a.nav-link.active:active, #mainNav .navbar-nav > li.nav-item > a.nav-link.active:focus, #mainNav .navbar-nav > li.nav-item > a.nav-link.active:hover {
+
+      color:#2adbef ;
+      border: none;
+        -webkit-transition:0.4s;
+        transition: 0.4s;
+       
+    }
+    #mainNav.navbar-shrink {
+      background-color: black;
+      padding-top: 0rem;
+      padding-bottom: 0rem;
+      -webkit-transition:1s;
+      transition: 1s;
+    }
+    #mainNav.navbar-shrink #navbarResponsive {
+        font-size: 1.2em;
+        -webkit-transition:0.3s;
+        transition: width 0.3s;
+       
+        
+    } 
+  
+    #mainNav.navbar-shrink #logo {
+        width: 55px;
+        -webkit-transition:0.3s;
+        transition: width 0.3s;
+
+    }
+    #mainNav.navbar-shrink #name {
+        width: 120px;
+        -webkit-transition:0.3s;
+        transition: width 0.3s;
+
+    }
+  
+  }
+
+  #started{
+    border: solid 1.5px #fff;
+    transition: 0.2s;
+  }
+  
+  #started:hover{
+    border:  1.5px #fff;
+    background-color: #2adbef;
+    color: #11213f !important;
+    
+    transition: 0.2s;
+  }
