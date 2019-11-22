@@ -41,15 +41,15 @@ const appRoutes: Routes = [
   { path: "", component: MainComponent },
   { path: "analytics", component: AnalyticsComponent },
   { path: "regist", component: RegistComponent },
+  {path :"divisionprocedures/:id", component:ProceduresDivisionComponent},
+  {path :"divisionprocedures/:id/edit/:action", component:ProceduresDivisionComponent},
+  {path :"divisionprocedures/:id/edit/:action/edit", component:ProceduresDivisionComponent},
+  {path :"divisionprocedures/:id/edit", component:ProceduresDivisionComponent},
   {
     path: '**',
     pathMatch: 'full',
     component: Erro404Component
   },
-  {path :"divisionprocedures/:id", component:ProceduresDivisionComponent},
-  {path :"divisionprocedures/:id/edit/:action", component:ProceduresDivisionComponent},
-  {path :"divisionprocedures/:id/edit/:action/edit", component:ProceduresDivisionComponent},
-  {path :"divisionprocedures/:id/edit", component:ProceduresDivisionComponent}
 
 
 ];
