@@ -1,5 +1,8 @@
 @import "~bootstrap/dist/css/bootstrap.css";
 
+.mt-5s{
+  margin-top: 5rem;
+}
 .bg-degrade{
     background-image: linear-gradient( 120deg, #070d2c ,  #58b9ce);
 }
