@@ -7,6 +7,7 @@ import { Router, ActivatedRoute } from '@angular/router';
 import { NgbModal, ModalDismissReasons } from '@ng-bootstrap/ng-bootstrap';
 import {  timer, Observable } from 'rxjs';
 import { AlertService } from '../_alert';
+import { DevicesService } from '../devices.service';
 
 @Component({
   selector: 'app-homepage',
@@ -29,7 +30,7 @@ export class HomepageComponent implements OnInit {
 
   constructor(private route: ActivatedRoute, private modalService: NgbModal, 
     private divisionService: DivisionService, private procedureService: ProcedureService, 
-    private router: Router, private alertService: AlertService) {
+    private router: Router, private alertService: AlertService, private deviceService : DevicesService) {
 
 
     
@@ -77,7 +78,7 @@ this.setTime();
 
   //Placeholder para dar run do procedure
   runProcedure(procedure: Procedure) {
-    procedure.run();
+    procedure.run(this.deviceService);
   }
 
   private getDismissReason(reason: any): string {

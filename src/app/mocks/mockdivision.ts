@@ -206,7 +206,8 @@ const HALL: Division = {
                 y: 0
             },
             device: LAMP,
-            currentState: LAMP.states[0]
+            currentState: LAMP.states[0],
+            show : false
 
         },
         {
@@ -217,7 +218,8 @@ const HALL: Division = {
                 y: 0
             },
             device: LAMP,
-            currentState: LAMP.states[0]
+            currentState: LAMP.states[0],
+            show : false
         },
         {
             name: "Door",
@@ -227,7 +229,8 @@ const HALL: Division = {
                 y: 16.5
             },
             device: DOOR,
-            currentState: DOOR.states[1]
+            currentState: DOOR.states[1],
+            show : false
         }
     ], doors: [
         {
@@ -303,7 +306,8 @@ const LIVINGROOM: Division = {
                 y: 0
             },
             device: LAMP,
-            currentState: LAMP.states[0]
+            currentState: LAMP.states[0],
+            show : false
         },
         {
             name: "Lampada1",
@@ -313,7 +317,8 @@ const LIVINGROOM: Division = {
                 y: 10,
             },
             device: LAMP,
-            currentState: LAMP.states[0]
+            currentState: LAMP.states[0],
+            show : false
         }
     ], doors: [
         {
@@ -367,7 +372,8 @@ const BEDROOM: Division = {
                 y: 0
             },
             device: LAMP,
-            currentState: LAMP.states[0]
+            currentState: LAMP.states[0],
+            show : false
         },
         {
             name: "Lampada1",
@@ -377,7 +383,8 @@ const BEDROOM: Division = {
                 y: 7,
             },
             device: LAMP,
-            currentState: LAMP.states[0]
+            currentState: LAMP.states[0],
+            show : false
         },
         {
             name: "Lamp3",
@@ -387,7 +394,8 @@ const BEDROOM: Division = {
                 y: 10,
             },
             device: LAMP,
-            currentState: LAMP.states[0]
+            currentState: LAMP.states[0],
+            show : false
         },
         {
             name: "Lamp4",
@@ -397,7 +405,8 @@ const BEDROOM: Division = {
                 y: 0,
             },
             device: LAMP,
-            currentState: LAMP.states[0]
+            currentState: LAMP.states[0],
+            show : false
         }
     ],
     doors: [
@@ -452,7 +461,8 @@ const ROOM1: Division = {
                 y: 7,
             },
             device: BLINDS,
-            currentState: BLINDS.states[0]
+            currentState: BLINDS.states[0],
+            show : false
         },
         {
             name: "Estores1",
@@ -462,7 +472,8 @@ const ROOM1: Division = {
                 y: 17,
             },
             device: BLINDS,
-            currentState: BLINDS.states[0]
+            currentState: BLINDS.states[0],
+            show : false
         }
     ],
     doors: [
@@ -511,7 +522,8 @@ const ROOM2: Division = {
                 y: 7,
             },
             device: BLINDS,
-            currentState: BLINDS.states[0]
+            currentState: BLINDS.states[0],
+            show : false
         },
         {
             name: "AC0",
@@ -521,7 +533,8 @@ const ROOM2: Division = {
                 y: 17,
             },
             device: AC,
-            currentState: AC.states[0]
+            currentState: AC.states[0],
+            show : false
         }
     ],
     doors: [

@@ -29,6 +29,7 @@ export class ProcedurespageComponent implements OnInit {
       this.divisions = divisions;
     })
 
+    
     let id = this.route.snapshot.paramMap.get("id");
     if(id){
       this.actions = this.proceduresService.getDivisionActionsOf(+id);
@@ -37,6 +38,7 @@ export class ProcedurespageComponent implements OnInit {
      
     }else{
      
+      this.isEdit = false;
       this.actions = this.proceduresService.getDivisionActions();
 
     }
@@ -44,12 +46,16 @@ export class ProcedurespageComponent implements OnInit {
     this.name = this.proceduresService.getProcedure().name;
   }
   goToDivision(id: number) : void{
+    if(this.isEdit){
+      this.router.navigate(['/divisionprocedures', id,"edit"]);
+
+    }else{
     this.router.navigate(['/divisionprocedures', id]);
+    }
   }
 
   save():void{
     
-   console.log("SAVING",this.isEdit);
   
 
     if(this.isEdit){
@@ -70,6 +76,12 @@ export class ProcedurespageComponent implements OnInit {
 
   edit(id: number){
     let dAction = this.proceduresService.getDivisionAction(id);
-    this.router.navigate(['/divisionprocedures', dAction.division.id,"edit",dAction.id]);
+    if(this.isEdit){
+      this.router.navigate(['/divisionprocedures', dAction.division.id,"edit",dAction.id,"edit"]);
+
+    }else{
+      this.router.navigate(['/divisionprocedures', dAction.division.id,"edit",dAction.id]);
+    }
+    
   }
 }

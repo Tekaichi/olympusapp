@@ -58,4 +58,12 @@
       background-color:whitesmoke;
       border-radius: 1vw;
   }
+  .wrapper{
+    animation: fade 1s;
+  }
+
+  @keyframes fade{ 
+    from{opacity: 0;}
+    to{opacity: 1;}
+  }
   

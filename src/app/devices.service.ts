@@ -21,6 +21,14 @@ export class DevicesService {
     division.devices.push(device);
     console.log(division);
   }
+
+  stateChange(device:Device):void{
+
+    device.show = true;
+    setTimeout(()=>{
+    device.show = false;
+    },4000);
+  }
   //Execute action of device -- needed to integrate with a backend
 
 }

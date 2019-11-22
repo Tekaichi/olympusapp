@@ -24,6 +24,7 @@
                                 <div *ngFor="let device of division.devices" style="position: absolute;top:0vw;left:0vw;">
                                     <span class="device" [ngStyle]="{'top.vw':device.position.y-0.75, 'left.vw':device.position.x-0.75}">
                                
+                                   
                                         <div class="wrapper" *ngIf ="device.show">
                                             <img  class="icon" src={{device.currentState.image}}> 
                                             <p class="text"> {{ device.currentState.description }}</p>

@@ -1,5 +1,7 @@
 import { Device, State } from './device';
 import { Division } from './Division';
+import { DevicesService } from 'src/app/devices.service';
+
 
 export class Procedure {
     id: number;
@@ -10,10 +12,11 @@ export class Procedure {
     this.actions = actions;
     this.id = id;
     }
-    public run(): Boolean{
+    public run(devicesService: DevicesService): Boolean{
         this.actions.forEach((action)=>{
             action.actions.forEach((execute)=>{
 
+                devicesService.stateChange(execute.device);
                 execute.device.currentState = execute.goalState;
             });
         })
