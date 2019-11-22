@@ -1,0 +1,54 @@
+.bringdown{
+    top:5%;
+   position: relative;
+}
+
+.big-font{
+    font-size: 7.5em;
+}
+.big1-font{
+    font-size: 5em;
+}
+.font-border{
+    text-shadow: -1px 0 white, 0 1px white, 1px 0 white, 0 -1px white;
+}
+.text-yellow{
+    color:lightyellow;
+}
+.center{
+    text-align: center;
+}
+.s-1-5{
+    font-size: 1.2em;
+}
+
+.started{
+    text-align: center !important;
+}
+@media (min-width: 992px) {
+
+    .center{
+        text-align: left;
+    }
+    
+    .bringdown{
+        top:45%;
+       position: relative;
+    }
+    
+    .big-font{
+        font-size: 13.5em;
+    }
+    .big1-font{
+        font-size: 11em;
+    }
+
+    .s-1-5{
+        font-size: 1.7em;
+    }
+
+    .started{
+        text-align: left !important;
+    }
+
+}

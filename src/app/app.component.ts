@@ -10,7 +10,7 @@ import { Router, NavigationEnd } from '@angular/router';
 
 
 export class AppComponent {
-  valid = 0; //0 equals landing page, 1 login and register, 2 normal pages
+  valid = 0; //0 equals landing page & erro404, 1 login and register, 2 normal pages
 
   title = 'Olympus';
   loggedIn: boolean;
@@ -40,9 +40,9 @@ export class AppComponent {
     router.events.subscribe(e => {
       if (e instanceof NavigationEnd) {
         window.scrollTo(0, 0);
-        if (e.url != "/main" && e.url != "/" && e.url[1] != '#' && e.url != "/login" && e.url != "/regist") {
+        if (e.url != "/main" && e.url != "/" && e.url[1] != '#' && e.url != "/login" && e.url != "/regist" && e.url !="/erro404") {
           this.valid = 2;
-        } else if (e.url != "/main" && e.url != "/" && e.url[1] != '#') {
+        } else if (e.url != "/main" && e.url != "/" && e.url[1] != '#' && e.url !="/erro404") {
           this.valid = 1;
         }
         else {

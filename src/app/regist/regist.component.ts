@@ -2,6 +2,7 @@ import { Router, ActivatedRoute } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ConfirmEqualValidatorDirective } from '../shared/confirm-equal-validator.directive';
+import { AuthService } from '../auth.service';
  
 @Component({
     selector: 'app-regist',
@@ -13,7 +14,7 @@ export class RegistComponent implements OnInit {
     registerForm: FormGroup;
     submitted = false;
  
-    constructor(private formBuilder: FormBuilder, private router: Router) { }
+    constructor(private formBuilder: FormBuilder, private router: Router, private auth: AuthService) { }
  
     ngOnInit() {
         this.registerForm = this.formBuilder.group({
@@ -24,6 +25,10 @@ export class RegistComponent implements OnInit {
         });
     }
  
+
+    get f() { return this.registerForm.controls; }
+
+
     onSubmit() {
         this.submitted = true;
  
@@ -31,7 +36,11 @@ export class RegistComponent implements OnInit {
         if (this.registerForm.invalid) {
             return;
         }
- 
+
+        let username = this.f.username.value;
+        let password = this.f.password.value;
+        this.auth.register(username, password)
+        
         this.router.navigate(['/homepage']);
     }
 }

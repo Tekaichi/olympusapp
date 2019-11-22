@@ -12,8 +12,8 @@ export class UserComponent implements OnInit {
   constructor() { 
 
     this.user ={
-      name :"Carlos"
-      
+      name :"Carlos",
+      password:"lol"
     }
   }
 
