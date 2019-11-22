@@ -6,32 +6,35 @@ $cyan: #60daaa;
 $yellow: #fbca67;
 $orange: #ff8a30;
 $red: #f45e61;
-$purple: #4c0a6b;
+$purple: #6477b9;
 $blue: #0eb7da;
-$white: #ffff;
 
-#getStarted, .icon {
-
-    border: 0;
-    margin: 0.5em;
-    padding: 0.5em 1em;
-    position: relative;
-    vertical-align: middle;
+// Basic styles
+.start, .icon {
+  background: none;
+  border: 0;
+  box-sizing: border-box;
   
+  padding: 0.5em 1em;
 
-    &::before,
-    &::after {
-      box-sizing: inherit;
-      content: '';
-      position: absolute;
-      width: 100%;
-      height: 100%;
-      transition:0.7s;
-    }
+  // Required, since we're setting absolute on pseudo-elements
+  position: relative;
+  vertical-align: middle;
+
+  &::before,
+  &::after {
+    box-sizing: inherit;
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    
   }
+  
+}
 
 .draw {
-    transition: color 0.25s;
+    transition:  0.25s;
 
   &::before,
   &::after {
@@ -54,7 +57,8 @@ $white: #ffff;
   }
   
   &:hover {
-    color: $cyan;
+    color: $background;
+    background-color: rgba(255, 255, 255, 0) !important;
   }
 
   // Hover styles
@@ -65,20 +69,20 @@ $white: #ffff;
   }
 
   &:hover::before {
-    border-top-color: $cyan; // Make borders visible
-    border-right-color: $cyan;
+    border-top-color: $background; // Make borders visible
+    border-right-color: $background;
     transition:
-      width 0.25s ease-out, // Width expands first
-      height 0.25s ease-out 0.25s; // And then height
+      width 0.2s ease-out, // Width expands first
+      height 0.2s ease-out 0.2s; // And then height
   }
 
   &:hover::after {
-    border-bottom-color: $cyan; // Make borders visible
-    border-left-color: $cyan;
+    border-bottom-color: $background; // Make borders visible
+    border-left-color: $background;
     transition:
       border-color 0s ease-out 0.5s, // Wait for ::before to finish before showing border
-      width 0.25s ease-out 0.5s, // And then exanding width
-      height 0.25s ease-out 0.75s; // And finally height
+      width 0.2s ease-out 0.5s, // And then exanding width
+      height 0.2s ease-out 0.75s; // And finally height
   }
 }
 
@@ -86,7 +90,7 @@ $white: #ffff;
 .meet {
   
   &:hover {
-    color: $yellow;
+    color: $background;
   }
 
   // Start ::after in same position as ::before
@@ -97,13 +101,13 @@ $white: #ffff;
 
   // Change colors
   &:hover::before {
-    border-top-color: $yellow;
-    border-right-color: $yellow;
+    border-top-color: $background;
+    border-right-color: $background;
   }
 
   &:hover::after {
-    border-bottom-color: $yellow;
-    border-left-color: $yellow;
+    border-bottom-color: $background;
+    border-left-color: $background;
     transition: // Animate height first, then width
       height 0.25s ease-out,
       width 0.25s ease-out 0.25s;
@@ -111,11 +115,10 @@ $white: #ffff;
 
 }
 
-
+// Does not inherit
 .center {
   &:hover {
-    color: $white;
-    background-color: #0b1635 !important;
+    color: $purple;
   }
 
   // Set up base styles, we're going to scale instead of animating width/height
@@ -130,37 +133,45 @@ $white: #ffff;
 
   // scale3d(<scale-horizontal>, <scale-vertical>, <scale-depth>);
   &::before {
-    border-top: 3px solid $white;
-    border-bottom: 3px solid $white;
+    border-top: 2px solid $purple;
+    border-bottom: 2px solid $purple;
     transform: scale3d(0,1,1); // Shrink only width
   }
 
   &::after {
-    border-left: 3px solid $white;
-    border-right: 3px solid $white;
+    border-left: 2px solid $purple;
+    border-right: 2px solid $purple;
     transform: scale3d(1,0,1); // Shrink only height
   }
 
   &:hover::before,
   &:hover::after {
     transform: scale3d(1,1,1); // Show full-size
-    transition: transform 1s;
+    transition: transform 0.5s;
   }
 }
 
+// Border spins around element
+// ::before holds three borders that appear separately, one at a time
+// ::after holds one border that spins around to cover ::before's borders, making their appearance seem smooth
+
 .spin {
-  width: 2em;
-  height: 2em;
-  padding: 0;
   
+  width: 3em;
+  height: 3em;
+  padding: 0;
+ 
+
   &:hover {
-    color: $purple;
+    color: $blue;
+    
   }
 
   &::before,
   &::after {
     top: 0;
     left: 0;
+    
   }
 
   &::before {
@@ -168,14 +179,15 @@ $white: #ffff;
   }
 
   &:hover::before {
-    border-top-color: $purple; // Show borders
-    border-right-color: $purple;
-    border-bottom-color: $purple;
+    border-top-color: $blue; // Show borders
+    border-right-color: $blue;
+    border-bottom-color: $blue;
 
     transition:
       border-top-color 0.15s linear, // Stagger border appearances
       border-right-color 0.15s linear 0.10s,
       border-bottom-color 0.15s linear 0.20s;
+      
   }
 
   &::after {
@@ -183,7 +195,7 @@ $white: #ffff;
   }
 
   &:hover::after {
-    border-top: 2px solid $purple; // Shows border
+    border-top: 2px solid $blue; // Shows border
     border-left-width: 2px; // Solid edges, invisible borders
     border-right-width: 2px; // Solid edges, invisible borders
     transform: rotate(270deg); // Rotate around circle
@@ -200,6 +212,43 @@ $white: #ffff;
   &::before,
   &::after {
     border-radius: 100%;
+  }
+}
+
+.thick {
+  color: $red;
+
+  &:hover {
+    color: #fff;
+    font-weight: 700;
+  }
+
+  &::before {
+    border: 2.5em solid transparent;
+    z-index: -1;
+  }
+
+  &::after {
+    mix-blend-mode: color-dodge;
+    z-index: -1;
+  }
+
+  &:hover::before {
+    background: $red;
+    border-top-color: $red;
+    border-right-color: $red;
+    border-bottom-color: $red;
+    transition:
+      background 0s linear 0.4s,
+      border-top-color 0.15s linear,
+      border-right-color 0.15s linear 0.15s,
+      border-bottom-color 0.15s linear 0.25s;
+  }
+
+  &:hover::after {
+    border-top: 2.5em solid $red;
+    border-left-width: 2.5em;
+    border-right-width: 2.5em;
   }
 }
 
