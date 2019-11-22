@@ -12,6 +12,10 @@ import { Router, NavigationEnd } from '@angular/router';
 export class AppComponent {
   valid = 0; //0 equals landing page & erro404, 1 login and register, 2 normal pages
 
+  userBar = ['homepage', 'procedures', 'proceduresManagement', 'division', 'analytics', 'logs', 'adddevice'];
+
+  logRegBar = ['login', 'regist'];
+
   title = 'Olympus';
   loggedIn: boolean;
   constructor(
@@ -39,10 +43,20 @@ export class AppComponent {
   routeEvent(router: Router) {
     router.events.subscribe(e => {
       if (e instanceof NavigationEnd) {
+
+        var link = e.url.substring(1);
+
+        link = link.substring(0, link.indexOf('/'));
+
+        if (!link)
+          link = e.url.substring(1)
+
         window.scrollTo(0, 0);
-        if (e.url != "/main" && e.url != "/" && e.url[1] != '#' && e.url != "/login" && e.url != "/regist" && e.url !="/erro404") {
+
+        if (this.userBar.includes(link)) {
+
           this.valid = 2;
-        } else if (e.url != "/main" && e.url != "/" && e.url[1] != '#' && e.url !="/erro404") {
+        } else if (this.logRegBar.includes(link)) {
           this.valid = 1;
         }
         else {

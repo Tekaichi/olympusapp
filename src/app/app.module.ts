@@ -38,8 +38,11 @@ const appRoutes: Routes = [
   { path: "", component: MainComponent },
   { path: "analytics", component: AnalyticsComponent },
   { path: "regist", component: RegistComponent },
-  { path: "erro404", component: Erro404Component }
-
+  {
+    path        : '**',
+    pathMatch   : 'full',
+    component   : Erro404Component
+}
 
 ];
 
