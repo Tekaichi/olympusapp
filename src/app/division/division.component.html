@@ -24,40 +24,41 @@
                             <img class="door" src="/assets/images/static-door.png">
                         </div>
                     </div>
+
                 </div>
 
             </div>
 
         </div>
+        <div style="width:5%"></div>
 
-    </div>
-    <div style="width:5%"></div>
+        <div style="width:13%">
+            <div class="margin-vertical">
 
-    <div style="width:13%">
-        <div class="margin-vertical">
+                <h3>Room info</h3>
+                <div *ngFor="let value of info">
+                    <p> {{ value.description }} : {{ value.value }}</p>
+                </div>
 
-            <h3>Room info</h3>
-            <div *ngFor="let value of info">
-                <p> {{ value.description }} : {{ value.value }}</p>
+
+                <button type="button" class="margin-vertical btn btn-dark btn-lg"
+                    style="text-align: center; line-height: 250%; width:90%; margin-top: 20%;"> Room Analytics </button>
             </div>
 
+            <button (click)="addDevice()" type="button" class="btn btn-dark btn-lg"
+                style="text-align: center; line-height: 250%; width:90%; margin-top: 20%; ">Add Device<span
+                    class="ml-3 h4">
+                    <i class="fa fa-plus"></i></span> </button>
 
-            <button type="button" class="margin-vertical btn btn-dark btn-lg"
-                style="text-align: center; line-height: 250%; width:90%; margin-top: 20%;"> Room Analytics </button>
+            <button (click)="editDivision()" type="button" class="btn btn-secondary btn-lg"
+                style="text-align: center; line-height: 250%; width:90%; margin-top: 30%;">Edit Devices<span
+                    class="ml-3 h4"> <i class="fa fa-edit"></i></span> </button>
+
+
+
+
         </div>
 
-        <button (click)="addDevice()" type="button" class="btn btn-dark btn-lg"
-            style="text-align: center; line-height: 250%; width:90%; margin-top: 20%; ">Add Device<span class="ml-3 h4">
-                <i class="fa fa-plus"></i></span> </button>
-
-        <button (click)="editDivision()" type="button" class="btn btn-secondary btn-lg"
-            style="text-align: center; line-height: 250%; width:90%; margin-top: 30%;">Edit Devices<span
-                class="ml-3 h4"> <i class="fa fa-edit"></i></span> </button>
-
-
-
-
+        <div style="width:10%"></div>
     </div>
-
-    <div style="width:10%"></div>
 </div>

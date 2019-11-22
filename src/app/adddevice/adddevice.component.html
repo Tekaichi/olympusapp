@@ -29,12 +29,10 @@
         <div class="modal-body" style="display: flex;">
           <div *ngFor="let device of devices">
             <!--Estas classes são só placeholders-->
-            <img class="icon" src={{device.states[1].image}} class="active" *ngIf="device == selectedType"
-              (click)="selectDevice(device.type)" />
+            <img class="icon" src={{device.states[1].image}} class="active" *ngIf="device == selectedType" (click)="selectDevice(device.type)" />
 
-            <img class="icon" src={{device.states[1].image}} *ngIf="device != selectedType"
-              (click)="selectDevice(device)" />
-          </div>
+            <img class="icon" src={{device.states[1].image}}  *ngIf="device != selectedType" (click)="selectDevice(device)" />
+          </div> 
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-outline-dark" (click)="open(searchdevice)">Select</button>
@@ -44,15 +42,16 @@
       <!-- Procura devices to tipo escolhido. Feedback adequando: se não encontrou nenhum indicar que não encontrou.-->
       <ng-template #searchdevice let-c="close" let-d="dismiss">
         <div class="modal-header">
-          <h4 class="modal-title" id="modal-basic-title">Select Device URL of {{ selectedType.type }}</h4>
+          <h4 class="modal-title" id="modal-basic-title">Select Device (*{{ selectedType.type }}*)</h4>
           <button type="button" class="close" aria-label="Close" (click)="d('Cross click')">
             <span aria-hidden="true">&times;</span>
           </button>
         </div>
         <div class="modal-body">
-          <div *ngFor="let url of selectedType.url" style="text-align: center;">
-            <button class="url" *ngIf="url == selectedUrl" class="activeurl" (click)="selectUrl(url)">{{url}}</button>
-            <button class="url" *ngIf="url != selectedUrl" (click)="selectUrl(url)">{{url}}</button>
+          <div *ngFor="let device of selectedType.devices" style="text-align: center;">
+           <button class="url" *ngIf="device.url == selectedUrl" class="activeurl"  (click)="selectUrl(url)">{{device.name}}</button>
+           <button class="url" *ngIf="device.url != selectedUrl" (click)="selectUrl(device.url)">{{device.name}}</button>
+
           </div>
 
         </div>
@@ -64,15 +63,13 @@
       <!-- atualiza de acordo com o URL escolhido-->
       <div class="form-group" style=" margin-top: 3%;">
         <label for="url">Device URL</label>
-        <input type="text" class="form-control" id="url" required [(ngModel)]="model.url" name="url" readonly>
-        <div [hidden]="url.valid" class="alert alert-danger">
-          Device Type and URL are required
-        </div>
+        <input type="text" class="form-control" id="url" [(ngModel)]="model.url" name="url" readonly>
+
       </div>
 
       <div style=" margin-top: 3%;">
 
-        <p>Drag to choose device position in {{ division.title }} </p>
+        <p>Drag to choose device position in {{ division.title }} </p> 
         <br>
 
         <div style="display:flex; flex-flow:column; left:5%;height:100%;width: 85%;">
@@ -80,8 +77,7 @@
             style="position:relative;text-align:center;border:0.5px solid black;background-color: lightgray;">
             <div #layout class="division" [ngStyle]="{'width.vw':  width, 'height.vw' : height }">
               <div #addeddevice>
-                <img cdkDragBoundary=".division" cdkDrag *ngIf="selectedType != null" class="toDrag"
-                  src={{selectedType.states[1].image}}>
+                <img  cdkDragBoundary=".division" cdkDrag  *ngIf="selectedType != null" class="toDrag" src={{selectedType.states[1].image}}> 
               </div>
               <div *ngFor="let device of division.devices">
                 <span class="device" [ngStyle]="{'top.vw':device.position.y*ratio-1.5, 'left.vw':device.position.x*ratio-1.5}">
@@ -101,25 +97,9 @@
 
         <button (click)="goToDivision()" type="button" class="btn btn-danger"
           style="text-align: center; line-height: 250%; width:30%; margin-left: -30%;">Cancel</button>
-        <button class="btn btn-success"
+        <button type="submit" class="btn btn-success"
           style="text-align: center; line-height: 250%; width:30%; margin-left: 10%;"
           [disabled]="!deviceForm.form.valid">Submit</button></div>
 
-      <ng-template #submit let-c="close" let-d="dismiss">
-        <div class="modal-header">
-          <h4 class="modal-title" id="modal-basic-title">Submit</h4>
-          <button type="button" class="close" aria-label="Close" (click)="d('Cross click')">
-            <span aria-hidden="true">&times;</span>
-          </button>
-        </div>
-        <div class="modal-body">
-          Are you sure you want to add <b>{{ selectedType.type }}</b> in <b>{{ division.title }}</b>?
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-outline-dark" (click)="goToDivision()">Cancel</button>
-          <button type="button" class="btn btn-outline-dark"
-            (click)="c('Save click');save();goToDivision()">Confirm</button>
-        </div>
-      </ng-template>
-
- 
+    </form>
+  </div>

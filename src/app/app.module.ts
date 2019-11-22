@@ -49,7 +49,8 @@ const appRoutes: Routes = [
     path: '**',
     pathMatch: 'full',
     component: Erro404Component
-  },
+  }
+  
 
 
 ];
