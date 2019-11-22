@@ -25,6 +25,7 @@ export class AdddeviceComponent implements OnInit {
   closeResult: string;
   activeModal: NgbActiveModal ;
   selectedUrl : String;
+  ratio : number;
   constructor(private route: ActivatedRoute, private router: Router, private modalService: NgbModal, private deviceService: DevicesService, private divisionService: DivisionService) {
 
   }
@@ -76,8 +77,10 @@ export class AdddeviceComponent implements OnInit {
 
         let area = this.width * this.height;
 
-        let ratio = maxarea / area;
+      
 
+        let ratio =  Math.sqrt(maxarea/area);
+        this.ratio = ratio;
         this.width *= Math.sqrt(ratio);
         this.height *= Math.sqrt(ratio)
 
@@ -87,8 +90,8 @@ export class AdddeviceComponent implements OnInit {
 
   onSubmit() {
   this.submitted = true;
-
-    console.log(this.model);
+this.submit();
+  
   }
 
   newDevice() {
@@ -123,8 +126,35 @@ export class AdddeviceComponent implements OnInit {
   submit():void{
 
   let child = this.posDev.nativeElement.children[0];
-  console.log(child);
+
+
+  let transform:string = child.style.webkitTransform;
   
+ 
+  let webkit = transform.substr(transform.indexOf("(")+1,transform.lastIndexOf(")"));
+  let vals = webkit.split(",");
+  let x :number= +vals[0].replace("px","");
+  let y:number= +vals[1].replace("px","");
+  
+  if(x < 0){
+    x = 0;
+  }
+  if(y < 0){
+    y = 0;
+  }
+
+  //WTF, this kinda works ? ?_?
+  this.model.position ={
+    x:x/10,
+    y:y/10
+  }
+  //get a proper fix for this.
+  
+ 
+  this.deviceService.add(this.model,this.division);
+  
+  
+  this.router.navigate(["/division",this.division.id]);
   }
 
 }

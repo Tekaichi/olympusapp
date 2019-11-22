@@ -1,17 +1,22 @@
 import { Device, State } from './device';
+import { Division } from './Division';
+import { DevicesService } from 'src/app/devices.service';
+
 
 export class Procedure {
-    name : String;
+    id: number;
+    name : string;
     actions : DivisionActions[];
-
-    constructor(name:String, actions : DivisionActions[]){
+    constructor(name:string, actions : DivisionActions[],id:number){
     this.name = name;
     this.actions = actions;
+    this.id = id;
     }
-    public run(): Boolean{
+    public run(devicesService: DevicesService): Boolean{
         this.actions.forEach((action)=>{
             action.actions.forEach((execute)=>{
 
+                devicesService.stateChange(execute.device);
                 execute.device.currentState = execute.goalState;
             });
         })
@@ -21,7 +26,9 @@ export class Procedure {
 }
 
 export class DivisionActions {
-    name : String;
+    division: Division;
+    id: number;
+    name : string;
     actions: Action[];
 }
 

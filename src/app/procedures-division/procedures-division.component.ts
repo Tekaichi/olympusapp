@@ -12,6 +12,7 @@ import { ProcedureService } from '../procedures.service';
 })
 export class ProceduresDivisionComponent implements OnInit {
 
+  isEdit : boolean; //If this division action is being edited
   id:number;
   division : Division;
   title :String;
@@ -19,17 +20,37 @@ export class ProceduresDivisionComponent implements OnInit {
   width : number;
   height : number;
   selectedActions :Action[];
+  ratio : number;
+  isProcedureEdit : boolean; //If the whole procedure is being edited
   constructor(private route : ActivatedRoute, private divisionService: DivisionService,private proceduresService: ProcedureService, private router : Router) {
 
-  
+ 
    }
 
   ngOnInit() {
     let id = +this.route.snapshot.paramMap.get('id');
     this.id =  id;
     this.getDivision(id);
-    this.proceduresService.newDivisionAction(this.division.title);
+    let dActionId = this.route.snapshot.paramMap.get("action");
+    console.log(this.route.snapshot.url);
+    let size = this.route.snapshot.url.length;
+    
+   if(this.route.snapshot.url[size-1].toString() == 'edit'){
+     console.log("?");
+     this.isProcedureEdit = true;
+   }else{
+     this.isProcedureEdit = false;
+   }
+     
+    if(dActionId){
+      this.isEdit = true;
+      this.selectedActions = this.proceduresService.getActionsOf(+dActionId);
+    }else{
+      this.isEdit = false;
+    this.proceduresService.newDivisionAction(this.division.title,this.division);
     this.selectedActions = this.proceduresService.getActions();
+    }
+   
   }
   getDivision(id:number):void{
     this.divisionService.getDivision(id).subscribe(
@@ -48,19 +69,29 @@ export class ProceduresDivisionComponent implements OnInit {
 
         let area = this.width* this.height;
 
-        let ratio = maxarea/area;
-
-        this.width *= Math.sqrt(ratio);
-        this.height *= Math.sqrt(ratio)
+        let ratio = Math.sqrt(maxarea/area);
+        this.ratio = ratio;
+        this.width *= ratio;
+        this.height *= ratio;
 
        }
     );
   }
   saveDivAction():void{
+    if(this.isProcedureEdit){
+      this.router.navigate(["/proceduresManagement",this.proceduresService.getProcedure().id]);
+    }else{
     this.router.navigate(["/proceduresManagement"]);
+    }
   }
   cancel(): void{
-    this.proceduresService.deleteDivisionAction();
+    if(!this.isEdit){
+      this.proceduresService.deleteDivisionAction();
+    }
+    if(this.isProcedureEdit){
+      this.router.navigate(["/proceduresManagement",this.proceduresService.getProcedure().id]);
+    }else{
     this.router.navigate(["/proceduresManagement"]);
+    }
   }
 }

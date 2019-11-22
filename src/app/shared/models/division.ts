@@ -1,7 +1,7 @@
 import {Info} from '../models/info';
 import {Device} from '../models/device';
 export class Division{
-    title: String;
+    title: string;
     info: Info[];
     layout: Layout;
     devices : Device[];
