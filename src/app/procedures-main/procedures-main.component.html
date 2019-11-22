@@ -1,3 +1,6 @@
+<br>
+<br>
+
 <div class=" container row mt-5 ml-5">
     <div class="col w-25">
         <div class="input-group input-group-lg ">
@@ -12,7 +15,7 @@
 
     <div class="col text-center">
 
-        <button type="button" class="btn btn-dark btn-lg">Create new Procedure <span class="ml-2 h4"> <i
+        <button type="button" (click)="createProcedure()" class="btn btn-dark btn-lg">Create new Procedure <span class="ml-2 h4"> <i
                     class="fa fa-plus"></i></span> </button>
 
     </div>
@@ -31,7 +34,7 @@
         </thead>
         <tbody>
             <tr *ngFor="let procedure of procedures">
- 
+                
                 <td>{{ procedure.name }}</td>
                 <td>
                     <a  class=" h4"> <i class=" text-white fa fa-info-circle"></i></a>
@@ -42,7 +45,7 @@
                             class="text-white fa fa-trash"></i></a>
                 </td>
                 <td>
-                    <a href="run/{{ procedure.id }} "class="h4" > <i class="text-success fa fa-play"></i></a>
+                    <button class="run"(click)="run(procedure)"> <i class="text-success fa fa-play"></i></button>
                 </td>
             </tr>
 

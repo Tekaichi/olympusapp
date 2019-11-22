@@ -66,9 +66,9 @@ this.setTime();
     this.modalService.open(content, { ariaLabelledBy: 'modal-basic-title' }).result.then((result) => {
       this.closeResult = `Closed with: ${result}`;
       if (result == "Confirm") {
-        //console.log(procedure.id)
+        
         this.alertService.success("Procedure "+procedure.name+" was successfully executed!");
-        this.runProcedure(procedure.id);
+        this.runProcedure(procedure);
       }
     }, (reason) => {
       this.closeResult = `Dismissed ${this.getDismissReason(reason)}`;
@@ -76,8 +76,8 @@ this.setTime();
   }
 
   //Placeholder para dar run do procedure
-  runProcedure(id: number) {
-
+  runProcedure(procedure: Procedure) {
+    procedure.run();
   }
 
   private getDismissReason(reason: any): string {

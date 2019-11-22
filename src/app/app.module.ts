@@ -21,6 +21,8 @@ import { AdddeviceComponent } from './adddevice/adddevice.component';
 import { DeleteProcedureComponent } from './procedures-main/delete-procedure/delete-procedure.component';
 import { DeviceComponent } from './device/device.component';
 import { ConfirmEqualValidatorDirective } from './shared/confirm-equal-validator.directive';
+import { ProceduresDivisionComponent } from './procedures-division/procedures-division.component';
+import { ProceduredeviceComponent } from './proceduredevice/proceduredevice.component';
 
 
 const appRoutes: Routes = [
@@ -35,7 +37,8 @@ const appRoutes: Routes = [
   { path: "main", component: MainComponent },
   { path: "", component: MainComponent },
   { path: "analytics", component: AnalyticsComponent },
-  { path: "regist", component: RegistComponent }
+  { path: "regist", component: RegistComponent },
+  {path :"divisionprocedures/:id", component:ProceduresDivisionComponent}
 
 
 ];
@@ -57,7 +60,9 @@ const appRoutes: Routes = [
     LogsComponent,
     DeviceComponent,
     RegistComponent,
-    ConfirmEqualValidatorDirective
+    ConfirmEqualValidatorDirective,
+    ProceduresDivisionComponent,
+    ProceduredeviceComponent
     
 
   ],
