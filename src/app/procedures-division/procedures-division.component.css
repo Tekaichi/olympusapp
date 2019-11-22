@@ -1,0 +1,111 @@
+a {
+  
+    height:10%;
+    float:left;
+    width:100%;
+    text-align: center;
+    line-height: 250%;
+    
+  }
+  
+  .margin-vertical{
+      margin-top:5%;
+      margin-bottom: 20%;
+  }
+  
+  .edit{
+      position: relative;
+      bottom:10%;
+  }
+  
+  :host ::ng-deep .division{
+      position:relative;
+      background-color:white;
+      margin:0 auto;
+      margin-top:2vw;
+      margin-bottom:2vw;
+      border:1px solid black;
+  }
+  
+  :host ::ng-deep .device{
+      position:absolute;
+  }
+  
+  .device{
+      position: absolute;
+  }
+  
+  .editicons{
+      position: absolute;
+      right:-0.3vw;
+      top:-0.2vw;
+      width:1.5vw;
+      border-radius: 1vw;
+      height:4vw;
+      z-index: 1;
+  }
+  .editicons:hover{
+  background-color: whitesmoke;
+  
+  }
+  
+  .edit{
+     
+      position: relative;
+      z-index: 1;
+      top:-0.1vw;
+     
+   
+    
+   
+  }
+  .move{
+      position: relative;
+      top:-0.8vw;
+      z-index: 1;
+    
+   
+    
+   
+  }
+  
+  .delete{
+      position: relative;
+      top:-0.5vw;
+      z-index: 1;
+     
+     
+     
+   
+  }
+  
+  .move:hover{
+      animation: shake 0.8s;
+      cursor:pointer;
+  }
+  .edit:hover{
+      animation: shake 0.8s;
+      cursor:pointer;
+  }
+  
+  .delete:hover{
+      animation: shake 0.8s;
+      cursor: pointer;
+  }
+  
+  .icon {
+      width:3vw;
+      height:3vw;
+  }
+  
+  @keyframes shake {
+      10%,30%,50%,70%, 90% {
+        transform: translate3d(-1px, 1px, 0);
+      }
+      
+      20%,40%,60%, 80% {
+        transform: translate3d(1px, -1px, 0);
+      }
+    
+     
+    }

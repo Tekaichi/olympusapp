@@ -1,0 +1,16 @@
+
+    :host ::ng-deep .division { 
+        background-color: white;
+        position: absolute;
+        margin:0 auto;
+        border:0.8px solid darkgray;
+        
+        
+
+      }
+
+      :host ::ng-deep .division:hover{ 
+        background-color: gray;
+        /*margin: 0.5vw;
+        z-index: 1;*/
+      }

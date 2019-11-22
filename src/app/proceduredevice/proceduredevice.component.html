@@ -1,0 +1,27 @@
+
+    <div class="dropright">
+            <button data-display="static" 
+            data-toggle="dropdown">   
+            <div class="wrapper">
+            <img  class="icon" src={{getStateImage()}}> 
+       
+        
+              </div>
+            <div class="dropdown-menu">
+                
+                <div *ngFor="let state of device.device.states">
+                    
+                    <p>
+                        <button class="btn action" (click)="setState(state)">{{state.action}}
+                            </button>
+                        </p>
+                </div>
+          
+         </div>
+         </button>
+        </div>
+        
+        
+          
+            
+            

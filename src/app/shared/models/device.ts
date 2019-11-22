@@ -15,8 +15,13 @@ export class SystemDevice{
     states : State[]
     
     actions: Action[];
-    url: String[];
+    devices: PhysicalDevice[];
 
+}
+export class PhysicalDevice{
+
+    url:String;
+    name: String;
 }
 //This kind of state works for discrete states. What about continuous ones?
 export class State{
