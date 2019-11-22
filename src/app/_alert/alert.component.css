@@ -13,9 +13,9 @@
     0% { opacity: 0; }
     10%  { opacity: 1; }
     70% {opacity:1;}
-    90% {opacity:0;}
+    90% {opacity:0}
     100%{opacity:0;
-     display: none;}
+     display: none;     }
 
 }
 
@@ -23,9 +23,8 @@
 .main div{
     height:3vw;
     animation: fade 10s;
-      
-  
 }
+
 span{
     bottom: 1vw;
     position: relative;

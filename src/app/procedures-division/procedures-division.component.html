@@ -1,0 +1,36 @@
+<br>
+<br>
+<br>
+<br>
+<h3 style="text-align: center;">{{ title }}</h3>
+<div class="d-flex" style="text-align:center;margin-top:2%;margin-left:3%;margin-bottom:1vw;">
+
+
+    <div style="left:5%;height:100%;width: 55%;">
+        <div name="layout"
+            style="position:relative;text-align:center;border:0.5px solid black;background-color: lightgray;">
+            <div #layout class="division" [ngStyle]="{'width.vw':  width, 'height.vw' : height }">
+                <div *ngFor="let device of division.devices">
+                    <span class="device" [ngStyle]="{'top.vw':device.position.y-1.5, 'left.vw':device.position.x-1.5}">
+
+                      
+                        <app-proceduredevice [division]='division' [device]='device'></app-proceduredevice>
+                    </span>
+                </div>
+                <div *ngFor="let door of division.doors">
+                    <div class="device" [ngStyle]="{'top.vw':door.y-1.5, 'left.vw':door.x-1.5}">
+                        <div class="wrapper">
+                            <img class="icon" src="/assets/images/door-closed.png">
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            
+        </div>
+
+        <div *ngFor ="let actions of selectedActions"> {{actions.device.name}} {{actions.goalState.description}} </div> 
+
+        <button (click)="saveDivAction()" class="btn btn-success">Confirmar</button>
+        <button (click)="cancel()" class="btn btn-warning">Cancelar</button>
+    </div>
