@@ -6,6 +6,7 @@ import {Procedure} from '../shared/models/procedures';
 import { MOCKPROCEDURES } from '../mocks/mockprocedures';
 import { Router } from '@angular/router';
 import { ProcedureService } from '../procedures.service';
+import { DevicesService } from '../devices.service';
 
 
 @Component({
@@ -16,7 +17,7 @@ import { ProcedureService } from '../procedures.service';
 
 export class ProceduresMainComponent implements OnInit {
   procedures: Procedure[]
-  constructor(private deleteProcedureComponent: DeleteProcedureService, private router:Router, private proceduresService : ProcedureService) {
+  constructor(private deleteProcedureComponent: DeleteProcedureService, private router:Router, private proceduresService : ProcedureService,private devicesService : DevicesService) {
    
    
 
@@ -42,6 +43,12 @@ export class ProceduresMainComponent implements OnInit {
   }
 
   run(procedure: Procedure) : void{
+    procedure.run(this.devicesService);
+  }
+
+  edit(id :number): void{
     
+    this.router.navigate(["/proceduresManagement",id]);
+
   }
 }

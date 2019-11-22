@@ -84,8 +84,8 @@
                   src={{selectedType.states[1].image}}>
               </div>
               <div *ngFor="let device of division.devices">
-                <span class="device" [ngStyle]="{'top.vw':device.position.y-1.5, 'left.vw':device.position.x-1.5}">
-                  <app-device [device]='device'></app-device>
+                <span class="device" [ngStyle]="{'top.vw':device.position.y*ratio-1.5, 'left.vw':device.position.x*ratio-1.5}">
+                  <app-device  [device]='device'></app-device>
                 </span>
               </div>
 
@@ -103,7 +103,7 @@
           style="text-align: center; line-height: 250%; width:30%; margin-left: -30%;">Cancel</button>
         <button class="btn btn-success"
           style="text-align: center; line-height: 250%; width:30%; margin-left: 10%;"
-          (click)="open(submit)">Submit</button></div>
+          [disabled]="!deviceForm.form.valid">Submit</button></div>
 
       <ng-template #submit let-c="close" let-d="dismiss">
         <div class="modal-header">
@@ -122,7 +122,4 @@
         </div>
       </ng-template>
 
-    </form>
-  </div>
-  <br><br>
-</div>
+ 

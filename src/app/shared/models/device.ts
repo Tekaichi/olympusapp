@@ -5,8 +5,12 @@ export class Device {
         x: number,
         y: number
     }
-    device: SystemDevice
+    device: SystemDevice;
     currentState : State;
+    show: boolean;
+
+    
+
 }
 
 export class SystemDevice{

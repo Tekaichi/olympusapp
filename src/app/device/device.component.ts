@@ -3,6 +3,7 @@ import { Device, State } from '../shared/models/device';
 import { LogService } from '../logs.service';
 import { Division } from '../shared/models/Division';
 import { AlertService } from '../_alert';
+import { DevicesService } from '../devices.service';
 
 @Component({
   selector: 'app-device',
@@ -18,15 +19,12 @@ export class DeviceComponent implements OnInit {
   @Input()
   device : Device;
   currentState : State;
-  constructor(private logService :LogService,private alertService : AlertService) { 
+  constructor(private logService :LogService,private alertService : AlertService,private deviceService : DevicesService) { 
  
  
   }
 
-  getStateImage(): String{
-    return this.currentState.image;
-    
-  }
+ 
   ngOnInit() {
    
   
@@ -40,6 +38,9 @@ export class DeviceComponent implements OnInit {
     //Add feedback to notification thingie
 
     this.alertService.success(this.device.name + " was " + this.currentState.action);
+   
+    this.deviceService.stateChange(this.device);
+    
   }
 
   
