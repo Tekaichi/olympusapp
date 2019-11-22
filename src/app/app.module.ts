@@ -23,6 +23,8 @@ import { DeviceComponent } from './device/device.component';
 import { ConfirmEqualValidatorDirective } from './shared/confirm-equal-validator.directive';
 import { GoBackButton } from "./goBackButton/goBack.component";
 import { Erro404Component } from './erro404/erro404.component';
+import { ProceduresDivisionComponent } from './procedures-division/procedures-division.component';
+import { ProceduredeviceComponent } from './proceduredevice/proceduredevice.component';
 
 
 const appRoutes: Routes = [
@@ -38,7 +40,7 @@ const appRoutes: Routes = [
   { path: "", component: MainComponent },
   { path: "analytics", component: AnalyticsComponent },
   { path: "regist", component: RegistComponent },
-  { path: "erro404", component: Erro404Component }
+  {path :"divisionprocedures/:id", component:ProceduresDivisionComponent}
 
 
 ];
@@ -61,9 +63,9 @@ const appRoutes: Routes = [
     DeviceComponent,
     RegistComponent,
     ConfirmEqualValidatorDirective,
-    GoBackButton,
-    Erro404Component
-
+    ProceduresDivisionComponent,
+    ProceduredeviceComponent
+    
 
   ],
   imports: [

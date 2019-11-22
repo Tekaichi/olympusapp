@@ -16,3 +16,18 @@
     text-align: left;
     vertical-align: middle;
   }
+
+  .run{
+    background: none;
+    border: 0px;
+  }
+
+  .run:hover{
+
+    border-radius: 1vw;
+    border:0.5px solid gray;
+    background-color: whitesmoke;
+
+    }
+
+ 
