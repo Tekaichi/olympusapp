@@ -26,7 +26,7 @@
 
                             <td>{{ action.name }}</td>
                             <td>
-                                <a href="edit/{{action.id }}" class=" h4"> <i class="text-warning fa fa-edit"></i></a>
+                                <a (click)="edit(action.id)" class=" h4"> <i class="text-warning fa fa-edit"></i></a>
 
                             </td>
                         </tr>

@@ -35,12 +35,14 @@ const appRoutes: Routes = [
   { path: "adddevice/:id", component: AdddeviceComponent },
   { path: "procedures", component: ProceduresMainComponent },
   { path: "proceduresManagement", component: ProcedurespageComponent },
+  { path: "proceduresManagement/:id", component: ProcedurespageComponent },
   { path: "logs", component: LogsComponent },
   { path: "main", component: MainComponent },
   { path: "", component: MainComponent },
   { path: "analytics", component: AnalyticsComponent },
   { path: "regist", component: RegistComponent },
-  {path :"divisionprocedures/:id", component:ProceduresDivisionComponent}
+  {path :"divisionprocedures/:id", component:ProceduresDivisionComponent},
+  {path :"divisionprocedures/:id/edit/:action", component:ProceduresDivisionComponent}
 
 
 ];

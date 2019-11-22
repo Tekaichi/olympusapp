@@ -1,12 +1,14 @@
 import { Device, State } from './device';
+import { Division } from './Division';
 
 export class Procedure {
-    name : String;
+    id: number;
+    name : string;
     actions : DivisionActions[];
-
-    constructor(name:String, actions : DivisionActions[]){
+    constructor(name:string, actions : DivisionActions[],id:number){
     this.name = name;
     this.actions = actions;
+    this.id = id;
     }
     public run(): Boolean{
         this.actions.forEach((action)=>{
@@ -21,7 +23,9 @@ export class Procedure {
 }
 
 export class DivisionActions {
-    name : String;
+    division: Division;
+    id: number;
+    name : string;
     actions: Action[];
 }
 

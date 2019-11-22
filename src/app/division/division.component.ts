@@ -11,7 +11,6 @@ import { Router, ActivatedRoute } from '@angular/router';
 export class DivisionComponent implements OnInit {
 
   
-  @ViewChild('editButton',{static:true}) editButton : ElementRef;
 
   
   edit : Boolean;
@@ -60,11 +59,7 @@ export class DivisionComponent implements OnInit {
 
   editDivision(){
    this.edit = !this.edit;
-   if(!this.edit){
-      this.editButton.nativeElement.innerText = "Edit Division";
-   }else{
-    this.editButton.nativeElement.innerText = "Finish Edition";
-   }
+ 
   }
   ngOnInit() {
     

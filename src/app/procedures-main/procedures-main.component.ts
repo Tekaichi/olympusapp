@@ -42,6 +42,12 @@ export class ProceduresMainComponent implements OnInit {
   }
 
   run(procedure: Procedure) : void{
+    procedure.run();
+  }
+
+  edit(id :number): void{
     
+    this.router.navigate(["/proceduresManagement",id]);
+
   }
 }

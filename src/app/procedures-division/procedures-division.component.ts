@@ -12,6 +12,7 @@ import { ProcedureService } from '../procedures.service';
 })
 export class ProceduresDivisionComponent implements OnInit {
 
+  isEdit : boolean;
   id:number;
   division : Division;
   title :String;
@@ -21,15 +22,24 @@ export class ProceduresDivisionComponent implements OnInit {
   selectedActions :Action[];
   constructor(private route : ActivatedRoute, private divisionService: DivisionService,private proceduresService: ProcedureService, private router : Router) {
 
-  
+  this.isEdit = false;
    }
 
   ngOnInit() {
     let id = +this.route.snapshot.paramMap.get('id');
     this.id =  id;
     this.getDivision(id);
-    this.proceduresService.newDivisionAction(this.division.title);
+    let dActionId = this.route.snapshot.paramMap.get("action");
+
+    if(dActionId){
+      this.isEdit = true;
+      this.selectedActions = this.proceduresService.getActionsOf(+dActionId);
+    }else{
+      this.isEdit = false;
+    this.proceduresService.newDivisionAction(this.division.title,this.division);
     this.selectedActions = this.proceduresService.getActions();
+    }
+   
   }
   getDivision(id:number):void{
     this.divisionService.getDivision(id).subscribe(
@@ -60,7 +70,9 @@ export class ProceduresDivisionComponent implements OnInit {
     this.router.navigate(["/proceduresManagement"]);
   }
   cancel(): void{
-    this.proceduresService.deleteDivisionAction();
+    if(!this.isEdit){
+      this.proceduresService.deleteDivisionAction();
+    }
     this.router.navigate(["/proceduresManagement"]);
   }
 }

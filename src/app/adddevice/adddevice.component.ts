@@ -87,8 +87,8 @@ export class AdddeviceComponent implements OnInit {
 
   onSubmit() {
   this.submitted = true;
-
-    console.log(this.model);
+this.submit();
+  
   }
 
   newDevice() {
@@ -123,8 +123,33 @@ export class AdddeviceComponent implements OnInit {
   submit():void{
 
   let child = this.posDev.nativeElement.children[0];
-  console.log(child);
+
+
+  let transform:string = child.style.webkitTransform;
   
+ 
+  let webkit = transform.substr(transform.indexOf("(")+1,transform.lastIndexOf(")"));
+  let vals = webkit.split(",");
+  let x :number= +vals[0].replace("px","");
+  let y:number= +vals[1].replace("px","");
+  
+  if(x < 0){
+    x = 0;
+  }
+  if(y < 0){
+    y = 0;
+  }
+
+  this.model.position ={
+    x:x,
+    y:y
+  }
+  
+  
+  this.deviceService.add(this.model,this.division);
+
+  console.log("Model:" ,this.model);
+  this.router.navigate(["/division",this.division.id]);
   }
 
 }

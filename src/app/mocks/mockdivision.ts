@@ -1,5 +1,5 @@
 import { Division } from "../shared/models/division";
-import { SystemDevice } from "../shared/models/device";
+import { SystemDevice, Device } from "../shared/models/device";
 
 
 

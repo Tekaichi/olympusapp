@@ -99,22 +99,9 @@
           style="text-align: center; line-height: 250%; width:30%; margin-left: -30%;">Cancel</button>
         <button type="submit" class="btn btn-success"
           style="text-align: center; line-height: 250%; width:30%; margin-left: 10%;"
-          [disabled]="!deviceForm.form.valid" (click)="submit()">Submit</button></div>
+          [disabled]="!deviceForm.form.valid">Submit</button></div>
 
     </form>
   </div>
 
-  <!-- opens modal instead-->
-  <div [hidden]="!submitted">
-    <h2>You submitted the following:</h2>
-    <div class="row">
-      <div class="col-xs-3">Name: </div>
-      <div class="col-xs-9">{{ model.name }}</div>
-    </div>
-    <div class="row">
-      <div class="col-xs-3">Url: </div>
-      <div class="col-xs-9">{{ model.url }}</div>
-    </div>
-  </div>
-  <br><br>
-</div>
+ 
