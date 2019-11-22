@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { Observable, of } from 'rxjs';
 import { User } from './shared/models/user';
 
-let users = [{ username: 'Jason', password: 'test' }, { username: 'kappa', password: 'test2' }];
+let users = [{ name: 'Jason', password: 'test' }, { name: 'kappa', password: 'test2' }];
 
 @Injectable({
     providedIn: 'root'
@@ -13,10 +13,11 @@ export class AuthService {
 
     constructor() {
         this.currentUser = null;
+        
     }
 
 
-    login(username, password) {
+    login(name, password) {
         var i;
         //console.log(123);
         //console.log(users);
@@ -24,7 +25,7 @@ export class AuthService {
             //console.log(1123123);
             //console.log(username);
             //console.log(users[i]);
-            if (users[i].username == username && users[i].password == password) {
+            if (users[i].name == name && users[i].password == password) {
                 this.currentUser = users[i];
                 //console.log(this.currentUser);
                 return true;
@@ -38,9 +39,9 @@ export class AuthService {
         return this.currentUser;
     }
 
-    register(username, password) {
+    register(name, password) {
         var u = {
-            username,
+            name,
             password
         }
         users.push(u);

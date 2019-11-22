@@ -1,1 +1,36 @@
-@import "~bootstrap/dist/css/bootstrap.css"
+@import "~bootstrap/dist/css/bootstrap.css";
+
+.bg-degrade{
+    background-image: linear-gradient( 120deg, #070d2c ,  #58b9ce);
+}
+.text-blueish{
+    color : #2adbef !important;
+}
+
+.text-blueosh{
+    color : #070d2c !important;
+}
+
+.btn-blueish{
+    background-color: #2adbef !important;
+}
+
+.border-blueosh{
+    border-color: #070d2c !important;
+}
+
+.s-1-5{
+    font-size: 1.7rem;
+}
+
+.bg-black{
+    background-color: black;
+  }
+  .pointer{
+    cursor: pointer;
+}  
+
+.vh-100{
+    height: 100vh;
+}
+

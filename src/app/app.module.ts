@@ -22,6 +22,7 @@ import { DeleteProcedureComponent } from './procedures-main/delete-procedure/del
 import { DeviceComponent } from './device/device.component';
 import { ConfirmEqualValidatorDirective } from './shared/confirm-equal-validator.directive';
 import { GoBackButton } from "./goBackButton/goBack.component";
+import { Erro404Component } from './erro404/erro404.component';
 
 
 const appRoutes: Routes = [
@@ -36,7 +37,8 @@ const appRoutes: Routes = [
   { path: "main", component: MainComponent },
   { path: "", component: MainComponent },
   { path: "analytics", component: AnalyticsComponent },
-  { path: "regist", component: RegistComponent }
+  { path: "regist", component: RegistComponent },
+  { path: "erro404", component: Erro404Component }
 
 
 ];
@@ -59,7 +61,8 @@ const appRoutes: Routes = [
     DeviceComponent,
     RegistComponent,
     ConfirmEqualValidatorDirective,
-    GoBackButton
+    GoBackButton,
+    Erro404Component
 
 
   ],
