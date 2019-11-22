@@ -13,8 +13,10 @@ export class UserComponent implements OnInit {
 
     this.user ={
       name :"Carlos",
+      //initial : "C",
       password:"lol"
     }
+
   }
 
   ngOnInit() {
