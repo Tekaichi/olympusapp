@@ -36,7 +36,7 @@ export class ProcedurespageComponent implements OnInit {
       this.isEdit = true;
      
     }else{
-      this.router.navigate(['/procedures']);
+     
       this.actions = this.proceduresService.getDivisionActions();
 
     }

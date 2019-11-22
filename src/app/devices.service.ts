@@ -21,6 +21,6 @@ export class DevicesService {
     division.devices.push(device);
     console.log(division);
   }
-  //Execute action of device
-  //Check if the device model is ok for this thing
+  //Execute action of device -- needed to integrate with a backend
+
 }

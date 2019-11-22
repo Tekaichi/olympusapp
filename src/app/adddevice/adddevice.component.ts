@@ -140,15 +140,17 @@ this.submit();
     y = 0;
   }
 
+  //WTF, this kinda works ? ?_?
   this.model.position ={
-    x:x,
-    y:y
+    x:x/10,
+    y:y/10
   }
+  //get a proper fix for this.
   
-  
+ 
   this.deviceService.add(this.model,this.division);
-
-  console.log("Model:" ,this.model);
+  
+  
   this.router.navigate(["/division",this.division.id]);
   }
 

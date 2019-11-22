@@ -22,7 +22,7 @@ export class DivisionComponent implements OnInit {
   height : number;
   
   constructor(private divisionService : DivisionService,  private route : ActivatedRoute,private router: Router) {
- this.edit = false;
+    this.edit = false;
    }
 
    getDivision(id:number):void{
@@ -66,6 +66,8 @@ export class DivisionComponent implements OnInit {
     let id = +this.route.snapshot.paramMap.get('id');
     this.id =  id;
     this.getDivision(id);
+    console.log("Division:" ,this.division);
+    console.log("Devices: ", this.division.devices);
     this.edit = false;
   }
  
