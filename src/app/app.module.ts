@@ -40,7 +40,12 @@ const appRoutes: Routes = [
   { path: "", component: MainComponent },
   { path: "analytics", component: AnalyticsComponent },
   { path: "regist", component: RegistComponent },
-  {path :"divisionprocedures/:id", component:ProceduresDivisionComponent}
+  { path: "divisionprocedures/:id", component: ProceduresDivisionComponent },
+  {
+    path: '**',
+    pathMatch: 'full',
+    component: Erro404Component
+  }
 
 
 ];
@@ -65,7 +70,7 @@ const appRoutes: Routes = [
     ConfirmEqualValidatorDirective,
     ProceduresDivisionComponent,
     ProceduredeviceComponent
-    
+
 
   ],
   imports: [
