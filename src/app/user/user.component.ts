@@ -9,12 +9,12 @@ import { User } from '../shared/models/user';
 export class UserComponent implements OnInit {
 
   user : User;
-  initial : string;
   constructor() { 
 
     this.user ={
       name :"Carlos",
-      initial : "C"
+      //initial : "C",
+      password:"lol"
     }
 
   }
