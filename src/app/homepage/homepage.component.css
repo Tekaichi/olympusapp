@@ -1,3 +1,8 @@
+:host ::ng-deep .device{
+  position: absolute;
+}
+
+
 
 
     :host ::ng-deep .division { 
@@ -43,4 +48,14 @@
     }
 
    
-   
+    .wrapper .text{
+      position: absolute;
+      width:8vw;
+      text-align: center;
+      left:-2vw;
+      font-size: 0.8vw;
+      color:gray;
+      background-color:whitesmoke;
+      border-radius: 1vw;
+  }
+  

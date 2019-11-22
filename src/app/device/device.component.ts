@@ -23,10 +23,7 @@ export class DeviceComponent implements OnInit {
  
   }
 
-  getStateImage(): String{
-    return this.currentState.image;
-    
-  }
+ 
   ngOnInit() {
    
   
@@ -40,6 +37,8 @@ export class DeviceComponent implements OnInit {
     //Add feedback to notification thingie
 
     this.alertService.success(this.device.name + " was " + this.currentState.action);
+    //this.device.show = true;
+    //setimeout this.device.show = false;
   }
 
   

@@ -80,7 +80,7 @@
                 <img  cdkDragBoundary=".division" cdkDrag  *ngIf="selectedType != null" class="toDrag" src={{selectedType.states[1].image}}> 
               </div>
               <div *ngFor="let device of division.devices">
-                <span class="device" [ngStyle]="{'top.vw':device.position.y-1.5, 'left.vw':device.position.x-1.5}">
+                <span class="device" [ngStyle]="{'top.vw':device.position.y*ratio-1.5, 'left.vw':device.position.x*ratio-1.5}">
                   <app-device  [device]='device'></app-device>
                 </span>
               </div>

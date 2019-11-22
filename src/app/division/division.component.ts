@@ -20,7 +20,7 @@ export class DivisionComponent implements OnInit {
   info = [] 
   width : number;
   height : number;
-  
+  ratio :number;
   constructor(private divisionService : DivisionService,  private route : ActivatedRoute,private router: Router) {
     this.edit = false;
    }
@@ -42,10 +42,10 @@ export class DivisionComponent implements OnInit {
 
          let area = this.width* this.height;
 
-         let ratio = maxarea/area;
-
-         this.width *= Math.sqrt(ratio);
-         this.height *= Math.sqrt(ratio)
+         let ratio =  Math.sqrt(maxarea/area);
+          this.ratio =ratio;
+         this.width *= ratio;
+         this.height *= ratio;
 
         }
      );

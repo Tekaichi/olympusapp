@@ -202,7 +202,7 @@ const HALL: Division = {
             name: "Lampada0",
             url: "10.10.10.10",
             position: {
-                x: 10,
+                x: 6,
                 y: 0
             },
             device: LAMP,
@@ -223,8 +223,8 @@ const HALL: Division = {
             name: "Door",
             url: "10.10.10.10",
             position: {
-                x: 8,
-                y: 47
+                x: 3,
+                y: 16.5
             },
             device: DOOR,
             currentState: DOOR.states[1]
@@ -383,8 +383,8 @@ const BEDROOM: Division = {
             name: "Lamp3",
             url: "10.10.10.10",
             position: {
-                x: 15,
-                y: 15,
+                x: 10,
+                y: 10,
             },
             device: LAMP,
             currentState: LAMP.states[0]

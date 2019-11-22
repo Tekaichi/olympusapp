@@ -25,6 +25,7 @@ export class AdddeviceComponent implements OnInit {
   closeResult: string;
   activeModal: NgbActiveModal ;
   selectedUrl : String;
+  ratio : number;
   constructor(private route: ActivatedRoute, private router: Router, private modalService: NgbModal, private deviceService: DevicesService, private divisionService: DivisionService) {
 
   }
@@ -76,8 +77,10 @@ export class AdddeviceComponent implements OnInit {
 
         let area = this.width * this.height;
 
-        let ratio = maxarea / area;
+      
 
+        let ratio =  Math.sqrt(maxarea/area);
+        this.ratio = ratio;
         this.width *= Math.sqrt(ratio);
         this.height *= Math.sqrt(ratio)
 

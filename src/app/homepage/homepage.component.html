@@ -13,15 +13,24 @@
             <div
                 style="height:40vw;position:relative;text-align:center;border:0.5px solid black;background-color: lightgray;">
                 <div class="loucura" style="cursor: pointer;">
-                    <div *ngFor="let division of divisions">
+                    <div *ngFor="let division of divisions"> 
                        <a (click)="goToDivision(division.id)">
                             <div class="division"
                                 [ngStyle]="{'top.vw':division.layout.from.y, 'left.vw':division.layout.from.x, 'width.vw':division.layout.to.x-division.layout.from.x,'height.vw':division.layout.to.y-division.layout.from.y}">
                                 <div class="title">
                                     {{division.title}}
                                 </div>
-
-                                
+                            
+                                <div *ngFor="let device of division.devices" style="position: absolute;top:0vw;left:0vw;">
+                                    <span class="device" [ngStyle]="{'top.vw':device.position.y-0.75, 'left.vw':device.position.x-0.75}">
+                               
+                                        <div class="wrapper" *ngIf ="device.show">
+                                            <img  class="icon" src={{device.currentState.image}}> 
+                                            <p class="text"> {{ device.currentState.description }}</p>
+                                        
+                                        </div>
+                                    </span>
+                                </div>
                             </div>
                         </a>
                         
