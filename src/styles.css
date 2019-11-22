@@ -1,5 +1,7 @@
 @import "~bootstrap/dist/css/bootstrap.css";
-
+.container{
+  max-width: 1500px !important;
+}
 .mt-5s{
   margin-top: 5rem;
 }
