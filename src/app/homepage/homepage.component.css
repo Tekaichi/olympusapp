@@ -35,3 +35,12 @@
         position: relative;
         transform: translate(-25%,-25%);
       }
+
+      .icon {
+        width:1.5vw;
+        height:1.5vw;
+    }
+
+    .device{
+      position: absolute;
+  }

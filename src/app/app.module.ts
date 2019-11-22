@@ -8,7 +8,7 @@ import { DivisionComponent } from './division/division.component';
 import { UserComponent } from './user/user.component';
 import { LogsComponent } from './logs/logs.component';
 import { AlertModule } from './_alert';
-
+import { DragDropModule } from '@angular/cdk/drag-drop';
 import { LoginComponent } from './login/login.component';
 import { RegistComponent } from './regist/regist.component';
 import { RouterModule, Routes } from '@angular/router';
@@ -21,6 +21,7 @@ import { AdddeviceComponent } from './adddevice/adddevice.component';
 import { DeleteProcedureComponent } from './procedures-main/delete-procedure/delete-procedure.component';
 import { DeviceComponent } from './device/device.component';
 import { ConfirmEqualValidatorDirective } from './shared/confirm-equal-validator.directive';
+import { GoBackButton } from "./goBackButton/goBack.component";
 
 
 const appRoutes: Routes = [
@@ -57,8 +58,9 @@ const appRoutes: Routes = [
     LogsComponent,
     DeviceComponent,
     RegistComponent,
-    ConfirmEqualValidatorDirective
-    
+    ConfirmEqualValidatorDirective,
+    GoBackButton
+
 
   ],
   imports: [
@@ -67,6 +69,7 @@ const appRoutes: Routes = [
     ReactiveFormsModule,
     FormsModule,
     AlertModule,
+    DragDropModule,
     RouterModule.forRoot(
       appRoutes,
       {

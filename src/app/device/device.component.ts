@@ -12,6 +12,7 @@ import { AlertService } from '../_alert';
 })
 export class DeviceComponent implements OnInit {
 
+  
   @Input()
   division : Division;
   @Input()
@@ -37,6 +38,8 @@ export class DeviceComponent implements OnInit {
     this.device.currentState = state;
     this.logService.addtoLog(this.device.name + " was " + this.currentState.action + " in " + this.division.title);
     //Add feedback to notification thingie
+
+    this.alertService.success(this.device.name + " was " + this.currentState.action);
   }
 
   
