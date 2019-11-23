@@ -32,7 +32,7 @@ export class ProceduresDivisionComponent implements OnInit {
     this.id =  id;
     this.getDivision(id);
     let dActionId = this.route.snapshot.paramMap.get("action");
-    console.log(this.route.snapshot.url);
+    
     let size = this.route.snapshot.url.length;
     
    if(this.route.snapshot.url[size-1].toString() == 'edit'){
