@@ -1,0 +1,66 @@
+[debug] [2019-11-23T19:50:22.186Z] ----------------------------------------------------------------------
+[debug] [2019-11-23T19:50:22.188Z] Command:       C:\Program Files\nodejs\node.exe C:\Users\msdc1\AppData\Roaming\npm\node_modules\firebase-tools\lib\bin\firebase.js deploy
+[debug] [2019-11-23T19:50:22.188Z] CLI Version:   7.6.2
+[debug] [2019-11-23T19:50:22.188Z] Platform:      win32
+[debug] [2019-11-23T19:50:22.188Z] Node Version:  v12.13.0
+[debug] [2019-11-23T19:50:22.189Z] Time:          Sat Nov 23 2019 19:50:22 GMT+0000 (GMT)
+[debug] [2019-11-23T19:50:22.189Z] ----------------------------------------------------------------------
+[debug] [2019-11-23T19:50:22.189Z] 
+[debug] [2019-11-23T19:50:22.194Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2019-11-23T19:50:22.195Z] > authorizing via signed-in user
+[debug] [2019-11-23T19:50:22.195Z] [iam] checking project olympus-55e9c for permissions ["firebase.projects.get","firebasehosting.sites.update"]
+[debug] [2019-11-23T19:50:22.196Z] >>> HTTP REQUEST POST https://cloudresourcemanager.googleapis.com/v1/projects/olympus-55e9c:testIamPermissions  
+
+[debug] [2019-11-23T19:50:23.067Z] <<< HTTP RESPONSE 200
+[debug] [2019-11-23T19:50:23.069Z] >>> HTTP REQUEST GET https://firebase.googleapis.com/v1beta1/projects/olympus-55e9c  
+ 
+[debug] [2019-11-23T19:50:23.282Z] <<< HTTP RESPONSE 200
+[info] 
+[info] === Deploying to 'olympus-55e9c'...
+[info] 
+[info] i  deploying hosting
+[debug] [2019-11-23T19:50:23.285Z] >>> HTTP REQUEST POST https://firebasehosting.googleapis.com/v1beta1/sites/olympus-55e9c/versions  
+
+[debug] [2019-11-23T19:50:24.777Z] <<< HTTP RESPONSE 200
+[info] i  hosting[olympus-55e9c]: beginning deploy...
+[info] i  hosting[olympus-55e9c]: found 41 files in dist/Olympus
+[debug] [2019-11-23T19:50:24.799Z] [hosting] hash cache [ZGlzdFxPbHltcHVz] stored for 41 files
+[debug] [2019-11-23T19:50:24.799Z] [hosting][hash queue][FINAL]
+[debug] [2019-11-23T19:50:24.799Z] >>> HTTP REQUEST POST https://firebasehosting.googleapis.com/v1beta1/sites/olympus-55e9c/versions/97dfcbb6e6874d7e:populateFiles  
+ <request body omitted>
+[debug] [2019-11-23T19:50:26.606Z] <<< HTTP RESPONSE 200
+[debug] [2019-11-23T19:50:26.607Z] [hosting][populate queue][FINAL]
+[debug] [2019-11-23T19:50:26.607Z] [hosting] uploads queued: 0
+[debug] [2019-11-23T19:50:26.607Z] [hosting][upload queue][FINAL]
+[info] +  hosting[olympus-55e9c]: file upload complete
+[debug] [2019-11-23T19:50:26.608Z] [hosting] deploy completed after 1830ms
+[debug] [2019-11-23T19:50:26.733Z] [
+  {
+    "config": {
+      "public": "dist/Olympus",
+      "ignore": [
+        "firebase.json",
+        "**/.*",
+        "**/node_modules/**"
+      ],
+      "rewrites": [
+        {
+          "source": "**",
+          "destination": "/index.html"
+        }
+      ],
+      "site": "olympus-55e9c"
+    },
+    "site": "olympus-55e9c",
+    "version": "sites/olympus-55e9c/versions/97dfcbb6e6874d7e"
+  }
+]
+[info] i  hosting[olympus-55e9c]: finalizing version...
+[debug] [2019-11-23T19:50:26.734Z] >>> HTTP REQUEST PATCH https://firebasehosting.googleapis.com/v1beta1/sites/olympus-55e9c/versions/97dfcbb6e6874d7e?updateMask=status  
+
+[debug] [2019-11-23T19:50:27.770Z] <<< HTTP RESPONSE 200
+[debug] [2019-11-23T19:50:27.770Z] [hosting] finalized version for olympus-55e9c:
+[info] +  hosting[olympus-55e9c]: version finalized
+[info] i  hosting[olympus-55e9c]: releasing new version...
+[debug] [2019-11-23T19:50:27.772Z] >>> HTTP REQUEST POST https://firebasehosting.googleapis.com/v1beta1/sites/olympus-55e9c/releases?version_name=sites/olympus-55e9c/versions/97dfcbb6e6874d7e  
+

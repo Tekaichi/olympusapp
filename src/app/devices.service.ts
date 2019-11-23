@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { SystemDevice, Device } from './shared/models/device';
 import { Observable, of } from 'rxjs';
-import {Devices} from '../app/mocks/mockdivision';
+import {Devices, MOCKDIVISION} from '../app/mocks/mockdivision';
 import { Division } from './shared/models/Division';
 @Injectable({
   providedIn: 'root'
@@ -19,9 +19,12 @@ export class DevicesService {
   
   add(device: Device, division: Division){
     division.devices.push(device);
-    console.log(division);
+    
   }
+  getDevice(divisionId:number, deviceId:number){
 
+    return MOCKDIVISION[divisionId].devices[deviceId];
+  }
   stateChange(device:Device):void{
 
     device.show = true;

@@ -114,3 +114,57 @@ a {
     
      
     }
+
+    .toDrag{
+        width:3vw;
+        height:3vw;
+        margin-left:1vw;
+        position: absolute;
+        transition: 0.2s all linear;
+        z-index: 1;
+        border: 1px solid black;
+        border-radius: 0.2vw;
+        top:0vw;
+        left:0vw;
+    
+    }
+    
+    .toDrag:hover{
+        border:1px solid gray;
+        width:3.2vw;
+        height:3.2vw;
+        border-radius: 1vw;
+        position: absolute;
+    }
+    
+    .toDrag:active{
+        transition: 0s;
+    }
+    
+    .moveicons{
+        width:5vw;
+        height:2.5vw auto;
+        background-color:whitesmoke;
+        border-radius: 2vw;
+        margin-left: 83%;
+        margin-top:-7%;
+
+       animation: border 15s infinite;
+      
+        
+        
+    }
+
+    @keyframes border{
+        0%,30%,60%,90%{ border: 1.5px solid gray;}
+        15%,45%,75%,100%{ border:1.5px solid whitesmoke;}
+    }
+    .moveResult{
+      
+        margin:0.5vw;
+    }
+
+    .moveResult:hover{
+        animation: shake 1s;
+    }
+ 

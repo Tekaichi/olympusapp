@@ -1,4 +1,5 @@
 export class Device {
+    id: number;
     name:String;
     url:String;
     position: {
@@ -32,6 +33,9 @@ export class State{
     description : String;
     image: String;
     action: String;
+    transitions: State[];
+    hasValues?: boolean = false;
+    value? : number = 0;
 }
 
 export class Action{
