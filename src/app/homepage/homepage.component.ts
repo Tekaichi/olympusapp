@@ -5,7 +5,7 @@ import { ProcedureService } from '../procedures.service';
 import { Procedure } from '../shared/models/procedures';
 import { Router, ActivatedRoute } from '@angular/router';
 import { NgbModal, ModalDismissReasons } from '@ng-bootstrap/ng-bootstrap';
-import {  timer, Observable } from 'rxjs';
+import { timer, Observable } from 'rxjs';
 import { AlertService } from '../_alert';
 import { DevicesService } from '../devices.service';
 
@@ -17,7 +17,7 @@ import { DevicesService } from '../devices.service';
 export class HomepageComponent implements OnInit {
 
   @ViewChild('layout', { static: true }) layout: ElementRef;
-  everySecond: Observable<Number> = timer(0, 1000*1);
+  everySecond: Observable<Number> = timer(0, 1000 * 1);
 
   divisions: Division[];
 
@@ -28,24 +28,24 @@ export class HomepageComponent implements OnInit {
   humidity: String;
   closeResult: string;
 
-  constructor(private route: ActivatedRoute, private modalService: NgbModal, 
-    private divisionService: DivisionService, private procedureService: ProcedureService, 
-    private router: Router, private alertService: AlertService, private deviceService : DevicesService) {
+  constructor(private route: ActivatedRoute, private modalService: NgbModal,
+    private divisionService: DivisionService, private procedureService: ProcedureService,
+    private router: Router, private alertService: AlertService, private deviceService: DevicesService) {
 
   }
 
- 
+
 
   success(message: string) {
     this.alertService.success(message);
-}
+  }
 
   open(content, procedure) {
-    this.modalService.open(content, { ariaLabelledBy: 'modal-basic-title' }).result.then((result) => {
+    this.modalService.open(content, { ariaLabelledBy: 'modal-basic-title', centered: true }).result.then((result) => {
       this.closeResult = `Closed with: ${result}`;
       if (result == "Confirm") {
-        
-        this.alertService.success("Procedure "+procedure.name+" was successfully executed!");
+
+        this.alertService.success("Procedure " + procedure.name + " was successfully executed!");
         this.runProcedure(procedure);
       }
     }, (reason) => {

@@ -1,4 +1,3 @@
-
 <div class=" container row mt-5s ml-5">
     <div class="col w-25 mt-5">
         <div class="input-group input-group-lg ">
@@ -13,8 +12,8 @@
 
     <div class="col text-center mt-5">
 
-        <button type="button" (click)="createProcedure()" class="btn btn-dark btn-lg">Create new Procedure <span class="ml-2 h4"> <i
-                    class="fa fa-plus"></i></span> </button>
+        <button type="button" (click)="createProcedure()" class="btn btn-dark btn-lg">Create new Procedure <span
+                class="ml-2 h4"> <i class="fa fa-plus"></i></span> </button>
 
     </div>
 
@@ -23,7 +22,7 @@
     <table class="table table-dark text-center">
         <thead>
             <tr>
-               
+
                 <th scope="col">Procedures</th>
                 <th scope="col">Options</th>
                 <th scope="col">Run</th>
@@ -32,21 +31,43 @@
         </thead>
         <tbody>
             <tr *ngFor="let procedure of procedures">
-                
+
                 <td>{{ procedure.name }}</td>
                 <td>
-                    <a  class=" h4"> <i class=" text-white fa fa-info-circle"></i></a>
+                    <a class=" h4"> <i class=" text-white fa fa-info-circle"></i></a>
                     &nbsp; &nbsp;
-                    <a style="cursor:pointer" (click)="edit(procedure.id)" class=" h4"> <i class="text-white  fa fa-edit"></i></a>
+                    <a style="cursor:pointer" (click)="edit(procedure.id)" class=" h4"> <i
+                            class="text-white  fa fa-edit"></i></a>
                     &nbsp; &nbsp;
-                    <a style="cursor:pointer" (click)="openDeleteConfirmation()" class=" h4"> <i
+                    <a style="cursor:pointer" (click)="open(content)" class=" h4"> <i
                             class="text-white fa fa-trash"></i></a>
+
+
+                    <!-- pop up de remove prodecure-->
+                    <ng-template #content let-c="close" let-d="dismiss">
+                        <div class="modal-header">
+                            <h4 class="modal-title" id="modal-basic-title">Remove Procedure</h4>
+                            <button type="button" class="close" aria-label="Close" (click)="d('Cross click')">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div class="modal-body" style="display: flex;">
+                            <h5>Are you sure you want to remove procedure <b>{{procedure.name}}</b>? </h5>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-danger" ngbAutofocus
+                                (click)="c('Cancel')">Cancel</button>
+                            <button type="button" class="btn btn-primary  "
+                                (click)="c('Confirm'); removeProcedure(procedure);">Remove Procedure</button>
+                        </div>
+                    </ng-template>
                 </td>
                 <td>
-                    <button class="run"(click)="run(procedure)"> <i class="text-success fa fa-play"></i></button>
+                    <button class="run" (click)="run(procedure)"> <i class="text-success fa fa-play"></i></button>
                 </td>
             </tr>
 
         </tbody>
     </table>
+
 </div>
