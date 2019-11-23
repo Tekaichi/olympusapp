@@ -55,17 +55,19 @@ export class ProcedurespageComponent implements OnInit {
   }
 
   save():void{
+    var name = this.name;
     
-  
-
+    this.router.navigate(['/procedures']);
+    
     if(this.isEdit){
-      this.alert.success("Procedure "+ this.name +" was edited successfully");
+      
+      this.alert.success("Procedure "+ name +" was edited successfully");
 
     }else{
-    this.alert.success("Procedure "+ this.name +" was added successfully");
-    this.proceduresService.save(this.name);
+    this.alert.success("Procedure "+ name +" was added successfully");
+    this.proceduresService.save(name);
     }
-    this.router.navigate(['/procedures']);
+    
   }
   cancel():void{
     if(!this.isEdit){

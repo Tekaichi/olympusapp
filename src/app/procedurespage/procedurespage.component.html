@@ -25,7 +25,7 @@
 
                             <td>{{ action.name }}</td>
                             <td>
-                                <a (click)="edit(action.id)" class=" h4"> <i class="text-warning fa fa-edit"></i></a>
+                                <a (click)="edit(action.id)" class=" h4"> <i class=" fa fa-edit"></i></a>
 
                             </td>
                         </tr>
@@ -36,17 +36,17 @@
             <div class="row pt-5 ml-5">
 
                 <div class="col-2 text-right ml-5">
-                    <button class="btn btn-lg text-white bg-cyan" (click)="cancel()">Cancel</button>
+                    <button class="btn btn-lg text-white btn-danger" (click)="cancel()">Cancel</button>
                 </div>
                 <div class="col-2 text-left">
-                    <button class="btn btn-lg text-white bg-cyan" (click)="save()">Finish</button>
+                    <button class="btn btn-lg text-white btn-success" (click)="save()">Finish</button>
                 </div>
             </div>
 
         </div>
 
         <div class="col-6 text-center">
-
+            
             <div *ngFor="let division of divisions" style="cursor: pointer;">
                 <a (click)="goToDivision(division.id)">
                     <div class="division"
@@ -62,9 +62,6 @@
 
 
             </div>
-
-
-
 
         </div>
     </div>
