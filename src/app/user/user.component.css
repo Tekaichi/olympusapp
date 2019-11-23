@@ -11,6 +11,11 @@
   
   }
 
+.location {
+    color: #ffffffc9;
+    font-weight: normal;
+}
+
 .s-1-2{
     font-size: 1.2em;
 }
