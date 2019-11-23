@@ -8,12 +8,12 @@
       </div>
     <div class="dropdown-menu">
         
-        <div *ngFor="let state of device.device.states">
+        <div *ngFor="let state of device.currentState.transitions">
             
-            <p *ngIf="currentState != state">
+        
                 <button class="btn action" (click)="changeState(state)">{{state.action}}
                     </button>
-                </p>
+                
         </div>
   
  </div>

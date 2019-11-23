@@ -21,16 +21,51 @@ const DOOR: SystemDevice = {
     states: [{
         description: "The door is open",
         image: "/assets/images/door-open.png",
-        action: "Open"
+        action: "Open",
+        transitions: [{
+            description: "The door is closed",
+            image: "/assets/images/door-closed.png",
+            action: "Close",
+            transitions: null,
+        },{
+            description: "The door is locked",
+            image: "/assets/images/door-locked.png",
+            action: "Lock",
+            transitions: null
+        }
+    ]
     },
     {
         description: "The door is closed",
         image: "/assets/images/door-closed.png",
-        action: "Close"
+        action: "Close",
+        transitions:[{
+            description: "The door is locked",
+        image: "/assets/images/door-locked.png",
+        action: "Lock",
+        transitions: null
+        },
+    {
+        description: "The door is open",
+        image: "/assets/images/door-open.png",
+        action: "Open",
+        transitions:null,
+    }]
     }, {
         description: "The door is locked",
         image: "/assets/images/door-locked.png",
-        action: "Lock"
+        action: "Lock",
+        transitions:[{
+            description: "The door is open",
+        image: "/assets/images/door-open.png",
+        action: "Open",
+        transitions:null
+        },{
+        description: "The door is unlocked",
+        image: "/assets/images/door-closed.png",
+        action: "Unlock",
+        transitions:null
+        }]
     }
     ],
     type: "Door"
@@ -73,12 +108,24 @@ const LAMP: SystemDevice = {
     states: [{
         description: "The lamp is on",
         image: "/assets/images/lamp-on-v2.png",
-        action: "Turn on"
+        action: "Turn on",
+        transitions:[{
+            description: "The lamp is off",
+            image: "/assets/images/lamp-off-v2.png",
+            action: "Turn off",
+            transitions : null
+        }]
     },
     {
         description: "The lamp is off",
         image: "/assets/images/lamp-off-v2.png",
-        action: "Turn off"
+        action: "Turn off",
+        transitions:[{
+            description: "The lamp is on",
+            image: "/assets/images/lamp-on-v2.png",
+            action: "Turn on",
+            transitions : null
+        }]
     }
     ],
     type: "BinaryLamp"
@@ -110,12 +157,24 @@ const BLINDS: SystemDevice = {
     states: [{
         description: "The blinds are open",
         image: "/assets/images/blinds-open.png",
-        action: "Open"
+        action: "Open",
+        transitions:[{
+            description: "The blinds are closed",
+            image: "/assets/images/blinds-closed.png",
+            action: "Close",
+            transitions:null
+        }]
     },
     {
         description: "The blinds are closed",
         image: "/assets/images/blinds-closed.png",
-        action: "Close"
+        action: "Close",
+        transitions:[{
+            description: "The blinds are open",
+            image: "/assets/images/blinds-open.png",
+            action: "Open",
+            transitions:null
+        }]
     }
     ],
     type: "Blinds"
@@ -150,17 +209,49 @@ const AC: SystemDevice = {
     states: [{
         description: "The AC is on",
         image: "/assets/images/AC-on.png",
-        action: "Open"
+        action: "Open",
+        transitions:[{
+            description: "The AC is off",
+            image: "/assets/images/AC-off.png",
+            action: "Close",
+            transitions: null
+        },{  description: "The AC temperature is %s",
+        image: "/assets/images/AC-on.png",
+        action: "Change temperature",
+        transitions:null
+    }
+    ]
+
     },
     {
         description: "The AC is off",
         image: "/assets/images/AC-off.png",
-        action: "Close"
+        action: "Close",
+        transitions:[{
+            description: "The AC is on",
+            image: "/assets/images/AC-on.png",
+            action: "Open",
+            transitions:null
+        }]
     },
     {
         description: "The AC temperature is %s",
         image: "/assets/images/AC-on.png",
-        action: "Change temperature"
+        action: "Change temperature",
+        transitions:[
+            {
+                description: "The AC temperature is %s",
+                image: "/assets/images/AC-on.png",
+                action: "Change temperature",
+                transitions: null,
+            }, 
+              {description: "The AC is off",
+            image: "/assets/images/AC-off.png",
+            action: "Close",
+            transitions:null
+           }
+
+        ]
     }
     ],
     type: "AC"

@@ -33,6 +33,7 @@ export class State{
     description : String;
     image: String;
     action: String;
+    transitions: State[];
 }
 
 export class Action{
