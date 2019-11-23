@@ -1,7 +1,7 @@
 <div class="  mt-5s">
     <div>
-        <h1 style="margin-left: 4%">
-            My Home </h1>
+        <h2>
+            &nbsp;</h2>
 
     </div>
 
@@ -68,8 +68,11 @@
 
 
         </div>
-        <div class="col-3 mt-5 text-center">
+        <div class="col-3 text-center">
 
+            <h2 class="mb-5"> My home
+                <hr>
+            </h2>
 
             <!--Botao Settings-->
             <button (click)="goToSettings()" type="button"
@@ -99,7 +102,7 @@
                             <br>
                             <a *ngFor="let procedure of procedures let i=index">
                                 <a *ngIf="i<5">
-                                    <a class="dropdown-item" (click)="open(content,procedure)"
+                                    <a class="dropdown-item " (click)="open(content,procedure)"
                                         style="font-weight: bold;">
                                         <div class="row">
                                             <div class="col-8">{{ procedure.name }}</div>
@@ -116,12 +119,13 @@
                                                     </button>
                                                 </div>
                                                 <div class="modal-body" style="display: flex;">
-                                                    <h5>Are you sure you want to run procedure <b>{{procedure.name}}</b>?</h5>
+                                                    <h5>Are you sure you want to run procedure
+                                                        <b>{{procedure.name}}</b>?</h5>
                                                 </div>
                                                 <div class="modal-footer">
                                                     <button type="button" class="btn btn-danger" ngbAutofocus
                                                         (click)="c('Cancel')">Cancel</button>
-                                                    <button type="button" class="btn btn-primary  "
+                                                    <button type="button" class="btn btn-success  "
                                                         (click)="c('Confirm')">Run Procedure</button>
                                                 </div>
                                             </ng-template>
