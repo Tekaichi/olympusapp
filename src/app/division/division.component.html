@@ -33,7 +33,7 @@
 
                             <div class="editicons" *ngIf="edit">
                                 <i (click)="editDevice(device)" class="fa fa-edit edit" aria-hidden="true"></i>
-                                <i (click)="deleteDevice(device)" class="fa fa-trash delete" aria-hidden="true"></i>
+                                <i (click)="open(deletedevice)" class="fa fa-trash delete" aria-hidden="true"></i>
                                 <i (click)="move(device)" class="fa fa-arrows-alt move" aria-hidden="true"></i>
                             </div>
 
@@ -41,6 +41,10 @@
                         </div>
                         </div>
                       
+                      
+
+                            <app-device [division]='division' [device]='device'></app-device>
+                     
                     </div>
                     <div *ngFor="let door of division.doors">
                         <div class="device" [ngStyle]="{'top.vw':door.y-1.5, 'left.vw':door.x-1.5}">
@@ -89,3 +93,22 @@
 
         <div style="width:10%"></div>
     </div>
+
+          <!-- Modal para remove -->
+          <ng-template #deletedevice let-c="close" let-d="dismiss">
+                <div class="modal-header">
+                    <h4 class="modal-title" id="modal-basic-title">Remove Device</h4>
+                    <button type="button" class="close" aria-label="Close" (click)="d('Cross click')">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    Are you sure you want to remove {{ device.name }}?
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-outline-dark"
+                        (click)="d('Cross click')">Cancel</button>
+                    <button type="button" class="btn btn-outline-dark"
+                        (click)="c('Save click');deleteDevice(device);">Confirm</button>
+                </div>
+            </ng-template>
