@@ -5,8 +5,8 @@ import { SystemDevice, Device } from "../shared/models/device";
 
 const DOOR: SystemDevice = {
     devices: [{
-        url: "10.11.12.10",
-        name: "MainDoor"
+        url: "10.11.12.10/door1",
+        name: "10.11.12.10/door1"
     }],
     actions: [
         {
@@ -74,23 +74,23 @@ const DOOR: SystemDevice = {
 const LAMP: SystemDevice = {
     devices: [
         {
-            url: "10.10.10.11",
-            name: "Lampada 1"
+            url: "0.10.10.10/light1",
+            name: "0.10.10.10/light1"
 
         },
         {
-            url: "10.10.11.11",
-            name: "Lampada 2"
+            url: "10.10.11.11/light2",
+            name: "10.10.11.11/light2"
 
         },
         {
-            url: "10.10.10.15",
-            name: "Lampada 3"
+            url: "10.10.10.15/light3",
+            name: "10.10.10.15/light3"
 
         },
         {
-            url: "10.10.11.12",
-            name: "Lampada 4"
+            url: "10.10.10.15/light4",
+            name: "10.10.10.15/light4"
 
         },
 
@@ -134,13 +134,13 @@ const LAMP: SystemDevice = {
 const BLINDS: SystemDevice = {
     devices: [
         {
-            url: "10.10.10.11",
-            name: "Blinds_1"
+            url: "13.10.10.11/blinds1",
+            name: "13.12.10.11/blinds1"
 
         },
         {
-            url: "10.10.11.11",
-            name: "Blinds_2"
+            url: "13.12.10.11/blinds2",
+            name: "13.12.10.11/blinds2"
 
         }
 
@@ -183,13 +183,13 @@ const BLINDS: SystemDevice = {
 const AC: SystemDevice = {
     devices: [
         {
-            url: "10.10.10.11",
-            name: "AC_1"
+            url: "10.10.17.11/AC1",
+            name: "10.10.17.11/AC1"
 
         },
         {
-            url: "10.10.11.11",
-            name: "AC_2"
+            url: "10.10.17.12/AC2",
+            name: "10.10.17.12/AC2"
 
         }
 

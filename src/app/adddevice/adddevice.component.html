@@ -40,14 +40,15 @@
           </div> 
         </div>
         <div class="modal-footer">
-          <button type="button" class="btn btn-outline-dark" (click)="open(searchdevice)">Select</button>
+          <button type="button" class="btn btn-danger" (click)="d('Cross click')">Cancel</button>
+          <button type="button" class="btn btn-success" (click)="open(searchdevice)">Select</button>
         </div>
       </ng-template>
 
       <!-- Procura devices to tipo escolhido. Feedback adequando: se não encontrou nenhum indicar que não encontrou.-->
       <ng-template #searchdevice let-c="close" let-d="dismiss">
         <div class="modal-header">
-          <h4 class="modal-title" id="modal-basic-title">Select Device (*{{ selectedType.type }}*)</h4>
+          <h4 class="modal-title" id="modal-basic-title">Select URL for {{ selectedType.type }}</h4>
           <button type="button" class="close" aria-label="Close" (click)="d('Cross click')">
             <span aria-hidden="true">&times;</span>
           </button>
@@ -61,7 +62,8 @@
 
         </div>
         <div class="modal-footer">
-          <button type="button" class="btn btn-outline-dark" (click)="c('Save click');save();">Select</button>
+          <button type="button" class="btn btn-danger" (click)="d('Cross click')">Cancel</button>
+          <button type="button" class="btn btn-success" (click)="c('Save click');save();">Select</button>
         </div>
       </ng-template>
 

@@ -165,8 +165,8 @@ export class AdddeviceComponent implements OnInit {
     x =  +vals[0].replace("px","");
     y=  +vals[1].replace("px","");
   }else{
-    x = 1*ratio[0]-0.5;
-    y = 1*ratio[1]-0.5;
+    x = 1*ratio[0];
+    y = 1*ratio[1];
   }
 
  
