@@ -23,7 +23,7 @@ export class DivisionComponent implements OnInit {
   closeResult: string;
   activeModal: NgbActiveModal;
   movingDevice: Device;
-  
+
 
   constructor(private divisionService: DivisionService, private route: ActivatedRoute, private router: Router, private modalService: NgbModal) {
     this.edit = false;
@@ -70,101 +70,105 @@ export class DivisionComponent implements OnInit {
     let id = +this.route.snapshot.paramMap.get('id');
     this.id = id;
     this.getDivision(id);
-  
+
     this.edit = false;
   }
- 
-  editDevice(device : Device): void{
 
-    this.router.navigate(["/editdevice",this.id,device.id]);
+  editDevice(device: Device): void {
+
+    this.router.navigate(["/editdevice", this.id, device.id]);
   }
 
-  move(device :Device){
+  move(device: Device) {
     this.movingDevice = device;
   }
- 
-  cancelMove(device:Device){
+
+  cancelMove(device: Device) {
     this.movingDevice = null;
   }
-  confirmMove(device:Device){
-     
+  confirmMove(device: Device) {
+
 
     this.movingDevice = null;
-    let  child =document.getElementById("editedDevice");
-  
+    let child = document.getElementById("editedDevice");
+
     let parent = child.parentElement;
     let parentStyle = parent.getAttribute("style");
-    let realPosPx = parentStyle.replace("left: ","").replace("vw","").replace("top: ","").replace("vw;","").split(";");
+    let realPosPx = parentStyle.replace("left: ", "").replace("vw", "").replace("top: ", "").replace("vw;", "").split(";");
     console.log(realPosPx);
 
-  let division = document.getElementsByClassName("division")[0];
-  
-
-  let vwSizeString = division.getAttribute("style").replace("width: ","").replace("vw","").replace("height: ","").replace("vw;",""); //Gets width: Xvw; height Yvw;
-  let pxSize = [division.clientWidth,division.clientHeight]; //Get them px values
-  let vwSize = vwSizeString.split(";");
-  let ratio = [pxSize[0]/+vwSize[0],pxSize[1]/+vwSize[1]];  //Gets the ratio between the px and vw values
-
-  let transform:string = child.style.webkitTransform;
-  
+    let division = document.getElementsByClassName("division")[0];
 
 
-  let webkit = transform.substr(transform.indexOf("(")+1,transform.lastIndexOf(")"));
-  let vals = webkit.split(",");
-  let x :number= +vals[0].replace("px","");
-  let y:number= +vals[1].replace("px","");
-  
-  console.log("Ratio: ",ratio);
-  //x+=+realPosPx[1]*ratio[0];
-  //y+=+realPosPx[0]*ratio[1]; 
-  console.log("X,Y",x,y);
- 
-  //Not working properly
+    let vwSizeString = division.getAttribute("style").replace("width: ", "").replace("vw", "").replace("height: ", "").replace("vw;", ""); //Gets width: Xvw; height Yvw;
+    let pxSize = [division.clientWidth, division.clientHeight]; //Get them px values
+    let vwSize = vwSizeString.split(";");
+    let ratio = [pxSize[0] / +vwSize[0], pxSize[1] / +vwSize[1]];  //Gets the ratio between the px and vw values
+
+    let transform: string = child.style.webkitTransform;
 
 
-  x+= parent.offsetLeft*0.5;
-  y+= parent.offsetTop*0.5;
-  x *=1/ratio[0];
-  y *=1/ratio[1];
-  console.log("X,Y",x,y);
 
- 
-  device.position ={
-    x: x,  //Converts the transformed Xpx to Xvw
-    y: y //Converf the transformed Ypx to Yvw
+    let webkit = transform.substr(transform.indexOf("(") + 1, transform.lastIndexOf(")"));
+    let vals = webkit.split(",");
+    let x: number = +vals[0].replace("px", "");
+    let y: number = +vals[1].replace("px", "");
+
+    console.log("Ratio: ", ratio);
+    //x+=+realPosPx[1]*ratio[0];
+    //y+=+realPosPx[0]*ratio[1]; 
+    console.log("X,Y", x, y);
+
+    //Not working properly
+
+
+    x += parent.offsetLeft * 0.5;
+    y += parent.offsetTop * 0.5;
+    x *= 1 / ratio[0];
+    y *= 1 / ratio[1];
+    console.log("X,Y", x, y);
+
+
+    device.position = {
+      x: x,  //Converts the transformed Xpx to Xvw
+      y: y //Converf the transformed Ypx to Yvw
+    }
+
+
+
+
+
+  }
+
+  open(content, device) {
+
+    console.log("222");
+    //this.modalService.dismissAll();
+
+    this.modalService.open(content, { ariaLabelledBy: 'modal-basic-title', centered: true }).result.then((result) => {
+      this.closeResult = `Closed with: ${result}`;
+
+    }, (reason) => {
+
+      this.closeResult = `Dismissed ${this.getDismissReason(reason)}`;
+    });
+
   }
 
 
- 
-
-
-}
-
-open(content) {
-
-  this.modalService.dismissAll();
-
-  this.modalService.open(content, { ariaLabelledBy: 'modal-basic-title', centered: true }).result.then((result) => {
-    this.closeResult = `Closed with: ${result}`;
-  }, (reason) => {
-    this.closeResult = `Dismissed ${this.getDismissReason(reason)}`;
-  });
-
-}
-
-
-private getDismissReason(reason: any): string {
-  if (reason === ModalDismissReasons.ESC) {
-    return 'by pressing ESC';
-  } else if (reason === ModalDismissReasons.BACKDROP_CLICK) {
-    return 'by clicking on a backdrop';
-  } else {
-    return `with: ${reason}`;
+  private getDismissReason(reason: any): string {
+    if (reason === ModalDismissReasons.ESC) {
+      return 'by pressing ESC';
+    } else if (reason === ModalDismissReasons.BACKDROP_CLICK) {
+      return 'by clicking on a backdrop';
+    } else {
+      return `with: ${reason}`;
+    }
   }
-}
 
-/* TODO: Delete device */
-deleteDevice(device : Device) : void {
-  console.log("delete " + device.name);
-}
+  /* TODO: Delete device */
+  deleteDevice(device: Device): void {
+    console.log("1");
+    this.division.devices.splice(device.id, 1);
+  }
 }
