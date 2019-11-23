@@ -1,24 +1,19 @@
-.size-1-5{
-    font-size: 1.3rem !important;
-}
-.size-2-8{
-    font-size: 2.8rem !important;
-}
-.pointer{
-    cursor: pointer;
-}
-
-.alignright {
-    text-align: right;
-}
 
 .fa-a:before {
     font-family: Arial; /* your font family here! */
     font-weight: bold;
     content: 'A';
-    border:0.5px white;
+    border:0.5px white ;
 }
+.spin{
+    width: 2em !important;
+    height: 2em !important;
+  
+  }
 
+.s-1-2{
+    font-size: 1.2em;
+}
 .rounded-circle {
     border-width: 30px;
 }
