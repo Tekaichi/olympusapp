@@ -113,7 +113,7 @@ this.submit();
    
     this.model.url = this.selectedUrl;
     this.model.device = this.selectedType;
-    this.model.currentState = this.model.device.states[0];
+    this.model.currentState = this.model.device.states[1];
     window.scrollTo(0,document.body.scrollHeight);
 
   }
@@ -148,7 +148,7 @@ this.submit();
   let vwSize = division.attributes[3].nodeValue; //Gets width: Xvw; height Yvw;
   let pxSize = (division.clientWidth,division.clientHeight); //Get them px values
   //Now do the math..
-  
+
   //let divisionSize = document.getElementsByClassName("division")
   //WTF, this kinda works ? ?_?
   this.model.position ={
