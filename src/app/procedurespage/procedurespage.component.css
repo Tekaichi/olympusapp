@@ -10,7 +10,7 @@
       }
 
       :host ::ng-deep .division:hover{ 
-        background-color: gray;
+        background-color: lightgray;
         /*margin: 0.5vw;
         z-index: 1;*/
       }
