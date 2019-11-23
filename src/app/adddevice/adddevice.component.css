@@ -8,8 +8,20 @@
 }
 :host ::ng-deep .device{
     position:absolute;
+   
+      
+      
+    
+    
+    
 }
 
+:host ::ng-deep .deviceIcon{
+    width:2vw;
+    height:2vw;
+    border-radius: 10vw;
+    margin:0.3vw;
+}
 .icon{
     width:5vw;
     height:5vw;
@@ -69,6 +81,7 @@
     border-radius: 0.2vw;
     top:0vw;
     left:0vw;
+
 }
 
 .toDrag:hover{
@@ -81,4 +94,9 @@
 
 .toDrag:active{
     transition: 0s;
+}
+
+:host ::ng-deep .editDrag{
+
+    border:1px solid black;
 }

@@ -107,7 +107,7 @@ export class AdddeviceComponent implements OnInit {
 
   onSubmit() {
   this.submitted = true;
-this.submit();
+  this.submit();
   
   }
 
@@ -143,8 +143,19 @@ this.submit();
 
   submit():void{
 
-  let child = this.posDev.nativeElement.children[0];
+    let child;
+    if(this.isEdit){
+      child =document.getElementById("editedDevice");
+    }else{
+    child = this.posDev.nativeElement.children[0];
+    }
 
+   
+  let division = document.getElementsByClassName("division")[0];
+  let vwSizeString = division.attributes[3].nodeValue.replace("width: ","").replace("vw","").replace("height: ","").replace("vw;",""); //Gets width: Xvw; height Yvw;
+  let pxSize = [division.clientWidth,division.clientHeight]; //Get them px values
+  let vwSize = vwSizeString.split(";");
+  let ratio = [pxSize[0]/+vwSize[0],pxSize[1]/+vwSize[1]];
 
   let transform:string = child.style.webkitTransform;
   
@@ -154,7 +165,11 @@ this.submit();
   let vals = webkit.split(",");
   let x :number= +vals[0].replace("px","");
   let y:number= +vals[1].replace("px","");
-  
+
+  if(this.isEdit){
+  x+= child.offsetLeft;
+  y+= child.offsetTop;
+  }
   if(x < 0){
     x = 0;
   }
@@ -162,28 +177,20 @@ this.submit();
     y = 0;
   }
 
-  
-  let division = document.getElementsByClassName("division")[0];
-  let vwSizeString = division.attributes[3].nodeValue.replace("width: ","").replace("vw","").replace("height: ","").replace("vw;",""); //Gets width: Xvw; height Yvw;
-  let pxSize = [division.clientWidth,division.clientHeight]; //Get them px values
-  let vwSize = vwSizeString.split(";");
 
-  //Now do the math..
 
-  let ratio = [pxSize[0]/+vwSize[0],pxSize[1]/+vwSize[1]];
-  //let divisionSize = document.getElementsByClassName("division")
-  //WTF, this kinda works ? ?_?
   this.model.position ={
-    x:x*1/ratio[0],
-    y:y*1/ratio[1]
+    x: x*1/ratio[0],
+    y: y*1/ratio[1] 
   }
-  //get a proper fix for this.
+  console.log("New: ", this.model.position)
   
  
   if(!this.isEdit){
       this.deviceService.add(this.model,this.division);
   }else{
     //update
+    //needed if we get some backend action going *wink wink*
   }
   
   this.router.navigate(["/division",this.division.id]);

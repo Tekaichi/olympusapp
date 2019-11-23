@@ -85,9 +85,19 @@
                 <img  cdkDragBoundary=".division" cdkDrag  *ngIf="selectedType != null" class="toDrag" src={{selectedType.states[1].image}}> 
               </div>
               <div *ngFor="let device of division.devices">
-                <span class="device" [ngStyle]="{'top.vw':device.position.y*ratio-1.5*ratio, 'left.vw':device.position.x*ratio-1.5*ratio}">
-                  <app-device  [device]='device'></app-device>
+                <div *ngIf = "isEdit && device == model">
+                  
+                    <div>
+                        <img id='editedDevice'  [ngStyle]="{'top.vw':device.position.y*ratio-1*ratio, 'left.vw':device.position.x*ratio-1*ratio}" cdkDragBoundary=".division" cdkDrag  class="toDrag" src={{model.currentState.image}}> 
+                      </div>
+                      
+                </div>
+                <div *ngIf ="device != model || !isEdit">
+                <span class="device" [ngStyle]="{'top.vw':device.position.y*ratio-1*ratio, 'left.vw':device.position.x*ratio-1*ratio}">
+                    <img  class="deviceIcon" src={{device.currentState.image}}> 
+
                 </span>
+              </div>
               </div>
 
             </div>
