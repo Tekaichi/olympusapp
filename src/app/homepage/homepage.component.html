@@ -83,7 +83,7 @@
                         class="fa fa-align-justify"></i> </span> </button>
 
             <!--Botao Analitics-->
-            <button (click)="success('Success!!')" type="button"
+            <button (click)="goToAnalytics()" type="button"
                 class="btn  bg-cyan text-white btn-lg text-center  mt-2 w-70">Analytics<span class="ml-3 h4">
                     <i class="fa fa-clipboard"></i></span> </button>
 
@@ -103,6 +103,28 @@
                                         style="font-weight: bold;">
                                         <div class="row">
                                             <div class="col-8">{{ procedure.name }}</div>
+
+
+
+                                            <!-- pop up de run prodecure-->
+                                            <ng-template #content let-c="close" let-d="dismiss">
+                                                <div class="modal-header">
+                                                    <h4 class="modal-title" id="modal-basic-title">Run Procedure</h4>
+                                                    <button type="button" class="close" aria-label="Close"
+                                                        (click)="d('Cross click')">
+                                                        <span aria-hidden="true">&times;</span>
+                                                    </button>
+                                                </div>
+                                                <div class="modal-body" style="display: flex;">
+                                                    <h5>Are you sure you want to run procedure <b>{{procedure.name}}</b>?</h5>
+                                                </div>
+                                                <div class="modal-footer">
+                                                    <button type="button" class="btn btn-danger" ngbAutofocus
+                                                        (click)="c('Cancel')">Cancel</button>
+                                                    <button type="button" class="btn btn-primary  "
+                                                        (click)="c('Confirm')">Run Procedure</button>
+                                                </div>
+                                            </ng-template>
 
                                             <div class="col-4"> <a>
                                                     <span class="ml-2 h4">
@@ -129,24 +151,4 @@
 
     </div>
 
-
-
-
-    <!-- pop up de run prodecure-->
-    <ng-template #content let-c="close" let-d="dismiss" >
-        <div class="modal-header">
-            <h4 class="modal-title" id="modal-basic-title">Confirm</h4>
-            <button type="button" class="close" aria-label="Close" (click)="d('Cross click')">
-                <span aria-hidden="true">&times;</span>
-            </button>
-        </div>
-        <div class="modal-body" style="display: flex;">
-            <h5>Are you sure you want to run the following procedure?</h5>
-            <!--<h5>{{ procedure.name }}</h5>-->
-        </div>
-        <div class="modal-footer">
-            <button type="button" class="btn btn-danger" (click)="c('Cancel')">Cancel</button>
-            <button type="button" class="btn btn-primary  " (click)="c('Confirm')">Run Procedure</button>
-        </div>
-    </ng-template>
 </div>
