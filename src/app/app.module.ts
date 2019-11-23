@@ -40,7 +40,6 @@ const appRoutes: Routes = [
   { path: "logs", component: LogsComponent },
   { path: "main", component: MainComponent },
   { path: "", component: MainComponent },
-  { path: "analytics", component: AnalyticsComponent },
   { path: "regist", component: RegistComponent },
   {path :"divisionprocedures/:id", component:ProceduresDivisionComponent},
   {path :"divisionprocedures/:id/edit/:action", component:ProceduresDivisionComponent},

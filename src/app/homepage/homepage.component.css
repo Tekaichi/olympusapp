@@ -5,15 +5,12 @@
 .w-70{
   width: 70% !important;
 }
-.bg-cyan{
-  background-color: #0f1e3c;
+
+a:active{
+  background-color: white !important;
 }
-button{
-  transition: 0.2s;
-}
-button:hover{
- background-color: #1e5b82 !important;
-}
+
+
 
 .square{
   border-radius: 0 !important;
