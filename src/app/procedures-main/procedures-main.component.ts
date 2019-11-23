@@ -75,7 +75,7 @@ export class ProceduresMainComponent implements OnInit {
   }
 
   removeProcedure(procedure: Procedure): void {
-    console.log(procedure.name);
+  //console.log(procedure.name);
    this.proceduresService.delete(procedure.name);
   }
 }
