@@ -19,13 +19,13 @@
 
   .run{
     background: none;
-    border: 0px;
+    border: none;
+    transition: 0.3s;
   }
 
   .run:hover{
 
-    border-radius: 1vw;
-    border:0.5px solid gray;
+   border-radius: 100%;
     background-color: whitesmoke;
 
     }

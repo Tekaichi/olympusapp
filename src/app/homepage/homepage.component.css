@@ -8,8 +8,11 @@
 .bg-cyan{
   background-color: #0f1e3c;
 }
+button{
+  transition: 0.2s;
+}
 button:hover{
-  box-shadow: 2px 2px 2px 2px #58b9ce !important;
+ background-color: #1e5b82 !important;
 }
 
 .square{
