@@ -143,6 +143,13 @@ this.submit();
     y = 0;
   }
 
+  console.log("DOC:", document.getElementsByClassName("division"));
+  let division = document.getElementsByClassName("division")[0];
+  let vwSize = division.attributes[3].nodeValue; //Gets width: Xvw; height Yvw;
+  let pxSize = (division.clientWidth,division.clientHeight); //Get them px values
+  //Now do the math..
+  
+  //let divisionSize = document.getElementsByClassName("division")
   //WTF, this kinda works ? ?_?
   this.model.position ={
     x:x/10,
