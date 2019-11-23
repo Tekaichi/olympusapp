@@ -2,6 +2,7 @@ import { Component, OnInit, ViewChild,ElementRef, AfterViewInit } from '@angular
 import {DivisionService} from '../division.service';
 import {Division} from '../shared/models/division';
 import { Router, ActivatedRoute } from '@angular/router';
+import { Device } from '../shared/models/device';
 
 @Component({
   selector: 'app-division',
@@ -70,6 +71,10 @@ export class DivisionComponent implements OnInit {
     this.edit = false;
   }
  
+  editDevice(device : Device): void{
+
+    this.router.navigate(["/editdevice",this.id,device.id]);
+  }
  
 
 }

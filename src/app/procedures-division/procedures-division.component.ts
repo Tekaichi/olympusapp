@@ -36,7 +36,7 @@ export class ProceduresDivisionComponent implements OnInit {
     let size = this.route.snapshot.url.length;
     
    if(this.route.snapshot.url[size-1].toString() == 'edit'){
-     console.log("?");
+    
      this.isProcedureEdit = true;
    }else{
      this.isProcedureEdit = false;

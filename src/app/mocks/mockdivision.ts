@@ -200,6 +200,7 @@ const HALL: Division = {
     devices: [
         {
             //lampada cima meio
+            id:0,
             name: "Lampada0",
             url: "10.10.10.10",
             position: {
@@ -213,6 +214,7 @@ const HALL: Division = {
         },
         {
             //lampada canto superior esquerdo
+            id:1,
             name: "Lampada1",
             url: "10.10.10.10",
             position: {
@@ -224,6 +226,7 @@ const HALL: Division = {
             show: false
         },
         {
+            id:2,
             name: "Door",
             url: "10.10.10.10",
             position: {
@@ -307,7 +310,7 @@ const LIVINGROOM: Division = {
     },
     devices: [
         {
-            //lampada canto superior esquerdo
+            id:0,
             name: "Lampada0",
             url: "10.10.10.10",
             position: {
@@ -320,6 +323,7 @@ const LIVINGROOM: Division = {
         },
         {
             //lampada meio
+            id:1,
             name: "Lampada1",
             url: "10.10.10.10",
             position: {
@@ -377,7 +381,7 @@ const BEDROOM: Division = {
     },
     devices: [
         {
-            //lampada canto esquerdo superior
+            id:0,
             name: "Lampada0",
             url: "10.10.10.10",
             position: {
@@ -389,7 +393,7 @@ const BEDROOM: Division = {
             show: false
         },
         {
-            //lampada meio esquerda 
+            id:1,
             name: "Lampada1",
             url: "10.10.10.10",
             position: {
@@ -401,7 +405,7 @@ const BEDROOM: Division = {
             show: false
         },
         {
-            //lampada meio direita
+            id:2,
             name: "Lamp3",
             url: "10.10.10.10",
             position: {
@@ -413,7 +417,7 @@ const BEDROOM: Division = {
             show: false
         },
         {
-            //lampada canto superior direito
+            id:3,
             name: "Lamp4",
             url: "10.10.10.10",
             position: {
@@ -473,6 +477,7 @@ const ROOM1: Division = {
     devices: [
         {
             //estores cima
+            id:0,
             name: "Estores0",
             url: "10.10.10.10",
             position: {
@@ -485,6 +490,7 @@ const ROOM1: Division = {
         },
         {
             //estores baixo
+            id:1,
             name: "Estores1",
             url: "10.10.10.10",
             position: {
@@ -537,6 +543,7 @@ const ROOM2: Division = {
     devices: [
         {
             //estores cima
+            id:3,
             name: "Estores0",
             url: "10.10.10.10",
             position: {
@@ -549,6 +556,7 @@ const ROOM2: Division = {
         },
         {
             //AC baixo
+            id:4,
             name: "AC0",
             url: "10.10.10.10",
             position: {
@@ -601,6 +609,7 @@ const BATH: Division = {
     },
     devices: [{
         //AC baixo
+        id:0,
         name: "AC0",
         url: "10.10.10.10",
         position: {
@@ -612,6 +621,7 @@ const BATH: Division = {
         show: false
     }, {
         //lampada meio esquerda 
+        id:1,
         name: "Lampada1",
         url: "10.10.10.10",
         position: {
@@ -624,6 +634,7 @@ const BATH: Division = {
     },
     {
         //lampada meio esquerda 
+        id:2,
         name: "Lampada1",
         url: "10.10.10.10",
         position: {
@@ -677,6 +688,7 @@ const KITCHEN: Division = {
     },
     devices: [{
         //lampada meio esquerda 
+        id:0,
         name: "Lampada1",
         url: "10.10.10.10",
         position: {
@@ -735,6 +747,7 @@ const TOILET: Division = {
     },
     devices: [{
         //lampada meio esquerda 
+        id:0,
         name: "Lampada1",
         url: "10.10.10.10",
         position: {

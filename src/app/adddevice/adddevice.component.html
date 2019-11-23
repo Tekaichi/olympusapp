@@ -1,7 +1,7 @@
 <div class="container mt-5s">
   <div [hidden]="submitted">
     <br>
-    <h2 style="text-align: center;">Add new Device to {{ division.title}}</h2>
+    <h2 style="text-align: center;">{{titleMessage}} {{ division.title}}</h2>
 
     <form (ngSubmit)="onSubmit()" #deviceForm="ngForm">
 
@@ -14,9 +14,14 @@
         <!-- acrescentar caso de nome repetido -->
       </div>
 
-      <div style="margin-top: 3%;"><button type="button" class="btn btn-secondary"
+      <div *ngIf ="!isEdit" style="margin-top: 3%;"><button type="button" class="btn btn-secondary"
           style="text-align: center; line-height: 250%; width:15%;" (click)="open(devicetype)">Device Type</button>
       </div>
+      <div *ngIf ="isEdit" style="margin-top: 3%;"><button type="button" class="btn btn-secondary disabled"
+        style="text-align: center; line-height: 250%; width:15%;">Device Type</button>
+       <img src={{model.currentState.image}} class="icon">
+       {{model.device.type}}
+    </div>
 
       <!-- aparece o X "selecionado", alterar?-->
       <ng-template #devicetype let-c="close" let-d="dismiss">
@@ -80,7 +85,7 @@
                 <img  cdkDragBoundary=".division" cdkDrag  *ngIf="selectedType != null" class="toDrag" src={{selectedType.states[1].image}}> 
               </div>
               <div *ngFor="let device of division.devices">
-                <span class="device" [ngStyle]="{'top.vw':device.position.y*ratio-1.5, 'left.vw':device.position.x*ratio-1.5}">
+                <span class="device" [ngStyle]="{'top.vw':device.position.y*ratio-1.5*ratio, 'left.vw':device.position.x*ratio-1.5*ratio}">
                   <app-device  [device]='device'></app-device>
                 </span>
               </div>
@@ -99,7 +104,7 @@
           style="text-align: center; line-height: 250%; width:30%; margin-left: -30%;">Cancel</button>
         <button type="submit" class="btn btn-success"
           style="text-align: center; line-height: 250%; width:30%; margin-left: 10%;"
-          [disabled]="!deviceForm.form.valid">Submit</button></div>
+          [disabled]="!deviceForm.form.valid"><span *ngIf="isEdit">Save</span><span *ngIf="!isEdit">Submit</span></button></div>
 
     </form>
   </div>

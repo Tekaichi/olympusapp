@@ -14,6 +14,9 @@ export class AdddeviceComponent implements OnInit {
   @ViewChild("addeddevice",{static:true}) posDev :ElementRef;
 
 
+  
+  titleMessage :string;
+
   model = new Device();
 
   selectedType: SystemDevice; 
@@ -26,6 +29,9 @@ export class AdddeviceComponent implements OnInit {
   activeModal: NgbActiveModal ;
   selectedUrl : String;
   ratio : number;
+
+  isEdit : boolean;
+
   constructor(private route: ActivatedRoute, private router: Router, private modalService: NgbModal, private deviceService: DevicesService, private divisionService: DivisionService) {
 
   }
@@ -56,6 +62,17 @@ export class AdddeviceComponent implements OnInit {
 
   ngOnInit() {
     let id = +this.route.snapshot.paramMap.get('id');
+    let deviceId = this.route.snapshot.paramMap.get("deviceId");
+    if(deviceId){
+      this.isEdit = true;
+      this.model = this.deviceService.getDevice(id,+deviceId);
+      this.titleMessage = "Edit Device of"
+
+    }else{
+      this.isEdit = false;
+      this.titleMessage = "Add new Device to"
+    }
+
     this.getDivision(id);
     this.deviceService.getKnownDeviceTypes().subscribe(devices => this.devices = devices);
   }
@@ -111,6 +128,7 @@ this.submit();
 
   save():void{
    
+    
     this.model.url = this.selectedUrl;
     this.model.device = this.selectedType;
     this.model.currentState = this.model.device.states[1];
@@ -131,7 +149,6 @@ this.submit();
   let transform:string = child.style.webkitTransform;
   
 
-  console.log("Transform: ", transform);
  
   let webkit = transform.substr(transform.indexOf("(")+1,transform.lastIndexOf(")"));
   let vals = webkit.split(",");
@@ -150,8 +167,7 @@ this.submit();
   let vwSizeString = division.attributes[3].nodeValue.replace("width: ","").replace("vw","").replace("height: ","").replace("vw;",""); //Gets width: Xvw; height Yvw;
   let pxSize = [division.clientWidth,division.clientHeight]; //Get them px values
   let vwSize = vwSizeString.split(";");
-  console.log("PX: ",pxSize);
-  console.log("vwSize: ", vwSize);
+
   //Now do the math..
 
   let ratio = [pxSize[0]/+vwSize[0],pxSize[1]/+vwSize[1]];
@@ -164,8 +180,11 @@ this.submit();
   //get a proper fix for this.
   
  
-  this.deviceService.add(this.model,this.division);
-  
+  if(!this.isEdit){
+      this.deviceService.add(this.model,this.division);
+  }else{
+    //update
+  }
   
   this.router.navigate(["/division",this.division.id]);
   }

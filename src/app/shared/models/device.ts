@@ -1,4 +1,5 @@
 export class Device {
+    id: number;
     name:String;
     url:String;
     position: {
