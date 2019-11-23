@@ -5,6 +5,7 @@ import { Division } from '../shared/models/Division';
 import { AlertService } from '../_alert';
 import { DevicesService } from '../devices.service';
 
+
 @Component({
   selector: 'app-device',
   templateUrl: './device.component.html',
@@ -32,14 +33,26 @@ export class DeviceComponent implements OnInit {
   }
 
   changeState(state:State):void{
-    this.currentState = state;
-    this.device.currentState = state;
-    this.logService.addtoLog(this.device.name + " was " + this.currentState.action + " in " + this.division.title);
-    //Add feedback to notification thingie
 
-    this.alertService.success(this.device.name + " was " + this.currentState.action);
+    this.device.device.states.forEach((check) =>{
+
+      if(check.description == state.description){
+        console.log(state.description,check.description);
+        
+        this.currentState = check;
+        this.device.currentState = check;
+        this.logService.addtoLog(this.device.name + " was " + this.currentState.action + " in " + this.division.title);
+        //Add feedback to notification thingie
+    
+        this.alertService.success(this.device.name + " was " + this.currentState.action);
+       
+        this.deviceService.stateChange(this.device);
+        return;
+      }
+    })
+
    
-    this.deviceService.stateChange(this.device);
+ 
     
   }
 

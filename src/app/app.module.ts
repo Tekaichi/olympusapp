@@ -33,6 +33,7 @@ const appRoutes: Routes = [
   { path: "home", component: AppComponent },
   { path: "division/:id", component: DivisionComponent },
   { path: "adddevice/:id", component: AdddeviceComponent },
+  { path: "editdevice/:id/:deviceId", component: AdddeviceComponent },
   { path: "procedures", component: ProceduresMainComponent },
   { path: "proceduresManagement", component: ProcedurespageComponent },
   { path: "proceduresManagement/:id", component: ProcedurespageComponent },
