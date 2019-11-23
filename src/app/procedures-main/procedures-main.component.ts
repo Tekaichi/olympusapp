@@ -74,8 +74,8 @@ export class ProceduresMainComponent implements OnInit {
     this.router.navigate(["/proceduresManagement", id]);
   }
 
-  removeProcedure(procedure : Procedure) : void {
+  removeProcedure(procedure: Procedure): void {
     console.log(procedure.name);
-    /* TODO */
+   this.proceduresService.delete(procedure.name);
   }
 }
