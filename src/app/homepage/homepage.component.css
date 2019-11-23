@@ -59,20 +59,23 @@ button:hover{
    
     .wrapper .text{
       position: absolute;
-      width:8vw;
+      width:5vw;
       text-align: center;
-      left:-2vw;
-      font-size: 0.8vw;
+      left:-1.5vw;
+      font-size: 0.7vw;
       color:gray;
       background-color:whitesmoke;
       border-radius: 1vw;
   }
   .wrapper{
-    animation: fade 1s;
+    animation: fade 10s;
+    z-index: 1;
   }
 
   @keyframes fade{ 
-    from{opacity: 0;}
-    to{opacity: 1;}
+    0%,5%{opacity: 0;}
+    20%,70%{opacity: 1;}
+    90%,100%{opacity:0;}
+    
   }
   

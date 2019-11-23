@@ -113,7 +113,7 @@ this.submit();
    
     this.model.url = this.selectedUrl;
     this.model.device = this.selectedType;
-    this.model.currentState = this.model.device.states[0];
+    this.model.currentState = this.model.device.states[1];
     window.scrollTo(0,document.body.scrollHeight);
 
   }
@@ -130,6 +130,8 @@ this.submit();
 
   let transform:string = child.style.webkitTransform;
   
+
+  console.log("Transform: ", transform);
  
   let webkit = transform.substr(transform.indexOf("(")+1,transform.lastIndexOf(")"));
   let vals = webkit.split(",");
@@ -143,10 +145,21 @@ this.submit();
     y = 0;
   }
 
+  
+  let division = document.getElementsByClassName("division")[0];
+  let vwSizeString = division.attributes[3].nodeValue.replace("width: ","").replace("vw","").replace("height: ","").replace("vw;",""); //Gets width: Xvw; height Yvw;
+  let pxSize = [division.clientWidth,division.clientHeight]; //Get them px values
+  let vwSize = vwSizeString.split(";");
+  console.log("PX: ",pxSize);
+  console.log("vwSize: ", vwSize);
+  //Now do the math..
+
+  let ratio = [pxSize[0]/+vwSize[0],pxSize[1]/+vwSize[1]];
+  //let divisionSize = document.getElementsByClassName("division")
   //WTF, this kinda works ? ?_?
   this.model.position ={
-    x:x/10,
-    y:y/10
+    x:x*1/ratio[0],
+    y:y*1/ratio[1]
   }
   //get a proper fix for this.
   

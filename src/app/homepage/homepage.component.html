@@ -133,7 +133,7 @@
 
 
     <!-- pop up de run prodecure-->
-    <ng-template #content let-c="close" let-d="dismiss">
+    <ng-template #content let-c="close" let-d="dismiss" >
         <div class="modal-header">
             <h4 class="modal-title" id="modal-basic-title">Confirm</h4>
             <button type="button" class="close" aria-label="Close" (click)="d('Cross click')">
@@ -146,7 +146,7 @@
         </div>
         <div class="modal-footer">
             <button type="button" class="btn btn-danger" (click)="c('Cancel')">Cancel</button>
-            <button type="button" class="btn btn-primary  " (click)="c('Confirm')">Confirm</button>
+            <button type="button" class="btn btn-primary  " (click)="c('Confirm')">Run Procedure</button>
         </div>
     </ng-template>
 </div>
