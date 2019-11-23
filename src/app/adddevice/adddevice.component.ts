@@ -155,35 +155,47 @@ export class AdddeviceComponent implements OnInit {
   let vwSizeString = division.attributes[3].nodeValue.replace("width: ","").replace("vw","").replace("height: ","").replace("vw;",""); //Gets width: Xvw; height Yvw;
   let pxSize = [division.clientWidth,division.clientHeight]; //Get them px values
   let vwSize = vwSizeString.split(";");
-  let ratio = [pxSize[0]/+vwSize[0],pxSize[1]/+vwSize[1]];
+  let ratio = [pxSize[0]/+vwSize[0],pxSize[1]/+vwSize[1]];  //Gets the ratio between the px and vw values
 
   let transform:string = child.style.webkitTransform;
-  
+  let x :number,y:number;
+  if(transform){
+    let webkit = transform.substr(transform.indexOf("(")+1,transform.lastIndexOf(")"));
+    let vals = webkit.split(",");
+    x =  +vals[0].replace("px","");
+    y=  +vals[1].replace("px","");
+  }else{
+    x = 1*ratio[0]-0.5;
+    y = 1*ratio[1]-0.5;
+  }
 
  
-  let webkit = transform.substr(transform.indexOf("(")+1,transform.lastIndexOf(")"));
-  let vals = webkit.split(",");
-  let x :number= +vals[0].replace("px","");
-  let y:number= +vals[1].replace("px","");
+ 
+
 
   if(this.isEdit){
   x+= child.offsetLeft;
   y+= child.offsetTop;
   }
   if(x < 0){
-    x = 0;
+    x = 5;
   }
   if(y < 0){
-    y = 0;
+    y = 5;
   }
 
 
 
   this.model.position ={
-    x: x*1/ratio[0],
-    y: y*1/ratio[1] 
+    x: x*1/ratio[0], //Converts the transformed Xpx to Xvw
+    y: y*1/ratio[1]  //Converts the transformed Ypx to Yvw
   }
-  console.log("New: ", this.model.position)
+  if(this.model.position.x > +vwSize[0]){
+    this.model.position.x = +vwSize[0]-3;
+  }
+  if(this.model.position.y > +vwSize[1]){
+    this.model.position.y = +vwSize[1]-3;
+  }
   
  
   if(!this.isEdit){
@@ -196,4 +208,6 @@ export class AdddeviceComponent implements OnInit {
   this.router.navigate(["/division",this.division.id]);
   }
 
+
+  
 }

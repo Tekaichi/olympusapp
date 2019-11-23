@@ -20,7 +20,7 @@
     width:2vw;
     height:2vw;
     border-radius: 10vw;
-    margin:0.3vw;
+    margin-left:0.25vw;
 }
 .icon{
     width:5vw;
@@ -71,9 +71,8 @@
 }
 
 .toDrag{
-    width:3vw;
-    height:3vw;
-    margin-left:1vw;
+    width:2vw;
+    height:2vw;
     position: absolute;
     transition: 0.2s all linear;
     z-index: 1;
@@ -81,15 +80,14 @@
     border-radius: 0.2vw;
     top:0vw;
     left:0vw;
+   
 
 }
 
 .toDrag:hover{
     border:1px solid gray;
-    width:3.2vw;
-    height:3.2vw;
     border-radius: 1vw;
-    position: absolute;
+  
 }
 
 .toDrag:active{

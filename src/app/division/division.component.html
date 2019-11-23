@@ -8,7 +8,27 @@
                 style="position:relative;text-align:center;border:0.5px solid black;background-color: lightgray;">
                 <div #layout class="division" [ngStyle]="{'width.vw':  width, 'height.vw' : height }">
                     <div *ngFor="let device of division.devices">
-                        <span class="device"
+                        <div *ngIf="device == movingDevice">
+                                <div class="moveicons" *ngIf="edit">
+                                  
+                                        <i (click)="confirmMove(device)" class="fa fa-check moveResult" aria-hidden="true"></i>
+                                        <i (click)="cancelMove(device)" class="fa fa-window-close moveResult" aria-hidden="true"></i>
+    
+                                    </div>
+                                <div  class="device" 
+                                [ngStyle]="{'top.vw':device.position.y*ratio-1.5, 'left.vw':device.position.x*ratio-1.5}">
+                               
+                        
+    
+                                <img  id='editedDevice'  cdkDrag cdkDragBoundary=".division"  src={{device.currentState.image}} class="toDrag"/>
+                             
+                              
+                               
+                           
+                                </div>
+                        </div>
+                        <div *ngIf="device != movingDevice">
+                                <div class="device"
                             [ngStyle]="{'top.vw':device.position.y*ratio-1.5, 'left.vw':device.position.x*ratio-1.5}">
 
                             <div class="editicons" *ngIf="edit">
@@ -17,8 +37,10 @@
                                 <i (click)="move(device)" class="fa fa-arrows-alt move" aria-hidden="true"></i>
                             </div>
 
-                            <app-device [division]='division' [device]='device'></app-device>
-                        </span>
+                            <app-device  [division]='division' [device]='device'></app-device>
+                        </div>
+                        </div>
+                      
                     </div>
                     <div *ngFor="let door of division.doors">
                         <div class="device" [ngStyle]="{'top.vw':door.y-1.5, 'left.vw':door.x-1.5}">
