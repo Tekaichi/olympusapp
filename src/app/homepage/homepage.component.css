@@ -2,19 +2,30 @@
   position: absolute;
 }
 
+.w-70{
+  width: 70% !important;
+}
+.bg-cyan{
+  background-color: #0f1e3c;
+}
+button:hover{
+  box-shadow: 2px 2px 2px 2px #58b9ce !important;
+}
 
+.square{
+  border-radius: 0 !important;
+}
 
     :host ::ng-deep .division { 
         background-color: white;
         position: absolute;
         margin:0 auto;
-        border:0.8px solid darkgray;
+        border:0.8px solid #0f1e3c ;
       }
 
       :host ::ng-deep .division:hover{ 
         background-color: gray;
-        /*margin: 0.5vw;
-        z-index: 1;*/
+   
       }
 
     
@@ -27,13 +38,14 @@
         left:50%;
         position: relative;
         transform: translate(-50%,-50%);
+   
       }
 
       :host ::ng-deep .loucura{
-        top:10%;
-        left:47%;
-        position: relative;
-        transform: translate(-25%,-25%);
+ 
+        left:15%;
+      
+        
       }
 
       .icon {
@@ -41,6 +53,9 @@
         height:1.5vw;
     }
 
+    .btn-dark{
+      background-color: black !important;
+    }
    
     .wrapper .text{
       position: absolute;
