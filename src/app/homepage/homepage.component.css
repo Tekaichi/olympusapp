@@ -24,7 +24,7 @@ button:hover{
       }
 
       :host ::ng-deep .division:hover{ 
-        background-color: gray;
+        background-color: lightgray;
    
       }
 
