@@ -172,7 +172,7 @@ export class DivisionComponent implements OnInit {
     var i, k, j;
     for (i = 0; i < MOCKDIVISION.length; i++) {
       for (j = 0; j < MOCKDIVISION[i].devices.length; j++) {
-        if (MOCKDIVISION[i].devices[j].name == device.name)
+        if (MOCKDIVISION[i].devices[j].name == device.name && this.division.title == MOCKDIVISION[i].title)
           MOCKDIVISION[i].devices.splice(j, 1);
       }
     }
