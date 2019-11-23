@@ -3,7 +3,15 @@
     data-toggle="dropdown">   
     <div class="wrapper">
     <img  class="icon" src={{currentState.image}}> 
-    <p class="text"> {{ currentState.description }}</p>
+   
+    <div *ngIf ="currentState.hasValues">
+      
+            <p class="text"> {{ currentState.description }} {{currentState.value}}º</p>
+    </div>
+    <div *ngIf ="!currentState.hasValues">
+            <p class="text"> {{ currentState.description }}</p>
+        </div>
+    
 
       </div>
     <div class="dropdown-menu">

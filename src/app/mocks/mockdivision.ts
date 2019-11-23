@@ -220,7 +220,9 @@ const AC: SystemDevice = {
         action: "Change temperature",
         transitions:null
     }
-    ]
+    ],
+    hasValues : true,
+    value : 25
 
     },
     {
@@ -235,7 +237,7 @@ const AC: SystemDevice = {
         }]
     },
     {
-        description: "The AC temperature is %s",
+        description: "The AC temperature is ",
         image: "/assets/images/AC-on.png",
         action: "Change temperature",
         transitions:[
@@ -251,7 +253,9 @@ const AC: SystemDevice = {
             transitions:null
            }
 
-        ]
+        ],
+        hasValues : true,
+        value : 25
     }
     ],
     type: "AC"

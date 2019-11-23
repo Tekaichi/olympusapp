@@ -34,6 +34,8 @@ export class State{
     image: String;
     action: String;
     transitions: State[];
+    hasValues?: boolean = false;
+    value? : number = 0;
 }
 
 export class Action{
