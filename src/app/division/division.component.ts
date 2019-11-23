@@ -4,6 +4,7 @@ import { Division } from '../shared/models/division';
 import { Router, ActivatedRoute } from '@angular/router';
 import { NgbModal, ModalDismissReasons, NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
 import { Device } from '../shared/models/device';
+import { MOCKDIVISION } from "../mocks/mockdivision";
 
 @Component({
   selector: 'app-division',
@@ -166,9 +167,14 @@ export class DivisionComponent implements OnInit {
     }
   }
 
-  /* TODO: Delete device */
+
   deleteDevice(device: Device): void {
-    console.log("1");
-    this.division.devices.splice(device.id, 1);
+    var i, k, j;
+    for (i = 0; i < MOCKDIVISION.length; i++) {
+      for (j = 0; j < MOCKDIVISION[i].devices.length; j++) {
+        if (MOCKDIVISION[i].devices[j].name == device.name && this.division.title == MOCKDIVISION[i].title)
+          MOCKDIVISION[i].devices.splice(j, 1);
+      }
+    }
   }
 }

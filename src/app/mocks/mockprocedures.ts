@@ -61,6 +61,42 @@ export const MOCKPROCEDURES: Procedure[] = [
 
 
     ], 0),
-    new Procedure("Living room lights", [], 1),
+    new Procedure("Living room lights", [
+        {
+            division: MOCKDIVISION[1],
+            id: 0,
+            name: "Living Room",
+            actions: [{
+                device: MOCKDIVISION[1].devices[0],
+                goalState: {
+                    description: "The lamp is on",
+                    image: "/assets/images/lamp-on-v2.png",
+                    action: "Turn on",
+                    transitions: [{
+                        description: "The lamp is off",
+                        image: "/assets/images/lamp-off-v2.png",
+                        action: "Turn off",
+                        transitions: null
+                    }]
+                }
+            },
+            {
+                device: MOCKDIVISION[1].devices[1],
+                goalState: {
+                    description: "The lamp is on",
+                    image: "/assets/images/lamp-on-v2.png",
+                    action: "Turn on",
+                    transitions: [{
+                        description: "The lamp is off",
+                        image: "/assets/images/lamp-off-v2.png",
+                        action: "Turn off",
+                        transitions: null
+                    }]
+                }
+            }
+
+            ]
+        }
+    ], 1),
 
 ]

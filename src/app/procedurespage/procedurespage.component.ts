@@ -6,6 +6,7 @@ import { DivisionActions, Procedure } from '../shared/models/procedures';
 import { ProcedureService } from '../procedures.service';
 import { AlertService } from '../_alert';
 import { createOfflineCompileUrlResolver } from '@angular/compiler';
+import { NgbModal, ModalDismissReasons, NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
   selector: 'app-procedurespage',
@@ -17,8 +18,10 @@ export class ProcedurespageComponent implements OnInit {
   divisions : Division[]
   name:string;
   isEdit : boolean;
+  closeResult: string;
+  activeModal: NgbActiveModal ;
   procedure :Procedure;
-  constructor(private divisionService : DivisionService, private router : Router,private proceduresService : ProcedureService,private alert : AlertService,private route : ActivatedRoute) { 
+  constructor(private divisionService : DivisionService, private router : Router,private modalService: NgbModal,private proceduresService : ProcedureService,private alert : AlertService,private route : ActivatedRoute) { 
 
 
     
@@ -86,4 +89,29 @@ export class ProcedurespageComponent implements OnInit {
     }
     
   }
+
+
+  open(content) {
+    
+    this.modalService.dismissAll();
+
+  this.modalService.open(content, { ariaLabelledBy: 'modal-basic-title', centered: true }).result.then((result) => {
+     this.closeResult = `Closed with: ${result}`;
+    }, (reason) => {
+      this.closeResult = `Dismissed ${this.getDismissReason(reason)}`;
+    });
+
+  }
+
+  private getDismissReason(reason: any): string {
+    if (reason === ModalDismissReasons.ESC) {
+      return 'by pressing ESC';
+    } else if (reason === ModalDismissReasons.BACKDROP_CLICK) {
+      return 'by clicking on a backdrop';
+    } else {
+      return `with: ${reason}`;
+    }
+  }
+
+
 }
