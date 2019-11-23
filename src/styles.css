@@ -2,6 +2,13 @@
 .container{
   max-width: 1500px !important;
 }
+.bg-cyan{
+  background-color: #0f1e3c;
+  transition: 0.2s;
+}
+.bg-cyan:hover{
+  background-color: #1e5b82 !important;
+ }
 .mt-5s{
   margin-top: 5rem;
 }
