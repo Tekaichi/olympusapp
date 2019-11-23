@@ -97,11 +97,6 @@ a {
       width:3vw;
       height:3vw;
   }
-
-  .door {
-    width:4.2vw;
-    height:1.6vw;
-}
   
   @keyframes shake {
       10%,30%,50%,70%, 90% {
