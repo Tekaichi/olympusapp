@@ -94,4 +94,12 @@ export class ProceduresDivisionComponent implements OnInit {
     this.router.navigate(["/proceduresManagement"]);
     }
   }
+
+  removeField(index: number) {
+    this.selectedActions.splice(index, 1);
+  }
+
+  trackByFn(i: number) {
+    return i;
+  }
 }

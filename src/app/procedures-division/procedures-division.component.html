@@ -25,7 +25,10 @@
             
         </div>
 
-        <div *ngFor ="let actions of selectedActions"> {{actions.device.name}} {{actions.goalState.action}} </div> 
+        <div *ngFor ="let actions of selectedActions; let i = index; trackBy: trackByFn"> {{actions.device.name}} {{actions.goalState.action}} 
+                <button (click)="removeField(i)" class="btn btn-danger">Remove</button>
+
+        </div> 
 
         <button (click)="saveDivAction()" class="btn btn-success">Confirmar</button>
         <button (click)="cancel()" class="btn btn-warning">Cancelar</button>
