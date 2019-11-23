@@ -5,9 +5,10 @@
 .main{
     width:20%;
     top:6vw;
+    right: 6vw;
     position: absolute;
     z-index: 1;
-    left:1vw;
+        
 }
 @keyframes fade {
     0% { opacity: 0; }
@@ -21,16 +22,17 @@
 
 
 .main div{
-    height:3vw;
+    
     animation: fade 10s;
 }
 
 span{
-    bottom: 1vw;
+   
     position: relative;
 }
 a{
-    bottom: 1vw;
+    height:1vw;
+    
     position: relative;
 }
 

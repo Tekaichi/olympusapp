@@ -1,9 +1,8 @@
-﻿
-<div class="main">
-<div *ngFor="let alert of alerts" class="{{cssClass(alert)}} alert-dismissable">
-    <div class="alert">
-    <span>{{alert.message}}</span>
-    <a class="close pointer" (click)="removeAlert(alert)">&times;</a>
-</div>
-</div>
+﻿<div class="main">
+    <div *ngFor="let alert of alerts" class="{{cssClass(alert)}} alert-dismissable">
+        <div class="alert">
+            <div>{{alert.message}}</div>
+            <a class="close pointer" (click)="removeAlert(alert)">&times;</a>
+        </div>
+    </div>
 </div>
