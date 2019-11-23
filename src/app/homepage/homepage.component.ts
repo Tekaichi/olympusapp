@@ -17,7 +17,7 @@ import { DevicesService } from '../devices.service';
 export class HomepageComponent implements OnInit {
 
   @ViewChild('layout', { static: true }) layout: ElementRef;
-  everySecond: Observable<Number> = timer(0, 1000*30);
+  everySecond: Observable<Number> = timer(0, 1000*1);
 
   divisions: Division[];
 

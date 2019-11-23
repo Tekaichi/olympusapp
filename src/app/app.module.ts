@@ -44,7 +44,13 @@ const appRoutes: Routes = [
   {path :"divisionprocedures/:id", component:ProceduresDivisionComponent},
   {path :"divisionprocedures/:id/edit/:action", component:ProceduresDivisionComponent},
   {path :"divisionprocedures/:id/edit/:action/edit", component:ProceduresDivisionComponent},
-  {path :"divisionprocedures/:id/edit", component:ProceduresDivisionComponent}
+  {path :"divisionprocedures/:id/edit", component:ProceduresDivisionComponent},
+  {
+    path: '**',
+    pathMatch: 'full',
+    component: Erro404Component
+  }
+  
 
 
 ];
@@ -68,8 +74,9 @@ const appRoutes: Routes = [
     RegistComponent,
     ConfirmEqualValidatorDirective,
     ProceduresDivisionComponent,
-    ProceduredeviceComponent
-    
+    ProceduredeviceComponent,
+    Erro404Component
+
 
   ],
   imports: [

@@ -12,6 +12,7 @@ export class Division{
 class Position {
     x: number;
     y: number;
+    angle: number;
 }
 export class Layout{
     from: {

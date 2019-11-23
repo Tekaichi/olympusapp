@@ -4,9 +4,9 @@ import { SystemDevice, Device } from "../shared/models/device";
 
 
 const DOOR: SystemDevice = {
-    devices:[{
-        url:"10.11.12.10",
-        name:"MainDoor"
+    devices: [{
+        url: "10.11.12.10",
+        name: "MainDoor"
     }],
     actions: [
         {
@@ -39,23 +39,23 @@ const DOOR: SystemDevice = {
 const LAMP: SystemDevice = {
     devices: [
         {
-            url:"10.10.10.11",
-            name:"Lampada 1"
+            url: "10.10.10.11",
+            name: "Lampada 1"
 
         },
         {
-            url:"10.10.11.11",
-            name:"Lampada 2"
+            url: "10.10.11.11",
+            name: "Lampada 2"
 
         },
         {
-            url:"10.10.10.15",
-            name:"Lampada 3"
+            url: "10.10.10.15",
+            name: "Lampada 3"
 
         },
         {
-            url:"10.10.11.12",
-            name:"Lampada 4"
+            url: "10.10.11.12",
+            name: "Lampada 4"
 
         },
 
@@ -87,17 +87,17 @@ const LAMP: SystemDevice = {
 const BLINDS: SystemDevice = {
     devices: [
         {
-            url:"10.10.10.11",
-            name:"Blinds_1"
+            url: "10.10.10.11",
+            name: "Blinds_1"
 
         },
         {
-            url:"10.10.11.11",
-            name:"Blinds_2"
+            url: "10.10.11.11",
+            name: "Blinds_2"
 
         }
 
-    ],    actions: [
+    ], actions: [
         {
             description: "Ligar",
             command: "/on"
@@ -124,19 +124,19 @@ const BLINDS: SystemDevice = {
 const AC: SystemDevice = {
     devices: [
         {
-            url:"10.10.10.11",
-            name:"AC_1"
+            url: "10.10.10.11",
+            name: "AC_1"
 
         },
         {
-            url:"10.10.11.11",
-            name:"AC_2"
+            url: "10.10.11.11",
+            name: "AC_2"
 
         }
 
     ],
-        
-    
+
+
     actions: [
         {
             description: "Ligar",
@@ -199,27 +199,29 @@ const HALL: Division = {
     },
     devices: [
         {
+            //lampada cima meio
             name: "Lampada0",
             url: "10.10.10.10",
             position: {
-                x: 6,
-                y: 0
+                x: 3.5,
+                y: 0.5
             },
             device: LAMP,
             currentState: LAMP.states[0],
-            show : false
+            show: false
 
         },
         {
+            //lampada canto superior esquerdo
             name: "Lampada1",
             url: "10.10.10.10",
             position: {
-                x: 0,
-                y: 0
+                x: 0.2,
+                y: 0.5
             },
             device: LAMP,
             currentState: LAMP.states[0],
-            show : false
+            show: false
         },
         {
             name: "Door",
@@ -230,38 +232,44 @@ const HALL: Division = {
             },
             device: DOOR,
             currentState: DOOR.states[1],
-            show : false
+            show: false
         }
     ], doors: [
         {
             //porta esquerda cima
-            x: 1,
-            y: 15
+            x: 0,
+            y: 15,
+            angle: 90
         },
         {
             //porta meio cima
-            x: 8,
-            y: 1.5
+            x: 6,
+            y: 0.8,
+            angle: 0
         },
         {
             //porta esquerda baixo
-            x: 1,
-            y: 32
+            x: 0,
+            y: 32,
+            angle: 90
         },
         {
             //porta direita meio
-            x: 15.5,
-            y: 15
+            x: 16,
+            y: 15,
+            angle: 90
         },
         {
             //porta direita cima
-            x: 15.5,
-            y: 1.5
+            x: 13.5,
+            y: 0.8,
+            angle: 0
         },
         {
             //porta direita baixo
-            x: 15.5,
-            y: 32
+            x: 16,
+            y: 32,
+            angle: 90
         }
     ]
 
@@ -299,37 +307,41 @@ const LIVINGROOM: Division = {
     },
     devices: [
         {
+            //lampada canto superior esquerdo
             name: "Lampada0",
             url: "10.10.10.10",
             position: {
-                x: 0,
-                y: 0
+                x: 0.7,
+                y: 1
             },
             device: LAMP,
             currentState: LAMP.states[0],
-            show : false
+            show: false
         },
         {
+            //lampada meio
             name: "Lampada1",
             url: "10.10.10.10",
             position: {
-                x: 10,
-                y: 10,
+                x: 9,
+                y: 9,
             },
             device: LAMP,
             currentState: LAMP.states[0],
-            show : false
+            show: false
         }
     ], doors: [
         {
             //porta esquerda
-            x: 1,
-            y: 22
+            x: 0,
+            y: 22,
+            angle: 90
         },
         {
             //porta meio baixo
             x: 15,
-            y: 26.5
+            y: 28.2,
+            angle: 0
         }
     ]
 
@@ -365,60 +377,66 @@ const BEDROOM: Division = {
     },
     devices: [
         {
+            //lampada canto esquerdo superior
             name: "Lampada0",
             url: "10.10.10.10",
             position: {
-                x: 0,
-                y: 0
+                x: 0.5,
+                y: 1
             },
             device: LAMP,
             currentState: LAMP.states[0],
-            show : false
+            show: false
         },
         {
+            //lampada meio esquerda 
             name: "Lampada1",
             url: "10.10.10.10",
             position: {
-                x: 5,
+                x: 3,
                 y: 7,
             },
             device: LAMP,
             currentState: LAMP.states[0],
-            show : false
+            show: false
         },
         {
+            //lampada meio direita
             name: "Lamp3",
             url: "10.10.10.10",
             position: {
-                x: 10,
-                y: 10,
+                x: 7.5,
+                y: 7.5,
             },
             device: LAMP,
             currentState: LAMP.states[0],
-            show : false
+            show: false
         },
         {
+            //lampada canto superior direito
             name: "Lamp4",
             url: "10.10.10.10",
             position: {
-                x: 20,
-                y: 0,
+                x: 14,
+                y: 1,
             },
             device: LAMP,
             currentState: LAMP.states[0],
-            show : false
+            show: false
         }
     ],
     doors: [
         {
             //porta esquerda
-            x: 1,
-            y: 18
+            x: 0,
+            y: 18,
+            angle: 90
         },
         {
             //porta baixo direita
             x: 20,
-            y: 26.5
+            y: 28.2,
+            angle: 0
         }
     ]
 
@@ -454,33 +472,36 @@ const ROOM1: Division = {
     },
     devices: [
         {
+            //estores cima
             name: "Estores0",
             url: "10.10.10.10",
             position: {
-                x: 1,
-                y: 7,
+                x: 0.3,
+                y: 3,
             },
             device: BLINDS,
             currentState: BLINDS.states[0],
-            show : false
+            show: false
         },
         {
+            //estores baixo
             name: "Estores1",
             url: "10.10.10.10",
             position: {
-                x: 1,
-                y: 17,
+                x: 0.3,
+                y: 6,
             },
             device: BLINDS,
             currentState: BLINDS.states[0],
-            show : false
+            show: false
         }
     ],
     doors: [
         {
             //porta direita meio
-            x: 31.5,
-            y: 12
+            x: 31.8,
+            y: 12,
+            angle: 90
         }
     ]
 
@@ -515,33 +536,36 @@ const ROOM2: Division = {
     },
     devices: [
         {
+            //estores cima
             name: "Estores0",
             url: "10.10.10.10",
             position: {
-                x: 1,
-                y: 7,
+                x: 0.3,
+                y: 3,
             },
             device: BLINDS,
             currentState: BLINDS.states[0],
-            show : false
+            show: false
         },
         {
+            //AC baixo
             name: "AC0",
             url: "10.10.10.10",
             position: {
-                x: 1,
-                y: 17,
+                x: 0.3,
+                y: 6,
             },
             device: AC,
             currentState: AC.states[0],
-            show : false
+            show: false
         }
     ],
     doors: [
         {
             //porta direita meio
-            x: 33.5,
-            y: 12
+            x: 33.8,
+            y: 12,
+            angle: 90
         }
     ]
 
@@ -575,12 +599,48 @@ const BATH: Division = {
             y: 15
         }
     },
-    devices: [],
+    devices: [{
+        //AC baixo
+        name: "AC0",
+        url: "10.10.10.10",
+        position: {
+            x: 0.3,
+            y: 8.4,
+        },
+        device: AC,
+        currentState: AC.states[0],
+        show: false
+    }, {
+        //lampada meio esquerda 
+        name: "Lampada1",
+        url: "10.10.10.10",
+        position: {
+            x: 3,
+            y: 5,
+        },
+        device: LAMP,
+        currentState: LAMP.states[0],
+        show: false
+    },
+    {
+        //lampada meio esquerda 
+        name: "Lampada1",
+        url: "10.10.10.10",
+        position: {
+            x: 3,
+            y: 13,
+        },
+        device: LAMP,
+        currentState: LAMP.states[0],
+        show: false
+    }
+    ],
     doors: [
         {
             //porta meio direita
-            x: 16.8,
-            y: 25
+            x: 17,
+            y: 25,
+            angle: 90
         }
     ]
 
@@ -615,17 +675,30 @@ const KITCHEN: Division = {
             y: 32
         }
     },
-    devices: [],
+    devices: [{
+        //lampada meio esquerda 
+        name: "Lampada1",
+        url: "10.10.10.10",
+        position: {
+            x: 9,
+            y: 7,
+        },
+        device: LAMP,
+        currentState: LAMP.states[0],
+        show: false
+    }],
     doors: [
         {
             //porta cima meio
-            x: 17,
-            y: 1.5
+            x: 16,
+            y: 0.8,
+            angle: 0
         },
         {
             //porta esquerda baixo
-            x: 1,
-            y: 15
+            x: 0,
+            y: 15,
+            angle: 90
         }
     ]
 
@@ -660,12 +733,24 @@ const TOILET: Division = {
             y: 24
         }
     },
-    devices: [],
+    devices: [{
+        //lampada meio esquerda 
+        name: "Lampada1",
+        url: "10.10.10.10",
+        position: {
+            x: 3,
+            y: 5,
+        },
+        device: LAMP,
+        currentState: LAMP.states[0],
+        show: false
+    }],
     doors: [
         {
             //porta esquerda meio
-            x: 1,
-            y: 14
+            x: 0,
+            y: 14,
+            angle: 90
         }
     ]
 
