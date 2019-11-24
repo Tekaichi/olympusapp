@@ -5,12 +5,13 @@
 }
 
 .s-big{
-  font-size: 5rem;
+  font-size: 4rem;
 }
 
 .s-med{
-  font-size: 4rem;
+  font-size: 3rem;
 }
+
 
 
   @media (max-width:415px){ 
