@@ -21,7 +21,6 @@ import { AdddeviceComponent } from './adddevice/adddevice.component';
 import { DeleteProcedureComponent } from './procedures-main/delete-procedure/delete-procedure.component';
 import { DeviceComponent } from './device/device.component';
 import { ConfirmEqualValidatorDirective } from './shared/confirm-equal-validator.directive';
-import { GoBackButton } from "./goBackButton/goBack.component";
 import { Erro404Component } from './erro404/erro404.component';
 import { ProceduresDivisionComponent } from './procedures-division/procedures-division.component';
 import { ProceduredeviceComponent } from './proceduredevice/proceduredevice.component';
