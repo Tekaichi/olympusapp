@@ -1,15 +1,17 @@
 <div class="container mt-5s">
-    <div class="row ml-5">
+    <div class="row ml-5 border-bottom">
         <div class="col-6">
-            <h1>Add new Procedure</h1>
+            <h2>Add new Procedure</h2>
         </div>
-        <div class="col-6">
-            <h1 class="ml-5">Select a division </h1>
-        </div>
+
     </div>
-    <hr>
-    <div class="row pt-5 ">
-        <div class="col-6 ">
+    <div class="row ">
+        <div class="col-6"></div>
+        <div class="col-6 text-center"><h3 class="mr-5 pt-3">Select a division: </h3></div>
+        
+    </div>
+    <div class="row pt-3 ml-5">
+        <div class="col-6">
 
             <div class="w-75">
                 <h3 class=" border-bottom text-left ">Selected Actions:</h3>
@@ -40,9 +42,8 @@
                 <div class="col-2 text-right ml-5">
                     <button class="btn btn-lg text-white btn-danger" (click)="cancel()">Cancel</button>
                 </div>
-                <div class="col-2 text-left">
-                    <button class="btn btn-lg text-white bg-cyan" (click)="open(finish)">Name procedure &
-                        Submit</button>
+                <div class="col-4 text-left">
+                    <button class="btn btn-lg text-white btn-success" (click)="open(finish)">Name & Finish</button>
                 </div>
 
                 <!-- finish modal -->
@@ -54,8 +55,14 @@
                         </button>
                     </div>
                     <div class="modal-body" style="display: flex;">
-                        Give it a name:
-                        <input type="text" [(ngModel)]='name' placeholder="New procedure name" />
+
+                        <div class="input-group input-group-lg ">
+
+                            <input class="form-control" aria-label="Large" aria-describedby="inputGroup-sizing-sm"
+                                type="text" [(ngModel)]='name' placeholder="New procedure name" />
+                        </div>
+
+
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-danger" (click)="d('Cross click')">Cancel</button>
@@ -68,7 +75,7 @@
         </div>
 
         <div class="col-6 text-center">
-            
+
             <div *ngFor="let division of divisions" style="cursor: pointer;">
                 <a (click)="goToDivision(division.id)">
                     <div class="division"
