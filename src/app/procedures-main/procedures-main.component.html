@@ -12,8 +12,8 @@
 
     <div class="col text-center mt-5">
 
-        <button type="button" (click)="createProcedure()" class="btn bg-cyan text-white btn-lg">Create new Procedure <span
-                class="ml-2 h4"> <i class="fa fa-plus"></i></span> </button>
+        <button type="button" (click)="createProcedure()" class="btn bg-cyan text-white btn-lg">Create new Procedure
+            <span class="ml-2 h4"> <i class="fa fa-plus"></i></span> </button>
 
     </div>
 
@@ -63,7 +63,27 @@
                     </ng-template>
                 </td>
                 <td>
-                    <button class="run" (click)="run(procedure)"> <i class=" text-run fa fa-play"></i></button>
+                    <button class="run" (click)="open(runmodal)"> <i class=" text-run fa fa-play"></i></button>
+
+                    <!-- pop up de run prodecure-->
+                    <ng-template #runmodal let-c="close" let-d="dismiss">
+                        <div class="modal-header">
+                            <h4 class="modal-title" id="modal-basic-title">Run Procedure</h4>
+                            <button type="button" class="close" aria-label="Close" (click)="d('Cross click')">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div class="modal-body" style="display: flex;">
+                            <h5>Are you sure you want to run procedure
+                                <b>{{procedure.name}}</b>?</h5>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-danger" ngbAutofocus
+                                (click)="c('Cancel')">Cancel</button>
+                            <button type="button" class="btn btn-success" (click)="run(procedure); c('Confirm')">Run
+                                Procedure</button>
+                        </div>
+                    </ng-template>
                 </td>
             </tr>
 
