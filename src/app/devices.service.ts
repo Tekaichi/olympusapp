@@ -18,6 +18,8 @@ export class DevicesService {
   }
   
   add(device: Device, division: Division){
+    let id = division.devices.length;
+    device.id = id;
     division.devices.push(device);
     
   }

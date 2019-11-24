@@ -167,12 +167,14 @@ export class AdddeviceComponent implements OnInit {
   }else{
     x = 1*ratio[0];
     y = 1*ratio[1];
+    console.log("?");
   }
 
  
  
 
 
+  console.log("X,Y",x,y);
   if(this.isEdit){
   x+= child.offsetLeft;
   y+= child.offsetTop;
@@ -187,14 +189,14 @@ export class AdddeviceComponent implements OnInit {
 
 
   this.model.position ={
-    x: x*1/ratio[0], //Converts the transformed Xpx to Xvw
-    y: y*1/ratio[1]  //Converts the transformed Ypx to Yvw
+    x: x*1/ratio[0] - (!this.isEdit?1.65:0), //Converts the transformed Xpx to Xvw
+    y: y*1/ratio[1] -(!this.isEdit?1.65:0) //Converts the transformed Ypx to Yvw
   }
   if(this.model.position.x > +vwSize[0]){
-    this.model.position.x = +vwSize[0]-3;
+    this.model.position.x = +vwSize[0]-2;
   }
   if(this.model.position.y > +vwSize[1]){
-    this.model.position.y = +vwSize[1]-3;
+    this.model.position.y = +vwSize[1]-2;
   }
   
  
