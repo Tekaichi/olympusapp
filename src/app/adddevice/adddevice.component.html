@@ -6,7 +6,7 @@
     <form (ngSubmit)="onSubmit()" #deviceForm="ngForm">
 
       <div class="form-group" style=" margin-top: 3%;">
-        <label for="name">Device Name</label>
+        <label for="name" class="h3">Device Name</label>
         <input type="text" class="form-control" id="name" required [(ngModel)]="model.name" name="name" #name="ngModel">
         <div [hidden]="name.valid" class="alert alert-danger">
           Name is required
@@ -14,14 +14,14 @@
         <!-- acrescentar caso de nome repetido -->
       </div>
 
-      <div *ngIf ="!isEdit" style="margin-top: 3%;"><button type="button" class="btn bg-cyan text-white"
+      <div *ngIf="!isEdit" style="margin-top: 3%;"><button type="button" class="btn bg-cyan text-white"
           style="text-align: center; line-height: 250%; width:15%;" (click)="open(devicetype)">Device Type</button>
       </div>
-      <div *ngIf ="isEdit" style="margin-top: 3%;"><button type="button" class="btn btn-secondary disabled"
-        style="text-align: center; line-height: 250%; width:15%;">Device Type</button>
-       <img src={{model.currentState.image}} class="icon">
-       {{model.device.type}}
-    </div>
+      <div *ngIf="isEdit" style="margin-top: 3%;"><button type="button" class="btn btn-secondary disabled"
+          style="text-align: center; line-height: 250%; width:15%;">Device Type</button>
+        <img src={{model.currentState.image}} class="icon">
+        {{model.device.type}}
+      </div>
 
       <!-- aparece o X "selecionado", alterar?-->
       <ng-template #devicetype let-c="close" let-d="dismiss">
@@ -34,10 +34,12 @@
         <div class="modal-body" style="display: flex;">
           <div *ngFor="let device of devices">
             <!--Estas classes são só placeholders-->
-            <img class="icon" src={{device.states[1].image}} class="active" *ngIf="device == selectedType" (click)="selectDevice(device.type)" />
+            <img class="icon" src={{device.states[1].image}} class="active" *ngIf="device == selectedType"
+              (click)="selectDevice(device.type)" />
 
-            <img class="icon" src={{device.states[1].image}}  *ngIf="device != selectedType" (click)="selectDevice(device)" />
-          </div> 
+            <img class="icon" src={{device.states[1].image}} *ngIf="device != selectedType"
+              (click)="selectDevice(device)" />
+          </div>
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-danger" (click)="d('Cross click')">Cancel</button>
@@ -55,8 +57,10 @@
         </div>
         <div class="modal-body">
           <div *ngFor="let device of selectedType.devices" style="text-align: center;">
-           <button class="url" *ngIf="device.url == selectedUrl" class="activeurl"  (click)="selectUrl(url)">{{device.name}}</button>
-           <button class="url" *ngIf="device.url != selectedUrl" (click)="selectUrl(device.url)">{{device.name}}</button>
+            <button class="url" *ngIf="device.url == selectedUrl" class="activeurl"
+              (click)="selectUrl(url)">{{device.name}}</button>
+            <button class="url" *ngIf="device.url != selectedUrl"
+              (click)="selectUrl(device.url)">{{device.name}}</button>
 
           </div>
 
@@ -69,14 +73,14 @@
 
       <!-- atualiza de acordo com o URL escolhido-->
       <div class="form-group" style=" margin-top: 3%;">
-        <label for="url">Device URL</label>
+        <label for="url" class="h3">Device URL</label>
         <input type="text" class="form-control" id="url" [(ngModel)]="model.url" name="url" readonly>
 
       </div>
 
       <div style=" margin-top: 3%;">
 
-        <p>Drag to choose device position in {{ division.title }} </p> 
+        <h3>Drag to choose device position in {{ division.title }} </h3>
         <br>
 
         <div style="display:flex; flex-flow:column; left:5%;height:100%;width: 85%;">
@@ -84,22 +88,26 @@
             style="position:relative;text-align:center;border:0.5px solid black;background-color: lightgray;">
             <div #layout class="division" [ngStyle]="{'width.vw':  width, 'height.vw' : height }">
               <div #addeddevice>
-                <img  cdkDragBoundary=".division" cdkDrag  *ngIf="selectedType != null" class="toDrag" src={{selectedType.states[1].image}}> 
+                <img cdkDragBoundary=".division" cdkDrag *ngIf="selectedType != null" class="toDrag"
+                  src={{selectedType.states[1].image}}>
               </div>
               <div *ngFor="let device of division.devices">
-                <div *ngIf = "isEdit && device == model">
-                  
-                    <div>
-                        <img id='editedDevice'  [ngStyle]="{'top.vw':device.position.y*ratio-1.5, 'left.vw':device.position.x*ratio-1.5}" cdkDragBoundary=".division" cdkDrag  class="toDrag" src={{model.currentState.image}}> 
-                      </div>
-                      
-                </div>
-                <div *ngIf ="device != model || !isEdit">
-                <span class="device" [ngStyle]="{'top.vw':device.position.y*ratio-1, 'left.vw':device.position.x*ratio-1}">
-                    <img  class="deviceIcon" src={{device.currentState.image}}> 
+                <div *ngIf="isEdit && device == model">
 
-                </span>
-              </div>
+                  <div>
+                    <img id='editedDevice'
+                      [ngStyle]="{'top.vw':device.position.y*ratio-1.5, 'left.vw':device.position.x*ratio-1.5}"
+                      cdkDragBoundary=".division" cdkDrag class="toDrag" src={{model.currentState.image}}>
+                  </div>
+
+                </div>
+                <div *ngIf="device != model || !isEdit">
+                  <span class="device"
+                    [ngStyle]="{'top.vw':device.position.y*ratio-1, 'left.vw':device.position.x*ratio-1}">
+                    <img class="deviceIcon" src={{device.currentState.image}}>
+
+                  </span>
+                </div>
               </div>
 
             </div>
@@ -110,13 +118,17 @@
       </div>
 
 
-      <div style="margin-left: 50%; margin-top: 5%;">
+      <div class="ml-5 mt-2 mb-5 row " style ="width: 85%;">
+        <div class=" col-6 text-right"> <button (click)="goToDivision()" type="button" class=" btn btn-danger text-center"
+            style=" line-height: 250%; width:30%;">Cancel</button></div>
+        <div class=" col-6"> <button type="submit" class="btn btn-success text-center"
+            style=" line-height: 250%; width:30%; "
+            [disabled]="!deviceForm.form.valid"><span *ngIf="isEdit">Save</span><span
+              *ngIf="!isEdit">Submit</span></button></div>
+      </div>
 
-        <button (click)="goToDivision()" type="button" class="btn btn-danger"
-          style="text-align: center; line-height: 250%; width:30%; margin-left: -30%;">Cancel</button>
-        <button type="submit" class="btn btn-success"
-          style="text-align: center; line-height: 250%; width:30%; margin-left: 10%;"
-          [disabled]="!deviceForm.form.valid"><span *ngIf="isEdit">Save</span><span *ngIf="!isEdit">Submit</span></button></div>
+
 
     </form>
+
   </div>

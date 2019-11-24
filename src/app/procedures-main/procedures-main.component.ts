@@ -8,6 +8,7 @@ import { Router } from '@angular/router';
 import { ProcedureService } from '../procedures.service';
 import { DevicesService } from '../devices.service';
 import { NgbModal, ModalDismissReasons, NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
+import { AlertService } from '../_alert';
 
 
 @Component({
@@ -22,7 +23,7 @@ export class ProceduresMainComponent implements OnInit {
   closeResult: string;
   activeModal: NgbActiveModal;
 
-  constructor(private deleteProcedureComponent: DeleteProcedureService, private router: Router, private proceduresService: ProcedureService, private devicesService: DevicesService, private modalService: NgbModal) {
+  constructor(private deleteProcedureComponent: DeleteProcedureService, private alertService: AlertService, private router: Router, private proceduresService: ProcedureService, private devicesService: DevicesService, private modalService: NgbModal) {
 
 
 
@@ -33,18 +34,18 @@ export class ProceduresMainComponent implements OnInit {
     this.getProcedures(1);
   }
 
-  open(content) {
+  open(content, procedure) {
 
     this.modalService.dismissAll();
 
     this.modalService.open(content, { ariaLabelledBy: 'modal-basic-title', centered: true }).result.then((result) => {
-      this.closeResult = `Closed with: ${result}`;
+      this.closeResult = `Closed with: ${result}`;        this.alertService.success("Procedure " + procedure.name + " was successfully executed!");
     }, (reason) => {
       this.closeResult = `Dismissed ${this.getDismissReason(reason)}`;
     });
 
   }
-
+  
   private getDismissReason(reason: any): string {
     if (reason === ModalDismissReasons.ESC) {
       return 'by pressing ESC';
