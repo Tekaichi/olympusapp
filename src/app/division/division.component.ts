@@ -62,6 +62,9 @@ export class DivisionComponent implements OnInit {
     this.router.navigate(['/adddevice', this.id]);
   }
 
+  go404(): void{
+    this.router.navigate(['/reee']);
+  }
   editDivision() {
     this.edit = !this.edit;
 

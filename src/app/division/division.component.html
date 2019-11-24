@@ -1,11 +1,11 @@
 <div class="container text-center mt-5s">
     <h3>{{ title }}</h3>
-    <div class="d-flex text-center mt-3 ml-4 pb-2">
+    <div class="d-flex text-center mt-4 ml-5 ">
 
 
-        <div style="display:flex; flex-flow:column; left:5%;height:100%;width: 85%;">
+        <div class="h-100 col-8" style="width: 85%;">
             <div name="layout"
-                style="position:relative;text-align:center;border:0.5px solid black;background-color: lightgray;">
+                style="position:relative;text-align:center;border:0.5px solid black;" class="bg-degrade">
                 <div #layout class="division" [ngStyle]="{'width.vw':  width, 'height.vw' : height }">
                     <div *ngFor="let device of division.devices">
                         <div *ngIf="device == movingDevice">
@@ -35,7 +35,8 @@
 
                                 <div class="editicons" *ngIf="edit">
                                     <i (click)="editDevice(device)" class="fa fa-edit edit" aria-hidden="true"></i>
-                                    <i (click)="open(deletedevice,device)" class="fa fa-trash delete" aria-hidden="true"></i>
+                                    <i (click)="open(deletedevice,device)" class="fa fa-trash delete"
+                                        aria-hidden="true"></i>
                                     <i (click)="move(device)" class="fa fa-arrows-alt move" aria-hidden="true"></i>
                                 </div>
 
@@ -82,31 +83,33 @@
             </div>
 
         </div>
-        <div style="width:5%"></div>
-
-        <div style="width:13%">
-            <div class="margin-vertical">
-
-                <h3>Room info</h3>
-                <div *ngFor="let value of info">
-                    <p> {{ value.description }} : {{ value.value }}</p>
-                </div>
 
 
-                <button type="button" class="margin-vertical btn btn-dark btn-lg"
-                    style="text-align: center; line-height: 250%; width:90%; margin-top: 20%;"> Room Analytics </button>
+        <div class="col-4">
+
+
+            <h3>Room info</h3>
+            <hr>
+            <div *ngFor="let value of info">
+                <b class="h4"> {{ value.description }} : {{ value.value }}</b>
             </div>
 
-            <button (click)="addDevice()" type="button" class="btn btn-dark btn-lg"
-                style="text-align: center; line-height: 250%; width:90%; margin-top: 20%; ">Add Device<span
-                    class="ml-3 h4">
-                    <i class="fa fa-plus"></i></span> </button>
+            <div class="row mt-5">
+                <div class="col-12"> <button type="button"   (click)="go404()" style="width:55%" class="btn btn-dark bg-cyan text-white btn-lg"> Room
+                        Analytics </button></div>
 
-            <button (click)="editDivision()" type="button" class="btn btn-secondary btn-lg"
-                style="text-align: center; line-height: 250%; width:90%; margin-top: 30%;">Edit Devices<span
-                    class="ml-3 h4"> <i class="fa fa-edit"></i></span> </button>
+                <div class="col-12 mt-2"> <button (click)="addDevice()" type="button" style="width:55%"
+                        class="btn bg-cyan text-white btn-lg ">Add Device<span class="ml-3 h4">
+                            <i class="fa fa-plus"></i></span> </button></div>
+                <div class="col-12 mt-2"> <button (click)="editDivision()" type="button" style="width:55%"
+                        class="btn btn-secondary  bg-cyan text-white btn-lg">Edit
+                        Devices<span class="ml-3 h4"> <i class="fa fa-edit"></i></span> </button></div>
 
 
+
+
+
+            </div>
 
 
         </div>
