@@ -4,6 +4,14 @@
     padding-bottom: 6rem;
 }
 
+.s-big{
+  font-size: 6rem;
+}
+
+.s-med{
+  font-size: 4rem;
+}
+
 
   @media (max-width:415px){ 
     .nav-border {
