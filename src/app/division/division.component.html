@@ -2,11 +2,12 @@
     <h3>{{ title }}</h3>
     <div class="d-flex text-center mt-4 ml-5 ">
 
-
+       
         <div class="h-100 col-8" style="width: 85%;">
             <div name="layout"
                 style="position:relative;text-align:center;border:0.5px solid black;" class="bg-degrade">
                 <div #layout class="division" [ngStyle]="{'width.vw':  width, 'height.vw' : height }">
+                  
                     <div *ngFor="let device of division.devices">
                         <div *ngIf="device == movingDevice">
                             <div class="moveicons" *ngIf="edit">
@@ -39,7 +40,7 @@
                                         aria-hidden="true"></i>
                                     <i (click)="move(device)" class="fa fa-arrows-alt move" aria-hidden="true"></i>
                                 </div>
-
+                              
                                 <app-device [division]='division' [device]='device'></app-device>
                                 <!-- Modal para remove -->
                                 <ng-template #deletedevice let-c="close" let-d="dismiss">

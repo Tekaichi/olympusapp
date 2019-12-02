@@ -118,7 +118,8 @@ a {
     .toDrag{
         width:3vw;
         height:3vw;
-        margin-left:1vw;
+        margin-left:0.4vw;
+        margin-top:0vw;
         position: absolute;
         transition: 0.2s all linear;
         z-index: 1;
@@ -131,8 +132,8 @@ a {
     
     .toDrag:hover{
         border:1px solid gray;
-        width:3.2vw;
-        height:3.2vw;
+        width:3vw;
+        height:3vw;
         border-radius: 1vw;
         position: absolute;
     }

@@ -8,6 +8,7 @@ import { NgbModal, ModalDismissReasons } from '@ng-bootstrap/ng-bootstrap';
 import { timer, Observable } from 'rxjs';
 import { AlertService } from '../_alert';
 import { DevicesService } from '../devices.service';
+import { LogService } from '../logs.service';
 
 @Component({
   selector: 'app-homepage',
@@ -30,7 +31,8 @@ export class HomepageComponent implements OnInit {
 
   constructor(private route: ActivatedRoute, private modalService: NgbModal,
     private divisionService: DivisionService, private procedureService: ProcedureService,
-    private router: Router, private alertService: AlertService, private deviceService: DevicesService) {
+    private router: Router, private alertService: AlertService, private deviceService: DevicesService,
+    private logService :LogService) {
 
   }
 
@@ -55,7 +57,7 @@ export class HomepageComponent implements OnInit {
 
   //Placeholder para dar run do procedure
   runProcedure(procedure: Procedure) {
-    procedure.run(this.deviceService);
+    procedure.run(this.deviceService, this.logService);
   }
 
   private getDismissReason(reason: any): string {

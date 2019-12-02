@@ -4,7 +4,7 @@ import { Subscription } from 'rxjs';
 import { Alert, AlertType } from './alert.model';
 import { AlertService } from './alert.service';
 
-@Component({ selector: 'alert', templateUrl: 'alert.component.html',styleUrls: ['./alert.component.css'] })
+@Component({ selector: 'alert', templateUrl: 'alert.component.html', styleUrls: ['./alert.component.css'] })
 export class AlertComponent implements OnInit, OnDestroy {
     @Input() id: string;
 
@@ -23,10 +23,13 @@ export class AlertComponent implements OnInit, OnDestroy {
                 }
 
                 // add alert to array
-                
+
                 this.alerts.push(alert);
-                setTimeout(() =>{
-                this.alerts.shift();},9000);
+                if (this.alerts.length > 4)
+                    this.alerts.shift();
+                setTimeout(() => {
+                    this.alerts.shift();
+                }, 9000);
             });
     }
 
@@ -38,7 +41,7 @@ export class AlertComponent implements OnInit, OnDestroy {
     removeAlert(alert: Alert) {
         // remove specified alert from array
         this.alerts = this.alerts.filter(x => x !== alert);
-        
+
     }
 
     cssClass(alert: Alert) {
