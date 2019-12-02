@@ -336,37 +336,37 @@ const HALL: Division = {
         {
             //porta esquerda cima
             x: 0,
-            y: 15,
+            y: 5,
             angle: 90
         },
         {
             //porta meio cima
-            x: 6,
-            y: 0.8,
+            x: 3,
+            y: 0,
             angle: 0
         },
         {
             //porta esquerda baixo
             x: 0,
-            y: 32,
-            angle: 90
-        },
-        {
-            //porta direita meio
-            x: 16,
             y: 15,
             angle: 90
         },
         {
+            //porta direita meio
+            x: 6,
+            y: 10,
+            angle: 90
+        },
+        {
             //porta direita cima
-            x: 13.5,
-            y: 0.8,
+            x: 5,
+            y: 0,
             angle: 0
         },
         {
             //porta direita baixo
             x: 16,
-            y: 32,
+            y: 16,
             angle: 90
         }
     ]

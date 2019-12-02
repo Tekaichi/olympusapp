@@ -10,7 +10,7 @@
                   
                     <div *ngFor="let device of division.devices">
                         <div *ngIf="device == movingDevice">
-                            <div class="moveicons" *ngIf="edit">
+                            <div class="moveicons" *ngIf="edit" [ngStyle]="{'margin-left.vw':width}">
 
                                 <i (click)="confirmMove(device)" class="fa fa-check moveResult" aria-hidden="true"></i>
                                 <i (click)="cancelMove(device)" class="fa fa-window-close moveResult"
@@ -69,12 +69,12 @@
 
                     </div>
                     <div *ngFor="let door of division.doors">
-                        <div class="device" [ngStyle]="{'top.vw':door.y-1.5, 'left.vw':door.x-1.5}">
-                            <div *ngIf="door.angle==0" class="wrapper" style="transform: rotate(0deg);">
+                        <div class="device" [ngStyle]="{'top.vw':door.y*ratio-1.5, 'left.vw':door.x*ratio-1.5}">
+                            <div *ngIf="door.angle==0"  style="transform: rotate(0deg);">
                                 <img class="door" src="/assets/images/static-door.png">
                             </div>
-                            <div *ngIf="door.angle==90" class="wrapper" style="transform: rotate(90deg);">
-                                <img class=" door" src="/assets/images/static-door.png">
+                            <div *ngIf="door.angle==90" style="transform: rotate(90deg);">
+                                <img class="door" src="/assets/images/static-door.png">
                             </div>
                         </div>
                     </div>

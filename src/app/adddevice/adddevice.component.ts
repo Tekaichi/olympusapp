@@ -5,6 +5,7 @@ import { Device, SystemDevice } from '../shared/models/device';
 import { NgbModal, ModalDismissReasons, NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
 import { DevicesService } from '../devices.service';
 import { DivisionService } from '../division.service';
+import { THIS_EXPR } from '@angular/compiler/src/output/output_ast';
 @Component({
   selector: 'app-adddevice',
   templateUrl: './adddevice.component.html',
@@ -17,7 +18,9 @@ export class AdddeviceComponent implements OnInit {
   
   titleMessage :string;
 
-  model = new Device();
+  model: Device;
+ 
+  
 
   selectedType: SystemDevice; 
   title: String;
@@ -69,10 +72,15 @@ export class AdddeviceComponent implements OnInit {
       this.titleMessage = "Edit Device of"
 
     }else{
+      this.model = new Device();
       this.isEdit = false;
       this.titleMessage = "Add new Device to"
+ 
+       
+      
     }
 
+    
     this.getDivision(id);
     this.deviceService.getKnownDeviceTypes().subscribe(devices => this.devices = devices);
   }
@@ -86,20 +94,32 @@ export class AdddeviceComponent implements OnInit {
         this.title = division.title;
 
 
-        const maxarea = 800; //Maximum area of the division
-        //Should it be maximum height?
+        const max = 25;
+        
+        
+        
+      
 
         this.width = Math.abs(division.layout.to.x - division.layout.from.x);
         this.height = Math.abs(division.layout.to.y - division.layout.from.y);
-
-        let area = this.width * this.height;
-
       
-
-        let ratio =  Math.sqrt(maxarea/area);
-        this.ratio = ratio;
-        this.width *= Math.sqrt(ratio);
-        this.height *= Math.sqrt(ratio)
+        let width_radio = max/this.width;
+        let  height_ratio = max/this.height;
+       
+        let ratio = this.width/this.height;
+     
+        if(this.width > this.height){
+          this.width *=width_radio;
+          this.height = 1/ratio * this.width;
+          this.ratio = width_radio;
+        }else{
+          this.height *=height_ratio;
+          this.width = ratio * this.height;
+          this.ratio = height_ratio;
+        }
+     
+      
+     
 
       }
     );
@@ -153,10 +173,8 @@ export class AdddeviceComponent implements OnInit {
    
   let division = document.getElementsByClassName("division")[0];
   let vwSizeString = division.attributes[3].nodeValue.replace("width: ","").replace("vw","").replace("height: ","").replace("vw;",""); //Gets width: Xvw; height Yvw;
-  console.log(vwSizeString);
   let pxSize = [division.clientWidth,division.clientHeight]; //Get them px values
   let vwSize = vwSizeString.split(";");
-  console.log(pxSize,vwSize);
   let ratio = [pxSize[0] / +vwSize[0], pxSize[1] / +vwSize[1]];  //Gets the ratio between the px and vw values
   
 
@@ -165,26 +183,21 @@ export class AdddeviceComponent implements OnInit {
   if(transform){
     let webkit = transform.substr(transform.indexOf("(")+1,transform.lastIndexOf(")"));
     let vals = webkit.split(",");
-    x =  +vals[0].replace("px","");
-    y=  +vals[1].replace("px","");
+    x =  +vals[0].replace("px","")/ratio[0];
+    y=  +vals[1].replace("px","")/ratio[1];
   }else{
-    x = 0.6*ratio[0]*this.ratio;
-    y = 0.6*ratio[1]*this.ratio;
+    x = 0.6/ratio[0]*this.ratio;
+    y = 0.6/ratio[1]*this.ratio;
   
   }
 
 
-  x/= ratio[0] *(this.ratio);
-  y/= ratio[1] *(this.ratio);
+  x/=(this.ratio*this.ratio);
+  y/=(this.ratio*this.ratio);
 
-  if(this.model.position == null){
-    this.model.position= {
-      x:0,
-      y:0
-    }
-  }
-  x+=this.model.position.x;
-  y+=this.model.position.y;
+
+  x+=this.model.position.x
+  y+=this.model.position.y
  
   
 

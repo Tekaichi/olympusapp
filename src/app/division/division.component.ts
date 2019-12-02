@@ -35,26 +35,41 @@ export class DivisionComponent implements OnInit {
       division => {
         this.division = division;
 
-        this.info = division.info;
+
         this.title = division.title;
 
 
-        const maxarea = 800; //Maximum area of the division
-        //Should it be maximum height?
+        const max = 40;
+        
+        
+        
+      
 
         this.width = Math.abs(division.layout.to.x - division.layout.from.x);
         this.height = Math.abs(division.layout.to.y - division.layout.from.y);
-
-        let area = this.width * this.height;
-
-        let ratio = Math.sqrt(maxarea / area);
-        this.ratio = ratio;
-        this.width *= ratio;
-        this.height *= ratio;
+      
+        let width_radio = max/this.width;
+        let  height_ratio = max/this.height;
+       
+        let ratio = this.width/this.height;
+     
+        if(this.width > this.height){
+          this.width *=width_radio;
+          this.height = 1/ratio * this.width;
+          this.ratio = width_radio;
+        }else{
+          this.height *=height_ratio;
+          this.width = ratio * this.height;
+          this.ratio = height_ratio;
+        }
+     
+      
+     
 
       }
     );
   }
+
 
 
   addDevice(): void {

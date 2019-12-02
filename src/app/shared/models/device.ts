@@ -1,4 +1,11 @@
 export class Device {
+
+    constructor(){
+        this.position = {
+            x:1.5,
+            y:1.5
+        }
+    }
     id: number;
     name:String;
     url:String;
