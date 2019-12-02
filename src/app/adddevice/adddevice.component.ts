@@ -168,14 +168,14 @@ export class AdddeviceComponent implements OnInit {
     x =  +vals[0].replace("px","");
     y=  +vals[1].replace("px","");
   }else{
-    x = 0;
-    y = 0;
+    x = 0.6*ratio[0]*this.ratio;
+    y = 0.6*ratio[1]*this.ratio;
   
   }
 
 
-  x/= ratio[0] *this.ratio;
-  y/= ratio[1] * this.ratio;
+  x/= ratio[0] *(this.ratio);
+  y/= ratio[1] *(this.ratio);
 
   if(this.model.position == null){
     this.model.position= {
