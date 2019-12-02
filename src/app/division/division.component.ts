@@ -98,7 +98,6 @@ export class DivisionComponent implements OnInit {
 
     let parent = child.parentElement;
     let parentStyle = parent.getAttribute("style");
-    let realPosPx = parentStyle.replace("left: ", "").replace("vw", "").replace("top: ", "").replace("vw;", "").split(";");
     
 
     let division = document.getElementsByClassName("division")[0];
@@ -117,8 +116,11 @@ export class DivisionComponent implements OnInit {
     let vals = webkit.split(",");
     let x: number = +vals[0].replace("px", "");
     let y: number = +vals[1].replace("px", "");
-
+    x/= ratio[0];
+    y/= ratio[1];
     
+    x+=device.position.x;
+    y+=device.position.y;
     //x+=+realPosPx[1]*ratio[0];
     //y+=+realPosPx[0]*ratio[1]; 
 
@@ -126,10 +128,7 @@ export class DivisionComponent implements OnInit {
     //Not working properly
 
 
-    x += parent.offsetLeft * 0.5;
-    y += parent.offsetTop * 0.5;
-    x *= 1 / ratio[0];
-    y *= 1 / ratio[1];
+   
    
 
 
