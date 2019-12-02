@@ -55,10 +55,10 @@
                                         Are you sure you want to remove {{ device.name }}?
                                     </div>
                                     <div class="modal-footer">
-                                        <button type="button" class="btn btn-outline-dark"
+                                        <button type="button" class="btn btn-danger" ngbAutofocus
                                             (click)="d('Cross click')">Cancel</button>
-                                        <button type="button" class="btn btn-outline-dark"
-                                            (click)="c('Save click');deleteDevice(device);">Confirm</button>
+                                        <button type="button" class="btn btn-success"
+                                            (click)="c('Save click');deleteDevice(device);">Remove device</button>
                                     </div>
                                 </ng-template>
                             </div>
