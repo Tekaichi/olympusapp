@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
+import { AuthService } from '../auth.service';
 
 @Component({
   selector: 'app-erro404',
@@ -9,11 +10,20 @@ import { Router, ActivatedRoute } from '@angular/router';
 })
 export class Erro404Component implements OnInit {
 
-  constructor(private router: Router) { }
+  constructor(private router: Router, private auth: AuthService) { }
 
   ngOnInit() {
+    console.log("111111");
+    console.log(this.auth.getcurrentUserValue());
   }
   goToHomepage(): void {
-    this.router.navigate(['/']);
+
+
+    
+    if(this.auth.getcurrentUserValue() == null){
+      this.router.navigate(['/main']);}
+    else {
+      this.router.navigate(['/homepage']);
+    }
   }
 }
