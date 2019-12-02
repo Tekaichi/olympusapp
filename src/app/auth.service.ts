@@ -35,7 +35,7 @@ export class AuthService {
         return false;
     }
 
-    public get currentUserValue() {
+    public getcurrentUserValue() {
         return this.currentUser;
     }
 
