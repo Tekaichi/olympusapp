@@ -24,6 +24,7 @@ import { ConfirmEqualValidatorDirective } from './shared/confirm-equal-validator
 import { Erro404Component } from './erro404/erro404.component';
 import { ProceduresDivisionComponent } from './procedures-division/procedures-division.component';
 import { ProceduredeviceComponent } from './proceduredevice/proceduredevice.component';
+import { goBackButton }  from './goBackButton/goBackButton.component';
 
 
 const appRoutes: Routes = [
@@ -74,7 +75,8 @@ const appRoutes: Routes = [
     ConfirmEqualValidatorDirective,
     ProceduresDivisionComponent,
     ProceduredeviceComponent,
-    Erro404Component
+    Erro404Component,
+    goBackButton
 
 
   ],

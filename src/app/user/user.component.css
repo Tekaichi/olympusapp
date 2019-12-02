@@ -5,10 +5,17 @@
     content: 'A';
     border:0.5px white ;
 }
+.dropdown-item:hover{
+    background-color: black !important;
+    color: #2adbef !important ;
+
+    
+}
 .spin{
     width: 2em !important;
     height: 2em !important;
-  
+    outline: none;
+    color:white;
   }
 
 .location {
@@ -18,6 +25,12 @@
 
 .s-1-2{
     font-size: 1.2em;
+}
+.s-1-1{
+  font-size: 1.15em;
+}
+.s-1{
+    font-size: 1em !important;
 }
 .rounded-circle {
     border-width: 30px;

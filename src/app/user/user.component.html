@@ -1,4 +1,4 @@
-<div class="row s-1-2 text-center" style="color: honeydew;">
+<div class="row s-1-2 text-center dropdown " style="color: honeydew;">
 
     <!-- Registo ter info da localidade do user Concelho, Distrito ou Freguesia, Concelho-->
     <!-- Hora ir ao sistema-->
@@ -6,6 +6,15 @@
     <!-- Ficava engraçado dar uma cor random à bola entre a border e o nome como o google faz   -->
     <span class="mr-2 text-right location">Almada, Setúbal <br>{{time}}</span>
     &nbsp; &nbsp;
-    <div class=" m-auto icon spin circle pointer"><i class="h3 mt-1 fa fa-k "></i></div>
+
+    <button class=" m-auto icon spin circle  " id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true"
+        aria-expanded="false"><i class="h3 mt-1 fa fa-k fa-x"></i></button>
+    <div class="dropdown-menu ml-5   bg-black" aria-labelledby="dropdownMenuButton">
+        <h4 class="dropdown-header text-white s-1-1"><b>Xavier Santos</b></h4>
+            <div class="dropdown-divider text-blueish"></div>
+            <a class="dropdown-item text-white " href="#">User Settings</a>
+            <a class="dropdown-item text-white" href="#">Logout Session</a>
+    </div>
+
     &nbsp;
 </div>
