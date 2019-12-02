@@ -17,7 +17,7 @@
 
                             </div>
                             <div class="device"
-                                [ngStyle]="{'top.vw':device.position.y*ratio-1.5, 'left.vw':device.position.x*ratio-1.5}">
+                                [ngStyle]="{'top.vw':device.position.y-1.5, 'left.vw':device.position.x-1.5}">
 
 
 
@@ -31,7 +31,7 @@
                         </div>
                         <div *ngIf="device != movingDevice">
                             <div class="device"
-                                [ngStyle]="{'top.vw':device.position.y*ratio-1.5, 'left.vw':device.position.x*ratio-1.5}">
+                                [ngStyle]="{'top.vw':device.position.y-1.5*1/ratio, 'left.vw':device.position.x-1.5*1/ratio}">
 
                                 <div class="editicons" *ngIf="edit">
                                     <i (click)="editDevice(device)" class="fa fa-edit edit" aria-hidden="true"></i>

@@ -7,20 +7,14 @@
     border:1px solid black;
 }
 :host ::ng-deep .device{
-    position:absolute;
-   
-      
-      
-    
-    
-    
+    position:absolute;    
 }
 
 :host ::ng-deep .deviceIcon{
-    width:2vw;
-    height:2vw;
+
     border-radius: 10vw;
-    margin-left:0.25vw;
+   
+    
 }
 .icon{
     width:5vw;
@@ -71,8 +65,6 @@
 }
 
 .toDrag{
-    width:2vw;
-    height:2vw;
     position: absolute;
     transition: 0.2s all linear;
     z-index: 1;
@@ -80,7 +72,6 @@
     border-radius: 0.2vw;
     top:0vw;
     left:0vw;
-   
 
 }
 
