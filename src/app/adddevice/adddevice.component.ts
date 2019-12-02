@@ -157,7 +157,8 @@ export class AdddeviceComponent implements OnInit {
   let pxSize = [division.clientWidth,division.clientHeight]; //Get them px values
   let vwSize = vwSizeString.split(";");
   console.log(pxSize,vwSize);
-  let ratio = [+vwSize[0]/pxSize[0],+vwSize[1]/pxSize[1]];  //Gets the ratio between the px and vw values
+  let ratio = [pxSize[0] / +vwSize[0], pxSize[1] / +vwSize[1]];  //Gets the ratio between the px and vw values
+  
 
   let transform:string = child.style.webkitTransform;
   let x :number,y:number;
@@ -172,23 +173,18 @@ export class AdddeviceComponent implements OnInit {
   
   }
 
-  console.log("Ratio: ", ratio);
-  console.log(x,y);
-  x*= ratio[0];
-  y*= ratio[1];
-  console.log(x,y);
+
+  x/= ratio[0] *this.ratio;
+  y/= ratio[1] * this.ratio;
+
   if(this.model.position == null){
     this.model.position= {
       x:0,
       y:0
     }
-  }else{
-    console.log(this.model.position)
-    console.log(x,y);
   }
   x+=this.model.position.x;
   y+=this.model.position.y;
-  console.log(x,y);
  
   
 

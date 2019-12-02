@@ -95,15 +95,16 @@
                 <div *ngIf="isEdit && device == model">
 
                   <div>
+                   
                     <img id='editedDevice'
-                      [ngStyle]="{'top.vw':device.position.y-0.75, 'left.vw':device.position.x-0.75,'width.vw':1.5*ratio,'height.vw':1.5*ratio}"
+                      [ngStyle]="{'top.vw':device.position.y*ratio, 'left.vw':device.position.x*ratio,'width.vw':1.5*ratio,'height.vw':1.5*ratio}"
                       cdkDragBoundary=".division" cdkDrag class="toDrag"   src={{model.currentState.image}}>
                   </div>
 
                 </div>
                 <div *ngIf="device != model || !isEdit">
                   <span class="device"
-                    [ngStyle]="{'top.vw':device.position.y-0.75, 'left.vw':device.position.x-0.75}">
+                    [ngStyle]="{'top.vw':device.position.y*ratio-0.75, 'left.vw':device.position.x*ratio-0.75}">
                     <img [ngStyle]="{'width.vw':1.5*ratio,'height.vw':1.5*ratio}"class="deviceIcon" src={{device.currentState.image}}>
 
                   </span>

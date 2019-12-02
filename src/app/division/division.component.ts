@@ -116,8 +116,8 @@ export class DivisionComponent implements OnInit {
     let vals = webkit.split(",");
     let x: number = +vals[0].replace("px", "");
     let y: number = +vals[1].replace("px", "");
-    x/= ratio[0];
-    y/= ratio[1];
+    x/= ratio[0] *this.ratio;
+    y/= ratio[1] * this.ratio;
     
     x+=device.position.x;
     y+=device.position.y;
