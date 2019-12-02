@@ -9,6 +9,7 @@ import { ProcedureService } from '../procedures.service';
 import { DevicesService } from '../devices.service';
 import { NgbModal, ModalDismissReasons, NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
 import { AlertService } from '../_alert';
+import { LogService } from '../logs.service';
 
 
 @Component({
@@ -23,7 +24,9 @@ export class ProceduresMainComponent implements OnInit {
   closeResult: string;
   activeModal: NgbActiveModal;
 
-  constructor(private deleteProcedureComponent: DeleteProcedureService, private alertService: AlertService, private router: Router, private proceduresService: ProcedureService, private devicesService: DevicesService, private modalService: NgbModal) {
+  constructor(private deleteProcedureComponent: DeleteProcedureService, private alertService: AlertService, 
+    private router: Router, private proceduresService: ProcedureService, private devicesService: DevicesService, 
+    private modalService: NgbModal, private logService :LogService) {
 
 
 
@@ -68,7 +71,7 @@ export class ProceduresMainComponent implements OnInit {
   }
 
   run(procedure: Procedure): void {
-    procedure.run(this.devicesService);
+    procedure.run(this.devicesService, this.logService);
   }
 
   edit(id: number): void {
