@@ -83,10 +83,10 @@
         <h3>Drag to choose device position in {{ division.title }} </h3>
         <br>
 
-        <div style="display:flex; flex-flow:column; left:5%;height:100%;width: 85%;">
+        <div style="display:flex; flex-flow:column; left:5%;height:100%;width: 100%;">
           <div name="layout"
             style="position:relative;text-align:center;border:0.5px solid black;background-color: lightgray;">
-            <div #layout class="division" [ngStyle]="{'width.vw':  width, 'height.vw' : height }">
+            <div #layout class="division" [ngStyle]="{'width.vw':  width*ratio/1.3, 'height.vw' : height*ratio/1.3 }">
               <div #addeddevice>
                 <img cdkDragBoundary=".division" cdkDrag *ngIf="selectedType != null" [ngStyle]="{'width.vw':1.5*ratio,'height.vw':1.5*ratio}" class="toDrag"
                   src={{selectedType.states[1].image}}>
