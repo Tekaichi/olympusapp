@@ -7,8 +7,10 @@
     </div>
     <div class="row ">
         <div class="col-6"></div>
-        <div class="col-6 text-center"><h3 class="mr-5 pt-3">Select a division: </h3></div>
-        
+        <div class="col-6 text-center">
+            <h3 class="mr-5 pt-3">Select a division: </h3>
+        </div>
+
     </div>
     <div class="row pt-3 ml-5">
         <div class="col-6">
@@ -44,6 +46,10 @@
                 </div>
                 <div class="col-4 text-left">
                     <button class="btn btn-lg text-white btn-success" (click)="open(finish)">Name & Finish</button>
+                    <!-- needs at least one action-->
+                    <div *ngIf="!continue" style="color: rgb(221, 70, 70); width: 90%;">
+                        Need to add at least one action
+                    </div>
                 </div>
 
                 <!-- finish modal -->
@@ -54,19 +60,20 @@
                             <span aria-hidden="true">&times;</span>
                         </button>
                     </div>
+                    <!--  <div class="modal-body" style="display: flex;"> -->
                     <div class="modal-body" style="display: flex;">
 
                         <div class="input-group input-group-lg ">
 
                             <input class="form-control" aria-label="Large" aria-describedby="inputGroup-sizing-sm"
                                 type="text" [(ngModel)]='name' placeholder="New procedure name" />
+                            
                         </div>
-
 
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-danger" (click)="d('Cross click')">Cancel</button>
-                        <button type="button" class="btn btn-success" (click)="c('Save click'); save()">Submit</button>
+                        <button type="button"  [disabled]="name.length == 0" class="btn btn-success" (click)="c('Save click'); save()">Submit</button>
                     </div>
                 </ng-template>
 

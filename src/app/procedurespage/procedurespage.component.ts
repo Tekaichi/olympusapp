@@ -15,32 +15,33 @@ import { NgbModal, ModalDismissReasons, NgbActiveModal } from '@ng-bootstrap/ng-
 })
 export class ProcedurespageComponent implements OnInit {
   actions: DivisionActions[]
-  divisions : Division[]
-  name:string;
-  isEdit : boolean;
+  divisions: Division[]
+  name: string;
+  isEdit: boolean;
   closeResult: string;
-  activeModal: NgbActiveModal ;
-  procedure :Procedure;
-  constructor(private divisionService : DivisionService, private router : Router,private modalService: NgbModal,private proceduresService : ProcedureService,private alert : AlertService,private route : ActivatedRoute) { 
+  activeModal: NgbActiveModal;
+  procedure: Procedure;
+  continue: boolean;
+  constructor(private divisionService: DivisionService, private router: Router, private modalService: NgbModal, private proceduresService: ProcedureService, private alert: AlertService, private route: ActivatedRoute) {
+    this.continue = true;
 
 
-    
   }
 
   ngOnInit() {
-    this.divisionService.getDivisions().subscribe((divisions) =>{
+    this.divisionService.getDivisions().subscribe((divisions) => {
       this.divisions = divisions;
     })
 
-    
+
     let id = this.route.snapshot.paramMap.get("id");
-    if(id){
+    if (id) {
       this.actions = this.proceduresService.getDivisionActionsOf(+id);
-   
+
       this.isEdit = true;
-     
-    }else{
-     
+
+    } else {
+
       this.isEdit = false;
       this.actions = this.proceduresService.getDivisionActions();
 
@@ -48,58 +49,63 @@ export class ProcedurespageComponent implements OnInit {
     this.procedure = this.proceduresService.getProcedure(); //shallow copy needed so the cancel does something
     this.name = this.proceduresService.getProcedure().name;
   }
-  goToDivision(id: number) : void{
-    if(this.isEdit){
-      this.router.navigate(['/divisionprocedures', id,"edit"]);
+  goToDivision(id: number): void {
+    if (this.isEdit) {
+      this.router.navigate(['/divisionprocedures', id, "edit"]);
 
-    }else{
-    this.router.navigate(['/divisionprocedures', id]);
+    } else {
+      this.router.navigate(['/divisionprocedures', id]);
     }
   }
 
-  save():void{
-    var name = this.name;
-    
-    this.router.navigate(['/procedures']);
-    
-    if(this.isEdit){
-      
-      this.alert.success("Procedure "+ name +" was edited successfully");
+  save(): void {
+      var name = this.name;
 
-    }else{
-    this.alert.success("Procedure "+ name +" was added successfully");
-    this.proceduresService.save(name);
-    }
-    
+      this.router.navigate(['/procedures']);
+
+      if (this.isEdit) {
+
+        this.alert.success("Procedure " + name + " was edited successfully");
+
+      } else {
+        this.alert.success("Procedure " + name + " was added successfully");
+        this.proceduresService.save(name);
+      }
   }
-  cancel():void{
-    if(!this.isEdit){
-    this.proceduresService.cancel();
+  cancel(): void {
+    if (!this.isEdit) {
+      this.proceduresService.cancel();
     }
     this.router.navigate(['/procedures']);
-    }
+  }
 
-  edit(id: number){
+  edit(id: number) {
     let dAction = this.proceduresService.getDivisionAction(id);
-    if(this.isEdit){
-      this.router.navigate(['/divisionprocedures', dAction.division.id,"edit",dAction.id,"edit"]);
+    if (this.isEdit) {
+      this.router.navigate(['/divisionprocedures', dAction.division.id, "edit", dAction.id, "edit"]);
 
-    }else{
-      this.router.navigate(['/divisionprocedures', dAction.division.id,"edit",dAction.id]);
+    } else {
+      this.router.navigate(['/divisionprocedures', dAction.division.id, "edit", dAction.id]);
     }
-    
+
   }
 
 
   open(content) {
-    
-    this.modalService.dismissAll();
 
-  this.modalService.open(content, { ariaLabelledBy: 'modal-basic-title', centered: true }).result.then((result) => {
-     this.closeResult = `Closed with: ${result}`;
-    }, (reason) => {
-      this.closeResult = `Dismissed ${this.getDismissReason(reason)}`;
-    });
+    if (this.actions && this.actions.length > 0) {
+      this.continue = true;
+
+      this.modalService.dismissAll();
+
+      this.modalService.open(content, { ariaLabelledBy: 'modal-basic-title', centered: true }).result.then((result) => {
+        this.closeResult = `Closed with: ${result}`;
+      }, (reason) => {
+        this.closeResult = `Dismissed ${this.getDismissReason(reason)}`;
+      });
+    } else {
+      this.continue = false;
+    }
 
   }
 
