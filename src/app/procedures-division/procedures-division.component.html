@@ -16,7 +16,9 @@
                     </span>
                 </div>
                 <div *ngFor="let door of division.doors">
-                    <div class="device" [ngStyle]="{'top.vw':door.y-2.5, 'left.vw':door.x-0.5}">
+                    <!--<div class="device" [ngStyle]="{'top.vw':door.y-2.5, 'left.vw':door.x-0.5}">-->
+                            <div class="device" [ngStyle]="{'top.vw':door.y*ratio-2.5, 'left.vw':door.x*ratio-0.5}">
+                            
                         <div *ngIf="door.angle==0" class="wrapper" style="transform: rotate(0deg);">
                             <img class="icon" src="/assets/images/static-door.png">
                         </div>
