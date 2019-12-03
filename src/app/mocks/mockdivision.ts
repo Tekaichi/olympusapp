@@ -336,13 +336,13 @@ const HALL: Division = {
         {
             //porta esquerda cima
             x: 0,
-            y: 5,
+            y: 8,
             angle: 90
         },
         {
             //porta meio cima
-            x: 3,
-            y: 0,
+            x: 2,
+            y: 0.3,
             angle: 0
         },
         {
@@ -353,20 +353,20 @@ const HALL: Division = {
         },
         {
             //porta direita meio
-            x: 6,
-            y: 10,
+            x: 5.7,
+            y: 8,
             angle: 90
         },
         {
             //porta direita cima
-            x: 5,
-            y: 0,
+            x: 4.8,
+            y: 0.3,
             angle: 0
         },
         {
             //porta direita baixo
-            x: 16,
-            y: 16,
+            x: 5.7,
+            y: 15,
             angle: 90
         }
     ]
@@ -433,13 +433,13 @@ const LIVINGROOM: Division = {
         {
             //porta esquerda
             x: 0,
-            y: 22,
+            y: 10,
             angle: 90
         },
         {
             //porta meio baixo
-            x: 15,
-            y: 28.2,
+            x: 13,
+            y: 18,
             angle: 0
         }
     ]
@@ -528,13 +528,13 @@ const BEDROOM: Division = {
         {
             //porta esquerda
             x: 0,
-            y: 18,
+            y: 7.5,
             angle: 90
         },
         {
             //porta baixo direita
-            x: 20,
-            y: 28.2,
+            x: 13,
+            y: 15,
             angle: 0
         }
     ]
@@ -600,8 +600,8 @@ const ROOM1: Division = {
     doors: [
         {
             //porta direita meio
-            x: 31.8,
-            y: 12,
+            x: 11.8,
+            y: 4.5,
             angle: 90
         }
     ]
@@ -666,8 +666,8 @@ const ROOM2: Division = {
     doors: [
         {
             //porta direita meio
-            x: 33.8,
-            y: 12,
+            x: 11.8,
+            y: 4.5,
             angle: 90
         }
     ]
@@ -744,8 +744,8 @@ const BATH: Division = {
     doors: [
         {
             //porta meio direita
-            x: 17,
-            y: 25,
+            x: 5.7,
+            y: 8,
             angle: 90
         }
     ]
@@ -797,14 +797,14 @@ const KITCHEN: Division = {
     doors: [
         {
             //porta cima meio
-            x: 16,
-            y: 0.8,
+            x: 10,
+            y: 0.3,
             angle: 0
         },
         {
             //porta esquerda baixo
             x: 0,
-            y: 15,
+            y: 8,
             angle: 90
         }
     ]
@@ -857,7 +857,7 @@ const TOILET: Division = {
         {
             //porta esquerda meio
             x: 0,
-            y: 14,
+            y: 3,
             angle: 90
         }
     ]
