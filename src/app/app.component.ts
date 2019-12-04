@@ -12,7 +12,7 @@ import { Router, NavigationEnd } from '@angular/router';
 export class AppComponent {
   valid = 0; //0 equals landing page & erro404, 1 login and register, 2 normal pages
 
-  userBar = ['homepage', 'procedures', 'divisionprocedures', 'proceduresManagement', 'division', 'analytics', 'logs', 'adddevice'];
+  userBar = ['homepage', 'procedures', 'divisionprocedures', 'proceduresManagement', 'division', 'analytics', 'logs', 'adddevice','editdevice'];
 
   logRegBar = ['login', 'regist'];
 
