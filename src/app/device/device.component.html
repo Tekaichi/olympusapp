@@ -6,21 +6,26 @@
    
     <div *ngIf ="currentState.hasValues">
       
-            <p class="text"> {{ currentState.description }} {{currentState.value}}º</p>
+            <p class="text"> {{ currentState.description }} {{currentState.value}}</p>
     </div>
     <div *ngIf ="!currentState.hasValues">
             <p class="text"> {{ currentState.description }}</p>
         </div>
-    
-
       </div>
+      
     <div class="dropdown-menu">
         
         <div *ngFor="let state of device.currentState.transitions">
             
-        
-                <button class="btn action" (click)="changeState(state)">{{state.action}}
+         
+      
+          <div *ngIf="state.hasValues">
+           <!-- <mat-slider thumbLabel min="5" max="50" value={{currentState.value}}></mat-slider>      -->
+              </div>
+     
+                <button class="btn action" (click)="changeState(state)">{{state.action}}  
                     </button>
+                
                 
         </div>
   

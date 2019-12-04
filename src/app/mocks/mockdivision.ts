@@ -26,12 +26,10 @@ const DOOR: SystemDevice = {
             description: "The door is closed",
             image: "/assets/images/door-closed.png",
             action: "Close",
-            transitions: null,
         },{
             description: "The door is locked",
             image: "/assets/images/door-locked.png",
             action: "Lock",
-            transitions: null
         }
     ]
     },
@@ -42,14 +40,14 @@ const DOOR: SystemDevice = {
         transitions:[{
             description: "The door is locked",
         image: "/assets/images/door-locked.png",
-        action: "Lock",
-        transitions: null
+        action: "Lock"
+  
         },
     {
         description: "The door is open",
         image: "/assets/images/door-open.png",
-        action: "Open",
-        transitions:null,
+        action: "Open"
+  
     }]
     }, {
         description: "The door is locked",
@@ -58,13 +56,13 @@ const DOOR: SystemDevice = {
         transitions:[{
             description: "The door is open",
         image: "/assets/images/door-open.png",
-        action: "Open",
-        transitions:null
+        action: "Open"
+ 
         },{
         description: "The door is unlocked",
         image: "/assets/images/door-closed.png",
-        action: "Unlock",
-        transitions:null
+        action: "Unlock"
+        
         }]
     }
     ],
@@ -113,7 +111,7 @@ const LAMP: SystemDevice = {
             description: "The lamp is off",
             image: "/assets/images/lamp-off-v2.png",
             action: "Turn off",
-            transitions : null
+            
         }]
     },
     {
@@ -123,8 +121,8 @@ const LAMP: SystemDevice = {
         transitions:[{
             description: "The lamp is on",
             image: "/assets/images/lamp-on-v2.png",
-            action: "Turn on",
-            transitions : null
+            action: "Turn on"
+         
         }]
     }
     ],
@@ -161,8 +159,8 @@ const BLINDS: SystemDevice = {
         transitions:[{
             description: "The blinds are closed",
             image: "/assets/images/blinds-closed.png",
-            action: "Close",
-            transitions:null
+            action: "Close"
+          
         }]
     },
     {
@@ -173,7 +171,7 @@ const BLINDS: SystemDevice = {
             description: "The blinds are open",
             image: "/assets/images/blinds-open.png",
             action: "Open",
-            transitions:null
+           
         }]
     }
     ],
@@ -213,12 +211,13 @@ const AC: SystemDevice = {
         transitions:[{
             description: "The AC is off",
             image: "/assets/images/AC-off.png",
-            action: "Close",
-            transitions: null
+            action: "Close"
+          
         },{  description: "The AC temperature is %s",
         image: "/assets/images/AC-on.png",
         action: "Change temperature",
-        transitions:null
+        hasValues: true
+        
     }
     ],
     hasValues : true,
@@ -232,8 +231,8 @@ const AC: SystemDevice = {
         transitions:[{
             description: "The AC is on",
             image: "/assets/images/AC-on.png",
-            action: "Open",
-            transitions:null
+            action: "Open"
+          
         }]
     },
     {
@@ -244,13 +243,13 @@ const AC: SystemDevice = {
             {
                 description: "The AC temperature is %s",
                 image: "/assets/images/AC-on.png",
-                action: "Change temperature",
-                transitions: null,
+                action: "Change temperature"
+                
             }, 
               {description: "The AC is off",
             image: "/assets/images/AC-off.png",
-            action: "Close",
-            transitions:null
+            action: "Close"
+            
            }
 
         ],

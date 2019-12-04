@@ -25,6 +25,7 @@ import { Erro404Component } from './erro404/erro404.component';
 import { ProceduresDivisionComponent } from './procedures-division/procedures-division.component';
 import { ProceduredeviceComponent } from './proceduredevice/proceduredevice.component';
 import { goBackButton }  from './goBackButton/goBackButton.component';
+import {MatSliderModule} from '@angular/material/slider';
 
 
 const appRoutes: Routes = [
@@ -93,7 +94,8 @@ const appRoutes: Routes = [
         enableTracing: true
       }
 
-    )
+    ),
+    MatSliderModule
   ],
   providers: [],
   bootstrap: [AppComponent],

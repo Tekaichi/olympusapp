@@ -36,7 +36,7 @@ export class DeviceComponent implements OnInit {
 
     this.device.device.states.forEach((check) =>{
 
-      if(check.description == state.description){
+      if(check.image == state.image){
         console.log(state.description,check.description);
         
         this.currentState = check;
