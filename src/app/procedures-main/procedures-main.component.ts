@@ -24,9 +24,9 @@ export class ProceduresMainComponent implements OnInit {
   closeResult: string;
   activeModal: NgbActiveModal;
 
-  constructor(private deleteProcedureComponent: DeleteProcedureService, private alertService: AlertService, 
-    private router: Router, private proceduresService: ProcedureService, private devicesService: DevicesService, 
-    private modalService: NgbModal, private logService :LogService) {
+  constructor(private deleteProcedureComponent: DeleteProcedureService, private alertService: AlertService,
+    private router: Router, private proceduresService: ProcedureService, private devicesService: DevicesService,
+    private modalService: NgbModal, private logService: LogService) {
 
 
 
@@ -42,13 +42,13 @@ export class ProceduresMainComponent implements OnInit {
     this.modalService.dismissAll();
 
     this.modalService.open(content, { ariaLabelledBy: 'modal-basic-title', centered: true }).result.then((result) => {
-      this.closeResult = `Closed with: ${result}`;        this.alertService.success("Procedure " + procedure.name + " was successfully executed!");
+      this.closeResult = `Closed with: ${result}`; this.alertService.success("Procedure " + procedure.name + " was successfully executed!");
     }, (reason) => {
       this.closeResult = `Dismissed ${this.getDismissReason(reason)}`;
     });
 
   }
-  
+
   private getDismissReason(reason: any): string {
     if (reason === ModalDismissReasons.ESC) {
       return 'by pressing ESC';
@@ -79,7 +79,9 @@ export class ProceduresMainComponent implements OnInit {
   }
 
   removeProcedure(procedure: Procedure): void {
-  //console.log(procedure.name);
-   this.proceduresService.delete(procedure.name);
+    //console.log(procedure.name);
+    this.alertService.success("Procedure " + procedure.name + " was successfully removed!");
+    this.logService.addtoLog("Procedure " + procedure.name + " removed");
+    this.proceduresService.delete(procedure.name);
   }
 }
