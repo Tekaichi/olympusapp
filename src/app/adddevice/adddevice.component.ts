@@ -114,7 +114,7 @@ export class AdddeviceComponent implements OnInit {
      
         if(this.width > this.height){
           this.width *=width_radio;
-          let height = ratio * this.width;
+          let height =  this.width/ratio;
           this.heightratio = height/this.height;
           this.height = height;
           this.widthratio = width_radio;
@@ -195,8 +195,8 @@ export class AdddeviceComponent implements OnInit {
     x =  +vals[0].replace("px","")/ratio[0];
     y=  +vals[1].replace("px","")/ratio[1];
   }else{
-    x = 0.6/ratio[0];
-    y = 0.6/ratio[1];  
+    x = 0;
+    y = 0; 
   }
 
 

@@ -18,7 +18,7 @@
 
                             </div>
                             <div class="device"
-                                [ngStyle]="{'top.vw':device.position.y*ratio-1.5, 'left.vw':device.position.x*ratio-1.5}">
+                                [ngStyle]="{'top.vw':device.position.y*heightratio-1.5, 'left.vw':device.position.x*widthratio-1.5}">
 
 
 
@@ -32,7 +32,7 @@
                         </div>
                         <div *ngIf="device != movingDevice">
                             <div class="device"
-                                [ngStyle]="{'top.vw':device.position.y*ratio-1.5, 'left.vw':device.position.x*ratio-1.5}">
+                                [ngStyle]="{'top.vw':device.position.y*heightratio-1.5, 'left.vw':device.position.x*widthratio-1.5}">
 
                                 <div class="editicons" *ngIf="edit">
                                     <i (click)="editDevice(device)" class="fa fa-edit edit" aria-hidden="true"></i>
@@ -69,7 +69,7 @@
 
                     </div>
                     <div *ngFor="let door of division.doors">
-                        <div class="device" [ngStyle]="{'top.vw':door.y*ratio-1.5, 'left.vw':door.x*ratio-1.5}">
+                        <div class="device" [ngStyle]="{'top.vw':door.y*heightratio-1.5, 'left.vw':door.x*widthratio-1.5}">
                             <div *ngIf="door.angle==0"  style="transform: rotate(0deg);">
                                 <img class="door" src="/assets/images/static-door.png">
                             </div>

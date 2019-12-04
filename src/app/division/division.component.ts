@@ -20,7 +20,8 @@ export class DivisionComponent implements OnInit {
   info = []
   width: number;
   height: number;
-  ratio: number;
+  widthratio: number;
+  heightratio:number;
   closeResult: string;
   activeModal: NgbActiveModal;
   movingDevice: Device;
@@ -45,23 +46,36 @@ export class DivisionComponent implements OnInit {
         
       
 
+
         this.width = Math.abs(division.layout.to.x - division.layout.from.x);
         this.height = Math.abs(division.layout.to.y - division.layout.from.y);
       
+        console.log(this.width,this.height);
         let width_radio = max/this.width;
         let  height_ratio = max/this.height;
        
         let ratio = this.width/this.height;
-     
+        // x = a/b
+        // x*b = a
+        // b = a/x
         if(this.width > this.height){
           this.width *=width_radio;
-          this.height = 1/ratio * this.width;
-          this.ratio = width_radio;
+          let height =  this.width/ratio;
+          this.heightratio = height/this.height;
+          this.height = height;
+          this.widthratio = width_radio;
+          console.log(this.width,this.height);
         }else{
           this.height *=height_ratio;
-          this.width = ratio * this.height;
-          this.ratio = height_ratio;
+          let width = ratio*this.height;
+          this.widthratio = width/this.width;
+          this.width = width;
+          this.heightratio = height_ratio;
         }
+        
+     
+      
+     
      
       
      
@@ -112,7 +126,6 @@ export class DivisionComponent implements OnInit {
     let child = document.getElementById("editedDevice");
 
     let parent = child.parentElement;
-    let parentStyle = parent.getAttribute("style");
     
 
     let division = document.getElementsByClassName("division")[0];
@@ -131,8 +144,8 @@ export class DivisionComponent implements OnInit {
     let vals = webkit.split(",");
     let x: number = +vals[0].replace("px", "");
     let y: number = +vals[1].replace("px", "");
-    x/= ratio[0] *this.ratio;
-    y/= ratio[1] * this.ratio;
+    x/= (ratio[0] *this.widthratio);
+    y/= (ratio[1] * this.heightratio);
     
     x+=device.position.x;
     y+=device.position.y;
