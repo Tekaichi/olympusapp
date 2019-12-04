@@ -87,9 +87,9 @@
         <div style="display:flex; flex-flow:column; left:5%;height:100%;width: 100%;">
           <div name="layout"
             style="position:relative;text-align:center;border:0.5px solid black;background-color: lightgray;">
-            <div #layout class="division" [ngStyle]="{'width.vw':  width*ratio, 'height.vw' : height*ratio }">
+            <div #layout class="division" [ngStyle]="{'width.vw':  width, 'height.vw' : height }">
               <div #addeddevice>
-                <img cdkDragBoundary=".division" cdkDrag *ngIf="selectedType != null" [ngStyle]="{'top.vw':model.position.y*ratio*ratio-1.5,'left:vw':model.position.x*ratio*ratio-1.5,'width.vw':3,'height.vw':3}" class="toDrag"
+                <img cdkDragBoundary=".division" cdkDrag *ngIf="selectedType != null" [ngStyle]="{'top.vw':model.position.y*heightratio-1.5,'left:vw':model.position.x*widthratio-1.5,'width.vw':3,'height.vw':3}" class="toDrag"
                   src={{selectedType.states[1].image}}>
               </div>
               <div *ngFor="let device of division.devices">
@@ -98,7 +98,7 @@
                   <div>
                    
                     <img id='editedDevice'
-                      [ngStyle]="{'top.vw':device.position.y*ratio*ratio-1.5, 'left.vw':device.position.x*ratio*ratio-1.5,'width.vw':3,'height.vw':3}"
+                      [ngStyle]="{'top.vw':device.position.y*heightratio-1.5, 'left.vw':device.position.x*widthratio-1.5,'width.vw':3,'height.vw':3}"
                       cdkDragBoundary=".division" cdkDrag class="toDrag"   src={{model.currentState.image}}>
                   </div>
 
@@ -106,7 +106,7 @@
                 <div *ngIf="device != model || !isEdit">
                  
                   <span class="device"
-                    [ngStyle]="{'top.vw':device.position.y*ratio*ratio-1.5, 'left.vw':device.position.x*ratio*ratio-1.5}">
+                    [ngStyle]="{'top.vw':device.position.y*heightratio-1.5, 'left.vw':device.position.x*widthratio-1.5}">
                     <img [ngStyle]="{'width.vw':3,'height.vw':3}"class="deviceIcon" src={{device.currentState.image}}>
 
                   </span>

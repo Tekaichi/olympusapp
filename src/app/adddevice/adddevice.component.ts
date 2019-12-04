@@ -31,8 +31,8 @@ export class AdddeviceComponent implements OnInit {
   closeResult: string;
   activeModal: NgbActiveModal ;
   selectedUrl : String;
-  ratio : number;
-
+  widthratio : number;
+  heightratio:number;
   isEdit : boolean;
 
   constructor(private route: ActivatedRoute, private router: Router, private modalService: NgbModal, private deviceService: DevicesService, private divisionService: DivisionService) {
@@ -66,6 +66,7 @@ export class AdddeviceComponent implements OnInit {
   ngOnInit() {
     let id = +this.route.snapshot.paramMap.get('id');
     let deviceId = this.route.snapshot.paramMap.get("deviceId");
+    this.getDivision(id);
     if(deviceId){
       this.isEdit = true;
       this.model = this.deviceService.getDevice(id,+deviceId);
@@ -73,6 +74,10 @@ export class AdddeviceComponent implements OnInit {
 
     }else{
       this.model = new Device();
+      this.model.position={
+        x:this.model.position.x/this.widthratio,
+        y:this.model.position.y /this.heightratio
+      }
       this.isEdit = false;
       this.titleMessage = "Add new Device to"
  
@@ -81,7 +86,6 @@ export class AdddeviceComponent implements OnInit {
     }
 
     
-    this.getDivision(id);
     this.deviceService.getKnownDeviceTypes().subscribe(devices => this.devices = devices);
   }
   submitted = false;
@@ -94,7 +98,7 @@ export class AdddeviceComponent implements OnInit {
         this.title = division.title;
 
 
-        const max = 25;
+        const max = 40;
         
         
         
@@ -110,13 +114,18 @@ export class AdddeviceComponent implements OnInit {
      
         if(this.width > this.height){
           this.width *=width_radio;
-          this.height = 1/ratio * this.width;
-          this.ratio = width_radio;
+          let height = ratio * this.width;
+          this.heightratio = height/this.height;
+          this.height = height;
+          this.widthratio = width_radio;
         }else{
           this.height *=height_ratio;
-          this.width = ratio * this.height;
-          this.ratio = height_ratio;
+          let width = ratio*this.height;
+          this.widthratio = width/this.width;
+          this.width = width;
+          this.heightratio = height_ratio;
         }
+        
      
       
      
@@ -186,14 +195,13 @@ export class AdddeviceComponent implements OnInit {
     x =  +vals[0].replace("px","")/ratio[0];
     y=  +vals[1].replace("px","")/ratio[1];
   }else{
-    x = 0.6/ratio[0]*this.ratio;
-    y = 0.6/ratio[1]*this.ratio;
-  
+    x = 0.6/ratio[0];
+    y = 0.6/ratio[1];  
   }
 
 
-  x/=(this.ratio*this.ratio);
-  y/=(this.ratio*this.ratio);
+  x/=(this.widthratio);
+  y/=(this.heightratio);
 
 
   x+=this.model.position.x
