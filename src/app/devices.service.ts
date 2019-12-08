@@ -118,6 +118,7 @@ export class DevicesService {
     let fullURL = this.url + "divisions/"+device.divisionID+"/move/"+device.id;
     let x = device.position.x;
     let y = device.position.y;
+
     this.httpClient.post(fullURL,{position:{ x:x, y:y,angle:0}}).subscribe();
   }
   getDevice(divisionId:number, deviceId:number){
