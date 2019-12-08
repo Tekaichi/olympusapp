@@ -5,7 +5,6 @@ import { Device, SystemDevice } from '../shared/models/device';
 import { NgbModal, ModalDismissReasons, NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
 import { DevicesService } from '../devices.service';
 import { DivisionService } from '../division.service';
-import { THIS_EXPR } from '@angular/compiler/src/output/output_ast';
 @Component({
   selector: 'app-adddevice',
   templateUrl: './adddevice.component.html',
@@ -49,7 +48,12 @@ export class AdddeviceComponent implements OnInit {
    
     }, (reason) => {
       this.closeResult = `Dismissed ${this.getDismissReason(reason)}`;
+
+    
+      if(reason == "Cross click"){
       this.selectedType = null;
+      this.selectedUrl = null;
+      }
     });
 
   }
