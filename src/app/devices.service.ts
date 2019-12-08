@@ -160,7 +160,7 @@ export class DevicesService {
     setTimeout(()=>{
       this.checkChanges();
       this.loopCheckChanges();
-    },5000);
+    },2500);
   }
 
   checkChanges(): void{
