@@ -17,8 +17,10 @@ export class Procedure {
         this.actions.forEach((action)=>{
             action.actions.forEach((execute)=>{
 
-                devicesService.stateChange(execute.device);
+               
                 execute.device.currentState = execute.goalState;
+                devicesService.stateChange(execute.device);
+              
             });
             
         });

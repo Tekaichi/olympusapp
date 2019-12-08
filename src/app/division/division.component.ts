@@ -5,6 +5,7 @@ import { Router, ActivatedRoute } from '@angular/router';
 import { NgbModal, ModalDismissReasons, NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
 import { Device } from '../shared/models/device';
 import { MOCKDIVISION } from "../mocks/mockdivision";
+import { DevicesService } from '../devices.service';
 
 @Component({
   selector: 'app-division',
@@ -27,7 +28,7 @@ export class DivisionComponent implements OnInit {
   movingDevice: Device;
 
 
-  constructor(private divisionService: DivisionService, private route: ActivatedRoute, private router: Router, private modalService: NgbModal) {
+  constructor(private divisionService: DivisionService, private route: ActivatedRoute, private router: Router, private modalService: NgbModal, private devicesService: DevicesService) {
     this.edit = false;
   }
 
@@ -125,7 +126,6 @@ export class DivisionComponent implements OnInit {
     this.movingDevice = null;
     let child = document.getElementById("editedDevice");
 
-    let parent = child.parentElement;
     
 
     let division = document.getElementsByClassName("division")[0];
@@ -149,11 +149,7 @@ export class DivisionComponent implements OnInit {
     
     x+=device.position.x;
     y+=device.position.y;
-    //x+=+realPosPx[1]*ratio[0];
-    //y+=+realPosPx[0]*ratio[1]; 
-
-
-    //Not working properly
+    
 
 
    
@@ -167,13 +163,12 @@ export class DivisionComponent implements OnInit {
 
 
 
-
-
+    this.devicesService.moveDevice(device);
   }
 
   open(content, device) {
 
-    console.log("222");
+  
     //this.modalService.dismissAll();
 
     this.modalService.open(content, { ariaLabelledBy: 'modal-basic-title', centered: true }).result.then((result) => {
@@ -199,12 +194,7 @@ export class DivisionComponent implements OnInit {
 
 
   deleteDevice(device: Device): void {
-    var i, k, j;
-    for (i = 0; i < MOCKDIVISION.length; i++) {
-      for (j = 0; j < MOCKDIVISION[i].devices.length; j++) {
-        if (MOCKDIVISION[i].devices[j].name == device.name && this.division.title == MOCKDIVISION[i].title)
-          MOCKDIVISION[i].devices.splice(j, 1);
-      }
-    }
+
+    this.devicesService.deleteDevice(device);
   }
 }

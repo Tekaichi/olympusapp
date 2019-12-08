@@ -36,7 +36,7 @@ const DOOR: SystemDevice = {
     {
         description: "The door is closed",
         image: "/assets/images/door-closed.png",
-        action: "Close",
+        action: "Close/Unlock",
         transitions:[{
             description: "The door is locked",
         image: "/assets/images/door-locked.png",
@@ -303,7 +303,9 @@ const HALL: Division = {
             },
             device: LAMP,
             currentState: LAMP.states[0],
-            show: false
+            show: false,
+            divisionID: 0
+
 
         },
         {
@@ -317,7 +319,8 @@ const HALL: Division = {
             },
             device: LAMP,
             currentState: LAMP.states[0],
-            show: false
+            divisionID: 0,
+            show: false,
         },
         {
             id:2,
@@ -329,7 +332,9 @@ const HALL: Division = {
             },
             device: DOOR,
             currentState: DOOR.states[1],
-            show: false
+            show: false,
+            divisionID: 0
+
         }
     ], doors: [
         {
@@ -413,7 +418,8 @@ const LIVINGROOM: Division = {
             },
             device: LAMP,
             currentState: LAMP.states[0],
-            show: false
+            show: false,
+            divisionID: 1
         },
         {
             //lampada meio
@@ -426,7 +432,9 @@ const LIVINGROOM: Division = {
             },
             device: LAMP,
             currentState: LAMP.states[0],
-            show: false
+            show: false,
+            divisionID: 1
+
         }
     ], doors: [
         {
@@ -484,7 +492,8 @@ const BEDROOM: Division = {
             },
             device: LAMP,
             currentState: LAMP.states[0],
-            show: false
+            show: false,
+            divisionID: 2
         },
         {
             id:1,
@@ -496,7 +505,8 @@ const BEDROOM: Division = {
             },
             device: LAMP,
             currentState: LAMP.states[0],
-            show: false
+            show: false,
+            divisionID: 2
         },
         {
             id:2,
@@ -508,7 +518,8 @@ const BEDROOM: Division = {
             },
             device: LAMP,
             currentState: LAMP.states[0],
-            show: false
+            show: false,
+            divisionID: 2
         },
         {
             id:3,
@@ -520,7 +531,8 @@ const BEDROOM: Division = {
             },
             device: LAMP,
             currentState: LAMP.states[0],
-            show: false
+            show: false,
+            divisionID: 2
         }
     ],
     doors: [
@@ -580,7 +592,9 @@ const ROOM1: Division = {
             },
             device: BLINDS,
             currentState: BLINDS.states[0],
-            show: false
+            show: false,
+            divisionID: 3
+
         },
         {
             //estores baixo
@@ -593,7 +607,9 @@ const ROOM1: Division = {
             },
             device: BLINDS,
             currentState: BLINDS.states[0],
-            show: false
+            show: false,
+            divisionID: 3
+
         }
     ],
     doors: [
@@ -637,7 +653,7 @@ const ROOM2: Division = {
     devices: [
         {
             //estores cima
-            id:3,
+            id:0,
             name: "Estores0",
             url: "10.10.10.10",
             position: {
@@ -646,11 +662,13 @@ const ROOM2: Division = {
             },
             device: BLINDS,
             currentState: BLINDS.states[0],
-            show: false
+            show: false,
+            divisionID: 4
+
         },
         {
             //AC baixo
-            id:4,
+            id:1,
             name: "AC0",
             url: "10.10.10.10",
             position: {
@@ -659,7 +677,9 @@ const ROOM2: Division = {
             },
             device: AC,
             currentState: AC.states[0],
-            show: false
+            show: false,
+            divisionID: 4
+
         }
     ],
     doors: [
@@ -712,7 +732,9 @@ const BATH: Division = {
         },
         device: AC,
         currentState: AC.states[0],
-        show: false
+        show: false,
+        divisionID: 5
+
     }, {
         //lampada meio esquerda 
         id:1,
@@ -724,7 +746,9 @@ const BATH: Division = {
         },
         device: LAMP,
         currentState: LAMP.states[0],
-        show: false
+        show: false,
+        divisionID: 5
+
     },
     {
         //lampada meio esquerda 
@@ -737,7 +761,9 @@ const BATH: Division = {
         },
         device: LAMP,
         currentState: LAMP.states[0],
-        show: false
+        show: false,
+        divisionID: 5
+
     }
     ],
     doors: [
@@ -791,7 +817,9 @@ const KITCHEN: Division = {
         },
         device: LAMP,
         currentState: LAMP.states[0],
-        show: false
+        show: false,
+        divisionID: 6
+
     }],
     doors: [
         {
@@ -850,7 +878,9 @@ const TOILET: Division = {
         },
         device: LAMP,
         currentState: LAMP.states[0],
-        show: false
+        show: false,
+        divisionID: 7
+
     }],
     doors: [
         {
@@ -865,7 +895,7 @@ const TOILET: Division = {
 }
 
 
-
+//This should me a map..
 export const MOCKDIVISION: Division[] = [
 
     HALL, LIVINGROOM, BEDROOM, ROOM1, ROOM2, BATH, KITCHEN, TOILET

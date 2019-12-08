@@ -23,14 +23,14 @@ export class AdddeviceComponent implements OnInit {
   
 
   selectedType: SystemDevice; 
-  title: String;
+  title: string;
   width: number;
   height: number;
   devices: SystemDevice[];
   division: Division;
   closeResult: string;
   activeModal: NgbActiveModal ;
-  selectedUrl : String;
+  selectedUrl : string;
   widthratio : number;
   heightratio:number;
   isEdit : boolean;
@@ -148,7 +148,7 @@ export class AdddeviceComponent implements OnInit {
 
     this.selectedType = type;
   }
-  selectUrl(url: String): void {
+  selectUrl(url: string): void {
 
     
     this.selectedUrl = url;
