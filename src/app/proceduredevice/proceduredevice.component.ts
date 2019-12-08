@@ -4,6 +4,7 @@ import { Device, State } from '../shared/models/device';
 import { LogService } from '../logs.service';
 import { ProcedureService } from '../procedures.service';
 import { DivisionActions } from '../shared/models/procedures';
+import { RouterStateSnapshot } from '@angular/router';
 
 @Component({
   selector: 'app-proceduredevice',
@@ -17,11 +18,11 @@ export class ProceduredeviceComponent implements OnInit {
   @Input()
   device : Device;
   currentState : State;
-
   dAction : DivisionActions;
   constructor(private proceduresService: ProcedureService) { 
  
  
+   
    
   }
 

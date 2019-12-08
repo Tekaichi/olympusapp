@@ -7,8 +7,8 @@ export class Device {
         }
     }
     id: number;
-    name:String;
-    url:String;
+    name:string;
+    url:string;
     position: {
         x: number,
         y: number
@@ -16,6 +16,7 @@ export class Device {
     device: SystemDevice;
     currentState : State;
     show: boolean;
+    divisionID: number;
 
     
 
@@ -23,8 +24,8 @@ export class Device {
 
 export class SystemDevice{
 
-    type: String;
-    states : State[]
+    type: string;
+    states: State[]
     
     actions: Action[];
     devices: PhysicalDevice[];
@@ -32,20 +33,20 @@ export class SystemDevice{
 }
 export class PhysicalDevice{
 
-    url:String;
-    name: String;
+    url:string;
+    name: string;
 }
 export class State{
-    description : String;
-    image: String;
-    action: String;
+    description : string;
+    image: string;
+    action: string;
     transitions?: State[];
     hasValues?: boolean = false;
     value? : number = 0;
 }
 
 export class Action{
-    description: String;
-    command : String;
+    description: string;
+    command : string;
 
 }

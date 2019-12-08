@@ -32,6 +32,7 @@ export class AppComponent {
     if(auth.currentUser == null){
       this.goHomepage();
     }
+    this.devicesService.pushServer();
   }
 
 

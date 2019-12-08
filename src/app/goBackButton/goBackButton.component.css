@@ -2,8 +2,8 @@ button{
     border-radius: 5vw;
     position: absolute;
     top:5vw;
-    transition: 0.25s linear;
     left:1vw;
+    transition: 0.25s linear;
     opacity: 0.5;
     
 }
