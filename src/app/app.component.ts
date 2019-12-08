@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { Router, NavigationEnd } from '@angular/router';
+import { DevicesService } from './devices.service';
 
 @Component({
   selector: 'app-root',
@@ -19,14 +20,14 @@ export class AppComponent {
   title = 'Olympus';
   loggedIn: boolean;
   constructor(
-    private router: Router
-    //Activated Router to get them events ????
+    private router: Router,
+    private devicesService : DevicesService
 
   ) {
     this.routeEvent(this.router);
     this.loggedIn = true;
-
-
+    this.devicesService.loopCheckChanges();
+    //this.goHomepage();
   }
 
 
@@ -40,6 +41,15 @@ export class AppComponent {
   goHomepage(): void {
 
     this.router.navigate(["/"]);
+
+  }
+  login():void{
+    this.router.navigate(["/login"]);
+
+  }
+  regist():void{
+    
+    this.router.navigate(["/regist"]);
 
   }
 

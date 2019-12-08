@@ -51,6 +51,7 @@ a:active{
       .icon {
         width:1.5vw;
         height:1.5vw;
+        z-index: inherit;
     }
 
     .btn-dark{
@@ -66,10 +67,11 @@ a:active{
       color:gray;
       background-color:whitesmoke;
       border-radius: 1vw;
+      z-index: inherit;
   }
   .wrapper{
     animation: fade 10s;
-    z-index: 1;
+    z-index: 2;
   }
 
   @keyframes fade{ 

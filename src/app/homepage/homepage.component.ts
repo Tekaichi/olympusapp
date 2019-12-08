@@ -9,6 +9,7 @@ import { timer, Observable } from 'rxjs';
 import { AlertService } from '../_alert';
 import { DevicesService } from '../devices.service';
 import { LogService } from '../logs.service';
+import { AuthService } from '../auth.service';
 
 @Component({
   selector: 'app-homepage',
@@ -32,8 +33,12 @@ export class HomepageComponent implements OnInit {
   constructor(private route: ActivatedRoute, private modalService: NgbModal,
     private divisionService: DivisionService, private procedureService: ProcedureService,
     private router: Router, private alertService: AlertService, private deviceService: DevicesService,
-    private logService :LogService) {
+    private logService :LogService, private auth: AuthService) {
+     
 
+      if(auth.currentUser == null){
+        this.router.navigate(['/']);
+      }
   }
 
 

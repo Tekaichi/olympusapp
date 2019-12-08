@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { User } from '../shared/models/user';
 import {  timer, Observable } from 'rxjs';
+import { AuthService } from '../auth.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-user',
@@ -11,18 +13,13 @@ import {  timer, Observable } from 'rxjs';
 export class UserComponent implements OnInit {
 
   everySecond: Observable<Number> = timer(0, 1000*1);
-  user : User;
+  user : String;
   time: String;
 
-  constructor() { 
-
-    this.user ={
-      name :"Carlos",
-      //initial : "C",
-      password:"lol"
-    }
+  constructor(private auth : AuthService,private router : Router) { 
 
     this.setTime();
+    this.user = auth.currentUser.name;
 
   }
 
@@ -49,4 +46,8 @@ export class UserComponent implements OnInit {
   ngOnInit() {
   }
 
+  logout(){
+    this.auth.currentUser = null;
+    this.router.navigate(['/']);
+  }
 }
