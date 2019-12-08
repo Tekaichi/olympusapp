@@ -8,7 +8,7 @@
                 style="position:relative;text-align:center;border:0.5px solid black;" class="bg-degrade">
                 <div #layout class="division" [ngStyle]="{'width.vw':  width, 'height.vw' : height }">
                   
-                    <div *ngFor="let device of division.devices">
+                    <div *ngFor="let device of devices">
                         <div *ngIf="device == movingDevice">
                             <div class="moveicons" *ngIf="edit" [ngStyle]="{'margin-left.vw':width}">
 

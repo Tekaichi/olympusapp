@@ -17,6 +17,7 @@ export class DivisionComponent implements OnInit {
   edit: Boolean;
   id: number;
   division: Division;
+  devices: Device[]
   title: String;
   info = []
   width: number;
@@ -51,7 +52,6 @@ export class DivisionComponent implements OnInit {
         this.width = Math.abs(division.layout.to.x - division.layout.from.x);
         this.height = Math.abs(division.layout.to.y - division.layout.from.y);
       
-        console.log(this.width,this.height);
         let width_radio = max/this.width;
         let  height_ratio = max/this.height;
        
@@ -75,7 +75,8 @@ export class DivisionComponent implements OnInit {
         }
         
      
-      
+        this.devices = this.division.devices;
+
      
      
       

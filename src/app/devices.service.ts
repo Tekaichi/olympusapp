@@ -65,7 +65,7 @@ export class DevicesService {
     return of(Devices)
   }
   
-  add(device: Device, division: Division){
+  add(device: Device, division: Division,broadcast = true){
     let id = division.devices.length;
     device.id = id;
     device.divisionID = division.id;
@@ -84,8 +84,9 @@ export class DevicesService {
 
       }
       let url_ = this.url + "divisions/" + device.divisionID;
+      if(broadcast){
       this.httpClient.post(url_,model,this.httpOptions).subscribe();
-
+      }
 
     
     
@@ -119,29 +120,28 @@ export class DevicesService {
   }
   getDevice(divisionId:number, deviceId:number){
 
-    let treturn;
-    MOCKDIVISION.forEach((division)=> {
-      
-   
+    for(let i = 0; i < MOCKDIVISION.length;i++){
+
+      let division = MOCKDIVISION[i];
       if(division.id == divisionId){
-        division.devices.forEach((device) => {
+        for(let j = 0; j < division.devices.length;j++){
+          let device = division.devices[j];
           if(device.id == deviceId){
-            treturn = device;
-            return;
+            return device;
           }
-        })
-      };
-    });
-    
-    
-    return treturn;
+        }
+      }
+    }
+    return null;
   }
-  stateChange(device:Device):void{
+  stateChange(device:Device,broadcast = true):void{
 
     device.show = true;
   
     let fullURL = this.url + "divisions/"+device.divisionID+"/change/"+device.id;
-    this.httpClient.post(fullURL,{image:device.currentState.image},this.httpOptions).subscribe(); //Not quite like this, but it should work anyway
+    if(broadcast){
+    this.httpClient.post(fullURL,{image:device.currentState.image},this.httpOptions).subscribe(); 
+    }//Not quite like this, but it should work anyway
     let init = device.currentState.image;
     setTimeout(()=>{
     if(device.currentState.image == init){
@@ -176,7 +176,7 @@ export class DevicesService {
         let device_keys = Object.keys(division.devices);
 
 
-        if(device_keys.length < MOCKDIVISION[+key].devices.length){
+        if(device_keys.length != MOCKDIVISION[+key].devices.length){
           MOCKDIVISION[+key].devices.forEach((device)=>{
                if(!device_keys.includes(device.id.toString())){
                 this.deleteDevice(device,false);
@@ -189,18 +189,39 @@ export class DevicesService {
         device_keys.forEach( (d_key) => {
 
           let sdevice = division.devices[d_key];
-          let device = this.getDevice(+key,+d_key);
-        
-          let imageURL = sdevice.image
+          
+          let device  :Device= this.getDevice(+key,+d_key);
+          if(device == null){
+            device = {
+              url :sdevice.url,
+              name :sdevice.name,
+              divisionID : +key,
+              position: {
+                x: sdevice.position.x,
+                y:sdevice.position.y
+              },
+              id:sdevice.id,
+              show:false,
+              device: this.getDeviceType(sdevice.device),
+              currentState:null
+
+
+
+            }
+            device.currentState = device.device.states[0];
+            this.add(device,MOCKDIVISION[+key],false);
+          }
+          let imageURL = sdevice.image;
+          
           if(device.currentState.image != imageURL){
-            
+            console.log("CHANGING", device,sdevice)
             let states = device.device.states;
   
             states.forEach((state)=>{
               if(state.image == imageURL){
                 device.currentState = state;
                 device.show = false;
-                this.stateChange(device);
+                this.stateChange(device,false);
               }
             })
           }
@@ -229,6 +250,15 @@ export class DevicesService {
  }
     
     
+ getDeviceType(type:string): SystemDevice{
+
+  for(let i = 0; i < Devices.length;i++){
+    if(Devices[i].type == type){
+      return Devices[i];
+    }
+  }
+  return null;
+ }
   
 
 }

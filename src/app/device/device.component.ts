@@ -22,7 +22,8 @@ export class DeviceComponent implements OnInit {
   currentState : State;
   constructor(private logService :LogService,private alertService : AlertService,private deviceService : DevicesService) { 
  
- 
+    
+    
   }
 
  
@@ -30,19 +31,28 @@ export class DeviceComponent implements OnInit {
    
   
     this.currentState = this.device.currentState;
+     this.resetState();
   }
+
+  resetState(): void{
+    setTimeout(()=>{
+      this.currentState = this.device.currentState;
+      this.resetState();
+
+    },5);
+
+  }
+
 
   changeState(state:State):void{
 
     this.device.device.states.forEach((check) =>{
 
       if(check.image == state.image){
-        console.log(state.description,check.description);
         
         this.currentState = check;
         this.device.currentState = check;
         this.logService.addtoLog(this.device.name + " was " + this.currentState.action + " in " + this.division.title);
-        //Add feedback to notification thingie
     
         this.alertService.success(this.device.name + " was " + this.currentState.action);
        
