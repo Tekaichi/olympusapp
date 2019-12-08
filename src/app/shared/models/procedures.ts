@@ -24,7 +24,7 @@ export class Procedure {
             });
             
         });
-        logService.addtoLog("Procedure " + this.name + "was run ");
+        logService.addtoLog("Procedure " + this.name + " was executed. ");
 
 
         return true; //For now it works this way
