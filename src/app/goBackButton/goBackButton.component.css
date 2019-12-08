@@ -1,0 +1,13 @@
+button{
+    border-radius: 5vw;
+    position: absolute;
+    top:5vw;
+    transition: 0.25s linear;
+    left:1vw;
+    opacity: 0.5;
+    
+}
+button:hover{
+    color:gray;
+    opacity: 0.9;
+}
