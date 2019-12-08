@@ -3,6 +3,7 @@ import { Subscription } from 'rxjs';
 
 import { Alert, AlertType } from './alert.model';
 import { AlertService } from './alert.service';
+import { AuthService } from '../auth.service';
 
 @Component({ selector: 'alert', templateUrl: 'alert.component.html', styleUrls: ['./alert.component.css'] })
 export class AlertComponent implements OnInit, OnDestroy {
@@ -11,7 +12,7 @@ export class AlertComponent implements OnInit, OnDestroy {
     alerts: Alert[] = [];
     subscription: Subscription;
 
-    constructor(private alertService: AlertService) { }
+    constructor(private alertService: AlertService,private authService: AuthService) { }
 
     ngOnInit() {
         this.subscription = this.alertService.onAlert(this.id)
@@ -24,12 +25,14 @@ export class AlertComponent implements OnInit, OnDestroy {
 
                 // add alert to array
 
+                if(this.authService.currentUser != null){
                 this.alerts.push(alert);
                 if (this.alerts.length > 7)
                     this.alerts.shift();
                 setTimeout(() => {
                     this.alerts.shift();
                 }, 9000);
+            }
             });
     }
 

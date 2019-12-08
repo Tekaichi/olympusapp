@@ -8,6 +8,8 @@ import { ServerDivision, ServerDevice } from './shared/serverModels/models';
 import { tap, catchError } from 'rxjs/operators';
 import { strictEqual } from 'assert';
 import { stringify } from 'querystring';
+import { LogService } from './logs.service';
+import { AlertService } from './_alert';
 
 @Injectable({
   providedIn: 'root'
@@ -21,7 +23,7 @@ export class DevicesService {
       
     })
   };
-  constructor(private httpClient: HttpClient) { }
+  constructor(private httpClient: HttpClient,private logService : LogService,private alertService: AlertService) { }
 
 
 
@@ -116,7 +118,7 @@ export class DevicesService {
     let fullURL = this.url + "divisions/"+device.divisionID+"/move/"+device.id;
     let x = device.position.x;
     let y = device.position.y;
-    this.httpClient.post(fullURL,{position:{ x:x, y:y}}).subscribe();
+    this.httpClient.post(fullURL,{position:{ x:x, y:y,angle:0}}).subscribe();
   }
   getDevice(divisionId:number, deviceId:number){
 
@@ -176,7 +178,7 @@ export class DevicesService {
         let device_keys = Object.keys(division.devices);
 
 
-        if(device_keys.length != MOCKDIVISION[+key].devices.length){
+        if(device_keys.length < MOCKDIVISION[+key].devices.length){
           MOCKDIVISION[+key].devices.forEach((device)=>{
                if(!device_keys.includes(device.id.toString())){
                 this.deleteDevice(device,false);
@@ -214,7 +216,6 @@ export class DevicesService {
           let imageURL = sdevice.image;
           
           if(device.currentState.image != imageURL){
-            console.log("CHANGING", device,sdevice)
             let states = device.device.states;
   
             states.forEach((state)=>{
@@ -222,14 +223,16 @@ export class DevicesService {
                 device.currentState = state;
                 device.show = false;
                 this.stateChange(device,false);
+                this.logService.addtoLog(device.name + " was " + device.currentState.action + " in " + MOCKDIVISION[+key].title);
+    
+                this.alertService.success(device.name + " was " + device.currentState.action);
+              
               }
             })
           }
          
-          ///console.log(sdevice.position.x,device.position.x)
-          if(sdevice.position.x != device.position.x  || sdevice.position.y != device.position.y){
-           // device.position = sdevice.position;
-          }
+          device.position.x = sdevice.position.x;
+          device.position.y = sdevice.position.y;
           
           
         });
