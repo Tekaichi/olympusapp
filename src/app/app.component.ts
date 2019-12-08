@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { Router, NavigationEnd } from '@angular/router';
 import { DevicesService } from './devices.service';
+import { AuthService } from './auth.service';
 
 @Component({
   selector: 'app-root',
@@ -21,13 +22,16 @@ export class AppComponent {
   loggedIn: boolean;
   constructor(
     private router: Router,
-    private devicesService : DevicesService
+    private devicesService : DevicesService,
+    private auth : AuthService
 
   ) {
     this.routeEvent(this.router);
     this.loggedIn = true;
     this.devicesService.loopCheckChanges();
-    //this.goHomepage();
+    if(auth.currentUser == null){
+      this.goHomepage();
+    }
   }
 
 

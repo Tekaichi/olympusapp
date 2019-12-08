@@ -33,12 +33,10 @@ export class HomepageComponent implements OnInit {
   constructor(private route: ActivatedRoute, private modalService: NgbModal,
     private divisionService: DivisionService, private procedureService: ProcedureService,
     private router: Router, private alertService: AlertService, private deviceService: DevicesService,
-    private logService :LogService, private auth: AuthService) {
+    private logService :LogService) {
      
 
-      if(auth.currentUser == null){
-        this.router.navigate(['/']);
-      }
+   
   }
 
 
