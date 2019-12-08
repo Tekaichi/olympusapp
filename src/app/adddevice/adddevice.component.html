@@ -86,7 +86,7 @@
       
         <div style="display:flex; flex-flow:column; left:5%;height:100%;width: 100%;">
           <div name="layout"
-            style="position:relative;text-align:center;border:0.5px solid black;background-color: lightgray;">
+            style="position:relative;text-align:center;border:0.5px solid black;" class="bg-degrade">
             <div #layout class="division" [ngStyle]="{'width.vw':  width, 'height.vw' : height }">
               <div #addeddevice>
                 <img cdkDragBoundary=".division" cdkDrag *ngIf="selectedType != null" [ngStyle]="{'top.vw':model.position.y*heightratio-1.5,'left:vw':model.position.x*widthratio-1.5,'width.vw':3,'height.vw':3}" class="toDrag"

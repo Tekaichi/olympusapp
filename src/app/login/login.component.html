@@ -1,11 +1,11 @@
 
 <div class="container">
 
-    <div class="jumbotron" style="margin-left: 30%; margin-right: 30%; margin-top:5%;">
+    <div class="jumbotron bg-degrade text-white text-center" style="margin-left: 30%; margin-right: 30%; margin-top:5%;">
 
-        <h2>Login</h2>
+        <h2 class="mt-1">Login</h2>
         <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
-            <div class="form-group">
+            <div class="form-group mt-4">
                 <label for="username">Username</label>
                 <input type="text" formControlName="username" class="form-control"
                     [ngClass]="{ 'is-invalid': submitted && f.username.errors }" />
@@ -22,11 +22,11 @@
                 </div>
             </div>
             <div class="form-group">
-                <button [disabled]="loading" class="btn btn-primary">
+                <button [disabled]="loading" style="border-color: black !important;"class="btn btn-primary bg-black">
                     <span *ngIf="loading" class="spinner-border spinner-border-sm mr-1"></span>
                     Login
                 </button>
-                <a routerLink="/regist" class="btn btn-link">Register</a>
+                <a routerLink="/regist" class="btn btn-link text-white">Register</a>
             </div>
             <br>
             <div *ngIf="wrongLogin">

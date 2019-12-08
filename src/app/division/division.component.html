@@ -3,7 +3,7 @@
     <div class="d-flex text-center mt-4 ml-5 ">
 
        
-        <div class="h-100 col-8" style="width: 85%;">
+        <div class="h-100 col-8 mb-3" style="width: 85%;">
             <div name="layout"
                 style="position:relative;text-align:center;border:0.5px solid black;" class="bg-degrade">
                 <div #layout class="division" [ngStyle]="{'width.vw':  width, 'height.vw' : height }">
@@ -12,8 +12,8 @@
                         <div *ngIf="device == movingDevice">
                             <div class="moveicons" *ngIf="edit" [ngStyle]="{'margin-left.vw':width}">
 
-                                <i (click)="confirmMove(device)" class="fa fa-check moveResult" aria-hidden="true"></i>
-                                <i (click)="cancelMove(device)" class="fa fa-window-close moveResult"
+                                <i (click)="confirmMove(device)" class=" pointer text-success fa fa-check moveResult" aria-hidden="true"></i>
+                                <i (click)="cancelMove(device)" class="pointer text-danger fa fa-window-close moveResult"
                                     aria-hidden="true"></i>
 
                             </div>
