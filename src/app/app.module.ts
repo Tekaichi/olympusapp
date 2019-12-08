@@ -26,7 +26,7 @@ import { ProceduresDivisionComponent } from './procedures-division/procedures-di
 import { ProceduredeviceComponent } from './proceduredevice/proceduredevice.component';
 import { goBackButton }  from './goBackButton/goBackButton.component';
 import {MatSliderModule} from '@angular/material/slider';
-
+import { HttpClientModule } from '@angular/common/http';
 
 const appRoutes: Routes = [
   { path: "login", component: LoginComponent },
@@ -95,7 +95,8 @@ const appRoutes: Routes = [
       }
 
     ),
-    MatSliderModule
+    MatSliderModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent],

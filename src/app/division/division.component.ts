@@ -64,7 +64,7 @@ export class DivisionComponent implements OnInit {
           this.heightratio = height/this.height;
           this.height = height;
           this.widthratio = width_radio;
-          console.log(this.width,this.height);
+         
         }else{
           this.height *=height_ratio;
           let width = ratio*this.height;

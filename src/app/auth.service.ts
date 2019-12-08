@@ -47,7 +47,7 @@ export class AuthService {
         users.push(u);
         this.currentUser = u;
         //console.log(this.currentUser);
-        //console.log(users);
+        console.log(users);
     }
     logout() {
         this.currentUser = null;

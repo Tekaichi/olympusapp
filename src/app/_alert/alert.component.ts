@@ -25,7 +25,7 @@ export class AlertComponent implements OnInit, OnDestroy {
                 // add alert to array
 
                 this.alerts.push(alert);
-                if (this.alerts.length > 4)
+                if (this.alerts.length > 7)
                     this.alerts.shift();
                 setTimeout(() => {
                     this.alerts.shift();

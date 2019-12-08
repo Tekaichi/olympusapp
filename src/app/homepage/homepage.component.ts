@@ -9,6 +9,7 @@ import { timer, Observable } from 'rxjs';
 import { AlertService } from '../_alert';
 import { DevicesService } from '../devices.service';
 import { LogService } from '../logs.service';
+import { AuthService } from '../auth.service';
 
 @Component({
   selector: 'app-homepage',
@@ -33,7 +34,9 @@ export class HomepageComponent implements OnInit {
     private divisionService: DivisionService, private procedureService: ProcedureService,
     private router: Router, private alertService: AlertService, private deviceService: DevicesService,
     private logService :LogService) {
+     
 
+   
   }
 
 

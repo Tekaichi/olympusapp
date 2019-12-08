@@ -3,13 +3,15 @@ import { SystemDevice, Device } from './shared/models/device';
 import { Observable, of } from 'rxjs';
 import {Devices, MOCKDIVISION} from '../app/mocks/mockdivision';
 import { Division } from './shared/models/Division';
+import { HttpClient } from '@angular/common/http';
+
 @Injectable({
   providedIn: 'root'
 })
 export class DevicesService {
 
   
-  constructor() { }
+  constructor(private httpClient: HttpClient) { }
 
 
   getKnownDeviceTypes(): Observable<SystemDevice[]>{
@@ -30,10 +32,53 @@ export class DevicesService {
   stateChange(device:Device):void{
 
     device.show = true;
+    //Update state server
+    let init = device.currentState.image;
     setTimeout(()=>{
-    device.show = false;
+    if(device.currentState.image == init){
+      device.show = false;
+    }
     },10000);
+
+    
   }
-  //Execute action of device -- needed to integrate with a backend
+
+  loopCheckChanges():void{
+    this.checkChanges();
+    setTimeout(()=>{
+      this.checkChanges();
+      this.loopCheckChanges();
+    },5000);
+  }
+
+  checkChanges(): void{
+    
+
+    
+    MOCKDIVISION.forEach((division) =>{
+      division.devices.forEach((device) =>{
+
+
+        //if(device.position != pos)
+        //Get imageURL and pos
+
+       
+        let imageURL;
+        if(device.currentState.image != imageURL){
+          
+          let states = device.device.states;
+
+          states.forEach((state)=>{
+            if(state.image == imageURL){
+              device.currentState = state;
+              device.show = false;
+              this.stateChange(device);
+            }
+          })
+        }
+       
+      });
+    })
+  }
 
 }

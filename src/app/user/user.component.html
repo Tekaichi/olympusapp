@@ -8,12 +8,12 @@
     &nbsp; &nbsp;
 
     <button class=" m-auto icon spin circle  " id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true"
-        aria-expanded="false"><i class="h3 mt-1 fa fa-k fa-x"></i></button>
+        aria-expanded="false"><i  class="h3 mt-1 fa fa-{{user[0] | lowercase}}"> </i></button>
     <div class="dropdown-menu ml-5   bg-black" aria-labelledby="dropdownMenuButton">
-        <h4 class="dropdown-header text-white s-1-1"><b>Xavier Santos</b></h4>
+        <h4 class="dropdown-header text-white s-1-1"><b>{{ user }}</b></h4>
             <div class="dropdown-divider text-blueish"></div>
-            <a class="dropdown-item text-white " href="#">User Settings</a>
-            <a class="dropdown-item text-white" href="#">Logout Session</a>
+            <a class="dropdown-item text-white ">User Settings</a>
+            <button class="dropdown-item text-white" (click)="logout()">Logout Session</button>
     </div>
 
     &nbsp;

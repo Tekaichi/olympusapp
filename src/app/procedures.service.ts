@@ -2,7 +2,6 @@ import { Injectable } from '@angular/core';
 import { Procedure, Action, DivisionActions } from "../app/shared/models/procedures";
 import { Observable, of } from 'rxjs';
 import { MOCKPROCEDURES } from "../app/mocks/mockprocedures";
-import { dashCaseToCamelCase } from '@angular/compiler/src/util';
 import { Division } from './shared/models/Division';
 @Injectable({
   providedIn: 'root'
@@ -80,11 +79,10 @@ export class ProcedureService {
   }
 
   save(name: string) {
-    //??? hacky af
+   
     this.procedure.name = name;
     let size = MOCKPROCEDURES.length;
     this.procedure.id = size;
-    console.log("Adding new");
     MOCKPROCEDURES.push(this.procedure);
     this.procedure = new Procedure("", [], 0);
 
@@ -106,6 +104,6 @@ export class ProcedureService {
         k = i;
     }
     MOCKPROCEDURES.splice(k, 1);
-    console.log(MOCKPROCEDURES);
+
   }
 }
