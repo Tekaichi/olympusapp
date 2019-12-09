@@ -114,11 +114,12 @@ export class DevicesService {
       }});
 
   }
+  moved : Device;
   moveDevice(device:Device){
     let fullURL = this.url + "divisions/"+device.divisionID+"/move/"+device.id;
     let x = device.position.x;
     let y = device.position.y;
-
+    this.moved = device;
     this.httpClient.post(fullURL,{ x:x, y:y}).subscribe();
   }
   getDevice(divisionId:number, deviceId:number){
@@ -160,7 +161,8 @@ export class DevicesService {
     setTimeout(()=>{
       this.checkChanges();
       this.loopCheckChanges();
-    },2500);
+      this.moved = null;
+    },2000);
   }
 
   checkChanges(): void{
@@ -232,9 +234,10 @@ export class DevicesService {
             })
           }
          
+          if(device != this.moved){
           device.position.x = sdevice.position.x;
           device.position.y = sdevice.position.y;
-          
+          }
           
         });
      

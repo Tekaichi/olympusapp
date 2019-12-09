@@ -238,11 +238,8 @@ export class AdddeviceComponent implements OnInit {
 
   if(!this.isEdit){
       this.deviceService.add(this.model,this.division);
-  }else{
-    //update
-    //needed if we get some backend action going *wink wink*
-    this.deviceService.moveDevice(this.model);
   }
+  this.deviceService.moveDevice(this.model);
   
   this.router.navigate(["/division",this.division.id]);
   }
