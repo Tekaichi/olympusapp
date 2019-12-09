@@ -14,6 +14,7 @@ import { DevicesService } from '../devices.service';
 })
 export class DivisionComponent implements OnInit {
 
+  
   edit: Boolean;
   id: number;
   division: Division;
@@ -31,6 +32,7 @@ export class DivisionComponent implements OnInit {
 
   constructor(private divisionService: DivisionService, private route: ActivatedRoute, private router: Router, private modalService: NgbModal, private devicesService: DevicesService) {
     this.edit = false;
+
   }
 
   getDivision(id: number): void {
@@ -98,6 +100,18 @@ export class DivisionComponent implements OnInit {
   }
   editDivision() {
     this.edit = !this.edit;
+
+    var elem = document.getElementById("edBtn");
+    var bt = document.getElementById("b");
+
+    if(elem.innerHTML==("Edit Devices")){
+      elem.innerHTML = "Finish Editing Devices"
+      bt.style.backgroundColor = "brown"
+    }
+    else{
+      elem.innerHTML = "Edit Devices"
+      bt.style.backgroundColor = "#0f1e3c"
+    }
 
   }
   ngOnInit() {

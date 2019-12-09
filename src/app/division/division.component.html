@@ -2,19 +2,19 @@
     <h3>{{ title }}</h3>
     <div class="d-flex text-center mt-4 ml-5 ">
 
-       
+
         <div class="h-100 col-8 mb-3" style="width: 85%;">
-            <div name="layout"
-                style="position:relative;text-align:center;border:0.5px solid black;" class="bg-degrade">
+            <div name="layout" style="position:relative;text-align:center;border:0.5px solid black;" class="bg-degrade">
                 <div #layout class="division" [ngStyle]="{'width.vw':  width, 'height.vw' : height }">
-                  
+
                     <div *ngFor="let device of devices">
                         <div *ngIf="device == movingDevice">
                             <div class="moveicons" *ngIf="edit" [ngStyle]="{'margin-left.vw':width}">
 
-                                <i (click)="confirmMove(device)" class=" pointer text-success fa fa-check moveResult" aria-hidden="true"></i>
-                                <i (click)="cancelMove(device)" class="pointer text-danger fa fa-window-close moveResult"
+                                <i (click)="confirmMove(device)" class=" pointer text-success fa fa-check moveResult"
                                     aria-hidden="true"></i>
+                                <i (click)="cancelMove(device)"
+                                    class="pointer text-danger fa fa-window-close moveResult" aria-hidden="true"></i>
 
                             </div>
                             <div class="device"
@@ -40,7 +40,7 @@
                                         aria-hidden="true"></i>
                                     <i (click)="move(device)" class="fa fa-arrows-alt move" aria-hidden="true"></i>
                                 </div>
-                              
+
                                 <app-device [division]='division' [device]='device'></app-device>
                                 <!-- Modal para remove -->
                                 <ng-template #deletedevice let-c="close" let-d="dismiss">
@@ -69,8 +69,9 @@
 
                     </div>
                     <div *ngFor="let door of division.doors">
-                        <div class="device" [ngStyle]="{'top.vw':door.y*heightratio-1.5, 'left.vw':door.x*widthratio-1.5}">
-                            <div *ngIf="door.angle==0"  style="transform: rotate(0deg);">
+                        <div class="device"
+                            [ngStyle]="{'top.vw':door.y*heightratio-1.5, 'left.vw':door.x*widthratio-1.5}">
+                            <div *ngIf="door.angle==0" style="transform: rotate(0deg);">
                                 <img class="door" src="/assets/images/static-door.png">
                             </div>
                             <div *ngIf="door.angle==90" style="transform: rotate(90deg);">
@@ -96,15 +97,15 @@
             </div>
 
             <div class="row mt-5">
-                <div class="col-12"> <button type="button"   (click)="go404()" style="width:55%" class="btn btn-dark bg-cyan text-white btn-lg"> Room
+                <div class="col-12"> <button type="button" (click)="go404()" style="width:55%"
+                        class="btn btn-dark bg-cyan text-white btn-lg"> Room
                         Analytics </button></div>
 
                 <div class="col-12 mt-2"> <button (click)="addDevice()" type="button" style="width:55%"
                         class="btn bg-cyan text-white btn-lg ">Add Device<span class="ml-3 h4">
                             <i class="fa fa-plus"></i></span> </button></div>
-                <div class="col-12 mt-2"> <button (click)="editDivision()" type="button" style="width:55%"
-                        class="btn btn-secondary  bg-cyan text-white btn-lg">Edit
-                        Devices<span class="ml-3 h4"> <i class="fa fa-edit"></i></span> </button></div>
+                <div class="col-12 mt-2"> <button (click)="editDivision()" type="button"  id="b" style="width:55%"
+                        class="btn  bg-cyan text-white btn-lg"><span id="edBtn">Edit Devices</span><span class="ml-3 h4"> <i class="fa fa-edit"></i></span> </button></div>
 
 
 
